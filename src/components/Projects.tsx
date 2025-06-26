@@ -18,7 +18,7 @@ const Projects = () => {
       iconColor: 'text-indigo-400',
       bgColor: 'bg-indigo-600/20',
       borderColor: 'border-indigo-400/30',
-      image: '/public/images/NeuroNotes/home.png',
+      image: '/images/NeuroNotes/home.png',
       highlights: [
         'Built with React, Next.js, TypeScript, and Tailwind CSS',
         'Integrated OpenAI\'s API for AI-powered features',
