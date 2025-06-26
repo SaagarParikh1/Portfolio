@@ -91,12 +91,10 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Saagar Parikh. All rights reserved.
+              © {currentYear} Saagar Parikh.
             </p>
             <p className="text-gray-400 text-sm flex items-center space-x-1 mt-4 md:mt-0">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-              <span>using React & TypeScript</span>
+              <span>Made using React & TypeScript</span>
             </p>
           </div>
         </div>
