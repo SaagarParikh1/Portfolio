@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Cursor Styles */
+* {
+  cursor: none;
+}
+
+body {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.custom-cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background: linear-gradient(45deg, #a855f7, #c084fc);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
+}
+
+.custom-cursor.hover::after {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.custom-cursor.click {
+  transform: scale(0.8);
+  background: linear-gradient(45deg, #c084fc, #ddd6fe);
+}
+
+/* Clickable elements */
+button, a, [role="button"], input, textarea, select {
+  cursor: none !important;
+}
+
+/* Text selection cursor */
+p, span, div, h1, h2, h3, h4, h5, h6 {
+  cursor: none !important;
+}
