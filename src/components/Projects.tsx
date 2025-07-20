@@ -18,7 +18,7 @@ const Projects = () => {
       iconColor: 'text-indigo-400',
       bgColor: 'bg-indigo-600/20',
       borderColor: 'border-indigo-400/30',
-      image: '/images/NeuroNotes/home.png',
+      image: 'https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800',
       highlights: [
         'Built with React, Next.js, TypeScript, and Tailwind CSS',
         'Integrated OpenAI\'s API for AI-powered features',
@@ -111,7 +111,7 @@ const Projects = () => {
       iconColor: 'text-emerald-400',
       bgColor: 'bg-emerald-600/20',
       borderColor: 'border-emerald-400/30',
-      image: '/images/ticketscout/home.png',
+      image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800',
       highlights: [
         'Implemented real-time price comparison and filtering',
         'Integrated multiple APIs for data aggregation',
@@ -132,7 +132,7 @@ const Projects = () => {
       iconColor: 'text-blue-400',
       bgColor: 'bg-blue-600/20',
       borderColor: 'border-blue-400/30',
-      image: '/images/travelx/home.png',
+      image: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=800',
       highlights: [
         'Designed intuitive interface with dynamic features',
         'Implemented responsive design and multi-API integration',
@@ -153,7 +153,7 @@ const Projects = () => {
       iconColor: 'text-orange-400',
       bgColor: 'bg-orange-600/20',
       borderColor: 'border-orange-400/30',
-      image: '/images/recipeFinder/rfhome.png',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
       highlights: [
         'Designed a search-based interface for seamless recipe discovery',
         'Integrated recipe API for real-time recipe data',
@@ -198,7 +198,7 @@ const Projects = () => {
       iconColor: 'text-cyan-400',
       bgColor: 'bg-cyan-600/20',
       borderColor: 'border-cyan-400/30',
-      image: '/images/shoreline/shmain.png',
+      image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800',
       highlights: [
         'Designed an elegant multi-page website with a user-friendly interface',
         'Incorporated parallax scrolling effects for an immersive experience',
@@ -218,7 +218,7 @@ const Projects = () => {
       iconColor: 'text-pink-400',
       bgColor: 'bg-pink-600/20',
       borderColor: 'border-pink-400/30',
-      image: '/images/mole:puzzle/mole.png',
+      image: 'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800',
       highlights: [
         'Developed interactive gameplay mechanics for both games',
         'Implemented dynamic animations and smooth transitions',
@@ -238,7 +238,7 @@ const Projects = () => {
       iconColor: 'text-yellow-400',
       bgColor: 'bg-yellow-600/20',
       borderColor: 'border-yellow-400/30',
-      image: '/images/askanything/askanythinghome.png',
+      image: 'https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800',
       highlights: [
         'Built a dynamic Q&A platform integrating multiple data sources',
         'Implemented asynchronous JavaScript for seamless API interactions',
@@ -418,11 +418,11 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
             {allProjects.map((project, index) => (
               <div
                 key={index}
-                className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${
+                className={`group cursor-pointer transition-all duration-300 hover:scale-102 ${
                   index < featuredProjects.length && index === currentProject ? 'ring-2 ring-purple-400' : ''
                 }`}
                 onClick={() => {
@@ -435,7 +435,7 @@ const Projects = () => {
                 <div className={`${project.bgColor} backdrop-blur-sm rounded-xl overflow-hidden border ${project.borderColor} hover:border-opacity-60 transition-all duration-300`}>
                   {/* Project Image */}
                   {project.image && (
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-32 overflow-hidden">
                       <img 
                         src={project.image} 
                         alt={project.title}
@@ -444,51 +444,38 @@ const Projects = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                       
                       {/* Project Type Badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium border border-white/30">
+                      <div className="absolute top-2 left-2">
+                        <span className="bg-white/20 backdrop-blur-sm text-white px-2 py-0.5 rounded-full text-xs font-medium border border-white/30">
                           {project.type}
                         </span>
                       </div>
 
                       {/* Project Icon */}
-                      <div className={`absolute bottom-4 left-4 p-2 rounded-full bg-white/10 backdrop-blur-sm ${project.iconColor}`}>
+                      <div className={`absolute bottom-2 left-2 p-1 rounded-full bg-white/10 backdrop-blur-sm ${project.iconColor}`}>
                         {project.icon}
                       </div>
                     </div>
                   )}
 
                   {/* Project Details */}
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                  <div className="p-3">
+                    <h3 className="text-sm font-bold text-white mb-1 group-hover:text-purple-300 transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className={`text-sm font-medium mb-3 ${project.iconColor}`}>
-                      {project.subtitle}
-                    </p>
                     
-                    <p className="text-gray-200 text-sm leading-relaxed line-clamp-3 mb-4">
+                    <p className="text-gray-200 text-xs leading-relaxed line-clamp-2 mb-2">
                       {project.description}
                     </p>
 
-                    <div className="flex justify-between items-center">
-                      <div className="flex space-x-2">
-                        {project.hasGithub && (
-                          <Github className="w-4 h-4 text-gray-400" />
-                        )}
-                        {project.hasLiveDemo && (
-                          <ExternalLink className="w-4 h-4 text-gray-400" />
-                        )}
-                      </div>
-                      <div className="flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 2).map((tech, techIndex) => (
-                          <span key={techIndex} className="text-xs text-gray-400 bg-white/10 px-2 py-1 rounded">
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 2 && (
-                          <span className="text-xs text-gray-400">+{project.technologies.length - 2}</span>
-                        )}
-                      </div>
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.slice(0, 2).map((tech, techIndex) => (
+                        <span key={techIndex} className="text-xs bg-white/10 text-gray-400 px-2 py-0.5 rounded">
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 2 && (
+                        <span className="text-xs text-gray-500">+{project.technologies.length - 2}</span>
+                      )}
                     </div>
                   </div>
                 </div>

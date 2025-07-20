@@ -51,6 +51,7 @@ const Footer = () => {
                 { label: 'Experience', id: 'experience' },
                 { label: 'Web Dev Projects', id: 'projects' },
                 { label: 'UI/UX Projects', id: 'ux-work' },
+                { label: 'Data Visualization', id: 'data-visualization' },
                 { label: 'Education', id: 'education' },
                 { label: 'Contact', id: 'contact' }
               ].map((item) => (
@@ -91,10 +92,12 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Saagar Parikh.
+              © {currentYear} Saagar Parikh. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm flex items-center space-x-1 mt-4 md:mt-0">
-              <span>Made using React & TypeScript</span>
+              <span>Made with</span>
+              <Heart className="w-4 h-4 text-red-500 animate-pulse" />
+              <span>using React & TypeScript</span>
             </p>
           </div>
         </div>

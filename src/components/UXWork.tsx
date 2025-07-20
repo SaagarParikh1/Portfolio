@@ -106,7 +106,7 @@ const UXWork = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
             {uxProjects.map((project, index) => (
               <div
                 key={project.id}
@@ -117,7 +117,7 @@ const UXWork = () => {
               >
                 <div className={`bg-gradient-to-br ${project.bgGradient} backdrop-blur-sm rounded-2xl overflow-hidden border ${project.borderColor} hover:border-opacity-60 transition-all duration-300`}>
                   {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-32 overflow-hidden">
                     {project.image ? (
                       <img 
                         src={project.image} 
@@ -136,69 +136,39 @@ const UXWork = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     
                     {/* Project Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium border border-white/30">
+                    <div className="absolute top-2 left-2">
+                      <span className="bg-white/20 backdrop-blur-sm text-white px-2 py-0.5 rounded-full text-xs font-medium border border-white/30">
                         {project.category}
                       </span>
                     </div>
 
                     {/* Status Indicator */}
                     {project.status === 'completed' && (
-                      <div className="absolute top-4 right-4">
+                      <div className="absolute top-2 right-2">
                         <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                       </div>
                     )}
                   </div>
 
                   {/* Project Details */}
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                  <div className="p-3">
+                    <h4 className="text-sm font-bold text-white mb-1 group-hover:text-purple-300 transition-colors duration-300">
                       {project.title}
                     </h4>
-                    <p className="text-gray-200 text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-gray-200 text-xs leading-relaxed mb-2 line-clamp-2">
                       {project.description}
                     </p>
 
                     {/* Project Meta */}
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center justify-between text-xs text-gray-300">
-                        <span className="flex items-center space-x-1">
-                          <Users className="w-3 h-3" />
-                          <span>{project.role}</span>
-                        </span>
-                        <span>{project.year}</span>
-                      </div>
-                    </div>
-
                     {/* Tools */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1 mb-2">
                       {project.technologies.slice(0, 3).map((tool, toolIndex) => (
-                        <span key={toolIndex} className="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded border border-white/20">
+                        <span key={toolIndex} className="text-xs bg-white/10 text-gray-400 px-2 py-0.5 rounded">
                           {tool}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="text-xs text-gray-400">+{project.technologies.length - 3}</span>
-                      )}
-                    </div>
-
-                    {/* Action */}
-                    <div className="flex items-center justify-between">
-                      <button className="flex items-center space-x-2 text-purple-300 hover:text-purple-200 transition-colors duration-300 text-sm group">
-                        <span>View Details</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </button>
-                      
-                      {project.status === 'completed' && project.figmaLink && project.figmaLink !== '#' && (
-                        <a 
-                          href={project.figmaLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-400 group-hover:text-purple-300 transition-colors duration-300"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
+                        <span className="text-xs text-gray-500">+{project.technologies.length - 3}</span>
                       )}
                     </div>
                   </div>
