@@ -18,7 +18,7 @@ const Projects = () => {
       iconColor: 'text-indigo-400',
       bgColor: 'bg-indigo-600/20',
       borderColor: 'border-indigo-400/30',
-      image: 'https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/NeuroNotes/home.png',
       highlights: [
         'Built with React, Next.js, TypeScript, and Tailwind CSS',
         'Integrated OpenAI\'s API for AI-powered features',
@@ -111,7 +111,7 @@ const Projects = () => {
       iconColor: 'text-emerald-400',
       bgColor: 'bg-emerald-600/20',
       borderColor: 'border-emerald-400/30',
-      image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/ticketscout/home.png',
       highlights: [
         'Implemented real-time price comparison and filtering',
         'Integrated multiple APIs for data aggregation',
@@ -132,7 +132,7 @@ const Projects = () => {
       iconColor: 'text-blue-400',
       bgColor: 'bg-blue-600/20',
       borderColor: 'border-blue-400/30',
-      image: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/travelx/home.png',
       highlights: [
         'Designed intuitive interface with dynamic features',
         'Implemented responsive design and multi-API integration',
