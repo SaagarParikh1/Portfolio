@@ -153,7 +153,7 @@ const Projects = () => {
       iconColor: 'text-orange-400',
       bgColor: 'bg-orange-600/20',
       borderColor: 'border-orange-400/30',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/recipeFinder/rfhome.png',
       highlights: [
         'Designed a search-based interface for seamless recipe discovery',
         'Integrated recipe API for real-time recipe data',
@@ -178,7 +178,7 @@ const Projects = () => {
       iconColor: 'text-green-400',
       bgColor: 'bg-green-600/20',
       borderColor: 'border-green-400/30',
-      image: 'https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/stocksTracker/stockTrac1.png',
       highlights: [
         'Built a moving stock ticker for live updates',
         'Developed a graph to visualize stock trends in real time',
@@ -198,7 +198,7 @@ const Projects = () => {
       iconColor: 'text-cyan-400',
       bgColor: 'bg-cyan-600/20',
       borderColor: 'border-cyan-400/30',
-      image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/shoreline/shmain.png',
       highlights: [
         'Designed an elegant multi-page website with a user-friendly interface',
         'Incorporated parallax scrolling effects for an immersive experience',
@@ -218,7 +218,7 @@ const Projects = () => {
       iconColor: 'text-pink-400',
       bgColor: 'bg-pink-600/20',
       borderColor: 'border-pink-400/30',
-      image: 'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/mole:puzzle/mole.png',
       highlights: [
         'Developed interactive gameplay mechanics for both games',
         'Implemented dynamic animations and smooth transitions',
@@ -238,7 +238,7 @@ const Projects = () => {
       iconColor: 'text-yellow-400',
       bgColor: 'bg-yellow-600/20',
       borderColor: 'border-yellow-400/30',
-      image: 'https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/askanything/askanythinghome.png',
       highlights: [
         'Built a dynamic Q&A platform integrating multiple data sources',
         'Implemented asynchronous JavaScript for seamless API interactions',
