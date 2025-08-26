@@ -7,7 +7,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Featured projects for slideshow (only 6)
+  // Featured projects for slideshow (only 6) 
   const featuredProjects = [
     {
       title: 'NeuroNotes',
@@ -171,26 +171,6 @@ const Projects = () => {
   const allProjects = [
     ...featuredProjects,
     {
-      title: 'Stock Tracker',
-      subtitle: 'Real-Time Financial Dashboard',
-      description: 'A dynamic stock tracking personal project featuring a moving stock ticker, a searchable stock database, and real-time graphical updates.',
-      icon: <TrendingUp className="w-6 h-6" />,
-      iconColor: 'text-green-400',
-      bgColor: 'bg-green-600/20',
-      borderColor: 'border-green-400/30',
-      image: '/images/stocksTracker/stockTrac1.png',
-      highlights: [
-        'Built a moving stock ticker for live updates',
-        'Developed a graph to visualize stock trends in real time',
-        'Implemented a search function for detailed stock information',
-        'Real-time data visualization and interactive charts'
-      ],
-      technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration', 'Data Visualization'],
-      type: 'Personal Project',
-      hasLiveDemo: true,
-      hasGithub: true
-    },
-    {
       title: 'The Shoreline Hotel',
       subtitle: 'Luxury Hotel Website',
       description: 'The Shoreline Hotel is a multi-page website for an imaginary hotel, including sections for rooms, amenities, and bookings.',
@@ -209,26 +189,6 @@ const Projects = () => {
       type: 'Design Project',
       hasLiveDemo: true,
       hasGithub: false
-    },
-    {
-      title: 'Whack-a-Mole & Sliding Puzzle Game',
-      subtitle: 'Interactive Game Suite',
-      description: 'A dual-game experience featuring a classic whack-a-mole game and a sliding puzzle, offering both quick reflex challenges and strategic thinking.',
-      icon: <Gamepad2 className="w-6 h-6" />,
-      iconColor: 'text-pink-400',
-      bgColor: 'bg-pink-600/20',
-      borderColor: 'border-pink-400/30',
-      image: '/images/mole:puzzle/mole.png',
-      highlights: [
-        'Developed interactive gameplay mechanics for both games',
-        'Implemented dynamic animations and smooth transitions',
-        'Enhanced user engagement with score tracking and feedback',
-        'Created responsive game controls and user interface'
-      ],
-      technologies: ['HTML', 'CSS', 'JavaScript', 'Game Development', 'UI Design'],
-      type: 'Game Development',
-      hasLiveDemo: false,
-      hasGithub: true
     },
     {
       title: 'Ask Me Anything',
