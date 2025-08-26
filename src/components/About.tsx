@@ -116,23 +116,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Values Section */}
-        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">My Core Values</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-purple-600/20 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-purple-300">
-                    {value.icon}
-                  </div>
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-3">{value.title}</h4>
-                <p className="text-gray-300 leading-relaxed">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

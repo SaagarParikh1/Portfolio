@@ -5,40 +5,71 @@ const Skills = () => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
-  const skillCategories = [
-    {
-      title: 'Frontend Development',
-      icon: <Code className="w-6 h-6" />,
-      color: 'purple',
-      skills: [
-        'HTML/CSS', 'JavaScript', 'React', 'TypeScript', 'Angular', 'Tailwind CSS', 'jQuery', 'Bootstrap'
-      ]
-    },
-    {
-      title: 'Backend Development',
-      icon: <Database className="w-6 h-6" />,
-      color: 'indigo',
-      skills: [
-        '.NET', 'Python', 'Node.js', 'SQL', 'PHP', 'API Integration', 'MySQL', 'SQL Server', 'C#'
-      ]
-    },
-    {
-      title: 'Design & Tools',
-      icon: <Palette className="w-6 h-6" />,
-      color: 'violet',
-      skills: [
-        'Figma', 'Adobe Creative Suite', 'UI/UX Design', 'Wireframing', 'GitHub', 'Agile/Scrum'
-      ]
-    },
-    {
-      title: 'Mobile & Emerging',
-      icon: <Zap className="w-6 h-6" />,
-      color: 'fuchsia',
-      skills: [
-        'Flutter', 'Dart', 'React Native', 'Cross-platform Development'
-      ]
-    }
-  ];
+
+const skillCategories = [
+  {
+    title: "Data Analytics & Methods",
+    icon: <Database className="w-6 h-6" />,
+    color: "purple",
+    skills: [
+      "SQL (BigQuery, MySQL, SQL Server)",
+      "Python (Pandas, Matplotlib, Jupyter)",
+      "R",
+      "Tableau",
+      "Looker",
+      "Excel",
+      "Data Cleaning",
+      "Exploratory Analysis",
+      "Visualization Design",
+      "A/B Testing",
+      "Hypothesis Testing",
+      "Statistical & Predictive Modeling"
+    ]
+  },
+  {
+    title: "Backend Development",
+    icon: <Settings className="w-6 h-6" />,
+    color: "emerald",
+    skills: [
+      ".NET / C#",
+      "Python",
+      "Node.js",
+      "REST API Integration",
+      "MySQL / SQL Server",
+      "PHP"
+    ]
+  },
+  {
+    title: "Frontend Development",
+    icon: <Zap className="w-6 h-6" />,
+    color: "fuchsia",
+    skills: [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "jQuery",
+      "Bootstrap",
+      "Angular"
+    ]
+  },
+  {
+    title: "Tools & Platforms",
+    icon: <Palette className="w-6 h-6" />,
+    color: "indigo",
+    skills: [
+      "GitHub",
+      "Figma",
+      "Adobe Creative Suite",
+      "UI/UX Design",
+      "Shopify",
+      "Flutter/Dart",
+      "Agile Methodologies"
+    ]
+  }
+];
+
 
   const getColorClasses = (color: string) => {
     const colors = {
@@ -73,6 +104,14 @@ const Skills = () => {
         text: 'text-fuchsia-300',
         hover: 'hover:bg-fuchsia-600/30',
         active: 'bg-fuchsia-600/40'
+      },
+      emerald: {
+        bg: 'bg-emerald-600/20',
+        border: 'border-emerald-400/30',
+        icon: 'bg-emerald-600',
+        text: 'text-emerald-300',
+        hover: 'hover:bg-emerald-600/30',
+        active: 'bg-emerald-600/40'
       }
     };
     return colors[color as keyof typeof colors] || colors.purple;

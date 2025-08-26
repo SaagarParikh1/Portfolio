@@ -50,7 +50,6 @@ const Footer = () => {
                 { label: 'Skills', id: 'skills' },
                 { label: 'Experience', id: 'experience' },
                 { label: 'Web Dev Projects', id: 'projects' },
-                { label: 'UI/UX Projects', id: 'ux-work' },
                 { label: 'Data Visualization', id: 'data-visualization' },
                 { label: 'Education', id: 'education' },
                 { label: 'Contact', id: 'contact' }

@@ -1,20 +1,53 @@
 import React from 'react';
-import { Calendar, MapPin, Building, CheckCircle, TrendingUp } from 'lucide-react';
+import { Calendar, MapPin, Building, CheckCircle, TrendingUp, BarChart3 } from 'lucide-react';
 
 const Experience = () => {
-  const experience = {
-    title: 'Website Design and Communication Intern',
-    company: 'CASHe',
-    duration: 'June 2024 - August 2024',
-    location: 'Remote',
-    accomplishments: [
-      'Collaborated with a cross-functional team of IT developers and HR stakeholders to design and launch a high-impact internal platform',
-      'Revamped the company\'s internal website using HTML/CSS, React, TypeScript, and Photoshop, aligning visual assets with brand guidelines',
-      'Designed detailed wireframes and Figma prototypes, accelerating the design-to-deploy cycle by 20%',
-      'Executed end-to-end usability testing with the QA team, ensuring responsive design and cross-browser compatibility'
-    ],
-    technologies: ['HTML/CSS', 'React', 'TypeScript', 'Photoshop', 'Figma', 'Usability Testing']
-  };
+  const experiences = [
+    {
+      title: 'Data Analyst Intern',
+      company: 'Flomad Labs R&D',
+      duration: 'May 2023 - Aug 2023',
+      location: 'Remote',
+      accomplishments: [
+        'Analyzed behavioral and biometric data from pet wearables and smart monitoring systems to identify behavioral patterns, improving sentiment model accuracy by 12%.',
+        'Wrote SQL queries and Python scripts to clean and aggregate multi-source data, reducing processing time by 30%.',
+        'Built Tableau dashboards to visualize mood trends, health anomalies, and KPIs, uncovering actionable insights that informed product improvements.',
+        'Collaborated with ML researchers to evaluate model bias and performance, improving pilot engagement and model trust.'
+      ],
+      technologies: ['SQL', 'Python', 'Tableau', 'Data Analysis', 'Machine Learning', 'Dashboard Design'],
+      icon: <BarChart3 className="w-6 h-6" />,
+      color: 'purple'
+    },
+    {
+      title: 'Risk Analyst Intern',
+      company: 'CASHe',
+      duration: 'June 2022 - Aug 2022',
+      location: 'Remote',
+      accomplishments: [
+        'Processed 50K+ customer financial records to refine risk models, boosting loan eligibility accuracy by 10%.',
+        'Identified fraudulent behavior through data mining, enhancing detection mechanisms, and compliance safeguards.',
+        'Automated risk assessment workflows, saving 15 hours/week in manual review time and increasing customer approval speed by 20%.',
+        'Designed Tableau and Excel dashboards to communicate KPIs to non-technical stakeholders.'
+      ],
+      technologies: ['Data Mining', 'Risk Modeling', 'Tableau', 'Excel', 'Process Automation', 'Financial Analysis'],
+      icon: <TrendingUp className="w-6 h-6" />,
+      color: 'indigo'
+    },
+    {
+      title: 'Front-End Web Developer (Contract)',
+      company: 'Masergy Communications',
+      duration: 'May 2024 - Aug 2024',
+      location: 'Remote',
+      accomplishments: [
+        'Migrated and rebranded 15+ internal HR pages using HTML, CSS, React, and TypeScript to align with Comcast\'s design standards, enhancing performance by 20%.',
+        'Built reusable front-end components and optimized layout structures to support future scalability and modularity.',
+        'Identified and resolved 30+ bugs during QA cycles, accelerating deployment timelines and ensuring cross-browser consistency.'
+      ],
+      technologies: ['HTML/CSS', 'React', 'TypeScript', 'Component Design', 'Performance Optimization', 'QA Testing'],
+      icon: <CheckCircle className="w-6 h-6" />,
+      color: 'violet'
+    }
+  ];
 
   return (
     <section id="experience" className="py-20 bg-gray-900">
@@ -24,63 +57,79 @@ const Experience = () => {
             Work Experience
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Professional experience in web development and design
+            Professional experience in data analysis, risk assessment, and web development
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-purple-900/30 backdrop-blur-sm rounded-xl p-8 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  {experience.title}
-                </h3>
-                <div className="flex flex-wrap items-center gap-4 text-gray-300 mb-4">
-                  <div className="flex items-center space-x-2">
-                    <Building className="w-5 h-5 text-purple-400" />
-                    <span className="font-medium">{experience.company}</span>
+        <div className="max-w-6xl mx-auto space-y-8">
+          {experiences.map((experience, index) => {
+            const colorClasses = {
+              purple: 'bg-purple-900/30 border-purple-500/30 hover:border-purple-400/50',
+              indigo: 'bg-indigo-900/30 border-indigo-500/30 hover:border-indigo-400/50',
+              violet: 'bg-violet-900/30 border-violet-500/30 hover:border-violet-400/50'
+            };
+            
+            return (
+              <div key={index} className={`${colorClasses[experience.color]} backdrop-blur-sm rounded-xl p-8 border transition-all duration-300`}>
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                  <div className="flex items-start space-x-4 flex-1">
+                    <div className={`p-3 rounded-full bg-white/10 text-${experience.color}-400`}>
+                      {experience.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-white mb-2">
+                        {experience.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-4 text-gray-300 mb-4">
+                        <div className="flex items-center space-x-2">
+                          <Building className="w-5 h-5 text-purple-400" />
+                          <span className="font-medium">{experience.company}</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Calendar className="w-5 h-5 text-indigo-400" />
+                          <span>{experience.duration}</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <MapPin className="w-5 h-5 text-violet-400" />
+                          <span>{experience.location}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="w-5 h-5 text-indigo-400" />
-                    <span>{experience.duration}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <MapPin className="w-5 h-5 text-violet-400" />
-                    <span>{experience.location}</span>
+                </div>
+
+                <div className="mb-8">
+                  <h4 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
+                    <TrendingUp className="w-5 h-5 text-green-400" />
+                    <span>Key Accomplishments</span>
+                  </h4>
+                  <ul className="space-y-3">
+                    {experience.accomplishments.map((accomplishment, accomplishmentIndex) => (
+                      <li key={accomplishmentIndex} className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300 leading-relaxed">{accomplishment}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-4">Technologies Used</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {experience.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="bg-gray-800/50 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700/50 hover:border-purple-500/50 hover:text-purple-300 transition-all duration-300 hover:scale-105"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
-                <TrendingUp className="w-5 h-5 text-green-400" />
-                <span>Key Accomplishments</span>
-              </h4>
-              <ul className="space-y-3">
-                {experience.accomplishments.map((accomplishment, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-300 leading-relaxed">{accomplishment}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Technologies Used</h4>
-              <div className="flex flex-wrap gap-3">
-                {experience.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-gray-800/50 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700/50 hover:border-purple-500/50 hover:text-purple-300 transition-all duration-300 hover:scale-105"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+            );
+          })}
+        </div>
 
           {/* Call to Action */}
           <div className="mt-12 text-center">
@@ -100,7 +149,7 @@ const Experience = () => {
             </div>
           </div>
         </div>
-      </div>
+      
     </section>
   );
 };
