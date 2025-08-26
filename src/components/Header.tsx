@@ -92,14 +92,14 @@ const Header = () => {
               <button
                 onClick={() => scrollToSection('projects')}
                 className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative flex items-center space-x-1 ${
-                  activeSection === 'projects' || activeSection === 'ux-work' || activeSection === 'data-visualization'
+                  activeSection === 'projects' || activeSection === 'data-visualization'
                     ? 'text-purple-300'
                     : 'text-gray-300 hover:text-purple-300'
                 }`}
               >
                 <span>Projects</span>
                 <ChevronDown className="w-3 h-3" />
-                {(activeSection === 'projects' || activeSection === 'ux-work' || activeSection === 'data-visualization') && (
+                {(activeSection === 'projects' || activeSection === 'data-visualization') && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-400 rounded-full"></div>
                 )}
               </button>
@@ -113,12 +113,6 @@ const Header = () => {
                       className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-purple-300 hover:bg-purple-900/30 transition-colors duration-300"
                     >
                       Web Dev Projects
-                    </button>
-                    <button
-                      onClick={() => scrollToSection('ux-work')}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-purple-300 hover:bg-purple-900/30 transition-colors duration-300"
-                    >
-                      UI/UX Projects
                     </button>
                     <button
                       onClick={() => scrollToSection('data-visualization')}
@@ -196,12 +190,6 @@ const Header = () => {
                 className="block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 text-gray-300 hover:text-purple-300 hover:bg-gray-800/50"
               >
                 Web Dev Projects
-              </button>
-              <button
-                onClick={() => scrollToSection('ux-work')}
-                className="block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 text-gray-300 hover:text-purple-300 hover:bg-gray-800/50"
-              >
-                UI/UX Projects
               </button>
               <button
                 onClick={() => scrollToSection('data-visualization')}

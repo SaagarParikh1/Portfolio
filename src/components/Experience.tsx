@@ -3,6 +3,20 @@ import { Calendar, MapPin, Building, CheckCircle, TrendingUp, BarChart3 } from '
 
 const Experience = () => {
   const experiences = [
+      {
+      title: 'Front-End Web Developer (Contract)',
+      company: 'Masergy Communications',
+      duration: 'May 2024 - Aug 2024',
+      location: 'Remote',
+      accomplishments: [
+        'Migrated and rebranded 15+ internal HR pages using HTML, CSS, React, and TypeScript to align with Comcast\'s design standards, enhancing performance by 20%.',
+        'Built reusable front-end components and optimized layout structures to support future scalability and modularity.',
+        'Identified and resolved 30+ bugs during QA cycles, accelerating deployment timelines and ensuring cross-browser consistency.'
+      ],
+      technologies: ['HTML/CSS', 'React', 'TypeScript', 'Component Design', 'Performance Optimization', 'QA Testing'],
+      icon: <CheckCircle className="w-6 h-6" />,
+      color: 'violet'
+    },
     {
       title: 'Data Analyst Intern',
       company: 'Flomad Labs R&D',
@@ -32,20 +46,6 @@ const Experience = () => {
       technologies: ['Data Mining', 'Risk Modeling', 'Tableau', 'Excel', 'Process Automation', 'Financial Analysis'],
       icon: <TrendingUp className="w-6 h-6" />,
       color: 'indigo'
-    },
-    {
-      title: 'Front-End Web Developer (Contract)',
-      company: 'Masergy Communications',
-      duration: 'May 2024 - Aug 2024',
-      location: 'Remote',
-      accomplishments: [
-        'Migrated and rebranded 15+ internal HR pages using HTML, CSS, React, and TypeScript to align with Comcast\'s design standards, enhancing performance by 20%.',
-        'Built reusable front-end components and optimized layout structures to support future scalability and modularity.',
-        'Identified and resolved 30+ bugs during QA cycles, accelerating deployment timelines and ensuring cross-browser consistency.'
-      ],
-      technologies: ['HTML/CSS', 'React', 'TypeScript', 'Component Design', 'Performance Optimization', 'QA Testing'],
-      icon: <CheckCircle className="w-6 h-6" />,
-      color: 'violet'
     }
   ];
 
