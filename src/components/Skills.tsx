@@ -51,7 +51,7 @@ const skillCategories = [
       "Tailwind CSS",
       "jQuery",
       "Bootstrap",
-      "Angular"
+      "Flutter/Dart"
     ]
   },
   {
@@ -64,7 +64,6 @@ const skillCategories = [
       "Adobe Creative Suite",
       "UI/UX Design",
       "Shopify",
-      "Flutter/Dart",
       "Agile Methodologies"
     ]
   }
