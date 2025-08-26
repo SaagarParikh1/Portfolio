@@ -34,34 +34,6 @@ const DataVisualization = () => {
       description: 'User engagement patterns and conversion funnels',
       image: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
       tools: ['D3.js', 'JavaScript', 'CSS']
-    },
-    {
-      id: 5,
-      title: 'Population Demographics',
-      description: 'Multi-dimensional demographic data visualization',
-      image: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['Tableau', 'Excel', 'SQL']
-    },
-    {
-      id: 6,
-      title: 'Network Analysis',
-      description: 'Network graph showing relationships in data',
-      image: 'https://images.pexels.com/photos/8728382/pexels-photo-8728382.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['D3.js', 'NetworkX', 'Python']
-    },
-    {
-      id: 7,
-      title: 'Revenue Analytics',
-      description: 'Monthly revenue breakdown and forecasting',
-      image: 'https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['Excel', 'Power BI']
-    },
-    {
-      id: 8,
-      title: 'Customer Segmentation',
-      description: 'Customer behavior clustering analysis',
-      image: 'https://images.pexels.com/photos/7947664/pexels-photo-7947664.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['Python', 'Scikit-learn']
     }
   ];
 
@@ -150,57 +122,6 @@ const DataVisualization = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Skills Overview */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Data Visualization Skills
-          </h3>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-8 h-8 text-blue-400" />
-              </div>
-              <h4 className="text-lg font-semibold text-white mb-3">Chart Libraries</h4>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['D3.js', 'Chart.js', 'Plotly', 'Matplotlib'].map((skill, index) => (
-                  <span key={index} className="bg-blue-600/30 text-blue-200 px-3 py-1 rounded-full text-sm">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-green-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Database className="w-8 h-8 text-green-400" />
-              </div>
-              <h4 className="text-lg font-semibold text-white mb-3">Data Processing</h4>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Python', 'Pandas', 'SQL', 'Excel'].map((skill, index) => (
-                  <span key={index} className="bg-green-600/30 text-green-200 px-3 py-1 rounded-full text-sm">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-purple-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-8 h-8 text-purple-400" />
-              </div>
-              <h4 className="text-lg font-semibold text-white mb-3">Visualization Types</h4>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Dashboards', 'Maps', 'Time Series', 'Interactive Charts'].map((skill, index) => (
-                  <span key={index} className="bg-purple-600/30 text-purple-200 px-3 py-1 rounded-full text-sm">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
