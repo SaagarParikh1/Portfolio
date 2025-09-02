@@ -50,18 +50,17 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+    <section id="experience" className="py-16 bg-gray-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Work Experience
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Professional experience in data analysis, risk assessment, and web development
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-8">
         <div className="max-w-5xl mx-auto space-y-6">
           {experiences.map((experience, index) => {
             const colorClasses = {
@@ -81,18 +80,18 @@ const Experience = () => {
                       <h3 className="text-xl font-bold text-white mb-2">
                         {experience.title}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-3 text-gray-300 mb-3 text-sm">
+                      <div className="flex flex-wrap items-center gap-3 text-gray-300 mb-3">
                         <div className="flex items-center space-x-2">
                           <Building className="w-4 h-4 text-purple-400" />
-                          <span className="font-medium">{experience.company}</span>
+                          <span className="font-medium text-sm">{experience.company}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Calendar className="w-4 h-4 text-indigo-400" />
-                          <span>{experience.duration}</span>
+                          <span className="text-sm">{experience.duration}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <MapPin className="w-4 h-4 text-violet-400" />
-                          <span>{experience.location}</span>
+                          <span className="text-sm">{experience.location}</span>
                         </div>
                       </div>
                     </div>
@@ -116,7 +115,7 @@ const Experience = () => {
 
                 <div>
                   <h4 className="text-base font-semibold text-white mb-3">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2">
                     {experience.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
@@ -133,25 +132,23 @@ const Experience = () => {
         </div>
 
           {/* Call to Action */}
-          <div className="mt-12 text-center">
-            <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">
+          <div className="mt-8 text-center">
+            <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-6 text-white">
+              <h3 className="text-xl font-bold mb-3">
                 Ready to bring value to your team
               </h3>
-              <p className="text-lg mb-6 opacity-90">
+              <p className="text-base mb-4 opacity-90">
                 I'm actively seeking opportunities to apply my skills and continue growing as a developer
               </p>
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg"
+                className="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg text-sm"
               >
                 Let's Connect
               </button>
             </div>
           </div>
         </div>
-      
-          </div>
       
     </section>
   );
