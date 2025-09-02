@@ -8,9 +8,8 @@ const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   const titles = [
+    'Data Analyst',
     'Full-Stack Developer',
-    'UI/UX Designer',
-    'Web Developer',
     'Problem Solver'
   ];
 
@@ -96,9 +95,8 @@ const Hero = () => {
             </div>
 
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              Recent graduate from Purdue University with a passion for creating beautiful, 
-              user-centered digital experiences. Specializing in full-stack development 
-              with expertise in React, TypeScript, and modern web technologies.
+              Recent Purdue graduate passionate about building beautiful, user-focused digital experiences and uncovering insights through data. 
+              I blend full-stack development skills in React and TypeScript with data analytics expertise in SQL, Python, and Tableau.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mb-12">

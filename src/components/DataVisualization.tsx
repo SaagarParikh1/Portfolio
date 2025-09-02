@@ -1,56 +1,157 @@
 import React, { useState } from 'react';
-import { BarChart3, PieChart, TrendingUp, Database, Eye, Layers, X, ZoomIn, Calendar, Code } from 'lucide-react';
+import {
+  BarChart3, ZoomIn, Layers, Calendar, Code, // icons for card UI
+  Database, TrendingUp, PieChart, Eye // optional (if you swap card icons later)
+} from 'lucide-react';
+import ProjectModal from './ProjectModal';
 
-const DataVisualization = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const DataVisualization: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Your data visualization images - simplified format
-  const visualizations = [
+  // Portfolio projects (content only — UI unchanged)
+  const projects = [
     {
       id: 1,
-      title: 'Sales Performance Dashboard',
-      description: 'Interactive dashboard showing quarterly sales metrics with drill-down capabilities',
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['D3.js', 'Chart.js', 'React']
+      // Card content
+      title: 'Cyclistic Member Conversion Dashboard',
+      subtitle: 'Ride patterns → conversion strategy',
+      description:
+        'Explored usage patterns of casual vs. annual riders and recommended conversion tactics. Segmented by ride length, day-of-week, and top station clusters with funnel-style insights.',
+      image:
+        'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
+
+      // Modal content (ProjectModal expects these)
+      icon: <BarChart3 />,
+      iconColor: 'text-indigo-400',
+      bgColor: 'bg-indigo-600/20',
+      borderColor: 'border-indigo-400/30',
+      highlights: [
+        'Segmented cohorts by ride length and weekday patterns',
+        'Identified top pickup/return clusters to target promos',
+        'Outlined 3 conversion levers (passes, bundles, geo-targeting)'
+      ],
+      technologies: ['SQL (BigQuery)', 'Python (Pandas)', 'Tableau', 'Excel'],
+      type: 'Data Analytics Project',
+      hasLiveDemo: false,
+      hasGithub: false,
+      detailedDescription:
+        'Cleaned and joined multi-month ride logs, engineered features like ride_length and day_of_week, and visualized behaviors across clusters. Produced stakeholder-ready recs with experiment ideas.'
     },
     {
       id: 2,
-      title: 'Geographic Heat Map',
-      description: 'Geographic visualization with time-series analysis',
-      image: 'https://images.pexels.com/photos/3970330/pexels-photo-3970330.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['Python', 'Matplotlib', 'Plotly']
+      title: 'E-commerce Performance (Shopify) KPI Suite',
+      subtitle: 'Revenue, AOV, CR, retention cohorts',
+      description:
+        'Built exec dashboards tracking revenue, AOV, conversion rate, repeat purchase, and channel mix. Automated weekly refresh; added cohort retention views.',
+      image:
+        'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+
+      icon: <TrendingUp />,
+      iconColor: 'text-emerald-400',
+      bgColor: 'bg-emerald-600/20',
+      borderColor: 'border-emerald-400/30',
+      highlights: [
+        'Cohort analysis for 30/60/90-day retention',
+        'Attribution mix readout by campaign/channel',
+        'Alerting for sudden CR/AOV deltas'
+      ],
+      technologies: ['Tableau', 'Looker Studio', 'Shopify Data', 'SQL'],
+      type: 'Data Analytics Project',
+      hasLiveDemo: false,
+      hasGithub: false,
+      detailedDescription:
+        'Modeled order/customer tables for clean metrics. Built cohort retention and CAC-to-LTV snapshots for weekly reviews. Added calculated fields and parameter controls for drill-downs.'
     },
     {
       id: 3,
-      title: 'Financial Trend Analysis',
-      description: 'Time-series visualization of stock market trends',
-      image: 'https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['Python', 'Pandas', 'Seaborn']
+      title: 'Climate & Extreme Weather Trends — 40 Years',
+      subtitle: 'Long-term indicators + anomaly detection',
+      description:
+        'Analyzed long-term climate indicators and extreme-event frequency. Trend lines, rolling windows, and anomaly detection to surface regional risk patterns.',
+      image:
+        'https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=800',
+
+      icon: <PieChart />,
+      iconColor: 'text-fuchsia-400',
+      bgColor: 'bg-fuchsia-600/20',
+      borderColor: 'border-fuchsia-400/30',
+      highlights: [
+        '40-year trend lines with rolling averages',
+        'Outlier detection for extreme events',
+        'Regional breakdowns and comparisons'
+      ],
+      technologies: ['Tableau', 'Python (Pandas)', 'Matplotlib', 'NOAA/Open Data'],
+      type: 'Data Analytics Project',
+      hasLiveDemo: false,
+      hasGithub: false,
+      detailedDescription:
+        'Compiled multi-source datasets, normalized units, and built anomaly flags. Visuals emphasize seasonality and deviations, with callouts for policy/infra risk.'
     },
     {
       id: 4,
-      title: 'User Behavior Analytics',
-      description: 'User engagement patterns and conversion funnels',
-      image: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tools: ['D3.js', 'JavaScript', 'CSS']
+      title: 'NBA Injury & Availability Analytics',
+      subtitle: 'Availability impact on team performance',
+      description:
+        'Modeled injury patterns across seasons and linked availability to team outcomes. Position/team splits and interactive timelines.',
+      image:
+        'https://images.pexels.com/photos/3970330/pexels-photo-3970330.jpeg?auto=compress&cs=tinysrgb&w=800',
+
+      icon: <Eye />,
+      iconColor: 'text-yellow-400',
+      bgColor: 'bg-yellow-600/20',
+      borderColor: 'border-yellow-400/30',
+      highlights: [
+        'Time-to-return and injury frequency by position',
+        'On/Off availability effect estimates',
+        'Team-level availability dashboards'
+      ],
+      technologies: ['Python (Pandas)', 'Jupyter', 'Matplotlib', 'Scikit-learn'],
+      type: 'Data Analytics Project',
+      hasLiveDemo: false,
+      hasGithub: false,
+      detailedDescription:
+        'Cleaned box scores and injury logs, engineered availability features, and tested simple models to estimate impact on team-level performance.'
+    },
+    {
+      id: 5,
+      title: 'Ball Analytics — Film Markup & Playbook Metrics',
+      subtitle: 'Coaching assistant: tendencies & success rate',
+      description:
+        'Early product visuals: play frequency, success rates by formation, and opponent tendencies, with export flows to Hudl/XOS.',
+      image:
+        'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
+
+      icon: <Database />,
+      iconColor: 'text-purple-400',
+      bgColor: 'bg-purple-600/20',
+      borderColor: 'border-purple-400/30',
+      highlights: [
+        'Play tagging → analytics pipeline',
+        'Formation/coverage breakdowns',
+        'Export flows for coaching platforms'
+      ],
+      technologies: ['Flutter/Dart', 'Supabase', 'Python', 'Product Analytics'],
+      type: 'Product & Data Project',
+      hasLiveDemo: false,
+      hasGithub: false,
+      detailedDescription:
+        'Defined early metrics and visuals, prototyped film-tag pipelines, and designed dashboards to fit coaching workflows.'
     }
   ];
 
-  const openModal = (visualization) => {
-    setSelectedImage(visualization);
+  const openModal = (project: any) => {
+    setSelectedProject(project);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setSelectedProject(null);
     setIsModalOpen(false);
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
+    if (e.target === e.currentTarget) closeModal();
   };
 
   return (
@@ -61,35 +162,38 @@ const DataVisualization = () => {
             Data Visualization Work
           </h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Transforming complex data into clear, actionable insights through interactive visualizations
+            Turning messy datasets into clear, interactive visuals that drive product and business decisions
           </p>
         </div>
 
-        {/* Visualization Gallery */}
-        <div className="mb-16">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">Visualization Gallery</h3>
-            <p className="text-gray-300 text-sm">Click images to view full size</p>
+        {/* Visualization Gallery (unchanged UI) */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-2xl font-bold text-white">All Data Projects</h3>
+            <div className="flex items-center space-x-2 text-gray-300">
+              <Layers className="w-5 h-5" />
+              <span className="text-sm">Click projects to view details</span>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {visualizations.map((viz) => (
+            {projects.map((proj) => (
               <div
-                key={viz.id}
+                key={proj.id}
                 className="group cursor-pointer transition-all duration-300 hover:scale-102"
-                onClick={() => openModal(viz)}
+                onClick={() => openModal(proj)}
               >
                 <div className="bg-indigo-600/20 backdrop-blur-sm rounded-lg overflow-hidden border border-indigo-400/30 hover:border-indigo-400/50 transition-all duration-300">
-                  {/* Visualization Image */}
+                  {/* Visualization Image (kept) */}
                   <div className="relative h-32 overflow-hidden">
-                    <img 
-                      src={viz.image} 
-                      alt={viz.title}
+                    <img
+                      src={proj.image}
+                      alt={proj.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                    
-                    {/* Zoom Icon */}
+
+                    {/* Zoom Icon (kept) */}
                     <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-white/20 backdrop-blur-sm p-1 rounded-full">
                         <ZoomIn className="w-3 h-3 text-white" />
@@ -97,25 +201,22 @@ const DataVisualization = () => {
                     </div>
                   </div>
 
-                  {/* Visualization Details */}
+                  {/* Card Details (kept) */}
                   <div className="p-3">
                     <h4 className="text-sm font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors duration-300">
-                      {viz.title}
+                      {proj.title}
                     </h4>
-                    
                     <p className="text-gray-300 text-xs leading-relaxed mb-2 line-clamp-2">
-                      {viz.description}
+                      {proj.description}
                     </p>
-
-                    {/* Tools Used */}
                     <div className="flex flex-wrap gap-1">
-                      {viz.tools.slice(0, 2).map((tool, index) => (
+                      {proj.technologies.slice(0, 2).map((tool: string, index: number) => (
                         <span key={index} className="text-xs bg-white/10 text-gray-400 px-2 py-0.5 rounded">
                           {tool}
                         </span>
                       ))}
-                      {viz.tools.length > 2 && (
-                        <span className="text-xs text-gray-500">+{viz.tools.length - 2}</span>
+                      {proj.technologies.length > 2 && (
+                        <span className="text-xs text-gray-500">+{proj.technologies.length - 2}</span>
                       )}
                     </div>
                   </div>
@@ -126,72 +227,12 @@ const DataVisualization = () => {
         </div>
       </div>
 
-      {/* Image Modal */}
-      {isModalOpen && selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={handleBackdropClick}
-        >
-          <div className="bg-gray-900 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-indigo-500/30">
-            {/* Modal Header */}
-            <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700 p-6 flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 rounded-full bg-indigo-600/20 text-indigo-400">
-                  <BarChart3 className="w-6 h-6" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-white">{selectedImage.title}</h2>
-                  <p className="text-lg font-medium text-indigo-300">Data Visualization</p>
-                </div>
-              </div>
-              <button
-                onClick={closeModal}
-                className="p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
-              >
-                <X className="w-6 h-6 text-gray-400 hover:text-white" />
-              </button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-6 space-y-6">
-              {/* Full Size Image */}
-              <div className="w-full">
-                <img 
-                  src={selectedImage.image} 
-                  alt={selectedImage.title}
-                  className="w-full h-auto rounded-xl shadow-2xl"
-                />
-              </div>
-
-              {/* Description */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-xl font-bold text-white mb-4">Description</h3>
-                <p className="text-gray-200 leading-relaxed">
-                  {selectedImage.description}
-                </p>
-              </div>
-
-              {/* Details */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h4 className="text-lg font-bold text-white mb-4 flex items-center space-x-2">
-                  <Code className="w-5 h-5 text-blue-400" />
-                  <span>Tools Used</span>
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedImage.tools.map((tool, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-800/50 text-gray-300 px-3 py-1 rounded-full text-sm font-medium border border-gray-700/50"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Use your ProjectModal instead of the old image modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   );
 };
