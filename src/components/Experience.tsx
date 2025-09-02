@@ -62,6 +62,7 @@ const Experience = () => {
         </div>
 
         <div className="max-w-6xl mx-auto space-y-8">
+        <div className="max-w-5xl mx-auto space-y-6">
           {experiences.map((experience, index) => {
             const colorClasses = {
               purple: 'bg-purple-900/30 border-purple-500/30 hover:border-purple-400/50',
@@ -70,27 +71,27 @@ const Experience = () => {
             };
             
             return (
-              <div key={index} className={`${colorClasses[experience.color]} backdrop-blur-sm rounded-xl p-8 border transition-all duration-300`}>
+              <div key={index} className={`${colorClasses[experience.color]} backdrop-blur-sm rounded-lg p-6 border transition-all duration-300`}>
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                   <div className="flex items-start space-x-4 flex-1">
-                    <div className={`p-3 rounded-full bg-white/10 text-${experience.color}-400`}>
+                    <div className={`p-2 rounded-full bg-white/10 text-${experience.color}-400`}>
                       {experience.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                      <h3 className="text-xl font-bold text-white mb-2">
                         {experience.title}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-4 text-gray-300 mb-4">
+                      <div className="flex flex-wrap items-center gap-3 text-gray-300 mb-3 text-sm">
                         <div className="flex items-center space-x-2">
-                          <Building className="w-5 h-5 text-purple-400" />
+                          <Building className="w-4 h-4 text-purple-400" />
                           <span className="font-medium">{experience.company}</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Calendar className="w-5 h-5 text-indigo-400" />
+                          <Calendar className="w-4 h-4 text-indigo-400" />
                           <span>{experience.duration}</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <MapPin className="w-5 h-5 text-violet-400" />
+                          <MapPin className="w-4 h-4 text-violet-400" />
                           <span>{experience.location}</span>
                         </div>
                       </div>
@@ -98,28 +99,28 @@ const Experience = () => {
                   </div>
                 </div>
 
-                <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
-                    <TrendingUp className="w-5 h-5 text-green-400" />
+                <div className="mb-6">
+                  <h4 className="text-base font-semibold text-white mb-3 flex items-center space-x-2">
+                    <TrendingUp className="w-4 h-4 text-green-400" />
                     <span>Key Accomplishments</span>
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {experience.accomplishments.map((accomplishment, accomplishmentIndex) => (
                       <li key={accomplishmentIndex} className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300 leading-relaxed">{accomplishment}</span>
+                        <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300 leading-relaxed text-sm">{accomplishment}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-4">Technologies Used</h4>
+                  <h4 className="text-base font-semibold text-white mb-3">Technologies Used</h4>
                   <div className="flex flex-wrap gap-3">
                     {experience.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-gray-800/50 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700/50 hover:border-purple-500/50 hover:text-purple-300 transition-all duration-300 hover:scale-105"
+                        className="bg-gray-800/50 text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-700/50 hover:border-purple-500/50 hover:text-purple-300 transition-all duration-300"
                       >
                         {tech}
                       </span>
@@ -149,6 +150,8 @@ const Experience = () => {
             </div>
           </div>
         </div>
+      
+          </div>
       
     </section>
   );

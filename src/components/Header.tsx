@@ -87,7 +87,7 @@ const Header = () => {
             <div 
               className="relative"
               onMouseEnter={() => setShowProjectsDropdown(true)}
-              onMouseLeave={() => setShowProjectsDropdown(false)}
+              onMouseLeave={() => setTimeout(() => setShowProjectsDropdown(false), 300)}
             >
               <button
                 onClick={() => scrollToSection('projects')}

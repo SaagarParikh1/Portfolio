@@ -72,24 +72,23 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a recent graduate from Purdue University with expertise in both 
-              development and design. I specialize in creating clean, responsive 
-              user interfaces and user experiences using modern web technologies 
-              like React, TypeScript, and design tools including Figma and Adobe Creative Suite.
+              As a recent graduate in Web Programming and Design from Purdue University, I bring a strong foundation in data analytics, database management, and full-stack development, backed by hands-on internship experience and impactful academic projects. I specialize in using SQL, Python, Tableau, and Excel to clean, analyze, and visualize data, while also leveraging tools like Looker and R to uncover trends and drive actionable insights.
             </p>
             
             <p className="text-lg text-gray-300 leading-relaxed">
-              My skills span full-stack development with experience in .NET, Python, and SQL, 
-              combined with UX design capabilities. I'm passionate about building user-centered 
-              digital experiences and solving real-world problems through thoughtful design and code.
+              Alongside my analytics work, I have experience building user-friendly digital solutions using HTML, CSS, JavaScript, and design tools such as Figma and Adobe Creative Suite. This combination of technical and analytical skills allows me to approach problems from both a user-centered and data-driven perspective.
+            </p>
+            
+            <p className="text-lg text-gray-300 leading-relaxed">
+              I'm passionate about turning raw data into meaningful stories, solving real-world challenges through analysis, and collaborating with teams to create measurable impact. With a drive to keep learning, I'm excited to contribute to innovative projects and grow in the tech industry.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
               <span className="bg-purple-600/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium border border-purple-500/30">
-                Full-Stack Developer
+                Data Analyst
               </span>
               <span className="bg-indigo-600/20 text-indigo-300 px-4 py-2 rounded-full text-sm font-medium border border-indigo-500/30">
-                UI/UX Designer
+                Full-Stack Developer
               </span>
               <span className="bg-violet-600/20 text-violet-300 px-4 py-2 rounded-full text-sm font-medium border border-violet-500/30">
                 Problem Solver
