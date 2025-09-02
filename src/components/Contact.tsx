@@ -113,12 +113,19 @@ const Contact = () => {
                 <MessageCircle className="w-5 h-5 text-purple-300" />
                 <h3 className="text-lg font-bold text-white">Let's Connect</h3>
               </div>
-              <p className="text-gray-200 mb-4 leading-relaxed text-sm">
-                I'm actively seeking opportunities to start my career in web development. 
+        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-4 text-white shadow-2xl border border-purple-400/30">
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 border border-white/30">
+                <div className="flex items-center space-x-2 mb-2">
+                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="font-medium text-xs">Available for Opportunities</span>
+                </div>
+                <p className="opacity-90 text-xs leading-relaxed">
+                I'm actively seeking opportunities to start my career in data analytics. 
                 Whether you have a full-time position, internship, or just want to chat 
                 about technology, I'd love to hear from you.
-              </p>
-
+                </p>
+              </div>
+        </div><br></br>
               {/* Enhanced Contact Details */}
               <div className="space-y-2 mb-4">
                 {contactInfo.map((item, index) => (
@@ -169,23 +176,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Enhanced Availability Status */}
-            <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-4 text-white shadow-2xl border border-purple-400/30">
-              <div className="flex items-center space-x-3 mb-3">
-                <Clock className="w-4 h-4 animate-pulse" />
-                <h4 className="text-sm font-semibold">Current Status</h4>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 border border-white/30">
-                <div className="flex items-center space-x-2 mb-2">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="font-medium text-xs">Available for Opportunities</span>
-                </div>
-                <p className="opacity-90 text-xs leading-relaxed">
-                  Actively seeking full-time opportunities starting in 2025. 
-                  Open to remote work and relocation for the right opportunity.
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* Enhanced Contact Form */}
