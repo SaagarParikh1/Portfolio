@@ -4,263 +4,263 @@ import ProjectModal from './ProjectModal';
 
 const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
- // Featured projects for slideshow (only 6) 
-const featuredProjects = [
-  {
-    title: 'NeuroNotes',
-    subtitle: 'AI-Powered Study Assistant',
-    description: 'Developed a full-stack, AI-powered note-taking and study assistant with advanced features including automated summaries, key point extraction, and flashcard generation.',
-    detailedDescription: 'NeuroNotes revolutionizes the way students take and organize notes by leveraging artificial intelligence to enhance learning outcomes. The platform combines traditional note-taking with modern AI capabilities to create an intelligent study companion.',
-    icon: <Brain className="w-6 h-6" />,
-    iconColor: 'text-indigo-400',
-    bgColor: 'bg-indigo-600/20',
-    borderColor: 'border-indigo-400/30',
-    image: '/images/NeuroNotes/home.png',
-    images: [
-      '/images/NeuroNotes/home.png',
-      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.56.38 AM.png',
-      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.38 AM.png',
-      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.53 AM.png'
-    ],
-    highlights: [
-      'Built with React, Next.js, TypeScript, and Tailwind CSS',
-      "Integrated OpenAI's API for AI-powered features",
-      'Implemented rich markdown editing and folder/tag organization',
-      'Created quiz mode and self-testing tools for spaced repetition learning'
-    ],
-    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'OpenAI API', 'AI'],
-    type: 'Personal Project',
-    hasLiveDemo: true,
-    hasGithub: true,
-    githubUrl: 'https://github.com/SaagarParikh1/NeuroNotes',
-    challenges: [
-      'Integrating multiple AI APIs while maintaining performance',
-      'Creating an intuitive user interface for complex features',
-      'Implementing real-time collaboration features'
-    ],
-    outcomes: [
-      'Improved study efficiency by 40% in user testing',
-      'Successfully processed over 10,000 notes in beta testing',
-      'Received positive feedback from 95% of beta users'
-    ]
-  },
-  {
-    title: 'Ball Analytics',
-    subtitle: 'Multi-Platform Coaching Assistant',
-    description: 'A startup I co-founded, developing a multi-platform coaching assistant software that streamlines film analysis, playbook creation, and team collaboration for football coaches.',
-    detailedDescription: 'Ball Analytics addresses the inefficiencies in traditional football coaching workflows by providing a comprehensive digital platform that integrates film analysis, playbook management, and team communication in one seamless experience.',
-    icon: <Zap className="w-6 h-6" />,
-    iconColor: 'text-violet-400',
-    bgColor: 'bg-violet-600/20',
-    borderColor: 'border-violet-400/30',
-    image: 'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    highlights: [
-      'Co-founded a startup with two others to revolutionize football coaching workflows',
-      'Enabled direct film markup and playbook integration with Hudl and Thundercloud XOS',
-      'Replaced spreadsheet-based analysis with a more efficient, real-world coaching workflow',
-      'Managed scalable front-end logic using Flutter and Dart'
-    ],
-    technologies: ['Flutter', 'Dart', 'UI/UX Design', 'Supabase'],
-    type: 'Startup Project',
-    hasLiveDemo: false,
-    hasGithub: true,
-    githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
-    challenges: [
-      'Integrating with existing coaching software platforms',
-      'Creating a user-friendly interface for non-technical users',
-      'Scaling the platform for multiple teams and organizations'
-    ],
-    outcomes: [
-      'Secured initial funding and mentorship',
-      'Onboarded 5 high school football programs for beta testing',
-      'Reduced game film analysis time by 60%'
-    ]
-  },
-  {
-    title: 'Grant County Special Education Cooperative Website',
-    subtitle: 'Capstone Project',
-    description: "A responsive and user-friendly website for the Grant County School District's Special Education Cooperative.",
-    detailedDescription: 'This capstone project involved creating a comprehensive web solution for the Grant County Special Education Cooperative, focusing on accessibility, user experience, and providing essential resources for students, parents, and educators.',
-    icon: <Award className="w-6 h-6" />,
-    iconColor: 'text-purple-400',
-    bgColor: 'bg-purple-600/20',
-    borderColor: 'border-purple-400/30',
-    image: 'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    highlights: [
-      'Collaborated with 11 web developers and UX designers',
-      'Enhanced usability and accessibility for diverse user groups',
-      'Transformed wireframes into functional components',
-      'Led front-end development using React, JSX, Bootstrap, and Tailwind CSS'
-    ],
-    technologies: ['HTML/CSS', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'JSX'],
-    type: 'Capstone Project',
-    hasLiveDemo: false,
-    hasGithub: true,
-    githubUrl: 'https://github.com/Griffinov22/Grant_County_Special_Education_Cooperative',
-    challenges: [
-      'Meeting strict accessibility requirements (WCAG 2.1 AA)',
-      'Coordinating with a large development team',
-      'Balancing stakeholder requirements with technical constraints'
-    ],
-    outcomes: [
-      'Successfully delivered on time and within scope',
-      'Achieved 100% accessibility compliance',
-      'Received excellent feedback from client and faculty'
-    ]
-  },
-  {
-    title: 'Ticket Scout',
-    subtitle: 'Price Comparison Platform',
-    description: 'A personal project for analyzing ticket prices across multiple platforms, providing real-time access to the best deals.',
-    detailedDescription: 'Ticket Scout simplifies the ticket purchasing process by aggregating prices from multiple vendors and providing users with comprehensive comparison tools, saving both time and money.',
-    icon: <Search className="w-6 h-6" />,
-    iconColor: 'text-emerald-400',
-    bgColor: 'bg-emerald-600/20',
-    borderColor: 'border-emerald-400/30',
-    image: '/images/ticketscout/home.png',
-    images: [
-      '/images/ticketscout/home.png',
-      '/images/ticketscout/search.png',
-      '/images/ticketscout/mavs.png',
-      '/images/ticketscout/trending.png',
-      '/images/ticketscout/howworks.png'
-    ],
-    highlights: [
-      'Implemented real-time price comparison and filtering',
-      'Integrated multiple APIs for data aggregation',
-      'Developed an interactive and responsive UI',
-      'Built efficient search and filtering mechanisms'
-    ],
-    technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration'],
-    type: 'Personal Project',
-    hasLiveDemo: true,
-    hasGithub: true,
-    githubUrl: 'https://github.com/SaagarParikh1/TicketScoutV2',
-  },
-  {
-    title: 'TravelX',
-    subtitle: 'AI-Enhanced Travel Platform',
-    description: 'A multi-page travel personal project offering real-time weather updates, destination information, and AI-generated travel recommendations.',
-    detailedDescription: 'TravelX combines traditional travel planning with AI-powered recommendations to create personalized travel experiences, helping users discover new destinations and plan their perfect trips.',
-    icon: <Globe className="w-6 h-6" />,
-    iconColor: 'text-blue-400',
-    bgColor: 'bg-blue-600/20',
-    borderColor: 'border-blue-400/30',
-    image: '/images/travelx/home.png',
-    images: [
-      '/images/travelx/home.png',
-      '/images/travelx/weatherDALf.png',
-      '/images/travelx/pics.png',
-      '/images/travelx/activities.png',
-      '/images/travelx/aiAssistant.png'
-    ],
-    highlights: [
-      'Designed intuitive interface with dynamic features',
-      'Implemented responsive design and multi-API integration',
-      "Utilized OpenAI's API to generate personalized travel recommendations",
-      'Real-time weather integration for destination planning'
-    ],
-    technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration', 'Responsive Design', 'AI Integration'],
-    type: 'Personal Project',
-    hasLiveDemo: true,
-    hasGithub: true,
-    githubUrl: 'https://github.com/SaagarParikh1/TravelX',
-  },
-  {
-    title: 'Recipe Finder',
-    subtitle: 'Ingredient-Based Recipe Search',
-    description: 'A personal project that allows users to search for recipes using ingredients or keywords, fetching results through API integration.',
-    detailedDescription: 'Recipe Finder helps users make the most of their available ingredients by suggesting recipes and providing detailed cooking instructions, reducing food waste and inspiring culinary creativity.',
-    icon: <Search className="w-6 h-6" />,
-    iconColor: 'text-orange-400',
-    bgColor: 'bg-orange-600/20',
-    borderColor: 'border-orange-400/30',
-    image: '/images/recipeFinder/rfhome.png',
-    images: [
-      '/images/recipeFinder/rfhome.png',
-      '/images/recipeFinder/rfmex.png',
-      '/images/recipeFinder/rfmedit.png',
-      '/images/recipeFinder/rfrandom.png'
-    ],
-    highlights: [
-      'Designed a search-based interface for seamless recipe discovery',
-      'Integrated recipe API for real-time recipe data',
-      'Focused on user-friendly navigation and data presentation',
-      'Implemented advanced filtering and search optimization'
-    ],
-    technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'API Integration', 'Search Optimization'],
-    type: 'Personal Project',
-    hasLiveDemo: true,
-    hasGithub: true,
-    githubUrl: 'https://github.com/SaagarParikh1/recipe-finder',
-  }
-];
+  // Featured projects for slideshow (only 6)
+  const featuredProjects = [
+    {
+      title: 'NeuroNotes',
+      subtitle: 'AI-Powered Study Assistant',
+      description: 'Developed a full-stack, AI-powered note-taking and study assistant with advanced features including automated summaries, key point extraction, and flashcard generation.',
+      detailedDescription: 'NeuroNotes revolutionizes the way students take and organize notes by leveraging artificial intelligence to enhance learning outcomes. The platform combines traditional note-taking with modern AI capabilities to create an intelligent study companion.',
+      icon: <Brain className="w-6 h-6" />,
+      iconColor: 'text-indigo-400',
+      bgColor: 'bg-indigo-600/20',
+      borderColor: 'border-indigo-400/30',
+      image: '/images/NeuroNotes/home.png',
+      images: [
+        '/images/NeuroNotes/home.png',
+        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.56.38 AM.png',
+        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.38 AM.png',
+        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.53 AM.png'
+      ],
+      highlights: [
+        'Built with React, Next.js, TypeScript, and Tailwind CSS',
+        "Integrated OpenAI's API for AI-powered features",
+        'Implemented rich markdown editing and folder/tag organization',
+        'Created quiz mode and self-testing tools for spaced repetition learning'
+      ],
+      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'OpenAI API', 'AI'],
+      type: 'Personal Project',
+      hasLiveDemo: true,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/NeuroNotes',
+      challenges: [
+        'Integrating multiple AI APIs while maintaining performance',
+        'Creating an intuitive user interface for complex features',
+        'Implementing real-time collaboration features'
+      ],
+      outcomes: [
+        'Improved study efficiency by 40% in user testing',
+        'Successfully processed over 10,000 notes in beta testing',
+        'Received positive feedback from 95% of beta users'
+      ]
+    },
+    {
+      title: 'Ball Analytics',
+      subtitle: 'Multi-Platform Coaching Assistant',
+      description: 'A startup I co-founded, developing a multi-platform coaching assistant software that streamlines film analysis, playbook creation, and team collaboration for football coaches.',
+      detailedDescription: 'Ball Analytics addresses the inefficiencies in traditional football coaching workflows by providing a comprehensive digital platform that integrates film analysis, playbook management, and team communication in one seamless experience.',
+      icon: <Zap className="w-6 h-6" />,
+      iconColor: 'text-violet-400',
+      bgColor: 'bg-violet-600/20',
+      borderColor: 'border-violet-400/30',
+      image: 'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800',
+      images: [
+        'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800'
+      ],
+      highlights: [
+        'Co-founded a startup with two others to revolutionize football coaching workflows',
+        'Enabled direct film markup and playbook integration with Hudl and Thundercloud XOS',
+        'Replaced spreadsheet-based analysis with a more efficient, real-world coaching workflow',
+        'Managed scalable front-end logic using Flutter and Dart'
+      ],
+      technologies: ['Flutter', 'Dart', 'UI/UX Design', 'Supabase'],
+      type: 'Startup Project',
+      hasLiveDemo: false,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
+      challenges: [
+        'Integrating with existing coaching software platforms',
+        'Creating a user-friendly interface for non-technical users',
+        'Scaling the platform for multiple teams and organizations'
+      ],
+      outcomes: [
+        'Secured initial funding and mentorship',
+        'Onboarded 5 high school football programs for beta testing',
+        'Reduced game film analysis time by 60%'
+      ]
+    },
+    {
+      title: 'Grant County Special Education Cooperative Website',
+      subtitle: 'Capstone Project',
+      description: "A responsive and user-friendly website for the Grant County School District's Special Education Cooperative.",
+      detailedDescription: 'This capstone project involved creating a comprehensive web solution for the Grant County Special Education Cooperative, focusing on accessibility, user experience, and providing essential resources for students, parents, and educators.',
+      icon: <Award className="w-6 h-6" />,
+      iconColor: 'text-purple-400',
+      bgColor: 'bg-purple-600/20',
+      borderColor: 'border-purple-400/30',
+      image: 'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800',
+      images: [
+        'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800'
+      ],
+      highlights: [
+        'Collaborated with 11 web developers and UX designers',
+        'Enhanced usability and accessibility for diverse user groups',
+        'Transformed wireframes into functional components',
+        'Led front-end development using React, JSX, Bootstrap, and Tailwind CSS'
+      ],
+      technologies: ['HTML/CSS', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'JSX'],
+      type: 'Capstone Project',
+      hasLiveDemo: false,
+      hasGithub: true,
+      githubUrl: 'https://github.com/Griffinov22/Grant_County_Special_Education_Cooperative',
+      challenges: [
+        'Meeting strict accessibility requirements (WCAG 2.1 AA)',
+        'Coordinating with a large development team',
+        'Balancing stakeholder requirements with technical constraints'
+      ],
+      outcomes: [
+        'Successfully delivered on time and within scope',
+        'Achieved 100% accessibility compliance',
+        'Received excellent feedback from client and faculty'
+      ]
+    },
+    {
+      title: 'Ticket Scout',
+      subtitle: 'Price Comparison Platform',
+      description: 'A personal project for analyzing ticket prices across multiple platforms, providing real-time access to the best deals.',
+      detailedDescription: 'Ticket Scout simplifies the ticket purchasing process by aggregating prices from multiple vendors and providing users with comprehensive comparison tools, saving both time and money.',
+      icon: <Search className="w-6 h-6" />,
+      iconColor: 'text-emerald-400',
+      bgColor: 'bg-emerald-600/20',
+      borderColor: 'border-emerald-400/30',
+      image: '/images/ticketscout/home.png',
+      images: [
+        '/images/ticketscout/home.png',
+        '/images/ticketscout/search.png',
+        '/images/ticketscout/mavs.png',
+        '/images/ticketscout/trending.png',
+        '/images/ticketscout/howworks.png'
+      ],
+      highlights: [
+        'Implemented real-time price comparison and filtering',
+        'Integrated multiple APIs for data aggregation',
+        'Developed an interactive and responsive UI',
+        'Built efficient search and filtering mechanisms'
+      ],
+      technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration'],
+      type: 'Personal Project',
+      hasLiveDemo: true,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/TicketScoutV2',
+    },
+    {
+      title: 'TravelX',
+      subtitle: 'AI-Enhanced Travel Platform',
+      description: 'A multi-page travel personal project offering real-time weather updates, destination information, and AI-generated travel recommendations.',
+      detailedDescription: 'TravelX combines traditional travel planning with AI-powered recommendations to create personalized travel experiences, helping users discover new destinations and plan their perfect trips.',
+      icon: <Globe className="w-6 h-6" />,
+      iconColor: 'text-blue-400',
+      bgColor: 'bg-blue-600/20',
+      borderColor: 'border-blue-400/30',
+      image: '/images/travelx/home.png',
+      images: [
+        '/images/travelx/home.png',
+        '/images/travelx/weatherDALf.png',
+        '/images/travelx/pics.png',
+        '/images/travelx/activities.png',
+        '/images/travelx/aiAssistant.png'
+      ],
+      highlights: [
+        'Designed intuitive interface with dynamic features',
+        'Implemented responsive design and multi-API integration',
+        "Utilized OpenAI's API to generate personalized travel recommendations",
+        'Real-time weather integration for destination planning'
+      ],
+      technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration', 'Responsive Design', 'AI Integration'],
+      type: 'Personal Project',
+      hasLiveDemo: true,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/TravelX',
+    },
+    {
+      title: 'Recipe Finder',
+      subtitle: 'Ingredient-Based Recipe Search',
+      description: 'A personal project that allows users to search for recipes using ingredients or keywords, fetching results through API integration.',
+      detailedDescription: 'Recipe Finder helps users make the most of their available ingredients by suggesting recipes and providing detailed cooking instructions, reducing food waste and inspiring culinary creativity.',
+      icon: <Search className="w-6 h-6" />,
+      iconColor: 'text-orange-400',
+      bgColor: 'bg-orange-600/20',
+      borderColor: 'border-orange-400/30',
+      image: '/images/recipeFinder/rfhome.png',
+      images: [
+        '/images/recipeFinder/rfhome.png',
+        '/images/recipeFinder/rfmex.png',
+        '/images/recipeFinder/rfmedit.png',
+        '/images/recipeFinder/rfrandom.png'
+      ],
+      highlights: [
+        'Designed a search-based interface for seamless recipe discovery',
+        'Integrated recipe API for real-time recipe data',
+        'Focused on user-friendly navigation and data presentation',
+        'Implemented advanced filtering and search optimization'
+      ],
+      technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'API Integration', 'Search Optimization'],
+      type: 'Personal Project',
+      hasLiveDemo: true,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/recipe-finder',
+    }
+  ];
 
-// All projects for grid display
-const allProjects = [
-  ...featuredProjects,
-  {
-    title: 'The Shoreline Hotel',
-    subtitle: 'Luxury Hotel Website',
-    description: 'The Shoreline Hotel is a multi-page website for an imaginary hotel, including sections for rooms, amenities, and bookings.',
-    icon: <Camera className="w-6 h-6" />,
-    iconColor: 'text-cyan-400',
-    bgColor: 'bg-cyan-600/20',
-    borderColor: 'border-cyan-400/30',
-    image: '/images/shoreline/shmain.png',
-    images: [
-      '/images/shoreline/shmain.png',
-      '/images/shoreline/shactivities.png',
-      '/images/shoreline/shreviews.png',
-      '/images/shoreline/shrooms.png',
-      '/images/shoreline/shad.png'
-    ],
-    highlights: [
-      'Designed an elegant multi-page website with a user-friendly interface',
-      'Incorporated parallax scrolling effects for an immersive experience',
-      'Utilized high-quality visuals to captivate and engage visitors',
-      'Ensured responsiveness across all devices'
-    ],
-    technologies: ['Wix', 'Adobe Photoshop', 'Responsive Design', 'UI/UX Design'],
-    type: 'Design Project',
-    hasLiveDemo: true,
-    hasGithub: false,
-    liveDemoUrl: 'https://saagarparikh11.wixsite.com/theshorelinehotel-co',
-  },
-  {
-    title: 'Ask Me Anything',
-    subtitle: 'Multi-Source Q&A Platform',
-    description: 'A Q&A personal project for comparative insights from multiple sources (Google and OpenAI), providing users with comprehensive answers to their queries.',
-    icon: <MessageCircle className="w-6 h-6" />,
-    iconColor: 'text-yellow-400',
-    bgColor: 'bg-yellow-600/20',
-    borderColor: 'border-yellow-400/30',
-    image: '/images/askanything/askanythinghome.png',
-    images: [
-      '/images/askanything/askanythinghome.png',
-    ],
-    highlights: [
-      'Built a dynamic Q&A platform integrating multiple data sources',
-      'Implemented asynchronous JavaScript for seamless API interactions',
-      'Enhanced query processing and result comparison functionality',
-      'Comparative analysis between different AI and search sources'
-    ],
-    technologies: ['HTML', 'CSS', 'JavaScript', 'API Integration'],
-    type: 'Personal Project',
-    hasLiveDemo: false,
-    hasGithub: true,
-    githubUrl: 'https://github.com/SaagarParikh1/AskMeAnything'
-  }
-];
+  // All projects for grid display
+  const allProjects = [
+    ...featuredProjects,
+    {
+      title: 'The Shoreline Hotel',
+      subtitle: 'Luxury Hotel Website',
+      description: 'The Shoreline Hotel is a multi-page website for an imaginary hotel, including sections for rooms, amenities, and bookings.',
+      icon: <Camera className="w-6 h-6" />,
+      iconColor: 'text-cyan-400',
+      bgColor: 'bg-cyan-600/20',
+      borderColor: 'border-cyan-400/30',
+      image: '/images/shoreline/shmain.png',
+      images: [
+        '/images/shoreline/shmain.png',
+        '/images/shoreline/shactivities.png',
+        '/images/shoreline/shreviews.png',
+        '/images/shoreline/shrooms.png',
+        '/images/shoreline/shad.png'
+      ],
+      highlights: [
+        'Designed an elegant multi-page website with a user-friendly interface',
+        'Incorporated parallax scrolling effects for an immersive experience',
+        'Utilized high-quality visuals to captivate and engage visitors',
+        'Ensured responsiveness across all devices'
+      ],
+      technologies: ['Wix', 'Adobe Photoshop', 'Responsive Design', 'UI/UX Design'],
+      type: 'Design Project',
+      hasLiveDemo: true,
+      hasGithub: false,
+      liveDemoUrl: 'https://saagarparikh11.wixsite.com/theshorelinehotel-co',
+    },
+    {
+      title: 'Ask Me Anything',
+      subtitle: 'Multi-Source Q&A Platform',
+      description: 'A Q&A personal project for comparative insights from multiple sources (Google and OpenAI), providing users with comprehensive answers to their queries.',
+      icon: <MessageCircle className="w-6 h-6" />,
+      iconColor: 'text-yellow-400',
+      bgColor: 'bg-yellow-600/20',
+      borderColor: 'border-yellow-400/30',
+      image: '/images/askanything/askanythinghome.png',
+      images: [
+        '/images/askanything/askanythinghome.png',
+      ],
+      highlights: [
+        'Built a dynamic Q&A platform integrating multiple data sources',
+        'Implemented asynchronous JavaScript for seamless API interactions',
+        'Enhanced query processing and result comparison functionality',
+        'Comparative analysis between different AI and search sources'
+      ],
+      technologies: ['HTML', 'CSS', 'JavaScript', 'API Integration'],
+      type: 'Personal Project',
+      hasLiveDemo: false,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/AskMeAnything'
+    }
+  ];
 
   const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % featuredProjects.length);
@@ -270,7 +270,7 @@ const allProjects = [
     setCurrentProject((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length);
   };
 
-  const openModal = (project) => {
+  const openModal = (project: any) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
@@ -386,25 +386,14 @@ const allProjects = [
                   </div>
                 </div>
 
+                {/* Only View Details button left */}
                 <div className="flex space-x-4">
                   <button 
-                    onClick={() => openModal(featuredProjects[currentProject])}
+                    onClick={() => openModal(featuredProjects[currentProject])} 
                     className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 flex-1 justify-center"
                   >
                     <span className="text-sm font-medium">View Details</span>
                   </button>
-                  {featuredProjects[currentProject].hasGithub && (
-                    <button className="flex items-center space-x-2 bg-white/20 text-gray-200 px-4 py-2 rounded-lg hover:bg-white/30 transition-colors duration-300 border border-white/20">
-                      <Github className="w-4 h-4" />
-                      <span className="text-sm font-medium">Code</span>
-                    </button>
-                  )}
-                  {featuredProjects[currentProject].hasLiveDemo && (
-                    <button className={`flex items-center space-x-2 ${featuredProjects[currentProject].iconColor.replace('text-', 'bg-')} text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-300`}>
-                      <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm font-medium">Demo</span>
-                    </button>
-                  )}
                 </div>
               </div>
             </div>
