@@ -94,7 +94,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
               Recent Purdue graduate passionate about building beautiful, user-focused digital experiences and uncovering insights through data. 
               I blend full-stack development skills in React and TypeScript with data analytics expertise in SQL, Python, and Tableau.
             </p>
@@ -155,9 +155,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
       {/* Fixed Animated Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
            onClick={scrollToAbout}>
         <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center hover:border-purple-300 transition-colors duration-300">
           <ChevronDown className="w-4 h-4 text-gray-300 mt-2 animate-pulse hover:text-purple-300 transition-colors duration-300" />

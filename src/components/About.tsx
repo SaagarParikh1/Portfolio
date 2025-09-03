@@ -71,15 +71,15 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-med text-gray-300 leading-relaxed">
               As a recent graduate in Web Programming and Design from Purdue University, I bring a strong foundation in data analytics, database management, and full-stack development, backed by hands-on internship experience and impactful academic projects. I specialize in using SQL, Python, Tableau, and Excel to clean, analyze, and visualize data, while also leveraging tools like Looker and R to uncover trends and drive actionable insights.
             </p>
             
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-med text-gray-300 leading-relaxed">
               Alongside my analytics work, I have experience building user-friendly digital solutions using HTML, CSS, JavaScript, and design tools such as Figma and Adobe Creative Suite. This combination of technical and analytical skills allows me to approach problems from both a user-centered and data-driven perspective.
             </p>
             
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-med text-gray-300 leading-relaxed">
               I'm passionate about turning raw data into meaningful stories, solving real-world challenges through analysis, and collaborating with teams to create measurable impact. With a drive to keep learning, I'm excited to contribute to innovative projects and grow in the tech industry.
             </p>
 
