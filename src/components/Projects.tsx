@@ -21,8 +21,9 @@ const featuredProjects = [
     image: '/images/NeuroNotes/home.png',
     images: [
       '/images/NeuroNotes/home.png',
-      '/images/NeuroNotes/editor.png',
-      '/images/NeuroNotes/flashcards.png'
+      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.56.38 AM.png',
+      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.38 AM.png',
+      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.53 AM.png'
     ],
     highlights: [
       'Built with React, Next.js, TypeScript, and Tailwind CSS',
@@ -57,9 +58,7 @@ const featuredProjects = [
     borderColor: 'border-violet-400/30',
     image: 'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800',
-      '/images/ballanalytics/dashboard.png',
-      '/images/ballanalytics/playbook.png'
+      'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800'
     ],
     highlights: [
       'Co-founded a startup with two others to revolutionize football coaching workflows',
@@ -94,9 +93,7 @@ const featuredProjects = [
     borderColor: 'border-purple-400/30',
     image: 'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800',
-      '/images/gcsec/home.png',
-      '/images/gcsec/accessibility.png'
+      'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800'
     ],
     highlights: [
       'Collaborated with 11 web developers and UX designers',
@@ -108,6 +105,7 @@ const featuredProjects = [
     type: 'Capstone Project',
     hasLiveDemo: false,
     hasGithub: true,
+    githubUrl: 'https://github.com/Griffinov22/Grant_County_Special_Education_Cooperative',
     challenges: [
       'Meeting strict accessibility requirements (WCAG 2.1 AA)',
       'Coordinating with a large development team',
@@ -131,8 +129,10 @@ const featuredProjects = [
     image: '/images/ticketscout/home.png',
     images: [
       '/images/ticketscout/home.png',
-      '/images/ticketscout/results.png',
-      '/images/ticketscout/filters.png'
+      '/images/ticketscout/search.png',
+      '/images/ticketscout/mavs.png',
+      '/images/ticketscout/trending.png',
+      '/images/ticketscout/howworks.png'
     ],
     highlights: [
       'Implemented real-time price comparison and filtering',
@@ -143,7 +143,8 @@ const featuredProjects = [
     technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration'],
     type: 'Personal Project',
     hasLiveDemo: true,
-    hasGithub: true
+    hasGithub: true,
+    githubUrl: 'https://github.com/SaagarParikh1/TicketScoutV2',
   },
   {
     title: 'TravelX',
@@ -157,8 +158,10 @@ const featuredProjects = [
     image: '/images/travelx/home.png',
     images: [
       '/images/travelx/home.png',
-      '/images/travelx/destinations.png',
-      '/images/travelx/recommendations.png'
+      '/images/travelx/weatherDALf.png',
+      '/images/travelx/pics.png',
+      '/images/travelx/activities.png',
+      '/images/travelx/aiAssistant.png'
     ],
     highlights: [
       'Designed intuitive interface with dynamic features',
@@ -169,7 +172,8 @@ const featuredProjects = [
     technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration', 'Responsive Design', 'AI Integration'],
     type: 'Personal Project',
     hasLiveDemo: true,
-    hasGithub: true
+    hasGithub: true,
+    githubUrl: 'https://github.com/SaagarParikh1/TravelX',
   },
   {
     title: 'Recipe Finder',
@@ -183,8 +187,9 @@ const featuredProjects = [
     image: '/images/recipeFinder/rfhome.png',
     images: [
       '/images/recipeFinder/rfhome.png',
-      '/images/recipeFinder/results.png',
-      '/images/recipeFinder/detail.png'
+      '/images/recipeFinder/rfmex.png',
+      '/images/recipeFinder/rfmedit.png',
+      '/images/recipeFinder/rfrandom.png'
     ],
     highlights: [
       'Designed a search-based interface for seamless recipe discovery',
@@ -195,7 +200,8 @@ const featuredProjects = [
     technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'API Integration', 'Search Optimization'],
     type: 'Personal Project',
     hasLiveDemo: true,
-    hasGithub: true
+    hasGithub: true,
+    githubUrl: 'https://github.com/SaagarParikh1/recipe-finder',
   }
 ];
 
@@ -213,8 +219,10 @@ const allProjects = [
     image: '/images/shoreline/shmain.png',
     images: [
       '/images/shoreline/shmain.png',
-      '/images/shoreline/rooms.png',
-      '/images/shoreline/amenities.png'
+      '/images/shoreline/shactivities.png',
+      '/images/shoreline/shreviews.png',
+      '/images/shoreline/shrooms.png',
+      '/images/shoreline/shad.png'
     ],
     highlights: [
       'Designed an elegant multi-page website with a user-friendly interface',
@@ -225,7 +233,8 @@ const allProjects = [
     technologies: ['Wix', 'Adobe Photoshop', 'Responsive Design', 'UI/UX Design'],
     type: 'Design Project',
     hasLiveDemo: true,
-    hasGithub: false
+    hasGithub: false,
+    liveDemoUrl: 'https://saagarparikh11.wixsite.com/theshorelinehotel-co',
   },
   {
     title: 'Ask Me Anything',
@@ -238,8 +247,6 @@ const allProjects = [
     image: '/images/askanything/askanythinghome.png',
     images: [
       '/images/askanything/askanythinghome.png',
-      '/images/askanything/results.png',
-      '/images/askanything/compare.png'
     ],
     highlights: [
       'Built a dynamic Q&A platform integrating multiple data sources',
@@ -250,7 +257,8 @@ const allProjects = [
     technologies: ['HTML', 'CSS', 'JavaScript', 'API Integration'],
     type: 'Personal Project',
     hasLiveDemo: false,
-    hasGithub: true
+    hasGithub: true,
+    githubUrl: 'https://github.com/SaagarParikh1/AskMeAnything'
   }
 ];
 

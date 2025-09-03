@@ -34,7 +34,8 @@ const DataVisualization: React.FC = () => {
       technologies: ['SQL (BigQuery)', 'Python (Pandas)', 'Tableau', 'Excel'],
       type: 'Data Analytics Project',
       hasLiveDemo: false,
-      hasGithub: false,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/cyclistic_case_study',
       detailedDescription:
         'Cleaned and joined multi-month ride logs, engineered features like ride_length and day_of_week, and visualized behaviors across clusters. Produced stakeholder-ready recs with experiment ideas.'
     },
@@ -84,7 +85,8 @@ const DataVisualization: React.FC = () => {
       technologies: ['Tableau', 'Python (Pandas)', 'Matplotlib', 'NOAA/Open Data'],
       type: 'Data Analytics Project',
       hasLiveDemo: false,
-      hasGithub: false,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/WeatherEvents-ClimateChange',
       detailedDescription:
         'Compiled multi-source datasets, normalized units, and built anomaly flags. Visuals emphasize seasonality and deviations, with callouts for policy/infra risk.'
     },
@@ -109,7 +111,8 @@ const DataVisualization: React.FC = () => {
       technologies: ['Python (Pandas)', 'Jupyter', 'Matplotlib', 'Scikit-learn'],
       type: 'Data Analytics Project',
       hasLiveDemo: false,
-      hasGithub: false,
+      hasGithub: true,
+      githubUrl: 'https://github.com/SaagarParikh1/NBAInjuryRiskCaseStudy',
       detailedDescription:
         'Cleaned box scores and injury logs, engineered availability features, and tested simple models to estimate impact on team-level performance.'
     },
