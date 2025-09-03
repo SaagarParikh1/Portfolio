@@ -9,7 +9,7 @@ const Hero = () => {
   
   const titles = [
     'Data Analyst',
-    'Full-Stack Developer',
+    'Front-End Developer',
     'Problem Solver'
   ];
 
@@ -96,7 +96,7 @@ const Hero = () => {
 
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
               Recent Purdue graduate passionate about building beautiful, user-focused digital experiences and uncovering insights through data. 
-              I blend full-stack development skills in React and TypeScript with data analytics expertise in SQL, Python, and Tableau.
+              I blend front-end development skills in React and TypeScript with data analytics expertise in SQL, Python, and Tableau.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mb-12">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Book, Calendar, MapPin } from 'lucide-react';
+import { Award, Book, Calendar, MapPin, GraduationCap } from 'lucide-react';
 
 const Education: React.FC = () => {
   const education = {
@@ -10,12 +10,24 @@ const Education: React.FC = () => {
     minor: 'Computer and Information Technology',
     certificate: 'Certificate in Cornerstone',
     coursework: [
+      'Data Analysis & Visualization',
       'Advanced Web Programming',
       'UX Design',
       'Database Management',
       'Server-Side Development',
-      'Data Analysis & Visualization',
       'Software Engineering'
+    ],
+    certifications: [
+      {
+        name: 'Google Data Analytics Professional Certificate',
+        issuer: 'Google / Coursera',
+        year: '2025'
+      },
+      {
+        name: 'Foundations of UX Design Certificate',
+        issuer: 'Google / Coursera',
+        year: '2023'
+      }
     ]
   };
 
@@ -27,11 +39,11 @@ const Education: React.FC = () => {
             Education
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Strong academic foundation in web development and computer science
+            Strong academic foundation in web development and data analytics
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto space-y-8">
           {/* Main Education Card */}
           <div className="bg-gradient-to-br from-purple-900/50 to-indigo-900/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300">
             <div className="grid lg:grid-cols-2 gap-6">
@@ -41,7 +53,7 @@ const Education: React.FC = () => {
                   {/* Purdue Logo */}
                   <div className="bg-white p-3 rounded-lg shadow-lg flex-shrink-0">
                     <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1200px-Purdue_Boilermakers_logo.svg.png"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1200px-Purdue_Boilermakers_logo.svg.png" 
                       alt="Purdue University Logo"
                       className="w-12 h-12 object-contain"
                     />
@@ -69,7 +81,7 @@ const Education: React.FC = () => {
                 {/* Academic Focus */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <div className="flex items-center space-x-3 mb-3">
-                    <Award className="w-5 h-5 text-yellow-400" />
+                    <GraduationCap className="w-5 h-5 text-yellow-400" />
                     <span className="font-semibold text-white text-sm">Academic Focus</span>
                   </div>
                   <div className="space-y-2">
@@ -111,8 +123,27 @@ const Education: React.FC = () => {
             </div>
           </div>
 
-          {/* Additional Information */}
-          {/* Add more cards/sections here if needed */}
+          {/* Certificates Section */}
+          <div className="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 backdrop-blur-sm rounded-xl p-6 border border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300">
+            <div className="flex items-center space-x-3 mb-4">
+              <Award className="w-5 h-5 text-green-400" />
+              <span className="font-semibold text-white text-sm">Certificates</span>
+            </div>
+            <ul className="space-y-2">
+              {education.certifications.map((cert, index) => (
+                <li
+                  key={index}
+                  className="flex items-start justify-between bg-white/10 rounded-lg p-3 border border-white/20 hover:border-green-400/40 transition-all duration-300"
+                >
+                  <div>
+                    <p className="text-gray-200 font-medium text-sm">{cert.name}</p>
+                    <p className="text-gray-400 text-xs">{cert.issuer}</p>
+                  </div>
+                  <span className="text-gray-400 text-xs">{cert.year}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
         </div>
       </div>

@@ -12,7 +12,7 @@ const Header = () => {
       setScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
-      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'ux-work', 'education', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -91,7 +91,7 @@ const Header = () => {
             >
               <button
                 onClick={() => scrollToSection('projects')}
-                className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative flex items-center space-x-1 ${
+                className={`px-3 py-2 text-sm font-medium transition-all duration-5000 relative flex items-center space-x-1 ${
                   activeSection === 'projects' || activeSection === 'data-visualization'
                     ? 'text-purple-300'
                     : 'text-gray-300 hover:text-purple-300'
