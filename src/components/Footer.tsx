@@ -11,10 +11,6 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4">Saagar Parikh</h3>
-            <p className="text-gray-400 leading-relaxed mb-4">
-              Full-Stack Developer & UX Designer passionate about creating innovative digital solutions 
-              and user-centered experiences.
-            </p>
             <div className="flex space-x-4">
               <a
                 href="https://www.linkedin.com/in/saagar-parikh1/"
@@ -92,11 +88,6 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
               © {currentYear} Saagar Parikh. All rights reserved.
-            </p>
-            <p className="text-gray-400 text-sm flex items-center space-x-1 mt-4 md:mt-0">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-              <span>using React & TypeScript</span>
             </p>
           </div>
         </div>
