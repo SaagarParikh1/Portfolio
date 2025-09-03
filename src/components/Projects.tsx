@@ -71,6 +71,7 @@ const featuredProjects = [
     type: 'Startup Project',
     hasLiveDemo: false,
     hasGithub: true,
+    githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
     challenges: [
       'Integrating with existing coaching software platforms',
       'Creating a user-friendly interface for non-technical users',
