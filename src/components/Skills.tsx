@@ -117,23 +117,23 @@ const skillCategories = [
   };
 
   return (
-    <section id="skills" className="py-20 bg-indigo-900">
+    <section id="skills" className="py-16 bg-indigo-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Technical Skills
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Comprehensive expertise across the full development stack
           </p>
         </div>
 
         {/* Interactive Skill Categories */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid lg:grid-cols-3 gap-6 mb-8">
           {/* Category Selector */}
           <div className="lg:col-span-1">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 sticky top-8">
-              <h3 className="text-xl font-bold text-white mb-6">Skill Categories</h3>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 sticky top-8">
+              <h3 className="text-lg font-bold text-white mb-4">Skill Categories</h3>
               <div className="space-y-3">
                 {skillCategories.map((category, index) => {
                   const colorClasses = getColorClasses(category.color);
@@ -150,7 +150,7 @@ const skillCategories = [
                       <div className={`${colorClasses.icon} p-2 rounded-lg`}>
                         {category.icon}
                       </div>
-                      <span className="text-white font-medium">{category.title}</span>
+                      <span className="text-white font-medium text-sm">{category.title}</span>
                       <ChevronRight className={`w-4 h-4 text-gray-400 ml-auto transition-transform ${
                         activeCategory === index ? 'rotate-90' : ''
                       }`} />
@@ -163,17 +163,17 @@ const skillCategories = [
 
           {/* Active Category Skills */}
           <div className="lg:col-span-2">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-              <div className="flex items-center space-x-4 mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+              <div className="flex items-center space-x-4 mb-6">
                 <div className={`${getColorClasses(skillCategories[activeCategory].color).icon} p-3 rounded-lg`}>
                   {skillCategories[activeCategory].icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-xl font-bold text-white">
                   {skillCategories[activeCategory].title}
                 </h3>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-3">
                 {skillCategories[activeCategory].skills.map((skill, index) => {
                   const colorClasses = getColorClasses(skillCategories[activeCategory].color);
                   return (
@@ -184,7 +184,7 @@ const skillCategories = [
                       onMouseLeave={() => setHoveredSkill(null)}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-white font-medium">{skill}</span>
+                        <span className="text-white font-medium text-sm">{skill}</span>
                         {hoveredSkill === skill && (
                           <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                         )}
@@ -198,16 +198,16 @@ const skillCategories = [
         </div>
 
         {/* All Skills Overview */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">
             Complete Technology Stack
           </h3>
           
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2">
             {skillCategories.flatMap(category => category.skills).map((skill, index) => (
               <span
                 key={index}
-                className="bg-purple-600/30 text-purple-200 px-4 py-2 rounded-full text-sm font-medium border border-purple-400/30 hover:bg-purple-600/50 hover:scale-110 transition-all duration-300 cursor-pointer"
+                className="bg-purple-600/30 text-purple-200 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 hover:bg-purple-600/50 hover:scale-110 transition-all duration-300 cursor-pointer"
                 onMouseEnter={() => setHoveredSkill(skill)}
                 onMouseLeave={() => setHoveredSkill(null)}
               >
@@ -217,16 +217,16 @@ const skillCategories = [
           </div>
 
           {/* Additional Technologies */}
-          <div className="mt-8 pt-8 border-t border-white/20">
-            <h4 className="text-lg font-semibold text-white mb-4 text-center">Additional Technologies</h4>
-            <div className="flex flex-wrap justify-center gap-3">
+          <div className="mt-6 pt-6 border-t border-white/20">
+            <h4 className="text-sm font-semibold text-white mb-3 text-center">Additional Technologies</h4>
+            <div className="flex flex-wrap justify-center gap-2">
               {[
                 'Supabase', 'Cross-browser Compatibility',
                 'Accessibility', 'Data Visualization', 'Usability Testing', 'DevOps', 'MVC Architecture'
               ].map((tech, index) => (
                 <span
                   key={index}
-                  className="bg-white/10 text-gray-200 px-3 py-1 rounded-full text-sm font-medium border border-white/20 hover:border-purple-400/50 hover:text-purple-200 transition-all duration-300"
+                  className="bg-white/10 text-gray-200 px-2 py-1 rounded-full text-xs font-medium border border-white/20 hover:border-purple-400/50 hover:text-purple-200 transition-all duration-300"
                 >
                   {tech}
                 </span>

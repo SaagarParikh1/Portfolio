@@ -58,57 +58,59 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gray-900">
+    <section id="about" className="py-16 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             About Me
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Passionate about creating innovative digital solutions that make a difference
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <p className="text-med text-gray-300 leading-relaxed">
-              As a recent graduate in Web Programming and Design from Purdue University, I bring a strong foundation in data analytics, database management, and full-stack development, backed by hands-on internship experience and impactful academic projects. I specialize in using SQL, Python, Tableau, and Excel to clean, analyze, and visualize data, while also leveraging tools like Looker and R to uncover trends and drive actionable insights.
-            </p>
-            
-            <p className="text-med text-gray-300 leading-relaxed">
-              Alongside my analytics work, I have experience building user-friendly digital solutions using HTML, CSS, JavaScript, and design tools such as Figma and Adobe Creative Suite. This combination of technical and analytical skills allows me to approach problems from both a user-centered and data-driven perspective.
-            </p>
-            
-            <p className="text-med text-gray-300 leading-relaxed">
-              I'm passionate about turning raw data into meaningful stories, solving real-world challenges through analysis, and collaborating with teams to create measurable impact. With a drive to keep learning, I'm excited to contribute to innovative projects and grow in the tech industry.
-            </p>
+<div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
+  <div className="space-y-4">
+    <p className="text-sm text-gray-300 leading-relaxed">
+      As a <strong>recent graduate</strong> in <strong>Web Programming and Design</strong> from <strong>Purdue University</strong>, I bring a strong foundation in <strong>data analytics</strong>, <strong>database management</strong>, and <strong>full-stack development</strong>, backed by hands-on <strong>internship experience</strong> and impactful <strong>academic projects</strong>. I specialize in using <strong>SQL</strong>, <strong>Python</strong>, <strong>Tableau</strong>, and <strong>Excel</strong> to clean, analyze, and visualize data, while also leveraging tools like <strong>Looker</strong> and <strong>R</strong> to uncover trends and drive actionable insights.
+    </p>
+    
+    <p className="text-sm text-gray-300 leading-relaxed">
+      Alongside my analytics work, I have experience building <strong>user-friendly digital solutions</strong> using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and design tools such as <strong>Figma</strong> and <strong>Adobe Creative Suite</strong>. This combination of <strong>technical</strong> and <strong>analytical skills</strong> allows me to approach problems from both a <strong>user-centered</strong> and <strong>data-driven perspective</strong>.
+    </p>
+    
+    <p className="text-sm text-gray-300 leading-relaxed">
+      I'm passionate about turning <strong>raw data</strong> into <strong>meaningful stories</strong>, solving <strong>real-world challenges</strong> through <strong>analysis</strong>, and <strong>collaborating with teams</strong> to create <strong>measurable impact</strong>. With a drive to keep <strong>learning</strong>, I'm excited to contribute to <strong>innovative projects</strong> and grow in the <strong>tech industry</strong>.
+    </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <span className="bg-purple-600/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium border border-purple-500/30">
+
+
+            <div className="flex flex-wrap gap-3 pt-3">
+              <span className="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-xs font-medium border border-purple-500/30">
                 Data Analyst
               </span>
-              <span className="bg-indigo-600/20 text-indigo-300 px-4 py-2 rounded-full text-sm font-medium border border-indigo-500/30">
+              <span className="bg-indigo-600/20 text-indigo-300 px-3 py-1 rounded-full text-xs font-medium border border-indigo-500/30">
                 Full-Stack Developer
               </span>
-              <span className="bg-violet-600/20 text-violet-300 px-4 py-2 rounded-full text-sm font-medium border border-violet-500/30">
+              <span className="bg-violet-600/20 text-violet-300 px-3 py-1 rounded-full text-xs font-medium border border-violet-500/30">
                 Problem Solver
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-4">
             {highlights.map((item, index) => {
               const colorClasses = getColorClasses(item.color);
               return (
                 <div
                   key={index}
-                  className={`${colorClasses} backdrop-blur-sm p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 border`}
+                  className={`${colorClasses} backdrop-blur-sm p-4 rounded-lg text-center hover:scale-105 transition-all duration-300 border`}
                 >
-                  <div className="bg-white/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-300 text-sm">{item.description}</p>
+                  <h3 className="text-sm font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-300 text-xs">{item.description}</p>
                 </div>
               );
             })}

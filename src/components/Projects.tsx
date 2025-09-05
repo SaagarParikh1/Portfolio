@@ -281,53 +281,53 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-purple-900">
+    <section id="projects" className="py-16 bg-purple-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Web Development Projects
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Full-stack development projects demonstrating technical expertise and problem-solving skills
           </p>
         </div>
 
         {/* Interactive Project Showcase - Only Featured 6 */}
-        <div className="mb-12">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+            <div className="grid lg:grid-cols-2 gap-6 items-center">
               {/* Project Visual */}
               <div className="relative">
-                <div className="relative h-80 rounded-xl overflow-hidden">
+                <div className="relative h-64 rounded-lg overflow-hidden">
                   <img 
                     src={featuredProjects[currentProject].image} 
                     alt={featuredProjects[currentProject].title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  <div className={`absolute bottom-4 left-4 p-4 rounded-full bg-white/10 backdrop-blur-sm ${featuredProjects[currentProject].iconColor}`}>
-                    {React.cloneElement(featuredProjects[currentProject].icon, { className: "w-8 h-8" })}
+                  <div className={`absolute bottom-3 left-3 p-3 rounded-full bg-white/10 backdrop-blur-sm ${featuredProjects[currentProject].iconColor}`}>
+                    {React.cloneElement(featuredProjects[currentProject].icon, { className: "w-6 h-6" })}
                   </div>
                 </div>
                 
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevProject}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-all duration-300"
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm p-2 rounded-full hover:bg-white/30 transition-all duration-300"
                 >
-                  <ChevronLeft className="w-6 h-6 text-white" />
+                  <ChevronLeft className="w-5 h-5 text-white" />
                 </button>
                 <button
                   onClick={nextProject}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-all duration-300"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm p-2 rounded-full hover:bg-white/30 transition-all duration-300"
                 >
-                  <ChevronRight className="w-6 h-6 text-white" />
+                  <ChevronRight className="w-5 h-5 text-white" />
                 </button>
               </div>
 
               {/* Project Details */}
               <div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-3">
                   <span className="text-sm font-medium text-gray-200 bg-white/20 px-3 py-1 rounded-full border border-white/20">
                     {featuredProjects[currentProject].type}
                   </span>
@@ -336,7 +336,7 @@ const Projects = () => {
                       <button
                         key={index}
                         onClick={() => setCurrentProject(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
                           index === currentProject ? 'bg-purple-400' : 'bg-white/30'
                         }`}
                       />
@@ -344,42 +344,42 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-white mb-2">
                   {featuredProjects[currentProject].title}
                 </h3>
-                <p className={`text-lg font-medium mb-4 ${featuredProjects[currentProject].iconColor}`}>
+                <p className={`text-sm font-medium mb-3 ${featuredProjects[currentProject].iconColor}`}>
                   {featuredProjects[currentProject].subtitle}
                 </p>
                 
-                <p className="text-gray-200 mb-6 leading-relaxed">
+                <p className="text-gray-200 mb-4 leading-relaxed text-sm">
                   {featuredProjects[currentProject].description}
                 </p>
 
-                <div className="mb-6">
+                <div className="mb-4">
                   <h4 className="text-sm font-semibold text-white mb-3">Key Highlights</h4>
                   <ul className="space-y-2">
                     {featuredProjects[currentProject].highlights.slice(0, 3).map((highlight, index) => (
                       <li key={index} className="flex items-start space-x-2">
                         <div className={`w-1.5 h-1.5 rounded-full mt-2 ${featuredProjects[currentProject].iconColor.replace('text-', 'bg-')}`}></div>
-                        <span className="text-sm text-gray-200">{highlight}</span>
+                        <span className="text-xs text-gray-200">{highlight}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-4">
                   <h4 className="text-sm font-semibold text-white mb-3">Technologies</h4>
                   <div className="flex flex-wrap gap-2">
                     {featuredProjects[currentProject].technologies.slice(0, 4).map((tech, index) => (
                       <span
                         key={index}
-                        className="bg-white/20 text-gray-200 px-3 py-1 rounded-full text-xs font-medium border border-white/20"
+                        className="bg-white/20 text-gray-200 px-2 py-1 rounded-full text-xs font-medium border border-white/20"
                       >
                         {tech}
                       </span>
                     ))}
                     {featuredProjects[currentProject].technologies.length > 4 && (
-                      <span className="bg-white/20 text-gray-200 px-3 py-1 rounded-full text-xs font-medium border border-white/20">
+                      <span className="bg-white/20 text-gray-200 px-2 py-1 rounded-full text-xs font-medium border border-white/20">
                         +{featuredProjects[currentProject].technologies.length - 4} more
                       </span>
                     )}
@@ -390,7 +390,7 @@ const Projects = () => {
                 <div className="flex space-x-4">
                   <button 
                     onClick={() => openModal(featuredProjects[currentProject])} 
-                    className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 flex-1 justify-center"
+                    className="flex items-center space-x-2 bg-purple-600 text-white px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 flex-1 justify-center"
                   >
                     <span className="text-sm font-medium">View Details</span>
                   </button>
@@ -401,16 +401,16 @@ const Projects = () => {
         </div>
 
         {/* Project Counter */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <p className="text-gray-200">
             Featured Project {currentProject + 1} of {featuredProjects.length}
           </p>
         </div>
 
         {/* All Projects Grid */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl font-bold text-white">All Development Projects</h3>
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-white">All Development Projects</h3>
             <div className="flex items-center space-x-2 text-gray-300">
               <Layers className="w-5 h-5" />
               <span className="text-sm">Click projects to view details</span>
