@@ -9,8 +9,8 @@ const Hero = () => {
   
   const titles = [
     'Data Analyst',
-    'Front-End Developer',
-    'Problem Solver'
+    'Problem Solver',
+    'Insight Driver'
   ];
 
   useEffect(() => {
@@ -95,8 +95,7 @@ const Hero = () => {
             </div>
 
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-              Recent Purdue graduate passionate about building beautiful, user-focused digital experiences and uncovering insights through data. 
-              I blend front-end development skills in React and TypeScript with data analytics expertise in SQL, Python, and Tableau.
+              Data Analyst skilled in Excel, SQL, Python, and Tableau, with experience in data cleaning, visualization, and statistical modeling. Strong background in front-end development and UI/UX, bringing a blend of technical and analytical skills to translate stakeholder needs into actionable insights and measurable business impact.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mb-12">

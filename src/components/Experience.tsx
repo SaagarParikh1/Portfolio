@@ -3,17 +3,17 @@ import { Calendar, MapPin, Building, CheckCircle, TrendingUp, BarChart3 } from '
 
 const Experience = () => {
   const experiences = [
-      {
-      title: 'Front-End Web Developer (Contract)',
+    {
+      title: 'Front-End Web Developer',
       company: 'Masergy Communications',
       duration: 'May 2024 - Aug 2024',
       location: 'Remote',
       accomplishments: [
-        'Migrated and rebranded 15+ internal HR pages using HTML, CSS, React, and TypeScript to align with Comcast\'s design standards, enhancing performance by 20%.',
-        'Built reusable front-end components and optimized layout structures to support future scalability and modularity.',
-        'Identified and resolved 30+ bugs during QA cycles, accelerating deployment timelines and ensuring cross-browser consistency.'
+        'Migrated and rebranded 15+ internal HR pages using React, TypeScript, and HTML/CSS, aligning with Comcast\'s design system and improving usability for 2,000+ internal users.',
+        'Created reusable UI component libraries with React + GitHub CI/CD, enhancing consistency and scalability across teams.',
+        'Conducted QA testing and resolved 30+ cross-browser bugs using Chrome DevTools, Webpack, and Vite, accelerating deployment timelines and ensuring platform stability.'
       ],
-      technologies: ['HTML/CSS', 'React', 'TypeScript', 'Component Design', 'Performance Optimization', 'QA Testing'],
+      technologies: ['React', 'TypeScript', 'HTML/CSS', 'GitHub CI/CD', 'Chrome DevTools', 'Webpack', 'Vite'],
       icon: <CheckCircle className="w-6 h-6" />,
       color: 'violet'
     },
@@ -23,12 +23,11 @@ const Experience = () => {
       duration: 'May 2023 - Aug 2023',
       location: 'Remote',
       accomplishments: [
-        'Analyzed behavioral and biometric data from pet wearables and smart monitoring systems to identify behavioral patterns, improving sentiment model accuracy by 12%.',
-        'Wrote SQL queries and Python scripts to clean and aggregate multi-source data, reducing processing time by 30%.',
-        'Built Tableau dashboards to visualize mood trends, health anomalies, and KPIs, uncovering actionable insights that informed product improvements.',
-        'Collaborated with ML researchers to evaluate model bias and performance, improving pilot engagement and model trust.'
+        'Built Snowflake pipelines to clean and aggregate multi-source behavioral and biometric datasets using SQL (CTEs, window functions) and Python (pandas, NumPy), reducing processing time by 20% on 500K+ rows.',
+        'Collaborated with ML researchers to analyze smart monitoring data, uncover behavioral trends, and improve model accuracy by 8%.',
+        'Delivered Tableau dashboards to visualize mood trends, health anomalies, and KPIs, supporting the team in identifying feature gaps and shaping roadmap priorities.'
       ],
-      technologies: ['SQL', 'Python', 'Tableau', 'Data Analysis', 'Machine Learning', 'Dashboard Design'],
+      technologies: ['Snowflake', 'SQL', 'Python', 'pandas', 'NumPy', 'Tableau', 'Machine Learning'],
       icon: <BarChart3 className="w-6 h-6" />,
       color: 'purple'
     },
@@ -38,12 +37,11 @@ const Experience = () => {
       duration: 'June 2022 - Aug 2022',
       location: 'Remote',
       accomplishments: [
-        'Processed 50K+ customer financial records to refine risk models, boosting loan eligibility accuracy by 10%.',
-        'Identified fraudulent behavior through data mining, enhancing detection mechanisms, and compliance safeguards.',
-        'Automated risk assessment workflows, saving 15 hours/week in manual review time and increasing customer approval speed by 20%.',
-        'Designed Tableau and Excel dashboards to communicate KPIs to non-technical stakeholders.'
+        'Processed and analyzed 50K+ customer financial records using SQL, Python, and Excel to refine risk models, improving loan eligibility accuracy by 6% and reducing false rejections.',
+        'Detected fraudulent transaction patterns with data mining + regex-based feature engineering, strengthening compliance controls and lowering risk exposure.',
+        'Automated risk assessment reporting with Python scripts, saving 10+ hours/week and cutting loan approval turnaround by 10%.'
       ],
-      technologies: ['Data Mining', 'Risk Modeling', 'Tableau', 'Excel', 'Process Automation', 'Financial Analysis'],
+      technologies: ['SQL', 'Python', 'Excel', 'Data Mining', 'Risk Modeling', 'Process Automation'],
       icon: <TrendingUp className="w-6 h-6" />,
       color: 'indigo'
     }

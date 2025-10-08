@@ -281,7 +281,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 bg-purple-900">
+    <section id="projects" className="py-16 bg-indigo-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -337,7 +337,7 @@ const Projects = () => {
                         key={index}
                         onClick={() => setCurrentProject(index)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          index === currentProject ? 'bg-purple-400' : 'bg-white/30'
+                          index === currentProject ? 'bg-indigo-400' : 'bg-white/30'
                         }`}
                       />
                     ))}
@@ -390,7 +390,7 @@ const Projects = () => {
                 <div className="flex space-x-4">
                   <button 
                     onClick={() => openModal(featuredProjects[currentProject])} 
-                    className="flex items-center space-x-2 bg-purple-600 text-white px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 flex-1 justify-center"
+                    className="flex items-center space-x-2 bg-indigo-600 text-white px-3 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex-1 justify-center"
                   >
                     <span className="text-sm font-medium">View Details</span>
                   </button>
@@ -422,7 +422,7 @@ const Projects = () => {
               <div
                 key={index}
                 className={`group cursor-pointer transition-all duration-300 hover:scale-102 ${
-                  index < featuredProjects.length && index === currentProject ? 'ring-2 ring-purple-400' : ''
+                  index < featuredProjects.length && index === currentProject ? 'ring-2 ring-indigo-400' : ''
                 }`}
                 onClick={() => {
                   if (index < featuredProjects.length) {
@@ -458,7 +458,7 @@ const Projects = () => {
 
                   {/* Project Details */}
                   <div className="p-3">
-                    <h3 className="text-sm font-bold text-white mb-1 group-hover:text-purple-300 transition-colors duration-300">
+                    <h3 className="text-sm font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors duration-300">
                       {project.title}
                     </h3>
                     

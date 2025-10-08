@@ -74,13 +74,9 @@ const About = () => {
     <p className="text-sm text-gray-300 leading-relaxed">
       As a <strong>recent graduate</strong> in <strong>Web Programming and Design</strong> from <strong>Purdue University</strong>, I bring a strong foundation in <strong>data analytics</strong>, <strong>database management</strong>, and <strong>full-stack development</strong>, backed by hands-on <strong>internship experience</strong> and impactful <strong>academic projects</strong>. I specialize in using <strong>SQL</strong>, <strong>Python</strong>, <strong>Tableau</strong>, and <strong>Excel</strong> to clean, analyze, and visualize data, while also leveraging tools like <strong>Looker</strong> and <strong>R</strong> to uncover trends and drive actionable insights.
     </p>
-    
+
     <p className="text-sm text-gray-300 leading-relaxed">
-      Alongside my analytics work, I have experience building <strong>user-friendly digital solutions</strong> using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and design tools such as <strong>Figma</strong> and <strong>Adobe Creative Suite</strong>. This combination of <strong>technical</strong> and <strong>analytical skills</strong> allows me to approach problems from both a <strong>user-centered</strong> and <strong>data-driven perspective</strong>.
-    </p>
-    
-    <p className="text-sm text-gray-300 leading-relaxed">
-      I'm passionate about turning <strong>raw data</strong> into <strong>meaningful stories</strong>, solving <strong>real-world challenges</strong> through <strong>analysis</strong>, and <strong>collaborating with teams</strong> to create <strong>measurable impact</strong>. With a drive to keep <strong>learning</strong>, I'm excited to contribute to <strong>innovative projects</strong> and grow in the <strong>tech industry</strong>.
+      I'm passionate about turning <strong>raw data</strong> into <strong>meaningful stories</strong>, solving <strong>real-world challenges</strong> through <strong>analysis</strong>, and <strong>collaborating with teams</strong> to create <strong>measurable impact</strong>. My background in front-end development and UI/UX enables me to approach problems from both a <strong>user-centered</strong> and <strong>data-driven perspective</strong>.
     </p>
 
 
