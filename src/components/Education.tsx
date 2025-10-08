@@ -93,6 +93,15 @@ const Education: React.FC = () => {
                       <p className="text-gray-300 text-xs font-medium">Certificate:</p>
                       <p className="text-purple-300 text-sm">{education.certificate}</p>
                     </div>
+                    <div>
+                      <p className="text-gray-300 text-xs font-medium mt-3">Involvement:</p>
+                      <ul className="text-purple-300 text-xs space-y-1 mt-1">
+                        <li>• Vice President of External Affairs & Social Chair – Beta Chi Theta</li>
+                        <li>• Purdue IT Professionals (PITP)</li>
+                        <li>• Purdue EVC</li>
+                        <li>• Purdue Association of Learning Design & Technology (PALDT)</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
