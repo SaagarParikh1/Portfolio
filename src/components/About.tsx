@@ -11,20 +11,20 @@ const About = () => {
     },
     {
       icon: <Code className="w-6 h-6" />,
-      title: 'Development',
-      description: 'Full-stack development with modern technologies',
+      title: 'Data Analytics',
+      description: 'SQL, Python, Tableau, Excel for data-driven insights',
       color: 'indigo'
     },
     {
-      icon: <Palette className="w-6 h-6" />,
-      title: 'Design',
-      description: 'UI/UX design with Figma and Adobe Creative Suite',
+      icon: <Target className="w-6 h-6" />,
+      title: 'Problem Solving',
+      description: 'Translating complex data into actionable strategies',
       color: 'violet'
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: 'Collaboration',
-      description: 'Agile methodologies and cross-functional teamwork',
+      title: 'Leadership',
+      description: 'VP External Affairs, Social Chair, Campus Involvement',
       color: 'fuchsia'
     }
   ];
@@ -72,11 +72,11 @@ const About = () => {
 <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
   <div className="space-y-4">
     <p className="text-sm text-gray-300 leading-relaxed">
-      As a <strong>recent graduate</strong> in <strong>Web Programming and Design</strong> from <strong>Purdue University</strong>, I bring a strong foundation in <strong>data analytics</strong>, <strong>database management</strong>, and <strong>full-stack development</strong>, backed by hands-on <strong>internship experience</strong> and impactful <strong>academic projects</strong>. I specialize in using <strong>SQL</strong>, <strong>Python</strong>, <strong>Tableau</strong>, and <strong>Excel</strong> to clean, analyze, and visualize data, while also leveraging tools like <strong>Looker</strong> and <strong>R</strong> to uncover trends and drive actionable insights.
+      As a <strong>recent graduate</strong> in <strong>Web Programming and Design</strong> from <strong>Purdue University</strong>, I bring a strong foundation in <strong>data analytics</strong>, <strong>product thinking</strong>, and <strong>front-end development</strong>, backed by hands-on <strong>internship experience</strong> and impactful <strong>projects</strong>.   I specialize in <strong>SQL</strong>, <strong>Python</strong>, <strong>Tableau</strong>, and <strong>Excel</strong> to transform complex datasets into clear, actionable insights. I write efficient queries, automate reporting workflows, and build interactive dashboards that help teams track performance, uncover trends, and make data-informed decisions.
     </p>
 
     <p className="text-sm text-gray-300 leading-relaxed">
-      I'm passionate about turning <strong>raw data</strong> into <strong>meaningful stories</strong>, solving <strong>real-world challenges</strong> through <strong>analysis</strong>, and <strong>collaborating with teams</strong> to create <strong>measurable impact</strong>. My background in front-end development and UI/UX enables me to approach problems from both a <strong>user-centered</strong> and <strong>data-driven perspective</strong>.
+      I'm passionate about turning <strong>raw data</strong> into <strong>meaningful stories</strong>, solving <strong>real-world challenges</strong> through <strong>analysis</strong>, and <strong>collaborating with teams</strong>. My background in front-end development and UI/UX design allows me to bridge the gap between data and users, building intuitive, insight-driven solutions that create <strong>measurable business impact</strong>.
     </p>
 
 

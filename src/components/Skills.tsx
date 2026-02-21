@@ -12,31 +12,17 @@ const skillCategories = [
     icon: <Database className="w-6 h-6" />,
     color: "purple",
     skills: [
-      "SQL (BigQuery, MySQL, SQL Server)",
-      "Python (Pandas, Matplotlib, Jupyter)",
-      "R",
+      "SQL (BigQuery, MySQL)",
+      "Python",
       "Tableau",
-      "Looker",
       "Excel",
       "Data Cleaning",
-      "Exploratory Analysis",
-      "Visualization Design",
+      "Data Visualization",
+      "Trend Analysis",
       "A/B Testing",
       "Hypothesis Testing",
-      "Statistical & Predictive Modeling"
-    ]
-  },
-  {
-    title: "Backend Development",
-    icon: <Settings className="w-6 h-6" />,
-    color: "emerald",
-    skills: [
-      ".NET / C#",
-      "Python",
-      "Node.js",
-      "REST API Integration",
-      "MySQL / SQL Server",
-      "PHP"
+      "Statistical & Predictive Modeling",
+      "Jupyter Notebook"
     ]
   },
   {
@@ -49,9 +35,22 @@ const skillCategories = [
       "React",
       "TypeScript",
       "Tailwind CSS",
-      "jQuery",
       "Bootstrap",
+      "UI/UX Design",
       "Flutter/Dart"
+    ]
+  },
+  {
+    title: "Backend Development",
+    icon: <Settings className="w-6 h-6" />,
+    color: "emerald",
+    skills: [
+      "Python",
+      "Node.js",
+      "REST API Integration",
+      "MySQL / SQL Server",
+      "PHP",
+      "Database Design"
     ]
   },
   {
@@ -59,12 +58,12 @@ const skillCategories = [
     icon: <Palette className="w-6 h-6" />,
     color: "indigo",
     skills: [
-      "GitHub",
+      "Git/GitHub",
       "Figma",
       "Adobe Creative Suite",
-      "UI/UX Design",
-      "Shopify",
-      "Agile Methodologies"
+      "Google Suite (Sheets/Slides/Docs)",
+      "Agile Methodologies",
+      "UX Research"
     ]
   }
 ];
@@ -221,8 +220,7 @@ const skillCategories = [
             <h4 className="text-sm font-semibold text-white mb-3 text-center">Additional Technologies</h4>
             <div className="flex flex-wrap justify-center gap-2">
               {[
-                'Supabase', 'Cross-browser Compatibility',
-                'Accessibility', 'Data Visualization', 'Usability Testing', 'DevOps', 'MVC Architecture'
+                'Supabase', 'Accessibility', 'Usability Testing', 'Product Thinking', 'KPI Analysis', 'Dashboarding'
               ].map((tech, index) => (
                 <span
                   key={index}

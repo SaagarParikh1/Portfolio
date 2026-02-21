@@ -41,10 +41,10 @@ const DataVisualization: React.FC = () => {
     },
     {
       id: 2,
-      title: 'E-commerce Performance (Shopify) KPI Suite',
-      subtitle: 'Revenue, AOV, CR, retention cohorts',
+      title: 'E-Commerce Revenue & Customer Intelligence Dashboard',
+      subtitle: 'Executive KPIs, retention, and geographic insights',
       description:
-        'Built exec dashboards tracking revenue, AOV, conversion rate, repeat purchase, and channel mix. Automated weekly refresh; added cohort retention views.',
+        'Engineered executive KPIs from 25,000+ transactional records using advanced SQL. Designed interactive dashboards with time-series revenue analysis, geographic segmentation, and top-product performance insights.',
       image:
         'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
 
@@ -53,16 +53,16 @@ const DataVisualization: React.FC = () => {
       bgColor: 'bg-emerald-600/20',
       borderColor: 'border-emerald-400/30',
       highlights: [
-        'Cohort analysis for 30/60/90-day retention',
-        'Attribution mix readout by campaign/channel',
-        'Alerting for sudden CR/AOV deltas'
+        'Engineered Total Revenue, AOV, Retention Rate, and Revenue Concentration KPIs',
+        'Advanced SQL aggregations and window functions for complex metrics',
+        'Modeled month-over-month growth and customer purchase frequency patterns'
       ],
-      technologies: ['Tableau', 'Looker Studio', 'Shopify Data', 'SQL'],
+      technologies: ['Tableau', 'SQL', 'Shopify Data', 'Excel', 'Data Analysis'],
       type: 'Data Analytics Project',
       hasLiveDemo: false,
       hasGithub: false,
       detailedDescription:
-        'Modeled order/customer tables for clean metrics. Built cohort retention and CAC-to-LTV snapshots for weekly reviews. Added calculated fields and parameter controls for drill-downs.'
+        'Engineered executive KPIs (Total Revenue, AOV, Retention Rate, Revenue Concentration) from 25,000+ transactional records using advanced SQL (aggregations, window functions). Designed interactive Tableau dashboards with time-series revenue analysis, geographic segmentation, and top-product performance insights. Modeled month-over-month growth and customer purchase frequency to simulate real-world BI reporting and stakeholder decision support.'
     },
     {
       id: 3,
@@ -156,7 +156,7 @@ const DataVisualization: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Data Analytics Work
+            Analytics Projects
           </h2>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Turning messy datasets into clear, interactive visuals that drive product and business decisions

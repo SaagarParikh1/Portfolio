@@ -65,8 +65,8 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {/* First part of nav items */}
-            {navItems.slice(0, 3).map((item) => (
+            {/* First two nav items */}
+            {navItems.slice(0, 2).map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -82,51 +82,24 @@ const Header = () => {
                 )}
               </button>
             ))}
-            
-            {/* Projects Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setShowProjectsDropdown(true)}
-              onMouseLeave={() => setTimeout(() => setShowProjectsDropdown(false), 800)}
+
+            {/* Projects link */}
+            <button
+              onClick={() => scrollToSection('data-visualization')}
+              className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative ${
+                activeSection === 'data-visualization' || activeSection === 'projects'
+                  ? 'text-purple-300'
+                  : 'text-gray-300 hover:text-purple-300'
+              }`}
             >
-              <button
-                onClick={() => scrollToSection('data-visualization')}
-                className={`px-3 py-2 text-sm font-medium transition-all duration-5000 relative flex items-center space-x-1 ${
-                  activeSection === 'data-visualization' || activeSection === 'projects'
-                    ? 'text-purple-300'
-                    : 'text-gray-300 hover:text-purple-300'
-                }`}
-              >
-                <span>Projects</span>
-                <ChevronDown className="w-3 h-3" />
-                {(activeSection === 'data-visualization' || activeSection === 'projects') && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-400 rounded-full"></div>
-                )}
-              </button>
-              
-              {/* Dropdown Menu */}
-              {showProjectsDropdown && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-gray-900/95 backdrop-blur-sm rounded-lg border border-purple-500/30 shadow-xl">
-                  <div className="py-2">
-                    <button
-                      onClick={() => scrollToSection('data-visualization')}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-purple-300 hover:bg-purple-900/30 transition-colors duration-300"
-                    >
-                      Data Visualization
-                    </button>
-                    <button
-                      onClick={() => scrollToSection('projects')}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-purple-300 hover:bg-purple-900/30 transition-colors duration-300"
-                    >
-                      Web Dev Projects
-                    </button>
-                  </div>
-                </div>
+              Projects
+              {(activeSection === 'data-visualization' || activeSection === 'projects') && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-400 rounded-full"></div>
               )}
-            </div>
+            </button>
 
             {/* Remaining nav items */}
-            {navItems.slice(3).map((item) => (
+            {navItems.slice(2).map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -168,8 +141,8 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-purple-500/20">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {/* First part of nav items */}
-            {navItems.slice(0, 3).map((item) => (
+            {/* First two nav items */}
+            {navItems.slice(0, 2).map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -182,26 +155,18 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
-            
-            {/* Mobile Projects Section */}
-            <div className="border-t border-gray-700 pt-2 mt-2">
-              <button
-                onClick={() => scrollToSection('data-visualization')}
-                className="block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 text-gray-300 hover:text-purple-300 hover:bg-gray-800/50"
-              >
-                Data Visualization
-              </button>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 text-gray-300 hover:text-purple-300 hover:bg-gray-800/50"
-              >
-                Web Dev Projects
-              </button>
-            </div>
+
+            {/* Projects item */}
+            <button
+              onClick={() => scrollToSection('data-visualization')}
+              className="block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 text-gray-300 hover:text-purple-300 hover:bg-gray-800/50"
+            >
+              Projects
+            </button>
 
             {/* Remaining nav items */}
             <div className="border-t border-gray-700 pt-2 mt-2">
-              {navItems.slice(3).map((item) => (
+              {navItems.slice(2).map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}

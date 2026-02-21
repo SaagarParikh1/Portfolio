@@ -19,7 +19,6 @@ interface Project {
   outcomes?: string[];
   images?: string[];        // used by the carousel
   figmaLink?: string;
-  githubUrl?: string;       // optional: enable real links
   liveDemoUrl?: string;     // optional: enable real links
 }
 

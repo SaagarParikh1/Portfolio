@@ -95,7 +95,7 @@ const Hero = () => {
             </div>
 
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-              Data Analyst skilled in Excel, SQL, Python, and Tableau, with experience in data cleaning, visualization, and statistical modeling. Strong background in front-end development and UI/UX, bringing a blend of technical and analytical skills to translate stakeholder needs into actionable insights and measurable business impact.
+              Product and Data Analyst with experience driving user-centered product development through analytics, UX research, dashboarding, and front-end development. Skilled in using SQL, Tableau, Excel, and Python to transform large, complex datasets into executive-ready insights across startup and enterprise environments. Passionate about AI, emerging technologies, and how they can drive measurable business impact.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mb-12">

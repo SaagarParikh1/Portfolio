@@ -4,30 +4,30 @@ import { Calendar, MapPin, Building, CheckCircle, TrendingUp, BarChart3 } from '
 const Experience = () => {
   const experiences = [
     {
-      title: 'Front-End Web Developer',
+      title: 'Front-End Web Developer (Contract)',
       company: 'Masergy Communications',
       duration: 'May 2024 - Aug 2024',
       location: 'Remote',
       accomplishments: [
-        'Migrated and rebranded 15+ internal HR pages using React, TypeScript, and HTML/CSS, aligning with Comcast\'s design system and improving usability for 2,000+ internal users.',
-        'Created reusable UI component libraries with React + GitHub CI/CD, enhancing consistency and scalability across teams.',
-        'Conducted QA testing and resolved 30+ cross-browser bugs using Chrome DevTools, Webpack, and Vite, accelerating deployment timelines and ensuring platform stability.'
+        'Translated enterprise HR product requirements by migrating and rebranding 15+ enterprise platform pages using React and TypeScript, aligning enhancements with business and performance goals.',
+        'Accelerated feature development and UI consistency by building reusable UI components, contributing to shared component libraries, and supporting GitHub CI/CD pipelines across internal applications.',
+        'Collaborated with product owners, QA, and engineering teams to refine feature requirements and iterate on releases by resolving 30+ cross-browser issues, strengthening brand consistency, and improving overall user experience.'
       ],
-      technologies: ['React', 'TypeScript', 'HTML/CSS', 'GitHub CI/CD', 'Chrome DevTools', 'Webpack', 'Vite'],
+      technologies: ['React', 'TypeScript', 'HTML/CSS', 'GitHub CI/CD', 'Chrome DevTools', 'Vite'],
       icon: <CheckCircle className="w-6 h-6" />,
       color: 'violet'
     },
     {
-      title: 'Data Analyst Intern',
+      title: 'Product Development Intern',
       company: 'Flomad Labs R&D',
       duration: 'May 2023 - Aug 2023',
       location: 'Remote',
       accomplishments: [
-        'Built Snowflake pipelines to clean and aggregate multi-source behavioral and biometric datasets using SQL (CTEs, window functions) and Python (pandas, NumPy), reducing processing time by 20% on 500K+ rows.',
-        'Collaborated with ML researchers to analyze smart monitoring data, uncover behavioral trends, and improve model accuracy by 8%.',
-        'Delivered Tableau dashboards to visualize mood trends, health anomalies, and KPIs, supporting the team in identifying feature gaps and shaping roadmap priorities.'
+        'Conducted advanced SQL and Python analysis on behavioral and biometric datasets to define KPIs and validate digital performance metrics used in executive dashboards.',
+        'Delivered Tableau dashboards and KPI visualizations to stakeholders to monitor health metrics, anomaly detection, and product experimentation workflows, translating complex findings into actionable product and business recommendations.',
+        'Increased experiment reliability by collaborating with ML researchers and engineers to define success metrics, validate outputs, and support product discovery and iteration cycles.'
       ],
-      technologies: ['Snowflake', 'SQL', 'Python', 'pandas', 'NumPy', 'Tableau', 'Machine Learning'],
+      technologies: ['SQL', 'Python', 'Tableau', 'Snowflake', 'Excel', 'Product Analytics'],
       icon: <BarChart3 className="w-6 h-6" />,
       color: 'purple'
     },
@@ -37,9 +37,9 @@ const Experience = () => {
       duration: 'June 2022 - Aug 2022',
       location: 'Remote',
       accomplishments: [
-        'Processed and analyzed 50K+ customer financial records using SQL, Python, and Excel to refine risk models, improving loan eligibility accuracy by 6% and reducing false rejections.',
-        'Detected fraudulent transaction patterns with data mining + regex-based feature engineering, strengthening compliance controls and lowering risk exposure.',
-        'Automated risk assessment reporting with Python scripts, saving 10+ hours/week and cutting loan approval turnaround by 10%.'
+        'Improved loan risk and eligibility model accuracy by 6% by analyzing 50K+ financial records using SQL, Python, Excel, and statistical techniques to identify predictive behavioral features.',
+        'Reduced fraud exposure by detecting unusual transaction patterns through data mining, risk segmentation, and compliance analysis.',
+        'Automated KPI reporting workflows using Python scripts and Excel pipelines, saving 10+ hours/week and improving operational visibility and turnaround time.'
       ],
       technologies: ['SQL', 'Python', 'Excel', 'Data Mining', 'Risk Modeling', 'Process Automation'],
       icon: <TrendingUp className="w-6 h-6" />,
