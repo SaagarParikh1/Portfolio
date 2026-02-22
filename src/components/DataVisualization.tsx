@@ -46,7 +46,7 @@ const DataVisualization: React.FC = () => {
       description:
         'Engineered executive KPIs from 25,000+ transactional records using advanced SQL. Designed interactive dashboards with time-series revenue analysis, geographic segmentation, and top-product performance insights.',
       image:
-        'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+        '/images/datavisualizations/ecommdash.png',
 
       icon: <TrendingUp />,
       iconColor: 'text-emerald-400',
@@ -71,7 +71,7 @@ const DataVisualization: React.FC = () => {
       description:
         'Analyzed long-term climate indicators and extreme-event frequency. Trend lines, rolling windows, and anomaly detection to surface regional risk patterns.',
       image:
-        'https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=800',
+        '/images/datavisualizations/weatherfinal.png',
 
       icon: <PieChart />,
       iconColor: 'text-fuchsia-400',
@@ -97,7 +97,7 @@ const DataVisualization: React.FC = () => {
       description:
         'Modeled injury patterns across seasons and linked availability to team outcomes. Position/team splits and interactive timelines.',
       image:
-        'https://images.pexels.com/photos/3970330/pexels-photo-3970330.jpeg?auto=compress&cs=tinysrgb&w=800',
+        '/images/datavisualizations/nbadash.png',
 
       icon: <Eye />,
       iconColor: 'text-yellow-400',
@@ -115,31 +115,6 @@ const DataVisualization: React.FC = () => {
       githubUrl: 'https://github.com/SaagarParikh1/NBAInjuryRiskCaseStudy',
       detailedDescription:
         'Cleaned box scores and injury logs, engineered availability features, and tested simple models to estimate impact on team-level performance.'
-    },
-    {
-      id: 5,
-      title: 'Ball Analytics — Film Markup & Playbook Metrics',
-      subtitle: 'Coaching assistant: tendencies & success rate',
-      description:
-        'Early product visuals: play frequency, success rates by formation, and opponent tendencies, with export flows to Hudl/XOS.',
-      image:
-        'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
-
-      icon: <Database />,
-      iconColor: 'text-purple-400',
-      bgColor: 'bg-purple-600/20',
-      borderColor: 'border-purple-400/30',
-      highlights: [
-        'Play tagging → analytics pipeline',
-        'Formation/coverage breakdowns',
-        'Export flows for coaching platforms'
-      ],
-      technologies: ['Flutter/Dart', 'Supabase', 'Python', 'Product Analytics'],
-      type: 'Product & Data Project',
-      hasLiveDemo: false,
-      hasGithub: false,
-      detailedDescription:
-        'Defined early metrics and visuals, prototyped film-tag pipelines, and designed dashboards to fit coaching workflows.'
     }
   ];
 
