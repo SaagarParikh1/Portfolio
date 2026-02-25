@@ -21,7 +21,7 @@ const Projects = () => {
       image: '/images/NeuroNotes/home.png',
       images: [
         '/images/NeuroNotes/home.png',
-        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.56.38 AM.png',
+        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.56.38 AM.png',
         '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.38 AM.png',
         '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.53 AM.png'
       ],

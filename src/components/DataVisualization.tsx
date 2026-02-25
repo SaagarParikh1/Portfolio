@@ -13,31 +13,30 @@ const DataVisualization: React.FC = () => {
   const projects = [
     {
       id: 1,
-      // Card content
-      title: 'Cyclistic Member Conversion Dashboard',
-      subtitle: 'Ride patterns → conversion strategy',
+      title: 'NBA Injury & Availability Analytics',
+      subtitle: 'Availability impact on team performance',
       description:
-        'Explored usage patterns of casual vs. annual riders and recommended conversion tactics. Segmented by ride length, day-of-week, and top station clusters with funnel-style insights.',
+        'Modeled injury patterns across seasons and linked availability to team outcomes. Position/team splits and interactive timelines.',
       image:
-        'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
+        '/images/datavisualizations/nbadash.png',
 
-      // Modal content (ProjectModal expects these)
-      icon: <BarChart3 />,
-      iconColor: 'text-indigo-400',
-      bgColor: 'bg-indigo-600/20',
-      borderColor: 'border-indigo-400/30',
+      icon: <Eye />,
+      iconColor: 'text-yellow-400',
+      bgColor: 'bg-yellow-600/20',
+      borderColor: 'border-yellow-400/30',
       highlights: [
-        'Segmented cohorts by ride length and weekday patterns',
-        'Identified top pickup/return clusters to target promos',
-        'Outlined 3 conversion levers (passes, bundles, geo-targeting)'
+        'Time-to-return and injury frequency by position',
+        'On/Off availability effect estimates',
+        'Team-level availability dashboards'
       ],
-      technologies: ['SQL (BigQuery)', 'Python (Pandas)', 'Tableau', 'Excel'],
+      technologies: ['Python (Pandas)', 'Jupyter', 'Matplotlib', 'Scikit-learn'],
       type: 'Data Analytics Project',
       hasLiveDemo: false,
       hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/cyclistic_case_study',
+      githubUrl: 'https://github.com/SaagarParikh1/NBAInjuryRiskCaseStudy',
       detailedDescription:
-        'Cleaned and joined multi-month ride logs, engineered features like ride_length and day_of_week, and visualized behaviors across clusters. Produced stakeholder-ready recs with experiment ideas.'
+        'Cleaned box scores and injury logs, engineered availability features, and tested simple models to estimate impact on team-level performance.',
+      images: ['/images/datavisualizations/nbadash.png']
     },
     {
       id: 2,
@@ -62,7 +61,8 @@ const DataVisualization: React.FC = () => {
       hasLiveDemo: false,
       hasGithub: false,
       detailedDescription:
-        'Engineered executive KPIs (Total Revenue, AOV, Retention Rate, Revenue Concentration) from 25,000+ transactional records using advanced SQL (aggregations, window functions). Designed interactive Tableau dashboards with time-series revenue analysis, geographic segmentation, and top-product performance insights. Modeled month-over-month growth and customer purchase frequency to simulate real-world BI reporting and stakeholder decision support.'
+        'Engineered executive KPIs (Total Revenue, AOV, Retention Rate, Revenue Concentration) from 25,000+ transactional records using advanced SQL (aggregations, window functions). Designed interactive Tableau dashboards with time-series revenue analysis, geographic segmentation, and top-product performance insights. Modeled month-over-month growth and customer purchase frequency to simulate real-world BI reporting and stakeholder decision support.',
+      images: ['/images/datavisualizations/ecommdash.png']
     },
     {
       id: 3,
@@ -88,33 +88,35 @@ const DataVisualization: React.FC = () => {
       hasGithub: true,
       githubUrl: 'https://github.com/SaagarParikh1/WeatherEvents-ClimateChange',
       detailedDescription:
-        'Compiled multi-source datasets, normalized units, and built anomaly flags. Visuals emphasize seasonality and deviations, with callouts for policy/infra risk.'
+        'Compiled multi-source datasets, normalized units, and built anomaly flags. Visuals emphasize seasonality and deviations, with callouts for policy/infra risk.',
+      images: ['/images/datavisualizations/weatherfinal.png']
     },
     {
       id: 4,
-      title: 'NBA Injury & Availability Analytics',
-      subtitle: 'Availability impact on team performance',
+      title: 'Cyclistic Member Conversion Dashboard',
+      subtitle: 'Ride patterns → conversion strategy',
       description:
-        'Modeled injury patterns across seasons and linked availability to team outcomes. Position/team splits and interactive timelines.',
+        'Explored usage patterns of casual vs. annual riders and recommended conversion tactics. Segmented by ride length, day-of-week, and top station clusters with funnel-style insights.',
       image:
-        '/images/datavisualizations/nbadash.png',
+        'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
 
-      icon: <Eye />,
-      iconColor: 'text-yellow-400',
-      bgColor: 'bg-yellow-600/20',
-      borderColor: 'border-yellow-400/30',
+      icon: <BarChart3 />,
+      iconColor: 'text-indigo-400',
+      bgColor: 'bg-indigo-600/20',
+      borderColor: 'border-indigo-400/30',
       highlights: [
-        'Time-to-return and injury frequency by position',
-        'On/Off availability effect estimates',
-        'Team-level availability dashboards'
+        'Segmented cohorts by ride length and weekday patterns',
+        'Identified top pickup/return clusters to target promos',
+        'Outlined 3 conversion levers (passes, bundles, geo-targeting)'
       ],
-      technologies: ['Python (Pandas)', 'Jupyter', 'Matplotlib', 'Scikit-learn'],
+      technologies: ['SQL (BigQuery)', 'Python (Pandas)', 'Tableau', 'Excel'],
       type: 'Data Analytics Project',
       hasLiveDemo: false,
       hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/NBAInjuryRiskCaseStudy',
+      githubUrl: 'https://github.com/SaagarParikh1/cyclistic_case_study',
       detailedDescription:
-        'Cleaned box scores and injury logs, engineered availability features, and tested simple models to estimate impact on team-level performance.'
+        'Cleaned and joined multi-month ride logs, engineered features like ride_length and day_of_week, and visualized behaviors across clusters. Produced stakeholder-ready recs with experiment ideas.',
+      images: ['https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800']
     }
   ];
 

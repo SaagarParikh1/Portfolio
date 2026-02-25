@@ -117,13 +117,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Resume Download Button */}
-          <div className="hidden md:flex">
-            <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-all duration-300 flex items-center space-x-2 hover:scale-105">
-              <Download className="w-4 h-4" />
-              <span>Resume</span>
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -181,12 +174,6 @@ const Header = () => {
               ))}
             </div>
             
-            <div className="pt-2">
-              <button className="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2">
-                <Download className="w-4 h-4" />
-                <span>Resume</span>
-              </button>
-            </div>
           </div>
         </div>
       )}
