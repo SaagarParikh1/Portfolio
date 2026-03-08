@@ -6,11 +6,38 @@ import {
 import ProjectModal from './ProjectModal';
 
 const DataVisualization: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<number | null>(0);
+  const [selectedProject, setSelectedProject] = useState<number | null>(0); 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Portfolio projects (content only — UI unchanged)
   const projects = [
+    {
+      id: 0,
+      title: 'NIL Athlete Valuation Modeling & Market Analysis',
+      subtitle: 'Predictive modeling for athlete brand economics',
+      description:
+        'Analyzed the NIL marketplace across 300+ Division 1 athletes by combining valuation rankings, social media metrics, and performance data using SQL (BigQuery), Excel, and Python.',
+      image:
+        '/images/NIL/NIL Market Overview.png',
+
+      icon: <TrendingUp />,
+      iconColor: 'text-blue-400',
+      bgColor: 'bg-blue-600/20',
+      borderColor: 'border-blue-400/30',
+      highlights: [
+        'Analyzed 300+ D1 athletes with valuation rankings and social media metrics',
+        'Developed predictive linear regression model with feature engineering and log transformations',
+        'Built interactive Tableau dashboards showing model predictions vs actual valuations'
+      ],
+      technologies: ['BigQuery', 'SQL', 'Python', 'BigQuery ML', 'Tableau', 'Excel'],
+      type: 'Data Analytics Project',
+      hasLiveDemo: true,
+      hasGithub: false,
+      liveDemoUrl: 'https://nil-value-drivers-an-8oih.bolt.host/',
+      detailedDescription:
+        'Developed a predictive linear regression model in BigQuery ML, applying feature engineering, log transformations, and composite performance metrics to estimate expected NIL valuations and identify market inefficiencies (over/undervalued athletes). Built interactive Tableau dashboards visualizing model predictions vs actual NIL valuations, social media influence, and positional market share to highlight patterns in athlete brand economics.',
+      images: ['/images/NIL/NIL Market Overview.png']
+    },
     {
       id: 1,
       title: 'NBA Injury & Availability Analytics',
