@@ -35,18 +35,18 @@ const Hero = () => {
         <div className="absolute bottom-[12%] right-[10%] h-32 w-32 rounded-full border border-white/10" />
       </div>
 
-      <div className="section-shell relative z-10 py-16 sm:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+      <div className="section-shell relative z-10 py-12 sm:py-16">
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.96fr] lg:items-end">
           <div className="reveal-rise">
             <span className="eyebrow-pill">Portfolio 2026</span>
             <p className="mt-8 text-sm uppercase tracking-[0.32em] text-[color:var(--muted)]">
               Saagar Parikh
             </p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.95] text-[var(--text)] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-4 max-w-3xl text-[clamp(3.15rem,7vw,5.5rem)] font-semibold leading-[0.98] text-[var(--text)]">
               Turning messy data into decisions, dashboards, and polished product experiences.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[color:var(--muted)] sm:text-lg sm:leading-8">
               Data analyst with experience across fintech, health-tech, and enterprise
               environments. I use SQL, Python, Tableau, and product thinking to uncover the
               signal, then shape it into work stakeholders can act on.
@@ -114,7 +114,7 @@ const Hero = () => {
             className="surface reveal-rise overflow-hidden rounded-[2rem]"
             style={{ animationDelay: '140ms' }}
           >
-            <div className="grid gap-4 p-4 sm:grid-cols-[1.02fr_0.98fr]">
+            <div className="grid gap-4 p-4 md:grid-cols-[1.02fr_0.98fr]">
               <div className="relative min-h-[24rem] overflow-hidden rounded-[1.5rem]">
                 <img
                   src="/images/profile.jpeg"
@@ -126,7 +126,7 @@ const Hero = () => {
                   <p className="text-xs uppercase tracking-[0.28em] text-[rgba(246,240,229,0.72)]">
                     Analyst • Builder • Collaborator
                   </p>
-                  <p className="mt-3 max-w-xs text-2xl font-semibold leading-tight text-[var(--text)]">
+                  <p className="mt-3 max-w-xs text-xl font-semibold leading-tight text-[var(--text)] sm:text-2xl">
                     Comfortable in SQL notebooks, product conversations, and front-end delivery.
                   </p>
                 </div>
@@ -137,13 +137,13 @@ const Hero = () => {
                   Selected impact
                 </p>
 
-                <div className="mt-6 space-y-5">
-                  {impactNotes.map((item, index) => (
+                <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2">
+                  {impactNotes.map((item) => (
                     <div
                       key={item.label}
-                      className={`pb-5 ${index !== impactNotes.length - 1 ? 'border-b border-white/10' : ''}`}
+                      className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4"
                     >
-                      <p className="text-3xl font-semibold text-[var(--text)]">{item.value}</p>
+                      <p className="text-2xl font-semibold text-[var(--text)]">{item.value}</p>
                       <p className="mt-1 text-sm leading-6 text-[color:var(--muted)]">{item.label}</p>
                     </div>
                   ))}

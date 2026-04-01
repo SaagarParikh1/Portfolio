@@ -70,7 +70,7 @@ const Header = () => {
             </button>
           </div>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-5 lg:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -89,7 +89,7 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.26em] text-[color:var(--muted)]">
               Open to relocation
             </span>

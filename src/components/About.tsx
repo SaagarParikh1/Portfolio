@@ -50,15 +50,15 @@ const About = () => {
 
           <div className="space-y-6">
             <p className="section-copy max-w-none">
-              Your portfolio should make one thing unmistakable: what happens when someone brings
-              you into the room. In my case, that means translating large, messy datasets into
-              clearer decisions, stronger product direction, and stakeholder-ready dashboards.
+              I translate large, messy datasets into clearer decisions, stronger product direction,
+              and stakeholder-ready dashboards. The work is most rewarding when it helps a team move
+              faster with more confidence, not just when the analysis is technically correct.
             </p>
             <p className="section-copy max-w-none">
               I have worked across enterprise UX delivery, health-tech product analysis, and
               fintech risk modeling. That mix gives me a practical lens on business questions,
-              experimentation, and user-facing execution instead of analysis that lives only in a
-              notebook.
+              experimentation, and user-facing execution instead of analysis that stays trapped in a
+              notebook or dashboard nobody uses.
             </p>
 
             <div className="grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">

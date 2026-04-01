@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -12,6 +12,8 @@ import Footer from './components/Footer';
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const cursorCoreRef = useRef<HTMLDivElement | null>(null);
+  const cursorRingRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,82 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const cursorCore = cursorCoreRef.current;
+    const cursorRing = cursorRingRef.current;
+
+    if (!cursorCore || !cursorRing) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    if (!mediaQuery.matches) {
+      return;
+    }
+
+    const interactiveSelector = 'a, button, [role="button"], input, textarea, select, label';
+
+    const updateCursorPosition = (x: number, y: number) => {
+      cursorCore.style.setProperty('--cursor-x', `${x}px`);
+      cursorCore.style.setProperty('--cursor-y', `${y}px`);
+      cursorRing.style.setProperty('--cursor-x', `${x}px`);
+      cursorRing.style.setProperty('--cursor-y', `${y}px`);
+    };
+
+    const setCursorState = (className: string, active: boolean) => {
+      cursorCore.classList.toggle(className, active);
+      cursorRing.classList.toggle(className, active);
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      updateCursorPosition(event.clientX, event.clientY);
+      setCursorState('is-visible', true);
+    };
+
+    const handleMouseOver = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
+
+      setCursorState('is-hovering', Boolean(event.target.closest(interactiveSelector)));
+    };
+
+    const handleMouseDown = () => {
+      setCursorState('is-pressed', true);
+    };
+
+    const handleMouseUp = () => {
+      setCursorState('is-pressed', false);
+    };
+
+    const handleWindowExit = (event: MouseEvent) => {
+      if (event.relatedTarget !== null) {
+        return;
+      }
+
+      setCursorState('is-visible', false);
+      setCursorState('is-hovering', false);
+      setCursorState('is-pressed', false);
+    };
+
+    document.body.classList.add('cursor-enhanced');
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseover', handleMouseOver);
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener('mouseout', handleWindowExit);
+
+    return () => {
+      document.body.classList.remove('cursor-enhanced');
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('mouseout', handleWindowExit);
+    };
+  }, []);
+
   return (
     <div className="page-shell min-h-screen">
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -33,6 +111,8 @@ function App() {
         <div className="absolute right-[-12rem] top-[18rem] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,_rgba(109,137,135,0.14),_transparent_68%)] blur-3xl" />
         <div className="absolute bottom-[-12rem] left-1/2 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.06),_transparent_70%)] blur-3xl" />
       </div>
+      <div ref={cursorRingRef} aria-hidden="true" className="cursor-ring" />
+      <div ref={cursorCoreRef} aria-hidden="true" className="cursor-core" />
 
       <Header />
 

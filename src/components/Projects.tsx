@@ -424,6 +424,18 @@ const Projects = () => {
 
   const currentImage = activeImages[activeImageIndex];
 
+  const showPreviousProject = () => {
+    setActiveProjectIndex((currentIndex) =>
+      currentIndex === 0 ? featuredProjects.length - 1 : currentIndex - 1,
+    );
+  };
+
+  const showNextProject = () => {
+    setActiveProjectIndex((currentIndex) =>
+      currentIndex === featuredProjects.length - 1 ? 0 : currentIndex + 1,
+    );
+  };
+
   return (
     <section id="projects" className="py-24">
       <div className="section-shell">
@@ -436,19 +448,19 @@ const Projects = () => {
             </h2>
           </div>
           <p className="section-copy max-w-xl">
-            I wanted this section to read more like case-study signal and less like a grid of
-            equally weighted projects. The featured work below covers analytics, product thinking,
-            and front-end delivery.
+            The featured work below gives the best read on how I approach analytics, product
+            thinking, and implementation. The archive keeps the rest accessible without making the
+            page harder to navigate.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[0.36fr_0.64fr]">
+        <div className="mt-14 grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
           <div className="space-y-3">
             {featuredProjects.map((project, index) => (
               <button
                 key={project.title}
                 onClick={() => setActiveProjectIndex(index)}
-                className={`w-full rounded-[1.5rem] border px-5 py-5 text-left transition duration-300 ${
+                className={`w-full rounded-[1.35rem] border px-5 py-4 text-left transition duration-300 ${
                   index === activeProjectIndex
                     ? 'border-[rgba(208,160,93,0.4)] bg-[rgba(255,255,255,0.06)]'
                     : 'border-white/10 bg-[rgba(255,255,255,0.03)] hover:border-white/20 hover:bg-[rgba(255,255,255,0.045)]'
@@ -459,13 +471,16 @@ const Projects = () => {
                     <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                       {project.category}
                     </p>
-                    <h3 className="mt-2 text-2xl font-semibold text-[var(--text)]">
+                    <h3 className="mt-2 text-xl font-semibold text-[var(--text)] sm:text-[1.35rem]">
                       {project.title}
                     </h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[color:var(--muted)]">
+                      {project.period ?? project.role ?? project.label}
+                    </p>
                   </div>
                   <span className="text-sm text-[color:var(--muted)]">0{index + 1}</span>
                 </div>
-                <p className="mt-4 text-sm leading-6 text-[color:var(--muted)]">{project.summary}</p>
+                <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">{project.headline}</p>
               </button>
             ))}
           </div>
@@ -548,18 +563,39 @@ const Projects = () => {
               </div>
 
               <div className="p-6 sm:p-8">
-                {featuredMeta && (
-                  <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
-                    {featuredMeta}
-                  </p>
-                )}
-                <h3 className="mt-4 text-3xl font-semibold text-[var(--text)]">
-                  {activeProject.title}
-                </h3>
-                <p className="mt-3 text-lg leading-7 text-[var(--accent-strong)]">
+                <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    {featuredMeta && (
+                      <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                        {featuredMeta}
+                      </p>
+                    )}
+                    <h3 className="mt-3 text-2xl font-semibold text-[var(--text)] sm:text-[2rem]">
+                      {activeProject.title}
+                    </h3>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={showPreviousProject}
+                      className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                      aria-label="Previous featured project"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={showNextProject}
+                      className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                      aria-label="Next featured project"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <p className="mt-5 text-base leading-7 text-[var(--accent-strong)] sm:text-[1.05rem]">
                   {activeProject.headline}
                 </p>
-                <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
+                <p className="mt-4 text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
                   {activeProject.summary}
                 </p>
 
@@ -637,8 +673,8 @@ const Projects = () => {
         <div className="mt-20 grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
             <p className="section-kicker">Project Archive</p>
-            <h3 className="text-3xl font-semibold text-[var(--text)]">Additional builds worth scanning.</h3>
-            <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
+            <h3 className="text-2xl font-semibold text-[var(--text)] sm:text-3xl">Additional builds worth scanning.</h3>
+            <p className="mt-4 text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
               These projects are still part of the story, but the archive keeps them lighter so the
               strongest work stays easy to find.
             </p>
@@ -666,13 +702,13 @@ const Projects = () => {
                 <button
                   key={project.title}
                   onClick={() => setSelectedProject(project)}
-                  className="grid w-full gap-4 px-5 py-5 text-left transition duration-300 hover:bg-white/5 md:grid-cols-[1.4fr_1fr_auto] md:items-center"
+                  className="grid w-full gap-3 px-5 py-5 text-left transition duration-300 hover:bg-white/5 md:grid-cols-[1.25fr_0.95fr_auto] md:items-center"
                 >
                   <div>
                     <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                       {project.category}
                     </p>
-                    <h4 className="mt-2 text-xl font-semibold text-[var(--text)]">
+                    <h4 className="mt-2 text-lg font-semibold text-[var(--text)] sm:text-xl">
                       {project.title}
                     </h4>
                     <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">
