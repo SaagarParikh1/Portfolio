@@ -54,7 +54,7 @@ const skillGroups = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="section-band section-band-amber py-24">
       <div className="section-shell">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>

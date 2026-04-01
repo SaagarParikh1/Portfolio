@@ -22,7 +22,7 @@ const certifications = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-24">
+    <section id="education" className="section-band section-band-soft py-24">
       <div className="section-shell">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>

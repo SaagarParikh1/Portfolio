@@ -45,7 +45,7 @@ const Hero = () => {
           <p className="mt-7 text-sm uppercase tracking-[0.28em] text-[color:var(--muted)]">
             Saagar Parikh
           </p>
-          <h1 className="mt-4 max-w-[11ch] text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[0.98] text-[var(--text)]">
+          <h1 className="mt-4 max-w-[11ch] text-[clamp(2.2rem,4vw,3.55rem)] font-semibold leading-[0.98] text-[var(--text)]">
             Dashboards and analysis built to make the next decision easier.
           </h1>
 

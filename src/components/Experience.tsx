@@ -4,7 +4,6 @@ const experiences = [
     role: 'Front-End Web Developer (Contract)',
     period: 'May 2024 - Aug 2024',
     location: 'Remote',
-    impact: '15+ pages shipped',
     summary:
       'Translated enterprise HR product requirements into production-ready interfaces and reusable front-end patterns.',
     highlights: [
@@ -19,7 +18,6 @@ const experiences = [
     role: 'Product Development Intern',
     period: 'May 2023 - Aug 2023',
     location: 'Remote',
-    impact: '500K+ data points analyzed',
     summary:
       'Used SQL, Python, and Tableau to support KPI development, experimentation, and decision-making for product and engineering stakeholders.',
     highlights: [
@@ -34,7 +32,6 @@ const experiences = [
     role: 'Risk Analyst Intern',
     period: 'June 2022 - Aug 2022',
     location: 'Remote',
-    impact: '6% model accuracy lift',
     summary:
       'Focused on loan risk, fraud detection, and reporting automation across large financial datasets.',
     highlights: [
@@ -48,7 +45,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="section-band section-band-soft py-24">
       <div className="section-shell">
         <div className="grid gap-12 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
@@ -82,7 +79,6 @@ const Experience = () => {
                   <div className="space-y-2 text-sm text-[color:var(--muted)] lg:text-right">
                     <p>{experience.period}</p>
                     <p>{experience.location}</p>
-                    <p className="text-[var(--accent-strong)]">{experience.impact}</p>
                   </div>
                 </div>
 

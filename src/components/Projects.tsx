@@ -429,7 +429,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="section-band section-band-slate py-24">
       <div className="section-shell">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -488,192 +488,190 @@ const Projects = () => {
           </div>
 
           <div className="surface overflow-hidden rounded-[2rem]">
-            <div className="grid xl:grid-cols-[0.6fr_0.4fr]">
-              <div className="border-b border-white/10 xl:border-b-0 xl:border-r xl:border-white/10">
-                {currentImage ? (
-                  <div className="relative flex min-h-[26rem] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_65%),linear-gradient(180deg,#14110d_0%,#0c0a08_100%)] p-4 sm:p-6 lg:p-8">
-                    <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(5,5,4,0.52)] p-3 sm:p-4">
-                      <img
-                        src={currentImage}
-                        alt={`${activeProject.title} preview ${activeImageIndex + 1}`}
-                        className="max-h-[34rem] w-full object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
-                      />
-                      <div className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                        {activeImageIndex + 1} / {activeImages.length}
-                      </div>
+            <div className="border-b border-white/10">
+              {currentImage ? (
+                <div className="relative flex min-h-[27rem] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_65%),linear-gradient(180deg,#14110d_0%,#0c0a08_100%)] p-4 sm:p-6 lg:p-8">
+                  <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(5,5,4,0.52)] p-3 sm:p-4">
+                    <img
+                      src={currentImage}
+                      alt={`${activeProject.title} preview ${activeImageIndex + 1}`}
+                      className="max-h-[38rem] w-full object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+                    />
+                    <div className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                      {activeImageIndex + 1} / {activeImages.length}
                     </div>
-
-                    {activeImages.length > 1 && (
-                      <>
-                        <button
-                          onClick={showPreviousImage}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
-                          aria-label="Previous project image"
-                        >
-                          <ChevronLeft className="h-5 w-5" />
-                        </button>
-                        <button
-                          onClick={showNextImage}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
-                          aria-label="Next project image"
-                        >
-                          <ChevronRight className="h-5 w-5" />
-                        </button>
-                      </>
-                    )}
-
-                    {activeImages.length > 1 && (
-                      <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2 px-4">
-                        {activeImages.map((image, index) => (
-                          <button
-                            key={image}
-                            onClick={() => setActiveImageIndex(index)}
-                            className={`h-2.5 rounded-full transition-all duration-300 ${
-                              index === activeImageIndex
-                                ? 'w-8 bg-[var(--accent-strong)]'
-                                : 'w-2.5 bg-white/40'
-                            }`}
-                            aria-label={`View image ${index + 1}`}
-                          />
-                        ))}
-                      </div>
-                    )}
                   </div>
-                ) : (
-                  <div className="flex min-h-[25rem] flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),linear-gradient(180deg,#17130e_0%,#0f0d09_100%)] p-8">
-                    <div>
-                      <span className="eyebrow-pill">{activeProject.label ?? 'Selected work'}</span>
-                      <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
-                        {activeProject.category}
-                      </p>
-                      <h3 className="mt-4 max-w-lg text-4xl font-semibold leading-tight text-[var(--text)]">
-                        {activeProject.title}
-                      </h3>
-                      <p className="mt-4 max-w-lg text-base leading-7 text-[color:var(--muted)]">
-                        {activeProject.headline}
-                      </p>
-                    </div>
 
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                      {activeProject.metrics.map((metric) => (
-                        <div
-                          key={metric}
-                          className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-[var(--text)]"
-                        >
-                          {metric}
-                        </div>
+                  {activeImages.length > 1 && (
+                    <>
+                      <button
+                        onClick={showPreviousImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        aria-label="Previous project image"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={showNextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        aria-label="Next project image"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </>
+                  )}
+
+                  {activeImages.length > 1 && (
+                    <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2 px-4">
+                      {activeImages.map((image, index) => (
+                        <button
+                          key={image}
+                          onClick={() => setActiveImageIndex(index)}
+                          className={`h-2.5 rounded-full transition-all duration-300 ${
+                            index === activeImageIndex
+                              ? 'w-8 bg-[var(--accent-strong)]'
+                              : 'w-2.5 bg-white/40'
+                          }`}
+                          aria-label={`View image ${index + 1}`}
+                        />
                       ))}
                     </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-6 sm:p-8">
-                <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+                  )}
+                </div>
+              ) : (
+                <div className="flex min-h-[25rem] flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),linear-gradient(180deg,#17130e_0%,#0f0d09_100%)] p-8">
                   <div>
-                    {featuredMeta && (
-                      <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
-                        {featuredMeta}
-                      </p>
-                    )}
-                    <h3 className="mt-3 text-2xl font-semibold text-[var(--text)] sm:text-[1.9rem]">
+                    <span className="eyebrow-pill">{activeProject.label ?? 'Selected work'}</span>
+                    <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+                      {activeProject.category}
+                    </p>
+                    <h3 className="mt-4 max-w-lg text-4xl font-semibold leading-tight text-[var(--text)]">
                       {activeProject.title}
                     </h3>
+                    <p className="mt-4 max-w-lg text-base leading-7 text-[color:var(--muted)]">
+                      {activeProject.headline}
+                    </p>
                   </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={showPreviousProject}
-                      className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
-                      aria-label="Previous featured project"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                    </button>
-                    <button
-                      onClick={showNextProject}
-                      className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
-                      aria-label="Next featured project"
-                    >
-                      <ChevronRight className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
 
-                <p className="mt-5 text-[1rem] leading-7 text-[var(--accent-strong)] sm:text-[1.05rem]">
-                  {activeProject.headline}
-                </p>
-                <p className="mt-4 text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
-                  {activeProject.summary}
-                </p>
-
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  {activeProject.metrics.map((metric) => (
-                    <div
-                      key={metric}
-                      className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4"
-                    >
-                      <p className="text-sm leading-6 text-[var(--text)]">{metric}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 border-t border-white/10 pt-6">
-                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                    What shipped
-                  </p>
-                  <ul className="mt-4 space-y-3">
-                    {activeProject.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
-                        <span className="text-sm leading-6 text-[color:var(--muted)]">
-                          {highlight}
-                        </span>
-                      </li>
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                    {activeProject.metrics.map((metric) => (
+                      <div
+                        key={metric}
+                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-[var(--text)]"
+                      >
+                        {metric}
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
+              )}
+            </div>
 
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {activeProject.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
-                    >
-                      {technology}
-                    </span>
-                  ))}
+            <div className="p-6 sm:p-8">
+              <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  {featuredMeta && (
+                    <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                      {featuredMeta}
+                    </p>
+                  )}
+                  <h3 className="mt-3 text-2xl font-semibold text-[var(--text)] sm:text-[1.9rem]">
+                    {activeProject.title}
+                  </h3>
                 </div>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {activeProject.liveDemoUrl && (
-                    <a
-                      href={activeProject.liveDemoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      Live demo
-                    </a>
-                  )}
-                  {activeProject.githubUrl && (
-                    <a
-                      href={activeProject.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
-                    >
-                      <Github className="h-4 w-4" />
-                      View code
-                    </a>
-                  )}
+                <div className="flex gap-2">
                   <button
-                    onClick={() => setSelectedProject(activeProject)}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                    onClick={showPreviousProject}
+                    className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                    aria-label="Previous featured project"
                   >
-                    Open case study
-                    <ArrowRight className="h-4 w-4" />
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={showNextProject}
+                    className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                    aria-label="Next featured project"
+                  >
+                    <ChevronRight className="h-4 w-4" />
                   </button>
                 </div>
+              </div>
+
+              <p className="mt-5 text-[1rem] leading-7 text-[var(--accent-strong)] sm:text-[1.05rem]">
+                {activeProject.headline}
+              </p>
+              <p className="mt-4 text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
+                {activeProject.summary}
+              </p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {activeProject.metrics.map((metric) => (
+                  <div
+                    key={metric}
+                    className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4"
+                  >
+                    <p className="text-sm leading-6 text-[var(--text)]">{metric}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  What shipped
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {activeProject.highlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
+                      <span className="text-sm leading-6 text-[color:var(--muted)]">
+                        {highlight}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {activeProject.technologies.map((technology) => (
+                  <span
+                    key={technology}
+                    className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                {activeProject.liveDemoUrl && (
+                  <a
+                    href={activeProject.liveDemoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Live demo
+                  </a>
+                )}
+                {activeProject.githubUrl && (
+                  <a
+                    href={activeProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                  >
+                    <Github className="h-4 w-4" />
+                    View code
+                  </a>
+                )}
+                <button
+                  onClick={() => setSelectedProject(activeProject)}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                >
+                  Open case study
+                  <ArrowRight className="h-4 w-4" />
+                </button>
               </div>
             </div>
           </div>

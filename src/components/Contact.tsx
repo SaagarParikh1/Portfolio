@@ -40,7 +40,7 @@ const quickNotes = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="section-band section-band-slate py-24">
       <div className="section-shell">
         <div className="surface overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">

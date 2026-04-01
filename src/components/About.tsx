@@ -3,91 +3,70 @@ import { BarChart3, Blocks, Handshake } from 'lucide-react';
 const strengths = [
   {
     title: 'Business-ready analytics',
-    description: 'KPI design, dashboard structure, and analysis that leads to a usable next step.',
+    description:
+      'I focus on structuring analysis so the logic is defensible, the takeaways are easy to scan, and the output supports an actual decision.',
     icon: BarChart3,
   },
   {
-    title: 'Product awareness',
-    description: 'A front-end background helps me think about how the insight actually lands.',
+    title: 'Product-aware thinking',
+    description:
+      'Because I have shipped front-end work, I pay attention to how analysis will be consumed, what a stakeholder actually sees, and where clarity can break down.',
     icon: Blocks,
   },
   {
     title: 'Cross-functional delivery',
-    description: 'Comfortable working across technical detail, stakeholder context, and polish.',
+    description:
+      'I am comfortable working across SQL, Python, dashboards, stakeholder communication, and implementation details when a project needs all of them to line up.',
     icon: Handshake,
-  },
-];
-
-const proofPoints = [
-  {
-    value: '50K+',
-    label: 'financial records analyzed in lending risk work',
-  },
-  {
-    value: '30+',
-    label: 'cross-browser and responsive issues resolved in enterprise delivery',
-  },
-  {
-    value: '20%',
-    label: 'faster development on repeat UI work through reusable components',
-  },
-  {
-    value: '3 domains',
-    label: 'hands-on exposure across fintech, health-tech, and enterprise products',
   },
 ];
 
 const About = () => {
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="section-band section-band-amber py-24">
       <div className="section-shell">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="section-kicker">Approach</p>
-            <h2 className="section-title">The goal is clarity, not complexity.</h2>
-          </div>
+        <div className="max-w-5xl">
+          <p className="section-kicker">Approach</p>
+          <h2 className="text-[1.55rem] font-semibold leading-tight text-[var(--text)] sm:text-[1.9rem]">
+            How I approach the work
+          </h2>
 
-          <div className="space-y-6">
+          <div className="mt-6 max-w-4xl space-y-5">
             <p className="section-copy max-w-none">
-              I like analysis that helps a team move, not analysis that just looks impressive in a
-              notebook. That usually means cleaner questions, tighter visuals, and outputs that
-              are easy to explain in the room.
+              I approach analytics as decision support, not just a reporting exercise. The work is
+              most valuable when the question is framed well, the logic is easy to trust, and the
+              final output helps someone understand what matters without needing a long explanation.
             </p>
             <p className="section-copy max-w-none">
-              My experience across enterprise UX delivery, health-tech product analysis, and
-              fintech risk work gave me a practical view of how data, users, and business context
-              connect.
+              My background across enterprise front-end delivery, health-tech product analysis, and
+              fintech risk work shaped that perspective. I tend to think about the full path from
+              raw data to stakeholder use: what needs to be cleaned, what deserves emphasis, and
+              how the presentation can make the analysis easier to act on.
             </p>
-
-            <div className="grid gap-5 border-t border-white/10 pt-8 sm:grid-cols-3">
-              {strengths.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <div key={item.title}>
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-[var(--accent-strong)]">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <p className="text-sm uppercase tracking-[0.22em] text-[var(--accent-strong)]">
-                      {item.title}
-                    </p>
-                    <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-                      {item.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </div>
 
-        <div className="mt-16 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
-          {proofPoints.map((item) => (
-            <div key={item.label}>
-              <p className="metric-value">{item.value}</p>
-              <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">{item.label}</p>
-            </div>
-          ))}
+        <div className="mt-12 grid gap-5 border-t border-white/10 pt-8 md:grid-cols-3">
+          {strengths.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={item.title}
+                className="rounded-[1.5rem] border border-white/10 bg-[rgba(255,255,255,0.04)] px-5 py-5"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-[var(--accent-strong)]">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <p className="text-sm uppercase tracking-[0.22em] text-[var(--accent-strong)]">
+                  {item.title}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
