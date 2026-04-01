@@ -12,7 +12,7 @@ const experiences = [
       'Resolved 30+ cross-browser and responsiveness issues, improving usability and reducing QA rework cycles.',
     ],
     technologies: ['React', 'TypeScript', 'HTML/CSS', 'Reusable Components', 'QA Collaboration'],
-    logoSrc: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Masergy%20logo.png',
+    logoSrc: '/images/logos/masergy.svg',
     logoAlt: 'Masergy Communications logo',
   },
   {
@@ -28,7 +28,8 @@ const experiences = [
       'Collaborated with ML researchers and engineers to define success metrics, validate outputs, and support product iteration.',
     ],
     technologies: ['SQL', 'Python', 'Tableau', 'KPI Design', 'Experiment Analysis'],
-    logoText: 'FL',
+    logoSrc: '/images/logos/flomad.svg',
+    logoAlt: 'Flomad Labs logo',
   },
   {
     company: 'CASHe',
@@ -43,7 +44,7 @@ const experiences = [
       'Automated KPI reporting workflows using Python and Excel, saving 10+ hours per week and improving turnaround time.',
     ],
     technologies: ['SQL', 'Python', 'Excel', 'Risk Modeling', 'Fraud Analysis'],
-    logoSrc: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cashe-logo.png',
+    logoSrc: '/images/logos/cashe.svg',
     logoAlt: 'CASHe logo',
   },
 ];

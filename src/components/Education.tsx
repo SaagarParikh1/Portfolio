@@ -20,8 +20,7 @@ const certifications = [
   'Foundations of User Experience (UX) Design Certificate — Google (2023)',
 ];
 
-const PURDUE_LOGO =
-  'https://commons.wikimedia.org/wiki/Special:Redirect/file/Purdue%20University%20system%20logo.svg';
+const PURDUE_LOGO = '/images/logos/purdue.svg';
 
 const Education = () => {
   return (
