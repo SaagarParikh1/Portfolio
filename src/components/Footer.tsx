@@ -1,8 +1,8 @@
 const links = [
   { label: 'Approach', id: 'about' },
   { label: 'Work', id: 'projects' },
-  { label: 'Experience', id: 'experience' },
-  { label: 'Toolbox', id: 'skills' },
+  { label: 'Career', id: 'experience' },
+  { label: 'Skills', id: 'skills' },
   { label: 'Education', id: 'education' },
   { label: 'Contact', id: 'contact' },
 ];

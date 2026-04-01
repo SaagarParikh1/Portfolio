@@ -117,13 +117,12 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
           <div className="grid xl:grid-cols-[0.56fr_0.44fr]">
             <div className="border-b border-white/10 xl:border-b-0 xl:border-r xl:border-white/10">
               {currentImage ? (
-                <div className="relative min-h-[26rem] bg-[#0d0c0a]">
+                <div className="relative flex min-h-[26rem] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_65%),linear-gradient(180deg,#14110d_0%,#0c0a08_100%)] p-6 sm:p-8">
                   <img
                     src={currentImage}
                     alt={`${project.title} preview ${activeImageIndex + 1}`}
-                    className="h-full min-h-[26rem] w-full object-cover"
+                    className="max-h-[32rem] w-full object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090907] via-transparent to-transparent" />
 
                   {images.length > 1 && (
                     <>

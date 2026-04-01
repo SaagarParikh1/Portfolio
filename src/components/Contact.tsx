@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Briefcase, Github, Linkedin, Mail, MapPin, Phone, Plane } from 'lucide-react';
 
 const contactDetails = [
   {
@@ -20,21 +20,38 @@ const contactDetails = [
   },
 ];
 
+const quickNotes = [
+  {
+    icon: Briefcase,
+    label: 'Target roles',
+    value: 'Data analyst, product analytics, and dashboard-focused work',
+  },
+  {
+    icon: Plane,
+    label: 'Availability',
+    value: 'Open to relocation and new full-time opportunities',
+  },
+  {
+    icon: MapPin,
+    label: 'Based in',
+    value: 'Frisco, Texas',
+  },
+];
+
 const Contact = () => {
   return (
     <section id="contact" className="py-24">
       <div className="section-shell">
         <div className="surface overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
-          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div>
               <p className="section-kicker">Contact</p>
-              <h2 className="max-w-2xl text-4xl font-semibold leading-tight text-[var(--text)] sm:text-5xl">
-                Looking for an analyst who can move from raw data to stakeholder-ready decisions.
+              <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-[var(--text)] sm:text-[2.6rem]">
+                Open to analyst roles where clear thinking and clean delivery matter.
               </h2>
-              <p className="mt-6 max-w-2xl text-base leading-7 text-[color:var(--muted)]">
-                I&apos;m actively exploring data analyst, product analytics, and insight-focused
-                roles where I can help teams uncover the signal, communicate it clearly, and turn
-                it into action. If that sounds relevant, I&apos;d be glad to connect.
+              <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
+                If you&apos;re hiring for data analysis, product analytics, or dashboard work, I&apos;d
+                be glad to connect.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -56,19 +73,25 @@ const Contact = () => {
                 </a>
               </div>
 
-              <div className="mt-10 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
-                <div>
-                  <p className="metric-label">Availability</p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">Open to relocation and new full-time opportunities.</p>
-                </div>
-                <div>
-                  <p className="metric-label">Focus areas</p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">Data analysis, product analytics, dashboards, experimentation, and insight delivery.</p>
-                </div>
-                <div>
-                  <p className="metric-label">Working style</p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">Clear communicator, collaborative teammate, and comfortable bridging technical and business context.</p>
-                </div>
+              <div className="mt-9 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
+                {quickNotes.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.label}
+                      className="rounded-[1.35rem] border border-white/10 bg-white/5 px-4 py-4"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="rounded-full border border-white/10 p-2 text-[var(--accent-strong)]">
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <p className="metric-label">{item.label}</p>
+                      </div>
+                      <p className="mt-3 text-sm leading-6 text-[var(--text)]">{item.value}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -107,9 +130,9 @@ const Contact = () => {
 
               <div className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5">
                 <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
-                  Elsewhere
+                  Socials
                 </p>
-                <div className="mt-4 flex gap-3">
+                <div className="mt-4 flex flex-wrap gap-3">
                   <a
                     href="https://www.linkedin.com/in/saagar-parikh1/"
                     target="_blank"

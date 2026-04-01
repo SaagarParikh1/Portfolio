@@ -2,7 +2,7 @@ const skillGroups = [
   {
     title: 'Analytics & Modeling',
     description:
-      'The toolkit I rely on most for cleaning data, building models, defining KPIs, and translating findings into decision-ready analysis.',
+      'My core toolkit for cleaning data, defining KPIs, and building decision-ready analysis.',
     skills: [
       'SQL (BigQuery, MySQL)',
       'Python',
@@ -19,7 +19,7 @@ const skillGroups = [
   {
     title: 'Product & Front-End',
     description:
-      'Useful when the analysis has to live inside a workflow, a dashboard, or a product experience people actually interact with.',
+      'Useful when analysis has to live inside a dashboard, workflow, or product experience.',
     skills: [
       'React',
       'TypeScript',
@@ -36,7 +36,7 @@ const skillGroups = [
   {
     title: 'Workflow & Collaboration',
     description:
-      'The supporting tools and working habits I use to keep projects moving clearly across product, analytics, and engineering teams.',
+      'The supporting tools I use to keep work moving clearly across product, analytics, and engineering.',
     skills: [
       'Git/GitHub',
       'BigQuery ML',
@@ -58,8 +58,11 @@ const Skills = () => {
       <div className="section-shell">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="section-kicker">Toolbox</p>
-            <h2 className="section-title">A practical stack shaped by analytics work, product collaboration, and front-end execution.</h2>
+            <p className="section-kicker">Skills</p>
+            <h2 className="section-title">
+              A practical stack shaped by analytics work, product collaboration, and front-end
+              execution.
+            </h2>
           </div>
           <p className="section-copy max-w-xl">
             I care less about listing every tool I have touched and more about showing the stack I
@@ -93,36 +96,6 @@ const Skills = () => {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <p className="metric-label">Go-to workflow</p>
-            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
-              SQL or Python to clean the signal, Tableau or product UI to make it usable, then a
-              clear narrative for the stakeholder.
-            </p>
-          </div>
-          <div>
-            <p className="metric-label">Analytical focus</p>
-            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
-              KPI design, regression analysis, feature engineering, dashboarding, and exploratory
-              decision support.
-            </p>
-          </div>
-          <div>
-            <p className="metric-label">Product angle</p>
-            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
-              I think about how the output will be read, used, and acted on rather than stopping at
-              the analysis itself.
-            </p>
-          </div>
-          <div>
-            <p className="metric-label">Collaboration style</p>
-            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
-              Comfortable working with product managers, engineers, researchers, and stakeholders
-              who need clarity more than technical jargon.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
