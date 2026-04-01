@@ -24,15 +24,9 @@ const Education = () => {
   return (
     <section id="education" className="section-band section-band-soft py-24">
       <div className="section-shell">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="section-kicker">Education</p>
-            <h2 className="section-title">A web and UX foundation that makes the analytics work more useful.</h2>
-          </div>
-          <p className="section-copy max-w-xl">
-            My degree trained me to think about information architecture, user experience, and
-            delivery, which has become a practical advantage in data and product work.
-          </p>
+        <div>
+          <p className="section-kicker">Education</p>
+          <h2 className="section-title">A web and UX foundation that makes my analytics work more useful.</h2>
         </div>
 
         <div className="surface mt-12 overflow-hidden rounded-[2rem]">

@@ -3,7 +3,7 @@ const experiences = [
     company: 'Masergy Communications',
     role: 'Front-End Web Developer (Contract)',
     period: 'May 2024 - Aug 2024',
-    location: 'Remote',
+    location: 'Plano, TX',
     summary:
       'Translated enterprise HR product requirements into production-ready interfaces and reusable front-end patterns.',
     highlights: [
@@ -31,7 +31,7 @@ const experiences = [
     company: 'CASHe',
     role: 'Risk Analyst Intern',
     period: 'June 2022 - Aug 2022',
-    location: 'Remote',
+    location: 'Mumbai',
     summary:
       'Focused on loan risk, fraud detection, and reporting automation across large financial datasets.',
     highlights: [
@@ -47,18 +47,13 @@ const Experience = () => {
   return (
     <section id="experience" className="section-band section-band-soft py-24">
       <div className="section-shell">
-        <div className="grid gap-12 lg:grid-cols-[0.34fr_0.66fr]">
-          <div>
-            <p className="section-kicker">Experience</p>
-            <h2 className="section-title">Professional work that sharpened both the analysis and the delivery.</h2>
-            <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
-              The through-line across these roles is straightforward: clean up the signal, frame it
-              clearly, and make the output useful for the people making decisions.
-            </p>
-          </div>
+        <p className="section-kicker">Experience</p>
 
-          <div className="space-y-6">
-            {experiences.map((experience) => (
+        <div className="space-y-6">
+          {experiences.map((experience) => {
+            const [periodStart, periodEnd] = experience.period.split(' - ');
+
+            return (
               <article
                 key={experience.company}
                 className="surface rounded-[1.75rem] p-6 sm:p-8"
@@ -77,7 +72,10 @@ const Experience = () => {
                   </div>
 
                   <div className="space-y-2 text-sm text-[color:var(--muted)] lg:text-right">
-                    <p>{experience.period}</p>
+                    <p>
+                      <span className="whitespace-nowrap">{periodStart} -</span>{' '}
+                      <span className="whitespace-nowrap">{periodEnd}</span>
+                    </p>
                     <p>{experience.location}</p>
                   </div>
                 </div>
@@ -102,8 +100,8 @@ const Experience = () => {
                   ))}
                 </div>
               </article>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

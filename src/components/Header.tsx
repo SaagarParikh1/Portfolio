@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Mail, Menu, X } from 'lucide-react';
 
 const navItems = [
-  { label: 'Approach', id: 'about' },
+  { label: 'About', id: 'about' },
   { label: 'Work', id: 'projects' },
   { label: 'Career', id: 'experience' },
   { label: 'Skills', id: 'skills' },

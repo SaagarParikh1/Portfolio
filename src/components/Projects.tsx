@@ -431,17 +431,11 @@ const Projects = () => {
   return (
     <section id="projects" className="section-band section-band-slate py-24">
       <div className="section-shell">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="section-kicker">Selected Work</p>
-            <h2 className="section-title">
-              Case studies that show how I think, build, and present the work.
-            </h2>
-          </div>
-          <p className="section-copy max-w-lg">
-            A few projects get the deeper walkthrough. The rest stay in a lighter archive so the
-            page is easier to scan.
-          </p>
+        <div>
+          <p className="section-kicker">Selected Work</p>
+          <h2 className="section-title">
+            Case studies that show how I think, build, and present my work.
+          </h2>
         </div>
 
         <div className="mt-12 grid gap-6 xl:grid-cols-[0.3fr_0.7fr]">
@@ -681,11 +675,8 @@ const Projects = () => {
           <div>
             <p className="section-kicker">Archive</p>
             <h3 className="text-[1.85rem] font-semibold leading-tight text-[var(--text)] sm:text-[2.2rem]">
-              More builds, kept lighter.
+              Additional projects
             </h3>
-            <p className="mt-4 text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
-              Still relevant to the story, just easier to scan at a glance.
-            </p>
 
             <div className="mt-8 flex flex-wrap gap-2">
               {archiveFilters.map((filter) => (

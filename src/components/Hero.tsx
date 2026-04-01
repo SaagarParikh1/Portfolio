@@ -38,8 +38,9 @@ const Hero = () => {
       className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden pt-24 sm:min-h-[calc(100svh-4.5rem)] sm:pt-28"
     >
       <div className="absolute inset-0">
-        <div className="absolute left-[10%] top-[14%] h-20 w-20 rounded-full border border-[rgba(241,193,122,0.2)]" />
-        <div className="absolute bottom-[18%] right-[10%] h-28 w-28 rounded-full border border-white/8" />
+        <div className="hero-orb hero-orb-a" />
+        <div className="hero-orb hero-orb-b" />
+        <div className="hero-orb hero-orb-c" />
       </div>
 
       <div className="section-shell relative z-10 py-10 sm:py-12">
@@ -115,15 +116,12 @@ const Hero = () => {
             </div>
           </div>
 
-          <div
-            className="surface reveal-rise overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)]"
-            style={{ animationDelay: '140ms' }}
-          >
-            <div className="relative min-h-[22rem] overflow-hidden sm:min-h-[24rem]">
+          <div className="surface overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)]">
+            <div className="relative min-h-[23rem] overflow-hidden sm:min-h-[26rem] lg:min-h-[28rem]">
               <img
                 src="/images/portrait/saagar-parikh.jpeg"
                 alt="Saagar Parikh portrait"
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,9,7,0.03)_5%,rgba(10,9,7,0.18)_36%,rgba(10,9,7,0.82)_100%)]" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
@@ -131,7 +129,7 @@ const Hero = () => {
                   Analyst • builder • collaborator
                 </p>
                 <p className="mt-3 max-w-sm text-[1.35rem] font-semibold leading-tight text-[var(--text)] sm:text-[1.65rem]">
-                  Comfortable moving from raw data to the way the work is actually presented.
+                  Comfortable moving from raw data to the way my work is actually presented.
                 </p>
               </div>
             </div>

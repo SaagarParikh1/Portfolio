@@ -79,7 +79,7 @@ section[id] {
 
 @layer components {
   .section-shell {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-7 lg:px-10 xl:max-w-[84rem] 2xl:max-w-[92rem];
   }
 
   .section-band {
@@ -158,6 +158,41 @@ section[id] {
 
   .reveal-rise {
     animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 999px;
+    border: 1px solid rgba(241, 193, 122, 0.14);
+    background: radial-gradient(circle, rgba(241, 193, 122, 0.08), transparent 72%);
+    opacity: 0.7;
+    animation: hero-float 14s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .hero-orb-a {
+    left: 8%;
+    top: 14%;
+    height: 8rem;
+    width: 8rem;
+  }
+
+  .hero-orb-b {
+    right: 12%;
+    top: 22%;
+    height: 5.5rem;
+    width: 5.5rem;
+    animation-duration: 18s;
+    animation-delay: -4s;
+  }
+
+  .hero-orb-c {
+    right: 7%;
+    bottom: 18%;
+    height: 7rem;
+    width: 7rem;
+    animation-duration: 16s;
+    animation-delay: -8s;
   }
 }
 
@@ -240,6 +275,17 @@ section[id] {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.04);
   }
 }
 

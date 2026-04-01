@@ -56,18 +56,12 @@ const Skills = () => {
   return (
     <section id="skills" className="section-band section-band-amber py-24">
       <div className="section-shell">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="section-kicker">Skills</p>
-            <h2 className="section-title">
-              A practical stack shaped by analytics work, product collaboration, and front-end
-              execution.
-            </h2>
-          </div>
-          <p className="section-copy max-w-xl">
-            I care less about listing every tool I have touched and more about showing the stack I
-            can use confidently to move a project from question to decision.
-          </p>
+        <div>
+          <p className="section-kicker">Skills</p>
+          <h2 className="section-title">
+            A practical stack shaped by analytics work, product collaboration, and front-end
+            execution.
+          </h2>
         </div>
 
         <div className="surface mt-12 overflow-hidden rounded-[2rem]">

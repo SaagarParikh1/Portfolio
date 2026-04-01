@@ -26,9 +26,9 @@ const About = () => {
     <section id="about" className="section-band section-band-amber py-24">
       <div className="section-shell">
         <div className="max-w-5xl">
-          <p className="section-kicker">Approach</p>
+          <p className="section-kicker">About</p>
           <h2 className="text-[1.55rem] font-semibold leading-tight text-[var(--text)] sm:text-[1.9rem]">
-            How I approach the work
+            About me
           </h2>
 
           <div className="mt-6 max-w-4xl space-y-5">
