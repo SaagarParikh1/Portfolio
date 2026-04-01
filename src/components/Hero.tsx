@@ -33,118 +33,112 @@ const Hero = () => {
   };
 
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden pt-20 sm:min-h-[calc(100svh-4.5rem)] sm:pt-24"
-    >
+    <section id="hero" className="relative overflow-hidden pt-24 sm:pt-28">
       <div className="absolute inset-0">
-        <div className="absolute inset-y-0 left-1/2 hidden w-px bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.12),transparent)] opacity-30 lg:block" />
-        <div className="absolute left-[10%] top-[16%] h-24 w-24 rounded-full border border-[rgba(241,193,122,0.22)]" />
-        <div className="absolute bottom-[12%] right-[10%] h-32 w-32 rounded-full border border-white/10" />
+        <div className="absolute left-[10%] top-[14%] h-20 w-20 rounded-full border border-[rgba(241,193,122,0.2)]" />
+        <div className="absolute bottom-[18%] right-[10%] h-28 w-28 rounded-full border border-white/8" />
       </div>
 
       <div className="section-shell relative z-10 py-10 sm:py-12">
-        <div className="grid gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:items-end">
-          <div className="reveal-rise">
-            <span className="eyebrow-pill">Data analyst portfolio</span>
-            <p className="mt-7 text-sm uppercase tracking-[0.28em] text-[color:var(--muted)]">
-              Saagar Parikh
-            </p>
-            <h1 className="mt-4 max-w-3xl text-[clamp(2.75rem,5vw,4.5rem)] font-semibold leading-[0.98] text-[var(--text)]">
-              Dashboards and analysis built to make the next decision easier.
-            </h1>
+        <div className="reveal-rise max-w-4xl">
+          <span className="eyebrow-pill">Data analyst portfolio</span>
+          <p className="mt-7 text-sm uppercase tracking-[0.28em] text-[color:var(--muted)]">
+            Saagar Parikh
+          </p>
+          <h1 className="mt-4 max-w-[11ch] text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[0.98] text-[var(--text)]">
+            Dashboards and analysis built to make the next decision easier.
+          </h1>
 
-            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[color:var(--muted)] sm:text-[1.02rem] sm:leading-8">
-              Data analyst with experience across fintech, health-tech, and enterprise
-              environments. I work in SQL, Python, Tableau, and front-end tools when the
-              analysis needs a cleaner interface.
-            </p>
+          <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[color:var(--muted)] sm:text-[1.02rem] sm:leading-8">
+            Data analyst with experience across fintech, health-tech, and enterprise
+            environments. I work in SQL, Python, Tableau, and front-end tools when the analysis
+            needs a cleaner interface.
+          </p>
 
-            <div className="mt-7 flex flex-wrap gap-3 text-sm text-[color:var(--muted)]">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2">
-                <MapPin className="h-4 w-4 text-[var(--accent-strong)]" />
-                Frisco, TX
-              </span>
-              <span className="rounded-full border border-white/10 px-4 py-2">U.S. Citizen</span>
-              <span className="rounded-full border border-white/10 px-4 py-2">
-                Open to relocation
-              </span>
-            </div>
-
-            <div className="mt-9 flex flex-wrap gap-4">
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
-              >
-                View selected work
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="rounded-full border border-white/10 px-6 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
-              >
-                Get in touch
-              </button>
-            </div>
-
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a
-                href="https://www.linkedin.com/in/saagar-parikh1/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
-              >
-                <Linkedin className="h-4 w-4" />
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/saagarparikh1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
-              >
-                <Github className="h-4 w-4" />
-                GitHub
-              </a>
-              <a
-                href="mailto:Saagar.parikh.11@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
-              >
-                <Mail className="h-4 w-4" />
-                Email
-              </a>
-            </div>
+          <div className="mt-7 flex flex-wrap gap-3 text-sm text-[color:var(--muted)]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2">
+              <MapPin className="h-4 w-4 text-[var(--accent-strong)]" />
+              Frisco, TX
+            </span>
+            <span className="rounded-full border border-white/10 px-4 py-2">U.S. Citizen</span>
+            <span className="rounded-full border border-white/10 px-4 py-2">
+              Open to relocation
+            </span>
           </div>
 
-          <div
-            className="surface reveal-rise overflow-hidden rounded-[2rem]"
-            style={{ animationDelay: '140ms' }}
-          >
-            <div className="relative min-h-[27rem] overflow-hidden">
-              <img
-                src="/images/portrait/saagar-parikh.jpeg"
-                alt="Saagar Parikh portrait"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,9,7,0.05)_5%,rgba(10,9,7,0.2)_38%,rgba(10,9,7,0.88)_100%)]" />
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+          <div className="mt-9 flex flex-wrap gap-4">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+            >
+              View selected work
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="rounded-full border border-white/10 px-6 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+            >
+              Get in touch
+            </button>
+          </div>
+
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <a
+              href="https://www.linkedin.com/in/saagar-parikh1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
+            >
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/saagarparikh1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
+            >
+              <Github className="h-4 w-4" />
+              GitHub
+            </a>
+            <a
+              href="mailto:Saagar.parikh.11@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
+            >
+              <Mail className="h-4 w-4" />
+              Email
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-12 rounded-[2rem] border border-white/10 bg-[rgba(255,255,255,0.05)] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.22)] sm:p-5">
+          <div className="grid gap-4 lg:grid-cols-[280px_1fr]">
+            <div className="rounded-[1.5rem] border border-white/10 bg-[rgba(10,10,8,0.82)] p-3">
+              <div className="overflow-hidden rounded-[1.1rem]">
+                <img
+                  src="/images/portrait/saagar-parikh.jpeg"
+                  alt="Saagar Parikh portrait"
+                  className="h-[22rem] w-full object-cover object-center"
+                />
+              </div>
+              <div className="px-1 pb-1 pt-4">
                 <p className="text-xs uppercase tracking-[0.28em] text-[rgba(246,240,229,0.72)]">
                   Analyst • builder • collaborator
                 </p>
-                <p className="mt-3 max-w-sm text-[1.45rem] font-semibold leading-tight text-[var(--text)] sm:text-[1.8rem]">
+                <p className="mt-3 text-[1.05rem] font-semibold leading-7 text-[var(--text)]">
                   Comfortable moving from raw data to the way the work is actually presented.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-px border-t border-white/10 bg-white/10 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {focusAreas.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <div
                     key={item.label}
-                    className="bg-[rgba(10,10,8,0.72)] px-5 py-5"
+                    className="rounded-[1.5rem] border border-white/10 bg-[rgba(10,10,8,0.78)] px-5 py-5 sm:px-6 sm:py-6"
                   >
                     <div className="flex items-center gap-3">
                       <div className="rounded-full border border-white/10 p-2.5 text-[var(--accent-strong)]">
