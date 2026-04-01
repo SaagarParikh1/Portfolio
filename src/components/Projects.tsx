@@ -129,6 +129,7 @@ const featuredProjects: PortfolioProject[] = [
       'WCAG-focused UX improvements',
       'Modular React components',
     ],
+    images: ['/images/projects/grant-county/thumbnail.svg'],
     githubUrl: 'https://github.com/Griffinov22/Grant_County_Special_Education_Cooperative',
   },
   {
@@ -186,6 +187,7 @@ const archiveProjects: PortfolioProject[] = [
     ],
     technologies: ['Flutter', 'Dart', 'Supabase', 'Product Design', 'Workflow Mapping'],
     metrics: ['Startup co-founder', 'Coach-focused workflow design', 'Beta program onboarding'],
+    images: ['/images/projects/ball-analytics/thumbnail.svg'],
     githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
   },
   {
@@ -372,6 +374,43 @@ const archiveProjects: PortfolioProject[] = [
 
 const archiveFilters = ['All', 'Analytics', 'Frontend', 'Product', 'UX'];
 
+const getCategoryIcon = (category: string) =>
+  categoryIcons[category as keyof typeof categoryIcons] ?? Sparkles;
+
+const ProjectThumbnail = ({
+  project,
+  className,
+}: {
+  project: PortfolioProject;
+  className?: string;
+}) => {
+  const preview = project.images?.[0];
+  const Icon = getCategoryIcon(project.category);
+
+  if (preview) {
+    return (
+      <div
+        className={`relative overflow-hidden rounded-[1rem] border border-white/10 bg-[rgba(10,10,8,0.78)] ${className ?? ''}`}
+      >
+        <img
+          src={preview}
+          alt={`${project.title} thumbnail`}
+          className="h-full w-full object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(10,9,7,0.14)_62%,rgba(10,9,7,0.45)_100%)]" />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`flex items-center justify-center rounded-[1rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),rgba(12,12,10,0.8)] text-[var(--accent-strong)] ${className ?? ''}`}
+    >
+      <Icon className="h-6 w-6" />
+    </div>
+  );
+};
+
 const Projects = () => {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -441,8 +480,6 @@ const Projects = () => {
         <div className="mt-12 grid gap-6 xl:grid-cols-[0.3fr_0.7fr]">
           <div className="space-y-3">
             {featuredProjects.map((project, index) => {
-              const Icon = categoryIcons[project.category as keyof typeof categoryIcons] ?? Sparkles;
-
               return (
                 <button
                   key={project.title}
@@ -454,9 +491,10 @@ const Projects = () => {
                   }`}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="rounded-full border border-white/10 p-2.5 text-[var(--accent-strong)]">
-                      <Icon className="h-4 w-4" />
-                    </div>
+                    <ProjectThumbnail
+                      project={project}
+                      className="h-16 w-20 shrink-0 sm:h-[4.5rem] sm:w-24"
+                    />
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-4">
@@ -698,8 +736,6 @@ const Projects = () => {
           <div className="surface overflow-hidden rounded-[2rem]">
             <div className="divide-y divide-white/10">
               {filteredArchiveProjects.map((project) => {
-                const Icon = categoryIcons[project.category as keyof typeof categoryIcons] ?? Sparkles;
-
                 return (
                   <button
                     key={project.title}
@@ -707,9 +743,10 @@ const Projects = () => {
                     className="grid w-full gap-4 px-5 py-5 text-left transition duration-300 hover:bg-white/5 md:grid-cols-[1.1fr_0.9fr_auto] md:items-center"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="rounded-full border border-white/10 p-2.5 text-[var(--accent-strong)]">
-                        <Icon className="h-4 w-4" />
-                      </div>
+                      <ProjectThumbnail
+                        project={project}
+                        className="h-16 w-20 shrink-0 sm:h-[4.5rem] sm:w-24"
+                      />
 
                       <div>
                         <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">

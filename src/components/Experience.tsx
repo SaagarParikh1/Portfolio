@@ -12,6 +12,8 @@ const experiences = [
       'Resolved 30+ cross-browser and responsiveness issues, improving usability and reducing QA rework cycles.',
     ],
     technologies: ['React', 'TypeScript', 'HTML/CSS', 'Reusable Components', 'QA Collaboration'],
+    logoSrc: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Masergy%20logo.png',
+    logoAlt: 'Masergy Communications logo',
   },
   {
     company: 'Flomad Labs R&D',
@@ -26,6 +28,7 @@ const experiences = [
       'Collaborated with ML researchers and engineers to define success metrics, validate outputs, and support product iteration.',
     ],
     technologies: ['SQL', 'Python', 'Tableau', 'KPI Design', 'Experiment Analysis'],
+    logoText: 'FL',
   },
   {
     company: 'CASHe',
@@ -40,6 +43,8 @@ const experiences = [
       'Automated KPI reporting workflows using Python and Excel, saving 10+ hours per week and improving turnaround time.',
     ],
     technologies: ['SQL', 'Python', 'Excel', 'Risk Modeling', 'Fraud Analysis'],
+    logoSrc: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cashe-logo.png',
+    logoAlt: 'CASHe logo',
   },
 ];
 
@@ -59,16 +64,32 @@ const Experience = () => {
                 className="surface rounded-[1.75rem] p-6 sm:p-8"
               >
                 <div className="flex flex-col gap-4 border-b border-white/10 pb-6 lg:flex-row lg:items-start lg:justify-between">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                      {experience.company}
-                    </p>
-                    <h3 className="mt-2 text-2xl font-semibold text-[var(--text)]">
-                      {experience.role}
-                    </h3>
-                    <p className="mt-3 max-w-2xl text-sm leading-6 text-[color:var(--muted)]">
-                      {experience.summary}
-                    </p>
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[1rem] border border-white/10 bg-[rgba(12,12,10,0.68)] px-3">
+                      {experience.logoSrc ? (
+                        <img
+                          src={experience.logoSrc}
+                          alt={experience.logoAlt}
+                          className="max-h-9 w-full object-contain"
+                        />
+                      ) : (
+                        <span className="text-sm font-semibold tracking-[0.24em] text-[var(--accent-strong)]">
+                          {experience.logoText}
+                        </span>
+                      )}
+                    </div>
+
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                        {experience.company}
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold text-[var(--text)]">
+                        {experience.role}
+                      </h3>
+                      <p className="mt-3 max-w-2xl text-sm leading-6 text-[color:var(--muted)]">
+                        {experience.summary}
+                      </p>
+                    </div>
                   </div>
 
                   <div className="space-y-2 text-sm text-[color:var(--muted)] lg:text-right">

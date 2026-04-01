@@ -44,7 +44,7 @@ const Hero = () => {
       </div>
 
       <div className="section-shell relative z-10 py-10 sm:py-12">
-        <div className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-center xl:gap-12">
+        <div className="grid gap-8 lg:grid-cols-[1.08fr_0.82fr] lg:items-center xl:gap-14">
           <div className="reveal-rise">
             <span className="eyebrow-pill">Data analyst portfolio</span>
             <p className="mt-7 text-sm uppercase tracking-[0.28em] text-[color:var(--muted)]">
@@ -116,12 +116,12 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="surface overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)]">
-            <div className="relative min-h-[23rem] overflow-hidden sm:min-h-[26rem] lg:min-h-[28rem]">
+          <div className="surface overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[29rem] lg:justify-self-end xl:max-w-[30rem]">
+            <div className="relative min-h-[25rem] overflow-hidden sm:min-h-[29rem] lg:min-h-[34rem] xl:min-h-[35rem]">
               <img
                 src="/images/portrait/saagar-parikh.jpeg"
                 alt="Saagar Parikh portrait"
-                className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
+                className="absolute inset-0 h-full w-full object-cover object-[center_10%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,9,7,0.03)_5%,rgba(10,9,7,0.18)_36%,rgba(10,9,7,0.82)_100%)]" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">

@@ -2,21 +2,21 @@ import { BarChart3, Blocks, Handshake } from 'lucide-react';
 
 const strengths = [
   {
-    title: 'Business-ready analytics',
+    title: 'Analytics foundation',
     description:
-      'I focus on structuring analysis so the logic is defensible, the takeaways are easy to scan, and the output supports an actual decision.',
+      'I am most comfortable in SQL, Python, Tableau, and Excel when the work calls for cleaning messy data, building the right metric logic, and turning analysis into something decision-ready.',
     icon: BarChart3,
   },
   {
-    title: 'Product-aware thinking',
+    title: 'Product-minded delivery',
     description:
-      'Because I have shipped front-end work, I pay attention to how analysis will be consumed, what a stakeholder actually sees, and where clarity can break down.',
+      'Because I also have a front-end and UX background, I pay attention to how insights are presented, what users notice first, and what makes a dashboard or data product genuinely useful.',
     icon: Blocks,
   },
   {
-    title: 'Cross-functional delivery',
+    title: 'Clear collaboration',
     description:
-      'I am comfortable working across SQL, Python, dashboards, stakeholder communication, and implementation details when a project needs all of them to line up.',
+      'I enjoy work that connects analysis to real business questions, practical next steps, and communication that works for both technical and non-technical teams.',
     icon: Handshake,
   },
 ];
@@ -27,21 +27,27 @@ const About = () => {
       <div className="section-shell">
         <div className="max-w-5xl">
           <p className="section-kicker">About</p>
-          <h2 className="text-[1.55rem] font-semibold leading-tight text-[var(--text)] sm:text-[1.9rem]">
-            About me
+          <h2 className="text-[1.9rem] font-semibold leading-tight text-[var(--text)] sm:text-[2.35rem]">
+            I bring analytics, product thinking, and front-end experience to work that has to be both accurate and useful.
           </h2>
 
-          <div className="mt-6 max-w-4xl space-y-5">
+          <div className="mt-6 max-w-5xl space-y-5">
             <p className="section-copy max-w-none">
-              I approach analytics as decision support, not just a reporting exercise. The work is
-              most valuable when the question is framed well, the logic is easy to trust, and the
-              final output helps someone understand what matters without needing a long explanation.
+              As a recent graduate in Web Programming and Design from Purdue University, I bring a
+              strong foundation in data analytics, product thinking, and front-end development
+              shaped by internships and hands-on projects across fintech, health-tech, and
+              enterprise environments. I use SQL, Python, Tableau, and Excel to turn complex
+              datasets into clear, actionable insight, whether that means writing efficient
+              queries, automating reporting workflows, or building dashboards that help teams track
+              performance and spot meaningful trends.
             </p>
             <p className="section-copy max-w-none">
-              My background across enterprise front-end delivery, health-tech product analysis, and
-              fintech risk work shaped that perspective. I tend to think about the full path from
-              raw data to stakeholder use: what needs to be cleaned, what deserves emphasis, and
-              how the presentation can make the analysis easier to act on.
+              I am especially interested in work that turns raw data into a clear story people can
+              actually use. My background in front-end development and UI/UX helps me bridge the
+              gap between the analysis and the person using it, so I naturally think about both the
+              logic behind the work and the experience of consuming it. That combination has made
+              me care just as much about clarity, usability, and business context as I do about the
+              numbers themselves.
             </p>
           </div>
         </div>

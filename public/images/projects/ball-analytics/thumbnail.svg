@@ -1,0 +1,25 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="56" fill="#09110B"/>
+  <rect x="58" y="58" width="1084" height="784" rx="40" fill="url(#paint0_linear)"/>
+  <circle cx="1012" cy="170" r="78" fill="#F1C17A" fill-opacity="0.14"/>
+  <circle cx="202" cy="720" r="122" fill="#0C2415" fill-opacity="0.62"/>
+  <rect x="120" y="128" width="960" height="594" rx="34" fill="#06150C" stroke="#1E3E28" stroke-width="4"/>
+  <rect x="168" y="186" width="864" height="478" rx="24" fill="#0E2415"/>
+  <path d="M244 242H956" stroke="#2A5C35" stroke-width="4" stroke-linecap="round" stroke-dasharray="18 18"/>
+  <path d="M244 608H956" stroke="#2A5C35" stroke-width="4" stroke-linecap="round" stroke-dasharray="18 18"/>
+  <path d="M244 425H956" stroke="#F1C17A" stroke-width="4" stroke-linecap="round" stroke-dasharray="18 18"/>
+  <circle cx="600" cy="425" r="88" stroke="#F1C17A" stroke-width="4"/>
+  <circle cx="600" cy="425" r="12" fill="#F1C17A"/>
+  <path d="M600 242V608" stroke="#2A5C35" stroke-width="4" stroke-linecap="round"/>
+  <rect x="172" y="744" width="270" height="54" rx="27" fill="#F1C17A" fill-opacity="0.16"/>
+  <rect x="466" y="744" width="238" height="54" rx="27" fill="#F4F0E8" fill-opacity="0.08"/>
+  <rect x="728" y="744" width="306" height="54" rx="27" fill="#F4F0E8" fill-opacity="0.08"/>
+  <text x="122" y="808" fill="#F4F0E8" font-family="Avenir Next, Arial, sans-serif" font-size="34" font-weight="600" letter-spacing="6">BALL ANALYTICS</text>
+  <text x="122" y="850" fill="#C7D4CA" font-family="Avenir Next, Arial, sans-serif" font-size="22" letter-spacing="3">COACHING WORKFLOW PRODUCT THUMBNAIL</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="110" y1="102" x2="1060" y2="814" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F2014"/>
+      <stop offset="1" stop-color="#08100A"/>
+    </linearGradient>
+  </defs>
+</svg>
