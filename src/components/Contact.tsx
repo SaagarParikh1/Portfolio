@@ -1,149 +1,137 @@
-import React, { useState } from 'react';
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Github,
-  Sparkles,
-  MessageCircle,
-  Globe
-} from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+
+const contactDetails = [
+  {
+    label: 'Email',
+    value: 'Saagar.parikh.11@gmail.com',
+    href: 'mailto:Saagar.parikh.11@gmail.com',
+    icon: Mail,
+  },
+  {
+    label: 'Phone',
+    value: '214-471-0668',
+    href: 'tel:2144710668',
+    icon: Phone,
+  },
+  {
+    label: 'Location',
+    value: 'Frisco, TX',
+    icon: MapPin,
+  },
+];
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: <Mail className="w-5 h-5" />,
-      title: 'Email',
-      value: 'Saagar.parikh.11@gmail.com',
-      href: 'mailto:Saagar.parikh.11@gmail.com',
-      color: 'text-purple-300',
-      bgColor: 'bg-purple-600/20',
-      borderColor: 'border-purple-400/30'
-    },
-    {
-      icon: <Phone className="w-5 h-5" />,
-      title: 'Phone',
-      value: '214-471-0668',
-      href: 'tel:2144710668',
-      color: 'text-indigo-300',
-      bgColor: 'bg-indigo-600/20',
-      borderColor: 'border-indigo-400/30'
-    },
-    {
-      icon: <MapPin className="w-5 h-5" />,
-      title: 'Location',
-      value: 'Frisco, TX (Open to Relocation)',
-      href: null,
-      color: 'text-violet-300',
-      bgColor: 'bg-violet-600/20',
-      borderColor: 'border-violet-400/30'
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Linkedin className="w-5 h-5" />,
-      href: 'https://www.linkedin.com/in/saagar-parikh1/'
-    },
-    {
-      icon: <Github className="w-5 h-5" />,
-      href: 'https://github.com/saagarparikh1'
-    }
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-indigo-950 relative overflow-hidden">
-      
-      {/* Background Glow */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-indigo-400 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-violet-400 rounded-full blur-3xl animate-pulse"></div>
-      </div>
+    <section id="contact" className="py-24">
+      <div className="section-shell">
+        <div className="surface overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
+          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
+            <div>
+              <p className="section-kicker">Contact</p>
+              <h2 className="max-w-2xl text-4xl font-semibold leading-tight text-[var(--text)] sm:text-5xl">
+                Looking for an analyst who can move from raw data to stakeholder-ready decisions.
+              </h2>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-[color:var(--muted)]">
+                I&apos;m actively exploring data analyst, product analytics, and insight-focused
+                roles where I can help teams uncover the signal, communicate it clearly, and turn
+                it into action. If that sounds relevant, I&apos;d be glad to connect.
+              </p>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-        {/* Header */}
-        <div className="text-center mb-14">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <Sparkles className="w-5 h-5 text-purple-300 animate-pulse" />
-            <h2 className="text-3xl font-bold text-white">
-              Get In Touch
-            </h2>
-            <Sparkles className="w-5 h-5 text-purple-300 animate-pulse" />
-          </div>
-          <p className="text-gray-300 max-w-xl mx-auto text-sm leading-relaxed">
-            I'm actively seeking product and data analytics opportunities. 
-            If you’re hiring or just want to connect, I’d love to talk.
-          </p>
-        </div>
-
-{/* Main Contact Card */} <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/20 shadow-2xl"> <div className="flex items-center space-x-3 mb-6"> <MessageCircle className="w-5 h-5 text-purple-300" /> <h3 className="text-lg font-bold text-white">Let's Connect</h3> </div> <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-4 text-white shadow-2xl border border-purple-400/30"> <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 border border-white/30"> <div className="flex items-center space-x-2 mb-2"> <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div> <span className="font-medium text-xs">Available for Opportunities</span> </div> <p className="opacity-90 text-xs leading-relaxed"> I'm actively seeking opportunities to start my career in product/data analytics. Whether you have a full-time position, internship, or just want to chat about technology, I'd love to hear from you. </p> </div> </div><br></br>
-
-          {/* Contact Grid (Smaller + Compact) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            {contactInfo.map((item, index) => (
-              <div
-                key={index}
-                className={`${item.bgColor} border ${item.borderColor} 
-                           rounded-lg px-4 py-3 
-                           transition-all duration-300 hover:scale-105`}
-              >
-                <div className="flex items-center space-x-3">
-
-                  <div className={`w-8 h-8 flex items-center justify-center 
-                                  rounded-full bg-white/10 ${item.color}`}>
-                    {item.icon}
-                  </div>
-
-                  <div className="leading-tight">
-                    <h4 className="text-xs font-semibold text-white">
-                      {item.title}
-                    </h4>
-
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className={`${item.color} text-sm hover:underline break-words`}
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="text-gray-300 text-sm">
-                        {item.value}
-                      </p>
-                    )}
-                  </div>
-
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Social Links */}
-          <div className="border-t border-white/20 pt-6 text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <Globe className="w-4 h-4 text-indigo-300" />
-              <span className="text-sm font-semibold text-white">
-                Connect With Me
-              </span>
-            </div>
-
-            <div className="flex justify-center space-x-4">
-              {socialLinks.map((link, index) => (
+              <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  key={index}
-                  href={link.href}
+                  href="mailto:Saagar.parikh.11@gmail.com"
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+                >
+                  <Mail className="h-4 w-4" />
+                  Email Saagar
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/saagar-parikh1/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-white/10 border border-white/20 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
                 >
-                  {link.icon}
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn
                 </a>
-              ))}
+              </div>
+
+              <div className="mt-10 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
+                <div>
+                  <p className="metric-label">Availability</p>
+                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">Open to relocation and new full-time opportunities.</p>
+                </div>
+                <div>
+                  <p className="metric-label">Focus areas</p>
+                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">Data analysis, product analytics, dashboards, experimentation, and insight delivery.</p>
+                </div>
+                <div>
+                  <p className="metric-label">Working style</p>
+                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">Clear communicator, collaborative teammate, and comfortable bridging technical and business context.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {contactDetails.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.label}
+                    className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="rounded-full border border-white/10 p-3 text-[var(--accent-strong)]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                          {item.label}
+                        </p>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="mt-2 block text-lg font-medium text-[var(--text)] transition duration-300 hover:text-[var(--accent-strong)]"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="mt-2 text-lg font-medium text-[var(--text)]">{item.value}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
+              <div className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5">
+                <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                  Elsewhere
+                </p>
+                <div className="mt-4 flex gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/saagar-parikh1/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://github.com/saagarparikh1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                  >
+                    <Github className="h-4 w-4" />
+                    GitHub
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

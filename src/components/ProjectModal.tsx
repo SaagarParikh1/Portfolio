@@ -1,238 +1,282 @@
-import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { X, ExternalLink, Github, Figma, ChevronLeft, ChevronRight, Target } from 'lucide-react';
-
-interface Project {
-  title: string;
-  subtitle: string;
-  description: string;
-  icon: React.ReactElement;
-  iconColor: string;
-  bgColor: string;
-  borderColor: string;
-  highlights: string[];
-  technologies: string[];
-  type: string;
-  hasLiveDemo: boolean;
-  hasGithub: boolean;
-  detailedDescription?: string;
-  challenges?: string[];
-  outcomes?: string[];
-  images?: string[];        // used by the carousel
-  figmaLink?: string;
-  liveDemoUrl?: string;     // optional: enable real links
-}
+import { useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight, ExternalLink, Figma, Github, X } from 'lucide-react';
+import type { PortfolioProject } from '../types/portfolio';
 
 interface ProjectModalProps {
-  project: Project | null;
+  project: PortfolioProject | null;
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
-  const [idx, setIdx] = useState(0);
+const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Reset index when project changes or modal reopens
+  const images = project?.images ?? [];
+
   useEffect(() => {
-    setIdx(0);
+    setActiveImageIndex(0);
   }, [project, isOpen]);
 
-  const images = useMemo(() => project?.images ?? [], [project]);
-  const hasImages = images.length > 0;
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined;
+    }
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) onClose();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+
+      if (images.length > 1 && event.key === 'ArrowLeft') {
+        setActiveImageIndex((currentIndex) =>
+          currentIndex === 0 ? images.length - 1 : currentIndex - 1,
+        );
+      }
+
+      if (images.length > 1 && event.key === 'ArrowRight') {
+        setActiveImageIndex((currentIndex) =>
+          currentIndex === images.length - 1 ? 0 : currentIndex + 1,
+        );
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [images.length, isOpen, onClose]);
+
+  if (!isOpen || !project) {
+    return null;
+  }
+
+  const meta = [project.label, project.period, project.role, project.status].filter(Boolean).join(' • ');
+  const currentImage = images[activeImageIndex];
+
+  const showPreviousImage = () => {
+    if (images.length <= 1) {
+      return;
+    }
+
+    setActiveImageIndex((currentIndex) =>
+      currentIndex === 0 ? images.length - 1 : currentIndex - 1,
+    );
   };
 
-  const isUXProject = project?.type === 'UX Design Project';
+  const showNextImage = () => {
+    if (images.length <= 1) {
+      return;
+    }
 
-  const prev = useCallback(() => {
-    if (!hasImages) return;
-    setIdx((i) => (i - 1 + images.length) % images.length);
-  }, [hasImages, images.length]);
-
-  const next = useCallback(() => {
-    if (!hasImages) return;
-    setIdx((i) => (i + 1) % images.length);
-  }, [hasImages, images.length]);
-
-  // Keyboard support: Left/Right arrows to navigate, Esc to close
-  useEffect(() => {
-    if (!isOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [isOpen, onClose, prev, next]);
-
-  if (!isOpen || !project) return null;
+    setActiveImageIndex((currentIndex) =>
+      currentIndex === images.length - 1 ? 0 : currentIndex + 1,
+    );
+  };
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      onClick={handleBackdropClick}
+      className="fixed inset-0 z-50 bg-black/80 p-4 backdrop-blur-md sm:p-6"
+      onClick={onClose}
       aria-modal="true"
       role="dialog"
     >
-      <div className="bg-gray-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-purple-500/30">
-        {/* Header */}
-        <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700 p-6 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className={`p-3 rounded-full bg-white/10 ${project.iconColor}`}>
-              {React.cloneElement(project.icon, { className: 'w-6 h-6' })}
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-              <p className={`text-lg font-medium ${project.iconColor}`}>{project.subtitle}</p>
-            </div>
+      <div
+        className="surface mx-auto flex max-h-[92vh] max-w-6xl flex-col overflow-hidden rounded-[2rem]"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-6 border-b border-white/10 px-6 py-5 sm:px-8">
+          <div>
+            {meta && (
+              <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                {meta}
+              </p>
+            )}
+            <h2 className="mt-3 text-3xl font-semibold text-[var(--text)] sm:text-4xl">
+              {project.title}
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-[color:var(--muted)]">
+              {project.summary}
+            </p>
           </div>
+
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
-            aria-label="Close"
+            className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+            aria-label="Close project modal"
           >
-            <X className="w-6 h-6 text-gray-400 hover:text-white" />
+            <X className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Content */}
-        <div className="p-6 space-y-8">
-          {/* Project Type + Actions */}
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-200 bg-white/20 px-4 py-2 rounded-full border border-white/20">
-              {project.type}
-            </span>
-            <div className="flex space-x-3">
-              {project.hasGithub && project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 bg-white/20 text-gray-200 px-4 py-2 rounded-lg hover:bg-white/30 transition-colors duration-300 border border-white/20"
-                >
-                  <Github className="w-4 h-4" />
-                  <span className="text-sm font-medium">View Code</span>
-                </a>
-              )}
-              {project.figmaLink && (
-                <a
-                  href={project.figmaLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300"
-                >
-                  <Figma className="w-4 h-4" />
-                  <span className="text-sm font-medium">View in Figma</span>
-                </a>
-              )}
-              {project.hasLiveDemo && !isUXProject && project.liveDemoUrl && (
-                <a
-                  href={project.liveDemoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center space-x-2 ${project.iconColor.replace('text-', 'bg-')} text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity duration-300`}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span className="text-sm font-medium">Live Demo</span>
-                </a>
+        <div className="overflow-y-auto">
+          <div className="grid xl:grid-cols-[0.56fr_0.44fr]">
+            <div className="border-b border-white/10 xl:border-b-0 xl:border-r xl:border-white/10">
+              {currentImage ? (
+                <div className="relative min-h-[26rem] bg-[#0d0c0a]">
+                  <img
+                    src={currentImage}
+                    alt={`${project.title} preview ${activeImageIndex + 1}`}
+                    className="h-full min-h-[26rem] w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090907] via-transparent to-transparent" />
+
+                  {images.length > 1 && (
+                    <>
+                      <button
+                        onClick={showPreviousImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        aria-label="Previous project image"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={showNextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        aria-label="Next project image"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </>
+                  )}
+
+                  {images.length > 1 && (
+                    <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2 px-4">
+                      {images.map((image, index) => (
+                        <button
+                          key={image}
+                          onClick={() => setActiveImageIndex(index)}
+                          className={`h-2.5 rounded-full transition-all duration-300 ${
+                            index === activeImageIndex ? 'w-8 bg-[var(--accent-strong)]' : 'w-2.5 bg-white/40'
+                          }`}
+                          aria-label={`View project image ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="flex min-h-[26rem] flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),linear-gradient(180deg,#17130e_0%,#0f0d09_100%)] p-8">
+                  <div>
+                    <span className="eyebrow-pill">{project.label ?? 'Project details'}</span>
+                    <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+                      {project.category}
+                    </p>
+                    <h3 className="mt-4 max-w-lg text-4xl font-semibold leading-tight text-[var(--text)]">
+                      {project.title}
+                    </h3>
+                    <p className="mt-4 max-w-lg text-base leading-7 text-[color:var(--muted)]">
+                      {project.headline}
+                    </p>
+                  </div>
+
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                    {project.metrics.map((metric) => (
+                      <div
+                        key={metric}
+                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-[var(--text)]"
+                      >
+                        {metric}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               )}
             </div>
-          </div>
 
-          {/* Visual: Carousel if images exist, else original icon tile */}
-          <div className="w-full">
-            {hasImages ? (
-              <div className={`relative ${project.bgColor} backdrop-blur-sm rounded-xl p-2 border ${project.borderColor}`}>
-                {/* Main image */}
-                <div className="h-64 md:h-80 lg:h-96 overflow-hidden rounded-lg">
-                  <img
-                    src={images[idx]}
-                    alt={`${project.title} – ${idx + 1} of ${images.length}`}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                  />
-                </div>
+            <div className="space-y-8 p-6 sm:p-8">
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  Overview
+                </p>
+                <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
+                  {project.description}
+                </p>
+              </div>
 
-                {/* Left/Right arrows */}
-                <button
-                  onClick={prev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 hover:bg-black/60 border border-white/20 transition"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft className="w-5 h-5 text-white" />
-                </button>
-                <button
-                  onClick={next}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 hover:bg-black/60 border border-white/20 transition"
-                  aria-label="Next image"
-                >
-                  <ChevronRight className="w-5 h-5 text-white" />
-                </button>
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  What shipped
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {project.highlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
+                      <span className="text-sm leading-6 text-[color:var(--muted)]">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                {/* Dots */}
-                <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-2">
-                  {images.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setIdx(i)}
-                      aria-label={`Go to image ${i + 1}`}
-                      className={`h-2.5 w-2.5 rounded-full border border-white/30 transition ${
-                        i === idx ? 'bg-white/90' : 'bg-white/30 hover:bg-white/50'
-                      }`}
-                    />
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  Why it matters
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {project.outcomes.map((outcome) => (
+                    <li key={outcome} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
+                      <span className="text-sm leading-6 text-[color:var(--muted)]">{outcome}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  Tool stack
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.technologies.map((technology) => (
+                    <span
+                      key={technology}
+                      className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
+                    >
+                      {technology}
+                    </span>
                   ))}
                 </div>
               </div>
-            ) : (
-              <div className={`${project.bgColor} backdrop-blur-sm rounded-xl p-12 border ${project.borderColor} h-64 flex items-center justify-center`}>
-                <div className={`p-8 rounded-full bg-white/10 ${project.iconColor}`}>
-                  {React.cloneElement(project.icon, { className: 'w-16 h-16' })}
-                </div>
+
+              <div className="flex flex-wrap gap-3">
+                {project.liveDemoUrl && (
+                  <a
+                    href={project.liveDemoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Live demo
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                  >
+                    <Github className="h-4 w-4" />
+                    View code
+                  </a>
+                )}
+                {project.figmaLink && (
+                  <a
+                    href={project.figmaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                  >
+                    <Figma className="h-4 w-4" />
+                    Figma
+                  </a>
+                )}
               </div>
-            )}
-          </div>
-
-          {/* Description */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <h3 className="text-xl font-bold text-white mb-4">Project Overview</h3>
-            <p className="text-gray-200 leading-relaxed mb-4">{project.description}</p>
-            {project.detailedDescription && (
-              <p className="text-gray-300 leading-relaxed">{project.detailedDescription}</p>
-            )}
-          </div>
-
-          {/* Key Highlights */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center space-x-2">
-              <Target className="w-5 h-5 text-green-400" />
-              <span>Key Highlights</span>
-            </h3>
-            <ul className="space-y-3">
-              {project.highlights.map((highlight, index) => (
-                <li key={index} className="flex items-start space-x-3">
-                  <div className={`w-2 h-2 rounded-full mt-2 ${project.iconColor.replace('text-', 'bg-')}`} />
-                  <span className="text-gray-200 leading-relaxed">{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Technologies */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <h3 className="text-xl font-bold text-white mb-4">
-              {isUXProject ? 'Design Tools & Methods' : 'Technologies Used'}
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-gray-800/50 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700/50 hover:border-purple-500/50 hover:text-purple-300 transition-all duration-300"
-                >
-                  {tech}
-                </span>
-              ))}
             </div>
           </div>
         </div>

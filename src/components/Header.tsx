@@ -1,179 +1,143 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Download, ChevronDown } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Mail, Menu, X } from 'lucide-react';
+
+const navItems = [
+  { label: 'Approach', id: 'about' },
+  { label: 'Work', id: 'projects' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Toolbox', id: 'skills' },
+  { label: 'Education', id: 'education' },
+  { label: 'Contact', id: 'contact' },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [showProjectsDropdown, setShowProjectsDropdown] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const syncActiveSection = () => {
       setScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
-      const currentSection = sections.find(section => {
+
+      const sections = ['hero', ...navItems.map((item) => item.id)];
+      const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+        if (!element) {
+          return false;
         }
-        return false;
+
+        const rect = element.getBoundingClientRect();
+        return rect.top <= 140 && rect.bottom >= 140;
       });
-      
+
       if (currentSection) {
         setActiveSection(currentSection);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    syncActiveSection();
+    window.addEventListener('scroll', syncActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', syncActiveSection);
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
-    setShowProjectsDropdown(false);
   };
 
-  const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Education', id: 'education' },
-    { label: 'Contact', id: 'contact' }
-  ];
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg border-b border-purple-500/20' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'border-b border-white/10 bg-[rgba(10,10,8,0.82)] backdrop-blur-xl'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="section-shell">
+        <div className="flex h-20 items-center justify-between">
+          <div className="shrink-0">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-xl font-bold text-white hover:text-purple-300 transition-colors"
+              className="text-left transition duration-300 hover:opacity-90"
             >
-              Saagar Parikh
+              <span className="block text-xl font-semibold text-[var(--text)]">Saagar Parikh</span>
+              <span className="mt-1 block text-[10px] uppercase tracking-[0.32em] text-[color:var(--muted)]">
+                Data Analyst • Product-minded builder
+              </span>
             </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {/* First two nav items */}
-            {navItems.slice(0, 2).map((item) => (
+          <nav className="hidden items-center gap-6 lg:flex">
+            {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative ${
+                className={`relative py-2 text-sm transition duration-300 ${
                   activeSection === item.id
-                    ? 'text-purple-300'
-                    : 'text-gray-300 hover:text-purple-300'
+                    ? 'text-[var(--text)]'
+                    : 'text-[color:var(--muted)] hover:text-[var(--text)]'
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-400 rounded-full"></div>
-                )}
-              </button>
-            ))}
-
-            {/* Projects link */}
-            <button
-              onClick={() => scrollToSection('data-visualization')}
-              className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative ${
-                activeSection === 'data-visualization' || activeSection === 'projects'
-                  ? 'text-purple-300'
-                  : 'text-gray-300 hover:text-purple-300'
-              }`}
-            >
-              Projects
-              {(activeSection === 'data-visualization' || activeSection === 'projects') && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-400 rounded-full"></div>
-              )}
-            </button>
-
-            {/* Remaining nav items */}
-            {navItems.slice(2).map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative ${
-                  activeSection === item.id
-                    ? 'text-purple-300'
-                    : 'text-gray-300 hover:text-purple-300'
-                }`}
-              >
-                {item.label}
-                {activeSection === item.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-400 rounded-full"></div>
+                  <span className="absolute inset-x-0 -bottom-1 h-px bg-[linear-gradient(90deg,transparent,rgba(241,193,122,0.95),transparent)]" />
                 )}
               </button>
             ))}
           </nav>
 
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-purple-300 p-2 transition-colors duration-300"
+          <div className="hidden items-center gap-3 md:flex">
+            <span className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.26em] text-[color:var(--muted)]">
+              Open to relocation
+            </span>
+            <a
+              href="mailto:Saagar.parikh.11@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              <Mail className="h-4 w-4" />
+              Start a conversation
+            </a>
           </div>
+
+          <button
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] lg:hidden"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-purple-500/20">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {/* First two nav items */}
-            {navItems.slice(0, 2).map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'text-purple-300 bg-purple-900/30'
-                    : 'text-gray-300 hover:text-purple-300 hover:bg-gray-800/50'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-
-            {/* Projects item */}
-            <button
-              onClick={() => scrollToSection('data-visualization')}
-              className="block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 text-gray-300 hover:text-purple-300 hover:bg-gray-800/50"
-            >
-              Projects
-            </button>
-
-            {/* Remaining nav items */}
-            <div className="border-t border-gray-700 pt-2 mt-2">
-              {navItems.slice(2).map((item) => (
+        <div className="border-t border-white/10 bg-[rgba(10,10,8,0.94)] backdrop-blur-xl lg:hidden">
+          <div className="section-shell py-4">
+            <nav className="flex flex-col gap-2">
+              {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ${
+                  className={`rounded-2xl px-4 py-3 text-left text-sm transition duration-300 ${
                     activeSection === item.id
-                      ? 'text-purple-300 bg-purple-900/30'
-                      : 'text-gray-300 hover:text-purple-300 hover:bg-gray-800/50'
+                      ? 'bg-white/10 text-[var(--text)]'
+                      : 'text-[color:var(--muted)] hover:bg-white/5 hover:text-[var(--text)]'
                   }`}
                 >
                   {item.label}
                 </button>
               ))}
-            </div>
-            
+            </nav>
+
+            <a
+              href="mailto:Saagar.parikh.11@gmail.com"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-4 py-3 text-sm font-medium text-[#1c1407]"
+            >
+              <Mail className="h-4 w-4" />
+              Email Saagar
+            </a>
           </div>
         </div>
       )}

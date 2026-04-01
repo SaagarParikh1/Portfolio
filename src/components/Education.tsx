@@ -1,159 +1,113 @@
-import React from 'react';
-import { Award, Book, Calendar, MapPin, GraduationCap } from 'lucide-react';
+const coursework = [
+  'Advanced Web Programming',
+  'Server-Side Development',
+  'Data Integration',
+  'Information Architecture',
+  'UX Design',
+  'Systems Analysis',
+  'Data Analysis & Visualization',
+];
 
-const Education: React.FC = () => {
-  const education = {
-    degree: 'Bachelor of Science in Web Programming and Design',
-    school: 'Purdue University',
-    duration: 'August 2021 - May 2025',
-    location: 'West Lafayette, IN',
-    minor: 'Computer and Information Technology',
-    certificate: 'Certificate in Cornerstone',
-    coursework: [
-      'Data Analysis & Visualization',
-      'Advanced Web Programming',
-      'UX Design',
-      'Database Management',
-      'Server-Side Development',
-      'Software Engineering'
-    ],
-    certifications: [
-      {
-        name: 'Google Data Analytics Professional Certificate',
-        issuer: 'Google / Coursera',
-        year: '2025'
-      },
-      {
-        name: 'Foundations of UX Design Certificate',
-        issuer: 'Google / Coursera',
-        year: '2023'
-      }
-    ]
-  };
+const involvement = [
+  'Vice President of External Affairs & Social Chair — Beta Chi Theta',
+  'Purdue IT Professionals (PITP)',
+  'Purdue EVC',
+  'Purdue Association of Learning Design & Technology (PALDT)',
+];
 
+const certifications = [
+  'Google Data Analytics Professional Certificate (2025)',
+  'Foundations of User Experience (UX) Design Certificate — Google (2023)',
+];
+
+const Education = () => {
   return (
-    <section id="education" className="py-16 bg-purple-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Education
-          </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Strong academic foundation in web development and data analytics
+    <section id="education" className="py-24">
+      <div className="section-shell">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="section-kicker">Education</p>
+            <h2 className="section-title">A web and UX foundation that makes the analytics work more useful.</h2>
+          </div>
+          <p className="section-copy max-w-xl">
+            My degree trained me to think about information architecture, user experience, and
+            delivery, which has become a practical advantage in data and product work.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Main Education Card */}
-          <div className="bg-gradient-to-br from-purple-900/50 to-indigo-900/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300">
-            <div className="grid lg:grid-cols-2 gap-6">
-              {/* Left Column - University Info */}
-              <div>
-                <div className="flex items-start space-x-4 mb-4">
-                  {/* Purdue Logo */}
-                  <div className="bg-white p-3 rounded-lg shadow-lg flex-shrink-0">
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1200px-Purdue_Boilermakers_logo.svg.png" 
-                      alt="Purdue University Logo"
-                      className="w-12 h-12 object-contain"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {education.degree}
-                    </h3>
-                    <p className="text-lg text-purple-300 font-semibold mb-2">
-                      {education.school}
-                    </p>
-                    <div className="flex flex-col space-y-2 text-gray-300">
-                      <div className="flex items-center space-x-2 text-sm">
-                        <Calendar className="w-4 h-4 text-indigo-400" />
-                        <span>{education.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-sm">
-                        <MapPin className="w-4 h-4 text-violet-400" />
-                        <span>{education.location}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div className="surface mt-12 overflow-hidden rounded-[2rem]">
+          <div className="grid divide-y divide-white/10 lg:grid-cols-[0.44fr_0.56fr] lg:divide-x lg:divide-y-0">
+            <div className="p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                Purdue University
+              </p>
+              <h3 className="mt-4 text-3xl font-semibold text-[var(--text)]">
+                Web Programming and Design (B.S.)
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                Aug 2021 - May 2025 • West Lafayette, IN
+              </p>
 
-                {/* Academic Focus */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <GraduationCap className="w-5 h-5 text-yellow-400" />
-                    <span className="font-semibold text-white text-sm">Academic Focus</span>
-                  </div>
-                  <div className="space-y-2">
-                    <div>
-                      <p className="text-gray-300 text-xs font-medium">Minor:</p>
-                      <p className="text-purple-300 text-sm">{education.minor}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-300 text-xs font-medium">Certificate:</p>
-                      <p className="text-purple-300 text-sm">{education.certificate}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-300 text-xs font-medium mt-3">Involvement:</p>
-                      <ul className="text-purple-300 text-xs space-y-1 mt-1">
-                        <li>• Vice President of External Affairs & Social Chair – Beta Chi Theta</li>
-                        <li>• Purdue IT Professionals (PITP)</li>
-                        <li>• Purdue EVC</li>
-                        <li>• Purdue Association of Learning Design & Technology (PALDT)</li>
-                      </ul>
-                    </div>
-                  </div>
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  Why it matters
+                </p>
+                <p className="mt-4 text-sm leading-6 text-[color:var(--muted)]">
+                  The program combined technical implementation with UX, information architecture,
+                  and systems thinking. That mix shows up directly in how I frame dashboards,
+                  product workflows, and stakeholder-facing analysis.
+                </p>
+              </div>
+
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  Involvement
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {involvement.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
+                      <span className="text-sm leading-6 text-[color:var(--muted)]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  Relevant coursework
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {coursework.map((course) => (
+                    <span
+                      key={course}
+                      className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
+                    >
+                      {course}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              {/* Right Column - Coursework */}
-              <div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 h-full">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <Book className="w-5 h-5 text-fuchsia-400" />
-                    <span className="font-semibold text-white text-sm">Relevant Coursework</span>
-                  </div>
-                  <div className="grid grid-cols-1 gap-2">
-                    {education.coursework.map((course, index) => (
-                      <div
-                        key={index}
-                        className="bg-fuchsia-600/20 backdrop-blur-sm rounded-lg p-2 border border-fuchsia-400/30 hover:bg-fuchsia-600/30 transition-all duration-300"
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-fuchsia-400 rounded-full flex-shrink-0" />
-                          <span className="text-gray-200 font-medium text-sm">{course}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="mt-10 border-t border-white/10 pt-6">
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  Certifications
+                </p>
+                <ul className="mt-4 space-y-4">
+                  {certifications.map((certification) => (
+                    <li
+                      key={certification}
+                      className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-6 text-[color:var(--muted)]"
+                    >
+                      {certification}
+                    </li>
+                  ))}
+                </ul>
               </div>
-
             </div>
           </div>
-
-          {/* Certificates Section */}
-          <div className="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 backdrop-blur-sm rounded-xl p-6 border border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300">
-            <div className="flex items-center space-x-3 mb-4">
-              <Award className="w-5 h-5 text-green-400" />
-              <span className="font-semibold text-white text-sm">Certificates</span>
-            </div>
-            <ul className="space-y-2">
-              {education.certifications.map((cert, index) => (
-                <li
-                  key={index}
-                  className="flex items-start justify-between bg-white/10 rounded-lg p-3 border border-white/20 hover:border-green-400/40 transition-all duration-300"
-                >
-                  <div>
-                    <p className="text-gray-200 font-medium text-sm">{cert.name}</p>
-                    <p className="text-gray-400 text-xs">{cert.issuer}</p>
-                  </div>
-                  <span className="text-gray-400 text-xs">{cert.year}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
         </div>
       </div>
     </section>

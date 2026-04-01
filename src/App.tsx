@@ -1,95 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
 import Projects from './components/Projects';
-import DataVisualization from './components/DataVisualization';
+import Experience from './components/Experience';
+import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  const [cursorHover, setCursorHover] = useState(false);
-  const [cursorClick, setCursorClick] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseEnter = () => setCursorHover(true);
-    const handleMouseLeave = () => setCursorHover(false);
-    const handleMouseDown = () => setCursorClick(true);
-    const handleMouseUp = () => setCursorClick(false);
-
-    // Add event listeners for cursor effects
-    const interactiveElements = document.querySelectorAll('button, a, [role="button"], input, textarea, select');
-    
-    interactiveElements.forEach(element => {
-      element.addEventListener('mouseenter', handleMouseEnter);
-      element.addEventListener('mouseleave', handleMouseLeave);
-    });
-
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
-      
-      interactiveElements.forEach(element => {
-        element.removeEventListener('mouseenter', handleMouseEnter);
-        element.removeEventListener('mouseleave', handleMouseLeave);
-      });
     };
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <div className="min-h-screen">
-      {/* Custom Cursor */}
-      <div 
-        className={`custom-cursor ${cursorHover ? 'hover' : ''} ${cursorClick ? 'click' : ''}`}
-        style={{
-          left: `${cursorPosition.x}px`,
-          top: `${cursorPosition.y}px`,
-        }}
-      />
-      
+    <div className="page-shell min-h-screen">
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute left-[-10rem] top-[-8rem] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,_rgba(208,160,93,0.22),_transparent_68%)] blur-3xl" />
+        <div className="absolute right-[-12rem] top-[18rem] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,_rgba(109,137,135,0.14),_transparent_68%)] blur-3xl" />
+        <div className="absolute bottom-[-12rem] left-1/2 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.06),_transparent_70%)] blur-3xl" />
+      </div>
+
       <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <DataVisualization />
-      <Projects />
-      <Experience />
-      <Education />
-      <Contact />
+
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+
       <Footer />
-      
-      {/* Scroll to Top Button */}
+
       {showScrollTop && (
         <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-all duration-300 hover:scale-110 z-50 border border-purple-400/30"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-50 rounded-full border border-white/10 bg-[rgba(12,12,10,0.82)] p-3 text-[var(--text)] shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+          aria-label="Scroll to top"
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="h-5 w-5" />
         </button>
       )}
     </div>

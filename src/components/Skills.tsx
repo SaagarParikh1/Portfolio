@@ -1,235 +1,126 @@
-import React, { useState } from 'react';
-import { Code, Database, Palette, Zap, Globe, Settings, ChevronRight } from 'lucide-react';
-
-const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState(0);
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
-
-const skillCategories = [
+const skillGroups = [
   {
-    title: "Data Analytics & Methods",
-    icon: <Database className="w-6 h-6" />,
-    color: "purple",
+    title: 'Analytics & Modeling',
+    description:
+      'The toolkit I rely on most for cleaning data, building models, defining KPIs, and translating findings into decision-ready analysis.',
     skills: [
-      "SQL (BigQuery, MySQL)",
-      "Python",
-      "Tableau",
-      "Excel",
-      "Data Cleaning",
-      "Data Visualization",
-      "Trend Analysis",
-      "A/B Testing",
-      "Hypothesis Testing",
-      "Statistical & Predictive Modeling",
-      "Jupyter Notebook"
-    ]
+      'SQL (BigQuery, MySQL)',
+      'Python',
+      'R',
+      'Tableau',
+      'Excel',
+      'Statistical Analysis',
+      'Regression Analysis',
+      'Feature Engineering',
+      'A/B Testing',
+      'Data Cleaning',
+    ],
   },
   {
-    title: "Frontend Development",
-    icon: <Zap className="w-6 h-6" />,
-    color: "fuchsia",
+    title: 'Product & Front-End',
+    description:
+      'Useful when the analysis has to live inside a workflow, a dashboard, or a product experience people actually interact with.',
     skills: [
-      "HTML/CSS",
-      "JavaScript",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Bootstrap",
-      "UI/UX Design",
-      "Flutter/Dart"
-    ]
+      'React',
+      'TypeScript',
+      'JavaScript',
+      'HTML/CSS',
+      'REST APIs',
+      'Tailwind CSS',
+      'Accessibility',
+      'Dashboard Design',
+      'Usability Testing',
+      'UI/UX Design',
+    ],
   },
   {
-    title: "Backend Development",
-    icon: <Settings className="w-6 h-6" />,
-    color: "emerald",
+    title: 'Workflow & Collaboration',
+    description:
+      'The supporting tools and working habits I use to keep projects moving clearly across product, analytics, and engineering teams.',
     skills: [
-      "Python",
-      "Node.js",
-      "REST API Integration",
-      "MySQL / SQL Server",
-      "PHP",
-      "Database Design"
-    ]
+      'Git/GitHub',
+      'BigQuery ML',
+      'Jupyter Notebook',
+      'Supabase',
+      'Google Suite',
+      'PowerPoint',
+      'Agile/Scrum',
+      'Generative AI',
+      'Stakeholder Communication',
+      'Experiment Readouts',
+    ],
   },
-  {
-    title: "Tools & Platforms",
-    icon: <Palette className="w-6 h-6" />,
-    color: "indigo",
-    skills: [
-      "Git/GitHub",
-      "Figma",
-      "Adobe Creative Suite",
-      "Google Suite (Sheets/Slides/Docs)",
-      "Agile Methodologies",
-      "UX Research"
-    ]
-  }
 ];
 
-
-  const getColorClasses = (color: string) => {
-    const colors = {
-      purple: {
-        bg: 'bg-purple-600/20',
-        border: 'border-purple-400/30',
-        icon: 'bg-purple-600',
-        text: 'text-purple-300',
-        hover: 'hover:bg-purple-600/30',
-        active: 'bg-purple-600/40'
-      },
-      indigo: {
-        bg: 'bg-indigo-600/20',
-        border: 'border-indigo-400/30',
-        icon: 'bg-indigo-600',
-        text: 'text-indigo-300',
-        hover: 'hover:bg-indigo-600/30',
-        active: 'bg-indigo-600/40'
-      },
-      violet: {
-        bg: 'bg-violet-600/20',
-        border: 'border-violet-400/30',
-        icon: 'bg-violet-600',
-        text: 'text-violet-300',
-        hover: 'hover:bg-violet-600/30',
-        active: 'bg-violet-600/40'
-      },
-      fuchsia: {
-        bg: 'bg-fuchsia-600/20',
-        border: 'border-fuchsia-400/30',
-        icon: 'bg-fuchsia-600',
-        text: 'text-fuchsia-300',
-        hover: 'hover:bg-fuchsia-600/30',
-        active: 'bg-fuchsia-600/40'
-      },
-      emerald: {
-        bg: 'bg-emerald-600/20',
-        border: 'border-emerald-400/30',
-        icon: 'bg-emerald-600',
-        text: 'text-emerald-300',
-        hover: 'hover:bg-emerald-600/30',
-        active: 'bg-emerald-600/40'
-      }
-    };
-    return colors[color as keyof typeof colors] || colors.purple;
-  };
-
+const Skills = () => {
   return (
-    <section id="skills" className="py-16 bg-indigo-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Technical Skills
-          </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Comprehensive expertise across the full development stack
+    <section id="skills" className="py-24">
+      <div className="section-shell">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="section-kicker">Toolbox</p>
+            <h2 className="section-title">A practical stack shaped by analytics work, product collaboration, and front-end execution.</h2>
+          </div>
+          <p className="section-copy max-w-xl">
+            I care less about listing every tool I have touched and more about showing the stack I
+            can use confidently to move a project from question to decision.
           </p>
         </div>
 
-        {/* Interactive Skill Categories */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
-          {/* Category Selector */}
-          <div className="lg:col-span-1">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 sticky top-8">
-              <h3 className="text-lg font-bold text-white mb-4">Skill Categories</h3>
-              <div className="space-y-3">
-                {skillCategories.map((category, index) => {
-                  const colorClasses = getColorClasses(category.color);
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => setActiveCategory(index)}
-                      className={`w-full flex items-center space-x-4 p-4 rounded-lg transition-all duration-300 ${
-                        activeCategory === index 
-                          ? `${colorClasses.active} border ${colorClasses.border}` 
-                          : 'hover:bg-white/10'
-                      }`}
-                    >
-                      <div className={`${colorClasses.icon} p-2 rounded-lg`}>
-                        {category.icon}
-                      </div>
-                      <span className="text-white font-medium text-sm">{category.title}</span>
-                      <ChevronRight className={`w-4 h-4 text-gray-400 ml-auto transition-transform ${
-                        activeCategory === index ? 'rotate-90' : ''
-                      }`} />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+        <div className="surface mt-12 overflow-hidden rounded-[2rem]">
+          <div className="grid divide-y divide-white/10 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="p-6 sm:p-8">
+                <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  {group.title}
+                </p>
+                <p className="mt-4 text-sm leading-6 text-[color:var(--muted)]">
+                  {group.description}
+                </p>
 
-          {/* Active Category Skills */}
-          <div className="lg:col-span-2">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className={`${getColorClasses(skillCategories[activeCategory].color).icon} p-3 rounded-lg`}>
-                  {skillCategories[activeCategory].icon}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-                <h3 className="text-xl font-bold text-white">
-                  {skillCategories[activeCategory].title}
-                </h3>
               </div>
-
-              <div className="grid md:grid-cols-2 gap-3">
-                {skillCategories[activeCategory].skills.map((skill, index) => {
-                  const colorClasses = getColorClasses(skillCategories[activeCategory].color);
-                  return (
-                    <div
-                      key={index}
-                      className={`${colorClasses.bg} backdrop-blur-sm rounded-lg p-4 border ${colorClasses.border} ${colorClasses.hover} transition-all duration-300 cursor-pointer transform hover:scale-105`}
-                      onMouseEnter={() => setHoveredSkill(skill)}
-                      onMouseLeave={() => setHoveredSkill(null)}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-white font-medium text-sm">{skill}</span>
-                        {hoveredSkill === skill && (
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* All Skills Overview */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-          <h3 className="text-xl font-bold text-white mb-6 text-center">
-            Complete Technology Stack
-          </h3>
-          
-          <div className="flex flex-wrap justify-center gap-2">
-            {skillCategories.flatMap(category => category.skills).map((skill, index) => (
-              <span
-                key={index}
-                className="bg-purple-600/30 text-purple-200 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 hover:bg-purple-600/50 hover:scale-110 transition-all duration-300 cursor-pointer"
-                onMouseEnter={() => setHoveredSkill(skill)}
-                onMouseLeave={() => setHoveredSkill(null)}
-              >
-                {skill}
-              </span>
-            ))}
+        <div className="mt-8 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p className="metric-label">Go-to workflow</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
+              SQL or Python to clean the signal, Tableau or product UI to make it usable, then a
+              clear narrative for the stakeholder.
+            </p>
           </div>
-
-          {/* Additional Technologies */}
-          <div className="mt-6 pt-6 border-t border-white/20">
-            <h4 className="text-sm font-semibold text-white mb-3 text-center">Additional Technologies</h4>
-            <div className="flex flex-wrap justify-center gap-2">
-              {[
-                'Supabase', 'Accessibility', 'Usability Testing', 'Product Thinking', 'KPI Analysis', 'Dashboarding'
-              ].map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-white/10 text-gray-200 px-2 py-1 rounded-full text-xs font-medium border border-white/20 hover:border-purple-400/50 hover:text-purple-200 transition-all duration-300"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+          <div>
+            <p className="metric-label">Analytical focus</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
+              KPI design, regression analysis, feature engineering, dashboarding, and exploratory
+              decision support.
+            </p>
+          </div>
+          <div>
+            <p className="metric-label">Product angle</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
+              I think about how the output will be read, used, and acted on rather than stopping at
+              the analysis itself.
+            </p>
+          </div>
+          <div>
+            <p className="metric-label">Collaboration style</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--text)]">
+              Comfortable working with product managers, engineers, researchers, and stakeholders
+              who need clarity more than technical jargon.
+            </p>
           </div>
         </div>
       </div>

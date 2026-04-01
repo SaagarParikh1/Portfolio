@@ -1,372 +1,700 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, Award, Users, Brain, Zap, ChevronLeft, ChevronRight, Search, TrendingUp, Globe, Gamepad2, MessageCircle, Camera, Layers } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react';
 import ProjectModal from './ProjectModal';
+import type { PortfolioProject } from '../types/portfolio';
+
+const featuredProjects: PortfolioProject[] = [
+  {
+    title: 'Quantitative Options Strategy Dashboard',
+    category: 'Analytics',
+    label: 'Featured build',
+    role: 'Independent project · Python + Streamlit',
+    period: 'Mar 2026 - Present',
+    status: 'In progress',
+    headline:
+      'A decision engine for screening cash-secured put opportunities across 100+ equities.',
+    summary:
+      'I built this project to turn discretionary options review into a repeatable workflow. It combines market data, technical context, and downside filters to rank trades based on setup quality instead of intuition alone.',
+    description:
+      'The dashboard pulls market data, computes technical indicators, evaluates support and trend conditions, and surfaces higher-probability put-selling setups in a single interface. The emphasis is on consistency: faster screening, clearer risk filters, and a scoring system that can be stress-tested and refined over time.',
+    highlights: [
+      'Engineered a multi-factor scoring model using trend strength, pullback quality, support proximity, and downside-risk filters.',
+      'Automated real-time data ingestion and signal generation so candidate trades can be screened at scale instead of chart-by-chart.',
+      'Designed the Streamlit experience to make ranking, filtering, and next-step evaluation fast for repeated daily use.',
+    ],
+    outcomes: [
+      'Cuts down manual chart review by moving setup evaluation into a repeatable rules-based workflow.',
+      'Makes it easier to compare opportunities across sectors and market regimes using one consistent scoring lens.',
+      'Creates a foundation for future backtesting, alerting, and strategy refinement.',
+    ],
+    technologies: [
+      'Python',
+      'Streamlit',
+      'REST APIs',
+      'Technical Analysis',
+      'Signal Engineering',
+      'Data Pipelines',
+    ],
+    metrics: ['100+ equities screened', 'Rules-based scoring engine', 'Real-time market data inputs'],
+  },
+  {
+    title: 'NIL Athlete Valuation Modeling & Market Analysis',
+    category: 'Analytics',
+    label: 'Featured case study',
+    role: 'Analytics project · BigQuery ML, SQL, Python, Tableau',
+    period: 'Mar 2026',
+    headline:
+      'Modeling athlete brand value by combining performance data, social reach, and valuation benchmarks.',
+    summary:
+      'This project started with a messy NIL market question: which athletes look overpriced, underpriced, or undervalued once you account for performance and audience reach? I built the analytical dataset, modeled expected valuations, and visualized the market in dashboards designed for decision-making.',
+    description:
+      'I scraped and joined athlete performance stats, valuation rankings, and social media metrics to create a clean analytical dataset for 300+ Division I athletes. From there I built a linear regression model in BigQuery ML, tested transformed features, and used Tableau to visualize market share, prediction error, and the variables driving athlete brand value.',
+    highlights: [
+      'Built the dataset from scratch by joining valuation rankings, performance stats, and social media metrics for 300+ Division I athletes.',
+      'Developed a BigQuery ML regression model using transformed features and composite metrics to estimate expected NIL value.',
+      'Designed interactive dashboards that made prediction error, market share, media influence, and positional patterns easy to explore.',
+    ],
+    outcomes: [
+      'Produced a decision-ready view of overvalued and undervalued athletes for hypothetical brand partnership analysis.',
+      'Combined statistical modeling with executive-facing dashboards so the analysis was useful beyond the notebook.',
+      'Showed how social reach, position, and performance interact instead of relying on headline valuation alone.',
+    ],
+    technologies: ['BigQuery', 'SQL', 'Python', 'BigQuery ML', 'Tableau', 'Excel'],
+    metrics: ['300+ D1 athletes modeled', 'BigQuery ML regression', 'Interactive Tableau dashboards'],
+    images: [
+      '/images/NIL/NIL Market Overview.png',
+      '/images/NIL/Actual vs Predicted NIL.png',
+      '/images/NIL/Performance vs Valuation.png',
+      '/images/NIL/Social Media Influence.png',
+      '/images/NIL/Player Market Analysis.png',
+    ],
+    liveDemoUrl: 'https://nil-value-drivers-an-8oih.bolt.host/',
+  },
+  {
+    title: 'Grant County Special Education Cooperative Website',
+    category: 'Frontend',
+    label: 'Featured delivery',
+    role: 'Capstone project · React, Tailwind, accessibility',
+    period: 'Nov 2024 - Apr 2025',
+    headline:
+      'A stakeholder-driven website for a public school special education cooperative.',
+    summary:
+      'I translated district requirements and Figma direction into modular front-end components that prioritized accessibility, clarity, and trust for parents, students, and educators.',
+    description:
+      'This capstone project required shipping a responsive public-facing site for the Grant County Special Education Cooperative. The work involved aligning with stakeholder needs, translating designs into reusable components, and improving usability through structured accessibility and feedback cycles.',
+    highlights: [
+      'Built modular React and Tailwind components from stakeholder requirements and design prototypes.',
+      'Improved accessibility and usability through WCAG-focused design decisions and structured testing feedback.',
+      'Worked collaboratively with a larger team to keep implementation aligned with content, design, and communication goals.',
+    ],
+    outcomes: [
+      'Delivered a cleaner information experience for multiple audience types, including parents, students, and staff.',
+      'Balanced stakeholder requests with practical implementation decisions in a real client environment.',
+      'Strengthened the site’s credibility through clearer structure, stronger usability, and accessibility-minded execution.',
+    ],
+    technologies: [
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Accessibility',
+      'Usability Testing',
+      'Stakeholder Collaboration',
+    ],
+    metrics: [
+      'Public-sector stakeholder project',
+      'WCAG-focused UX improvements',
+      'Modular React components',
+    ],
+    githubUrl: 'https://github.com/Griffinov22/Grant_County_Special_Education_Cooperative',
+  },
+  {
+    title: 'NeuroNotes',
+    category: 'AI Product',
+    label: 'Featured product',
+    role: 'Personal project · Next.js, TypeScript, OpenAI',
+    period: '2025',
+    headline:
+      'An AI-assisted study workspace that turns raw notes into summaries, flashcards, and self-testing tools.',
+    summary:
+      'I built NeuroNotes to combine the structure of a note-taking app with study workflows that feel immediately useful: summaries, key point extraction, quiz generation, and a cleaner way to organize learning.',
+    description:
+      'The project explores how AI can support study habits without getting in the way of them. I focused on making the experience practical: structured notes, rich editing, folder organization, and study features that help users move from capture to recall.',
+    highlights: [
+      'Integrated OpenAI-powered summaries, key point extraction, and flashcard generation into a single note workflow.',
+      'Built rich note organization with folders, tags, and editing features designed for repeated study sessions.',
+      'Treated the product like a full experience instead of a simple API demo by connecting capture, organization, and recall.',
+    ],
+    outcomes: [
+      'Demonstrates product thinking beyond the API integration by connecting content creation and study workflows.',
+      'Shows how AI features can support an existing workflow instead of acting as isolated novelty features.',
+      'Expanded my experience with frontend architecture, UX decisions, and integrating AI-driven features into a cohesive product.',
+    ],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'OpenAI API', 'Product Design'],
+    metrics: ['AI summaries + flashcards', 'Structured study workflow', 'Rich note organization'],
+    images: [
+      '/images/NeuroNotes/home.png',
+      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.56.38 AM.png',
+      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.24 AM.png',
+      '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.53 AM.png',
+    ],
+    githubUrl: 'https://github.com/SaagarParikh1/NeuroNotes',
+  },
+];
+
+const archiveProjects: PortfolioProject[] = [
+  {
+    title: 'Ball Analytics',
+    category: 'Product',
+    role: 'Co-founded startup · Flutter and product workflow design',
+    headline: 'A coaching assistant for film review, playbook creation, and team collaboration.',
+    summary:
+      'Built around real football coaching workflows, this product replaced spreadsheet-heavy analysis with a faster and more integrated experience.',
+    description:
+      'Ball Analytics explored how football coaches could move from disconnected film review and playbook tools into one workflow. I worked on front-end delivery, product structure, and making the interface practical for everyday coaching use.',
+    highlights: [
+      'Co-founded the product and shaped it around real coaching workflows rather than generic sports-tech assumptions.',
+      'Connected film markup, playbook organization, and team collaboration into a single product direction.',
+      'Worked in Flutter and Dart to keep the front-end logic scalable as the workflow expanded.',
+    ],
+    outcomes: [
+      'Helped reduce the friction of spreadsheet-based review and fragmented coaching tools.',
+      'Created a more realistic product foundation for onboarding high school football programs.',
+      'Strengthened my experience in startup collaboration, product iteration, and applied UX thinking.',
+    ],
+    technologies: ['Flutter', 'Dart', 'Supabase', 'Product Design', 'Workflow Mapping'],
+    metrics: ['Startup co-founder', 'Coach-focused workflow design', 'Beta program onboarding'],
+    githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
+  },
+  {
+    title: 'Ticket Scout',
+    category: 'Frontend',
+    role: 'Personal project · React and API integration',
+    headline: 'A ticket comparison experience built to surface better pricing faster.',
+    summary:
+      'Aggregated pricing, search, and filtering workflows into one interface designed to reduce friction during ticket buying.',
+    description:
+      'Ticket Scout focused on making price comparison easier across multiple platforms. The project combined search, trending views, and event-level exploration into a cleaner experience for people trying to compare before they buy.',
+    highlights: [
+      'Built real-time comparison and filtering workflows across multiple ticket sources.',
+      'Designed the search experience to help users move from discovery to evaluation quickly.',
+      'Focused on responsive interaction design and clearer data presentation.',
+    ],
+    outcomes: [
+      'Improved how quickly users could compare listings without bouncing across multiple sites.',
+      'Expanded my API integration and front-end state management experience.',
+      'Demonstrated how utility products can still benefit from stronger UX structure.',
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'API Integration'],
+    metrics: ['Real-time search flow', 'Cross-platform price comparison', 'Responsive UI'],
+    images: [
+      '/images/ticketscout/home.png',
+      '/images/ticketscout/search.png',
+      '/images/ticketscout/mavs.png',
+      '/images/ticketscout/trending.png',
+    ],
+    githubUrl: 'https://github.com/SaagarParikh1/TicketScoutV2',
+  },
+  {
+    title: 'TravelX',
+    category: 'Frontend',
+    role: 'Personal project · Multi-page travel platform',
+    headline: 'A travel planning concept that combines weather, activities, and AI recommendations.',
+    summary:
+      'TravelX explored how a trip-planning flow could feel more informed and personalized by combining live data and AI assistance.',
+    description:
+      'This project blended destination research, weather context, activity suggestions, and AI-generated recommendations into a multi-page interface. The emphasis was on a smoother planning journey rather than isolated widgets.',
+    highlights: [
+      'Combined live weather, activities, and destination research into one travel flow.',
+      'Integrated OpenAI-assisted recommendations to personalize trip ideas and itineraries.',
+      'Designed the experience across multiple pages with responsiveness in mind from the start.',
+    ],
+    outcomes: [
+      'Created a more cohesive travel experience by unifying data that usually lives across separate tools.',
+      'Strengthened my ability to structure multi-page information architecture and API-driven UI.',
+      'Showed how AI can support exploration without overwhelming the rest of the product.',
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'API Integration', 'OpenAI API'],
+    metrics: ['Weather + activities data', 'AI travel recommendations', 'Multi-page UX flow'],
+    images: [
+      '/images/travelx/home.png',
+      '/images/travelx/weatherDALf.png',
+      '/images/travelx/activities.png',
+      '/images/travelx/aiAssistant.png',
+    ],
+    githubUrl: 'https://github.com/SaagarParikh1/TravelX',
+  },
+  {
+    title: 'Recipe Finder',
+    category: 'Frontend',
+    role: 'Personal project · Search and API design',
+    headline: 'An ingredient-first recipe search flow built to reduce friction in meal discovery.',
+    summary:
+      'Focused on fast search, filtering, and recipe exploration using API-backed results and a clearer browsing experience.',
+    description:
+      'Recipe Finder was built around a practical user problem: finding something useful to make with what is already available. I designed the interface around fast discovery, filtering, and clean presentation of recipe results.',
+    highlights: [
+      'Created an ingredient-based search workflow with API-backed recipe results.',
+      'Built filtering and navigation patterns designed to reduce friction during browsing.',
+      'Prioritized clearer data presentation so users could compare options more quickly.',
+    ],
+    outcomes: [
+      'Improved the usability of a search-heavy interface by simplifying the flow from input to results.',
+      'Expanded my experience with API integration and interaction design for utility products.',
+      'Demonstrated how better interface structure can improve a straightforward product concept.',
+    ],
+    technologies: ['React', 'JavaScript', 'Tailwind CSS', 'API Integration'],
+    metrics: ['Ingredient-based search', 'Filter-driven browsing', 'Clean recipe discovery flow'],
+    images: [
+      '/images/recipeFinder/rfhome.png',
+      '/images/recipeFinder/rfmex.png',
+      '/images/recipeFinder/rfmedit.png',
+      '/images/recipeFinder/rfrandom.png',
+    ],
+    githubUrl: 'https://github.com/SaagarParikh1/recipe-finder',
+  },
+  {
+    title: 'NBA Injury & Availability Analytics',
+    category: 'Analytics',
+    role: 'Independent analysis · Python and exploratory modeling',
+    headline: 'Linking injury patterns and player availability to team-level outcomes.',
+    summary:
+      'Explored how injury frequency, return timelines, and availability shape team performance across seasons.',
+    description:
+      'This project focused on understanding injury patterns beyond isolated anecdotes. I cleaned box scores and injury data, engineered availability features, and used visuals to explore how time lost and player availability affect team-level performance.',
+    highlights: [
+      'Modeled injury timing and return patterns across positions and teams.',
+      'Engineered availability features to estimate team-level impact more clearly.',
+      'Used dashboards and exploratory visuals to make patterns easier to compare over time.',
+    ],
+    outcomes: [
+      'Produced a clearer analytical lens for understanding how availability affects results.',
+      'Improved my experience working with sports datasets, temporal features, and exploratory storytelling.',
+      'Balanced modeling work with visuals that could be explained quickly to non-technical audiences.',
+    ],
+    technologies: ['Python', 'Pandas', 'Matplotlib', 'Jupyter', 'Scikit-learn'],
+    metrics: ['Availability feature engineering', 'Season-over-season pattern analysis', 'Team-level dashboards'],
+    images: ['/images/datavisualizations/nbadash.png'],
+    githubUrl: 'https://github.com/SaagarParikh1/NBAInjuryRiskCaseStudy',
+  },
+  {
+    title: 'Climate & Extreme Weather Trends',
+    category: 'Analytics',
+    role: 'Independent analysis · Long-horizon trend exploration',
+    headline: 'A 40-year view of climate indicators, seasonality, and extreme-event anomalies.',
+    summary:
+      'Used long-horizon environmental data to surface trend shifts, outliers, and regional risk patterns.',
+    description:
+      'This project combined multi-source climate and weather data into a cleaner analytical view of long-term change. The work centered on anomaly detection, rolling trends, and visuals designed to make regional patterns easier to interpret.',
+    highlights: [
+      'Normalized long-horizon data sources and engineered anomaly flags for extreme events.',
+      'Used rolling averages and trend comparisons to show how patterns changed over time.',
+      'Designed visuals that emphasized seasonality, deviations, and regional comparison.',
+    ],
+    outcomes: [
+      'Created a decision-friendly view of climate risk patterns from otherwise unwieldy public datasets.',
+      'Expanded experience with long-range time series analysis and storytelling through visualization.',
+      'Strengthened the connection between analytical rigor and public-facing clarity.',
+    ],
+    technologies: ['Python', 'Pandas', 'Matplotlib', 'Tableau', 'Open Data'],
+    metrics: ['40-year time horizon', 'Anomaly detection', 'Regional trend comparison'],
+    images: ['/images/datavisualizations/weatherfinal.png'],
+    githubUrl: 'https://github.com/SaagarParikh1/WeatherEvents-ClimateChange',
+  },
+  {
+    title: 'E-Commerce Revenue & Customer Intelligence Dashboard',
+    category: 'Analytics',
+    role: 'Independent analysis · Executive KPI dashboarding',
+    headline: 'Turning transaction data into retention, revenue, and concentration insights.',
+    summary:
+      'Built a decision-ready dashboard from 25,000+ transaction records using advanced SQL and executive-friendly KPI framing.',
+    description:
+      'This project focused on KPI design and stakeholder-friendly reporting. I engineered metrics including revenue concentration, retention, and average order value, then translated the analysis into dashboards that would be useful for ongoing business review.',
+    highlights: [
+      'Engineered revenue, retention, and concentration KPIs from 25,000+ transaction records.',
+      'Used advanced SQL aggregations and window functions to build reusable analytical logic.',
+      'Structured the dashboard around executive scanning: trend first, segmentation second, product detail third.',
+    ],
+    outcomes: [
+      'Created a clearer picture of customer behavior and revenue concentration for business decision-making.',
+      'Showed how KPI design choices shape the usefulness of a dashboard for leadership teams.',
+      'Strengthened my ability to move from raw transactional data to executive-ready reporting.',
+    ],
+    technologies: ['SQL', 'Tableau', 'Excel', 'Data Analysis'],
+    metrics: ['25,000+ transaction records', 'Executive KPI framework', 'Revenue concentration insights'],
+    images: ['/images/datavisualizations/ecommdash.png'],
+  },
+  {
+    title: 'Ask Me Anything',
+    category: 'Product',
+    role: 'Personal project · AI and search comparison',
+    headline: 'A multi-source Q&A interface for comparing AI and search-driven responses.',
+    summary:
+      'Explored how users could compare answers across sources instead of relying on a single result path.',
+    description:
+      'Ask Me Anything was designed around comparative insight. The interface pulled responses from multiple sources and framed the experience around side-by-side evaluation rather than a single answer stream.',
+    highlights: [
+      'Built an asynchronous query flow that pulled responses from multiple sources.',
+      'Focused the UX on comparison, helping users scan differences between answers quickly.',
+      'Used the product as a lightweight exploration of trust, sourcing, and answer quality.',
+    ],
+    outcomes: [
+      'Created a more useful Q&A interaction for users who want context instead of one output.',
+      'Strengthened experience with asynchronous API handling and result presentation.',
+      'Demonstrated interest in how AI-assisted interfaces can better support user judgment.',
+    ],
+    technologies: ['JavaScript', 'HTML/CSS', 'API Integration', 'Interaction Design'],
+    metrics: ['Multi-source comparison', 'Asynchronous request flow', 'Answer evaluation UX'],
+    images: ['/images/askanything/askanythinghome.png'],
+    githubUrl: 'https://github.com/SaagarParikh1/AskMeAnything',
+  },
+  {
+    title: 'The Shoreline Hotel',
+    category: 'UX',
+    role: 'Concept project · Hospitality website design',
+    headline: 'A visual hospitality concept built around atmosphere, trust, and booking clarity.',
+    summary:
+      'Created a multi-page hotel concept focused on elevated visuals, navigation, and experiential storytelling.',
+    description:
+      'The Shoreline Hotel project was an exploration of how layout, imagery, and page pacing can create a stronger hospitality brand feel. The work emphasized atmosphere while still keeping key actions and information easy to navigate.',
+    highlights: [
+      'Designed a multi-page site with rooms, amenities, activities, and booking context.',
+      'Used visual hierarchy and parallax effects to create a more immersive brand experience.',
+      'Focused on balancing aesthetic storytelling with practical navigation.',
+    ],
+    outcomes: [
+      'Expanded my comfort with more visual-first design decisions and brand presentation.',
+      'Showed how layout and pacing influence perceived quality in hospitality experiences.',
+      'Reinforced the importance of balancing emotion, clarity, and usability in a marketing site.',
+    ],
+    technologies: ['Wix', 'Adobe Photoshop', 'Responsive Design', 'UI/UX Design'],
+    metrics: ['Hospitality storytelling', 'Multi-page visual system', 'Responsive presentation'],
+    images: [
+      '/images/shoreline/shmain.png',
+      '/images/shoreline/shactivities.png',
+      '/images/shoreline/shreviews.png',
+      '/images/shoreline/shrooms.png',
+    ],
+    liveDemoUrl: 'https://saagarparikh11.wixsite.com/theshorelinehotel-co',
+  },
+];
+
+const archiveFilters = ['All', 'Analytics', 'Frontend', 'Product', 'UX'];
 
 const Projects = () => {
-  const [currentProject, setCurrentProject] = useState(0);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [archiveFilter, setArchiveFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
 
-  // Featured projects for slideshow (only 6)
-  const featuredProjects = [
-    {
-      title: 'NeuroNotes',
-      subtitle: 'AI-Powered Study Assistant',
-      description: 'Developed a full-stack, AI-powered note-taking and study assistant with advanced features including automated summaries, key point extraction, and flashcard generation.',
-      detailedDescription: 'NeuroNotes revolutionizes the way students take and organize notes by leveraging artificial intelligence to enhance learning outcomes. The platform combines traditional note-taking with modern AI capabilities to create an intelligent study companion.',
-      icon: <Brain className="w-6 h-6" />,
-      iconColor: 'text-indigo-400',
-      bgColor: 'bg-indigo-600/20',
-      borderColor: 'border-indigo-400/30',
-      image: '/images/NeuroNotes/home.png',
-      images: [
-        '/images/NeuroNotes/home.png',
-        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.56.38 AM.png',
-        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.38 AM.png',
-        '/images/NeuroNotes/Screenshot 2025-06-11 at 10.57.53 AM.png'
-      ],
-      highlights: [
-        'Built with React, Next.js, TypeScript, and Tailwind CSS',
-        "Integrated OpenAI's API for AI-powered features",
-        'Implemented rich markdown editing and folder/tag organization',
-        'Created quiz mode and self-testing tools for spaced repetition learning'
-      ],
-      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'OpenAI API', 'AI'],
-      type: 'Personal Project',
-      hasLiveDemo: true,
-      hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/NeuroNotes',
-      challenges: [
-        'Integrating multiple AI APIs while maintaining performance',
-        'Creating an intuitive user interface for complex features',
-        'Implementing real-time collaboration features'
-      ],
-      outcomes: [
-        'Improved study efficiency by 40% in user testing',
-        'Successfully processed over 10,000 notes in beta testing',
-        'Received positive feedback from 95% of beta users'
-      ]
-    },
-    {
-      title: 'Ball Analytics',
-      subtitle: 'Multi-Platform Coaching Assistant',
-      description: 'A startup I co-founded, developing a multi-platform coaching assistant software that streamlines film analysis, playbook creation, and team collaboration for football coaches.',
-      detailedDescription: 'Ball Analytics addresses the inefficiencies in traditional football coaching workflows by providing a comprehensive digital platform that integrates film analysis, playbook management, and team communication in one seamless experience.',
-      icon: <Zap className="w-6 h-6" />,
-      iconColor: 'text-violet-400',
-      bgColor: 'bg-violet-600/20',
-      borderColor: 'border-violet-400/30',
-      image: 'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800',
-      images: [
-        'https://images.pexels.com/photos/1618200/pexels-photo-1618200.jpeg?auto=compress&cs=tinysrgb&w=800'
-      ],
-      highlights: [
-        'Co-founded a startup with two others to revolutionize football coaching workflows',
-        'Enabled direct film markup and playbook integration with Hudl and Thundercloud XOS',
-        'Replaced spreadsheet-based analysis with a more efficient, real-world coaching workflow',
-        'Managed scalable front-end logic using Flutter and Dart'
-      ],
-      technologies: ['Flutter', 'Dart', 'UI/UX Design', 'Supabase'],
-      type: 'Startup Project',
-      hasLiveDemo: false,
-      hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
-      challenges: [
-        'Integrating with existing coaching software platforms',
-        'Creating a user-friendly interface for non-technical users',
-        'Scaling the platform for multiple teams and organizations'
-      ],
-      outcomes: [
-        'Secured initial funding and mentorship',
-        'Onboarded 5 high school football programs for beta testing',
-        'Reduced game film analysis time by 60%'
-      ]
-    },
-    {
-      title: 'Grant County Special Education Cooperative Website',
-      subtitle: 'Capstone Project',
-      description: "A responsive and user-friendly website for the Grant County School District's Special Education Cooperative.",
-      detailedDescription: 'This capstone project involved creating a comprehensive web solution for the Grant County Special Education Cooperative, focusing on accessibility, user experience, and providing essential resources for students, parents, and educators.',
-      icon: <Award className="w-6 h-6" />,
-      iconColor: 'text-purple-400',
-      bgColor: 'bg-purple-600/20',
-      borderColor: 'border-purple-400/30',
-      image: 'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800',
-      images: [
-        'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800'
-      ],
-      highlights: [
-        'Collaborated with 11 web developers and UX designers',
-        'Enhanced usability and accessibility for diverse user groups',
-        'Transformed wireframes into functional components',
-        'Led front-end development using React, JSX, Bootstrap, and Tailwind CSS'
-      ],
-      technologies: ['HTML/CSS', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'JSX'],
-      type: 'Capstone Project',
-      hasLiveDemo: false,
-      hasGithub: true,
-      githubUrl: 'https://github.com/Griffinov22/Grant_County_Special_Education_Cooperative',
-      challenges: [
-        'Meeting strict accessibility requirements (WCAG 2.1 AA)',
-        'Coordinating with a large development team',
-        'Balancing stakeholder requirements with technical constraints'
-      ],
-      outcomes: [
-        'Successfully delivered on time and within scope',
-        'Achieved 100% accessibility compliance',
-        'Received excellent feedback from client and faculty'
-      ]
-    },
-    {
-      title: 'Ticket Scout',
-      subtitle: 'Price Comparison Platform',
-      description: 'A personal project for analyzing ticket prices across multiple platforms, providing real-time access to the best deals.',
-      detailedDescription: 'Ticket Scout simplifies the ticket purchasing process by aggregating prices from multiple vendors and providing users with comprehensive comparison tools, saving both time and money.',
-      icon: <Search className="w-6 h-6" />,
-      iconColor: 'text-emerald-400',
-      bgColor: 'bg-emerald-600/20',
-      borderColor: 'border-emerald-400/30',
-      image: '/images/ticketscout/home.png',
-      images: [
-        '/images/ticketscout/home.png',
-        '/images/ticketscout/search.png',
-        '/images/ticketscout/mavs.png',
-        '/images/ticketscout/trending.png',
-        '/images/ticketscout/howworks.png'
-      ],
-      highlights: [
-        'Implemented real-time price comparison and filtering',
-        'Integrated multiple APIs for data aggregation',
-        'Developed an interactive and responsive UI',
-        'Built efficient search and filtering mechanisms'
-      ],
-      technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration'],
-      type: 'Personal Project',
-      hasLiveDemo: true,
-      hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/TicketScoutV2',
-    },
-    {
-      title: 'TravelX',
-      subtitle: 'AI-Enhanced Travel Platform',
-      description: 'A multi-page travel personal project offering real-time weather updates, destination information, and AI-generated travel recommendations.',
-      detailedDescription: 'TravelX combines traditional travel planning with AI-powered recommendations to create personalized travel experiences, helping users discover new destinations and plan their perfect trips.',
-      icon: <Globe className="w-6 h-6" />,
-      iconColor: 'text-blue-400',
-      bgColor: 'bg-blue-600/20',
-      borderColor: 'border-blue-400/30',
-      image: '/images/travelx/home.png',
-      images: [
-        '/images/travelx/home.png',
-        '/images/travelx/weatherDALf.png',
-        '/images/travelx/pics.png',
-        '/images/travelx/activities.png',
-        '/images/travelx/aiAssistant.png'
-      ],
-      highlights: [
-        'Designed intuitive interface with dynamic features',
-        'Implemented responsive design and multi-API integration',
-        "Utilized OpenAI's API to generate personalized travel recommendations",
-        'Real-time weather integration for destination planning'
-      ],
-      technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'TypeScript', 'API Integration', 'Responsive Design', 'AI Integration'],
-      type: 'Personal Project',
-      hasLiveDemo: true,
-      hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/TravelX',
-    },
-    {
-      title: 'Recipe Finder',
-      subtitle: 'Ingredient-Based Recipe Search',
-      description: 'A personal project that allows users to search for recipes using ingredients or keywords, fetching results through API integration.',
-      detailedDescription: 'Recipe Finder helps users make the most of their available ingredients by suggesting recipes and providing detailed cooking instructions, reducing food waste and inspiring culinary creativity.',
-      icon: <Search className="w-6 h-6" />,
-      iconColor: 'text-orange-400',
-      bgColor: 'bg-orange-600/20',
-      borderColor: 'border-orange-400/30',
-      image: '/images/recipeFinder/rfhome.png',
-      images: [
-        '/images/recipeFinder/rfhome.png',
-        '/images/recipeFinder/rfmex.png',
-        '/images/recipeFinder/rfmedit.png',
-        '/images/recipeFinder/rfrandom.png'
-      ],
-      highlights: [
-        'Designed a search-based interface for seamless recipe discovery',
-        'Integrated recipe API for real-time recipe data',
-        'Focused on user-friendly navigation and data presentation',
-        'Implemented advanced filtering and search optimization'
-      ],
-      technologies: ['HTML', 'Tailwind CSS', 'ReactJS', 'API Integration', 'Search Optimization'],
-      type: 'Personal Project',
-      hasLiveDemo: true,
-      hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/recipe-finder',
+  const activeProject = featuredProjects[activeProjectIndex];
+  const activeImages = activeProject.images ?? [];
+
+  useEffect(() => {
+    setActiveImageIndex(0);
+  }, [activeProjectIndex]);
+
+  const filteredArchiveProjects =
+    archiveFilter === 'All'
+      ? archiveProjects
+      : archiveProjects.filter((project) => project.category === archiveFilter);
+
+  const showPreviousImage = () => {
+    if (activeImages.length <= 1) {
+      return;
     }
-  ];
 
-  // All projects for grid display
-  const allProjects = [
-    ...featuredProjects,
-    {
-      title: 'The Shoreline Hotel',
-      subtitle: 'Luxury Hotel Website',
-      description: 'The Shoreline Hotel is a multi-page website for an imaginary hotel, including sections for rooms, amenities, and bookings.',
-      icon: <Camera className="w-6 h-6" />,
-      iconColor: 'text-cyan-400',
-      bgColor: 'bg-cyan-600/20',
-      borderColor: 'border-cyan-400/30',
-      image: '/images/shoreline/shmain.png',
-      images: [
-        '/images/shoreline/shmain.png',
-        '/images/shoreline/shactivities.png',
-        '/images/shoreline/shreviews.png',
-        '/images/shoreline/shrooms.png',
-        '/images/shoreline/shad.png'
-      ],
-      highlights: [
-        'Designed an elegant multi-page website with a user-friendly interface',
-        'Incorporated parallax scrolling effects for an immersive experience',
-        'Utilized high-quality visuals to captivate and engage visitors',
-        'Ensured responsiveness across all devices'
-      ],
-      technologies: ['Wix', 'Adobe Photoshop', 'Responsive Design', 'UI/UX Design'],
-      type: 'Design Project',
-      hasLiveDemo: true,
-      hasGithub: false,
-      liveDemoUrl: 'https://saagarparikh11.wixsite.com/theshorelinehotel-co',
-    },
-    {
-      title: 'Ask Me Anything',
-      subtitle: 'Multi-Source Q&A Platform',
-      description: 'A Q&A personal project for comparative insights from multiple sources (Google and OpenAI), providing users with comprehensive answers to their queries.',
-      icon: <MessageCircle className="w-6 h-6" />,
-      iconColor: 'text-yellow-400',
-      bgColor: 'bg-yellow-600/20',
-      borderColor: 'border-yellow-400/30',
-      image: '/images/askanything/askanythinghome.png',
-      images: [
-        '/images/askanything/askanythinghome.png',
-      ],
-      highlights: [
-        'Built a dynamic Q&A platform integrating multiple data sources',
-        'Implemented asynchronous JavaScript for seamless API interactions',
-        'Enhanced query processing and result comparison functionality',
-        'Comparative analysis between different AI and search sources'
-      ],
-      technologies: ['HTML', 'CSS', 'JavaScript', 'API Integration'],
-      type: 'Personal Project',
-      hasLiveDemo: false,
-      hasGithub: true,
-      githubUrl: 'https://github.com/SaagarParikh1/AskMeAnything'
+    setActiveImageIndex((currentIndex) =>
+      currentIndex === 0 ? activeImages.length - 1 : currentIndex - 1,
+    );
+  };
+
+  const showNextImage = () => {
+    if (activeImages.length <= 1) {
+      return;
     }
-  ];
 
-  const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % featuredProjects.length);
+    setActiveImageIndex((currentIndex) =>
+      currentIndex === activeImages.length - 1 ? 0 : currentIndex + 1,
+    );
   };
 
-  const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length);
-  };
+  const featuredMeta = [activeProject.label, activeProject.period, activeProject.role, activeProject.status]
+    .filter(Boolean)
+    .join(' • ');
 
-  const openModal = (project: any) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setSelectedProject(null);
-    setIsModalOpen(false);
-  };
+  const currentImage = activeImages[activeImageIndex];
 
   return (
-    <section id="projects" className="py-16 bg-indigo-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Web Development Projects
-          </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Full-stack development projects demonstrating technical expertise and problem-solving skills
+    <section id="projects" className="py-24">
+      <div className="section-shell">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="section-kicker">Selected Work</p>
+            <h2 className="section-title">
+              The strongest work here is organized around impact, decision quality, and execution,
+              not just screenshots.
+            </h2>
+          </div>
+          <p className="section-copy max-w-xl">
+            I wanted this section to read more like case-study signal and less like a grid of
+            equally weighted projects. The featured work below covers analytics, product thinking,
+            and front-end delivery.
           </p>
         </div>
 
-        {/* All Projects Grid */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-bold text-white">All Development Projects</h3>
-            <div className="flex items-center space-x-2 text-gray-300">
-              <Layers className="w-5 h-5" />
-              <span className="text-sm">Click projects to view details</span>
+        <div className="mt-14 grid gap-8 lg:grid-cols-[0.36fr_0.64fr]">
+          <div className="space-y-3">
+            {featuredProjects.map((project, index) => (
+              <button
+                key={project.title}
+                onClick={() => setActiveProjectIndex(index)}
+                className={`w-full rounded-[1.5rem] border px-5 py-5 text-left transition duration-300 ${
+                  index === activeProjectIndex
+                    ? 'border-[rgba(208,160,93,0.4)] bg-[rgba(255,255,255,0.06)]'
+                    : 'border-white/10 bg-[rgba(255,255,255,0.03)] hover:border-white/20 hover:bg-[rgba(255,255,255,0.045)]'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                      {project.category}
+                    </p>
+                    <h3 className="mt-2 text-2xl font-semibold text-[var(--text)]">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <span className="text-sm text-[color:var(--muted)]">0{index + 1}</span>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-[color:var(--muted)]">{project.summary}</p>
+              </button>
+            ))}
+          </div>
+
+          <div className="surface overflow-hidden rounded-[2rem]">
+            <div className="grid xl:grid-cols-[0.56fr_0.44fr]">
+              <div className="border-b border-white/10 xl:border-b-0 xl:border-r xl:border-white/10">
+                {currentImage ? (
+                  <div className="relative min-h-[25rem] bg-[#0d0c0a]">
+                    <img
+                      src={currentImage}
+                      alt={`${activeProject.title} preview ${activeImageIndex + 1}`}
+                      className="h-full min-h-[25rem] w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#090907] via-transparent to-transparent" />
+
+                    {activeImages.length > 1 && (
+                      <>
+                        <button
+                          onClick={showPreviousImage}
+                          className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                          aria-label="Previous project image"
+                        >
+                          <ChevronLeft className="h-5 w-5" />
+                        </button>
+                        <button
+                          onClick={showNextImage}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                          aria-label="Next project image"
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                      </>
+                    )}
+
+                    {activeImages.length > 1 && (
+                      <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2 px-4">
+                        {activeImages.map((image, index) => (
+                          <button
+                            key={image}
+                            onClick={() => setActiveImageIndex(index)}
+                            className={`h-2.5 rounded-full transition-all duration-300 ${
+                              index === activeImageIndex
+                                ? 'w-8 bg-[var(--accent-strong)]'
+                                : 'w-2.5 bg-white/40'
+                            }`}
+                            aria-label={`View image ${index + 1}`}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="flex min-h-[25rem] flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),linear-gradient(180deg,#17130e_0%,#0f0d09_100%)] p-8">
+                    <div>
+                      <span className="eyebrow-pill">{activeProject.label ?? 'Selected work'}</span>
+                      <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+                        {activeProject.category}
+                      </p>
+                      <h3 className="mt-4 max-w-lg text-4xl font-semibold leading-tight text-[var(--text)]">
+                        {activeProject.title}
+                      </h3>
+                      <p className="mt-4 max-w-lg text-base leading-7 text-[color:var(--muted)]">
+                        {activeProject.headline}
+                      </p>
+                    </div>
+
+                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                      {activeProject.metrics.map((metric) => (
+                        <div
+                          key={metric}
+                          className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-[var(--text)]"
+                        >
+                          {metric}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="p-6 sm:p-8">
+                {featuredMeta && (
+                  <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                    {featuredMeta}
+                  </p>
+                )}
+                <h3 className="mt-4 text-3xl font-semibold text-[var(--text)]">
+                  {activeProject.title}
+                </h3>
+                <p className="mt-3 text-lg leading-7 text-[var(--accent-strong)]">
+                  {activeProject.headline}
+                </p>
+                <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
+                  {activeProject.summary}
+                </p>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {activeProject.metrics.map((metric) => (
+                    <div key={metric} className="border-t border-white/10 pt-4">
+                      <p className="text-sm leading-6 text-[var(--text)]">{metric}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                    What shipped
+                  </p>
+                  <ul className="mt-4 space-y-3">
+                    {activeProject.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
+                        <span className="text-sm leading-6 text-[color:var(--muted)]">
+                          {highlight}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {activeProject.technologies.map((technology) => (
+                    <span
+                      key={technology}
+                      className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
+                    >
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {activeProject.liveDemoUrl && (
+                    <a
+                      href={activeProject.liveDemoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Live demo
+                    </a>
+                  )}
+                  {activeProject.githubUrl && (
+                    <a
+                      href={activeProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                    >
+                      <Github className="h-4 w-4" />
+                      View code
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setSelectedProject(activeProject)}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                  >
+                    Open case study
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-20 grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
+          <div>
+            <p className="section-kicker">Project Archive</p>
+            <h3 className="text-3xl font-semibold text-[var(--text)]">Additional builds worth scanning.</h3>
+            <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
+              These projects are still part of the story, but the archive keeps them lighter so the
+              strongest work stays easy to find.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+              {archiveFilters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setArchiveFilter(filter)}
+                  className={`rounded-full px-4 py-2 text-xs uppercase tracking-[0.22em] transition duration-300 ${
+                    archiveFilter === filter
+                      ? 'bg-[var(--accent)] text-[#1c1407]'
+                      : 'border border-white/10 text-[color:var(--muted)] hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]'
+                  }`}
+                >
+                  {filter}
+                </button>
+              ))}
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {allProjects.map((project, index) => (
-              <div
-                key={index}
-                className="group cursor-pointer transition-all duration-300 hover:scale-102"
-                onClick={() => openModal(project)}
-              >
-                <div className={`${project.bgColor} backdrop-blur-sm rounded-xl overflow-hidden border ${project.borderColor} hover:border-opacity-60 transition-all duration-300`}>
-                  {/* Project Image */}
-                  {project.image && (
-                    <div className="relative h-32 overflow-hidden">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      
-                      {/* Project Type Badge */}
-                      <div className="absolute top-2 left-2">
-                        <span className="bg-white/20 backdrop-blur-sm text-white px-2 py-0.5 rounded-full text-xs font-medium border border-white/30">
-                          {project.type}
-                        </span>
-                      </div>
-
-                      {/* Project Icon */}
-                      <div className={`absolute bottom-2 left-2 p-1 rounded-full bg-white/10 backdrop-blur-sm ${project.iconColor}`}>
-                        {project.icon}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Project Details */}
-                  <div className="p-3">
-                    <h3 className="text-sm font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-gray-200 text-xs leading-relaxed line-clamp-2 mb-2">
-                      {project.description}
+          <div className="surface overflow-hidden rounded-[2rem]">
+            <div className="divide-y divide-white/10">
+              {filteredArchiveProjects.map((project) => (
+                <button
+                  key={project.title}
+                  onClick={() => setSelectedProject(project)}
+                  className="grid w-full gap-4 px-5 py-5 text-left transition duration-300 hover:bg-white/5 md:grid-cols-[1.4fr_1fr_auto] md:items-center"
+                >
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                      {project.category}
                     </p>
-
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies.slice(0, 2).map((tech, techIndex) => (
-                        <span key={techIndex} className="text-xs bg-white/10 text-gray-400 px-2 py-0.5 rounded">
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 2 && (
-                        <span className="text-xs text-gray-500">+{project.technologies.length - 2}</span>
-                      )}
-                    </div>
+                    <h4 className="mt-2 text-xl font-semibold text-[var(--text)]">
+                      {project.title}
+                    </h4>
+                    <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">
+                      {project.headline}
+                    </p>
                   </div>
-                </div>
-              </div>
-            ))}
+                  <p className="text-sm leading-6 text-[color:var(--muted)]">{project.summary}</p>
+                  <div className="inline-flex items-center gap-2 text-sm text-[var(--text)] md:justify-end">
+                    View details
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Project Modal */}
-      <ProjectModal 
+      <ProjectModal
         project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={closeModal}
+        isOpen={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
       />
     </section>
   );
