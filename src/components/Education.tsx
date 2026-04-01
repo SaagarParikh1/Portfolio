@@ -20,7 +20,7 @@ const certifications = [
   'Foundations of User Experience (UX) Design Certificate — Google (2023)',
 ];
 
-const PURDUE_LOGO = '/images/logos/purdue.svg';
+const PURDUE_LOGO = '/images/logos/purdue.jpg';
 
 const Education = () => {
   return (
@@ -37,11 +37,11 @@ const Education = () => {
           <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6 sm:p-8">
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
               <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[1rem] border border-white/10 bg-[rgba(12,12,10,0.7)] p-2.5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.7)] p-1.5 sm:h-14 sm:w-14">
                   <img
                     src={PURDUE_LOGO}
                     alt="Purdue University logo"
-                    className="max-h-8 w-full object-contain"
+                    className="h-full w-full object-contain"
                   />
                 </div>
 

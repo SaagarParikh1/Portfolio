@@ -12,7 +12,7 @@ const experiences = [
       'Resolved 30+ cross-browser and responsiveness issues, improving usability and reducing QA rework cycles.',
     ],
     technologies: ['React', 'TypeScript', 'HTML/CSS', 'Reusable Components', 'QA Collaboration'],
-    logoSrc: '/images/logos/masergy.svg',
+    logoSrc: '/images/logos/masergy.png',
     logoAlt: 'Masergy Communications logo',
   },
   {
@@ -28,7 +28,7 @@ const experiences = [
       'Collaborated with ML researchers and engineers to define success metrics, validate outputs, and support product iteration.',
     ],
     technologies: ['SQL', 'Python', 'Tableau', 'KPI Design', 'Experiment Analysis'],
-    logoSrc: '/images/logos/flomad.svg',
+    logoSrc: '/images/logos/flomad.jpg',
     logoAlt: 'Flomad Labs logo',
   },
   {
@@ -44,7 +44,7 @@ const experiences = [
       'Automated KPI reporting workflows using Python and Excel, saving 10+ hours per week and improving turnaround time.',
     ],
     technologies: ['SQL', 'Python', 'Excel', 'Risk Modeling', 'Fraud Analysis'],
-    logoSrc: '/images/logos/cashe.svg',
+    logoSrc: '/images/logos/cashe.png',
     logoAlt: 'CASHe logo',
   },
 ];
@@ -66,12 +66,12 @@ const Experience = () => {
               >
                 <div className="flex flex-col gap-4 border-b border-white/10 pb-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[1rem] border border-white/10 bg-[rgba(12,12,10,0.68)] px-3">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.68)] p-1.5 sm:h-14 sm:w-14">
                       {experience.logoSrc ? (
                         <img
                           src={experience.logoSrc}
                           alt={experience.logoAlt}
-                          className="max-h-9 w-full object-contain"
+                          className="h-full w-full object-contain"
                         />
                       ) : (
                         <span className="text-sm font-semibold tracking-[0.24em] text-[var(--accent-strong)]">
