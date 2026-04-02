@@ -29,7 +29,7 @@ const featuredProjectLibrary: PortfolioProject[] = [
     label: 'Featured build',
     role: 'Independent project · Python + Streamlit',
     period: 'Mar 2026 - Present',
-    status: 'In progress',
+    status: 'Live',
     headline:
       'A quantitative decision system for evaluating when a cash-secured put setup is worth taking.',
     summary:
@@ -63,10 +63,14 @@ const featuredProjectLibrary: PortfolioProject[] = [
       'A rules-based ranking system makes daily screening faster and more repeatable across a large watchlist.',
     ],
     images: [
-      '/images/projects/stocks-tracker/dashboard-01.png',
-      '/images/projects/stocks-tracker/dashboard-02.png',
-      '/images/projects/stocks-tracker/dashboard-03.png',
+      '/images/projects/Putdashboard/screen-01.png',
+      '/images/projects/Putdashboard/screen-02.png',
+      '/images/projects/Putdashboard/screen-03.png',
+      '/images/projects/Putdashboard/screen-04.png',
+      '/images/projects/Putdashboard/screen-05.png',
+      '/images/projects/Putdashboard/screen-06.png',
     ],
+    liveDemoUrl: 'https://put-selling-dashboard.streamlit.app/',
   },
   {
     title: 'NIL Athlete Valuation Modeling & Market Analysis',
