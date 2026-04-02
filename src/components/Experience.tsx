@@ -71,7 +71,7 @@ const Experience = () => {
                         <img
                           src={experience.logoSrc}
                           alt={experience.logoAlt}
-                          className="h-full w-full object-contain"
+                          className="h-full w-full rounded-[0.7rem] object-contain"
                         />
                       ) : (
                         <span className="text-sm font-semibold tracking-[0.24em] text-[var(--accent-strong)]">

@@ -56,15 +56,9 @@ const Skills = () => {
   return (
     <section id="skills" className="section-band section-band-amber py-24">
       <div className="section-shell">
-        <div>
-          <p className="section-kicker">Skills</p>
-          <h2 className="section-title">
-            A practical stack shaped by analytics work, product collaboration, and front-end
-            execution.
-          </h2>
-        </div>
+        <p className="section-kicker">Skills</p>
 
-        <div className="surface mt-12 overflow-hidden rounded-[2rem]">
+        <div className="surface mt-8 overflow-hidden rounded-[2rem]">
           <div className="grid divide-y divide-white/10 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
             {skillGroups.map((group) => (
               <div key={group.title} className="p-6 sm:p-8">

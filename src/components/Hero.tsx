@@ -44,10 +44,12 @@ const Hero = () => {
       </div>
 
       <div className="section-shell relative z-10 py-10 sm:py-12">
-        <div className="grid gap-8 lg:grid-cols-[1.08fr_0.82fr] lg:items-center xl:gap-14">
+        <div className="grid gap-8 lg:grid-cols-[1.03fr_0.87fr] lg:items-center xl:gap-14">
           <div className="reveal-rise">
-            <span className="eyebrow-pill">Data analyst portfolio</span>
-            <p className="mt-7 text-sm uppercase tracking-[0.28em] text-[color:var(--muted)]">
+            <span className="eyebrow-pill px-4 py-2.5 text-[0.78rem] sm:text-[0.84rem]">
+              Data analyst portfolio
+            </span>
+            <p className="mt-7 text-[0.95rem] uppercase tracking-[0.28em] text-[color:var(--muted)] sm:text-[1.02rem]">
               Saagar Parikh
             </p>
             <h1 className="mt-4 max-w-[13ch] text-[clamp(2.2rem,3.8vw,3.45rem)] font-semibold leading-[0.98] text-[var(--text)]">
@@ -116,7 +118,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="surface overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[29rem] lg:justify-self-end xl:max-w-[30rem]">
+          <div className="surface overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[31rem] lg:justify-self-end xl:max-w-[32rem]">
             <div className="relative min-h-[25rem] overflow-hidden sm:min-h-[29rem] lg:min-h-[34rem] xl:min-h-[35rem]">
               <img
                 src="/images/portrait/saagar-parikh.jpeg"

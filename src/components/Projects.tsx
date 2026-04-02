@@ -156,7 +156,7 @@ const featuredProjectLibrary: PortfolioProject[] = [
   {
     title: 'NeuroNotes',
     category: 'AI Product',
-    label: 'Featured product',
+    label: 'Product project',
     role: 'Personal project · Next.js, TypeScript, OpenAI',
     period: '2025',
     headline:
@@ -194,13 +194,6 @@ const featuredProjectLibrary: PortfolioProject[] = [
   },
 ];
 
-const featuredProjects = [
-  'NIL Athlete Valuation Modeling & Market Analysis',
-  'Quantitative Options Strategy Dashboard',
-  'NeuroNotes',
-  'Grant County Special Education Cooperative Website',
-].flatMap((title) => featuredProjectLibrary.filter((project) => project.title === title));
-
 const archiveProjects: PortfolioProject[] = [
   {
     title: 'Ball Analytics',
@@ -222,6 +215,13 @@ const archiveProjects: PortfolioProject[] = [
     ],
     technologies: ['Flutter', 'Dart', 'Supabase', 'Product Design', 'Workflow Mapping'],
     metrics: ['Startup co-founder', 'Coach-focused workflow design', 'Beta program onboarding'],
+    decisionFocus:
+      'Helps coaches review film, organize plays, and collaborate in one workflow instead of switching between disconnected tools.',
+    keyInsights: [
+      'Coaching workflows break down when film review, play design, and team communication are separated across tools.',
+      'A product for coaches has to match their daily habits closely or adoption friction rises quickly.',
+      'Reducing operational friction can matter as much as adding features when the audience works under time pressure.',
+    ],
     images: ['/images/projects/ball-analytics/thumbnail.svg'],
     githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
   },
@@ -407,7 +407,27 @@ const archiveProjects: PortfolioProject[] = [
   },
 ];
 
-const archiveFilters = ['All', 'Analytics', 'Frontend', 'Product', 'UX'];
+const allProjects = [...featuredProjectLibrary, ...archiveProjects];
+
+const featuredProjects = [
+  'NIL Athlete Valuation Modeling & Market Analysis',
+  'Quantitative Options Strategy Dashboard',
+  'Ball Analytics',
+  'Grant County Special Education Cooperative Website',
+].flatMap((title) => allProjects.filter((project) => project.title === title));
+
+const orderedArchiveProjects = [
+  'NBA Injury & Availability Analytics',
+  'E-Commerce Revenue & Customer Intelligence Dashboard',
+  'NeuroNotes',
+  'Climate & Extreme Weather Trends',
+  'Ticket Scout',
+  'TravelX',
+  'The Shoreline Hotel',
+  'Recipe Finder',
+].flatMap((title) => allProjects.filter((project) => project.title === title));
+
+const archiveFilters = ['All', 'Analytics', 'Frontend', 'AI Product', 'UX'];
 
 const getCategoryIcon = (category: string) =>
   categoryIcons[category as keyof typeof categoryIcons] ?? Sparkles;
@@ -461,8 +481,8 @@ const Projects = () => {
 
   const filteredArchiveProjects =
     archiveFilter === 'All'
-      ? archiveProjects
-      : archiveProjects.filter((project) => project.category === archiveFilter);
+      ? orderedArchiveProjects
+      : orderedArchiveProjects.filter((project) => project.category === archiveFilter);
 
   const showPreviousImage = () => {
     if (activeImages.length <= 1) {

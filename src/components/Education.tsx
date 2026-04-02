@@ -26,14 +26,9 @@ const Education = () => {
   return (
     <section id="education" className="section-band section-band-soft py-24">
       <div className="section-shell">
-        <div>
-          <p className="section-kicker">Education</p>
-          <h2 className="section-title">
-            Education and certifications that support both my analytics work and how I present it.
-          </h2>
-        </div>
+        <p className="section-kicker">Education</p>
 
-        <div className="surface mt-12 overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
+        <div className="surface mt-8 overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
           <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6 sm:p-8">
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
               <div className="flex items-start gap-4">
@@ -41,7 +36,7 @@ const Education = () => {
                   <img
                     src={PURDUE_LOGO}
                     alt="Purdue University logo"
-                    className="h-full w-full object-contain"
+                    className="h-full w-full rounded-[0.7rem] object-contain"
                   />
                 </div>
 
@@ -103,7 +98,7 @@ const Education = () => {
             </div>
           </div>
 
-          <div className="mt-6 max-w-4xl rounded-[1.6rem] border border-white/10 bg-white/5 p-6 sm:p-7">
+          <div className="mt-6 rounded-[1.6rem] border border-white/10 bg-white/5 p-6 sm:p-7">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
