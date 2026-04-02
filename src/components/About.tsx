@@ -28,7 +28,7 @@ const About = () => {
         <div className="max-w-5xl">
           <p className="section-kicker">About</p>
           <h2 className="text-[1.9rem] font-semibold leading-tight text-[var(--text)] sm:text-[2.35rem]">
-            I bring analytics, product thinking, and front-end experience to work that has to be both accurate and useful.
+            I combine analytics, product thinking, and development experience so the output is not just accurate, but useful to real teams.
           </h2>
 
           <div className="mt-6 max-w-5xl space-y-5">

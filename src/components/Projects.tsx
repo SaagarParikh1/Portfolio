@@ -22,7 +22,7 @@ const categoryIcons = {
   'AI Product': BrainCircuit,
 };
 
-const featuredProjects: PortfolioProject[] = [
+const featuredProjectLibrary: PortfolioProject[] = [
   {
     title: 'Quantitative Options Strategy Dashboard',
     category: 'Analytics',
@@ -31,15 +31,15 @@ const featuredProjects: PortfolioProject[] = [
     period: 'Mar 2026 - Present',
     status: 'In progress',
     headline:
-      'A decision engine for screening cash-secured put opportunities across 100+ equities.',
+      'A quantitative decision system for evaluating when a cash-secured put setup is worth taking.',
     summary:
-      'I built this project to turn discretionary options review into a repeatable workflow. It combines market data, technical context, and downside filters to rank trades based on setup quality instead of intuition alone.',
+      'I designed this dashboard to reduce discretionary chart review and make options screening more systematic. It evaluates trend quality, pullback context, support, and downside risk so trade selection is based on repeatable criteria instead of intuition alone.',
     description:
-      'The dashboard pulls market data, computes technical indicators, evaluates support and trend conditions, and surfaces higher-probability put-selling setups in a single interface. The emphasis is on consistency: faster screening, clearer risk filters, and a scoring system that can be stress-tested and refined over time.',
+      'The dashboard pulls market data, computes technical indicators, scores setup quality, and ranks higher-probability cash-secured put opportunities in one place. The project is focused on decision support: identifying which setups deserve attention, which should be filtered out, and why.',
     highlights: [
       'Engineered a multi-factor scoring model using trend strength, pullback quality, support proximity, and downside-risk filters.',
-      'Automated real-time data ingestion and signal generation so candidate trades can be screened at scale instead of chart-by-chart.',
-      'Designed the Streamlit experience to make ranking, filtering, and next-step evaluation fast for repeated daily use.',
+      'Automated real-time data ingestion and signal generation so candidate trades can be evaluated at scale instead of chart-by-chart.',
+      'Structured the Streamlit workflow to make ranking, filtering, and next-step evaluation fast for repeated daily use.',
     ],
     outcomes: [
       'Cuts down manual chart review by moving setup evaluation into a repeatable rules-based workflow.',
@@ -55,6 +55,13 @@ const featuredProjects: PortfolioProject[] = [
       'Data Pipelines',
     ],
     metrics: ['100+ equities screened', 'Rules-based scoring engine', 'Real-time market data inputs'],
+    decisionFocus:
+      'Helps determine whether a cash-secured put setup is strong enough to take, monitor, or pass based on repeatable technical and risk criteria.',
+    keyInsights: [
+      'High premium is not enough on its own; the strongest setups combine cleaner trend context with support-based entries.',
+      'Downside filters quickly remove names that look attractive on yield but carry weaker technical structure.',
+      'A rules-based ranking system makes daily screening faster and more repeatable across a large watchlist.',
+    ],
     images: [
       '/images/projects/stocks-tracker/dashboard-01.png',
       '/images/projects/stocks-tracker/dashboard-02.png',
@@ -68,23 +75,30 @@ const featuredProjects: PortfolioProject[] = [
     role: 'Analytics project · BigQuery ML, SQL, Python, Tableau',
     period: 'Mar 2026',
     headline:
-      'Modeling athlete brand value by combining performance data, social reach, and valuation benchmarks.',
+      'A model and dashboard suite for spotting overvalued, undervalued, and strategically attractive NIL opportunities.',
     summary:
-      'This project started with a messy NIL market question: which athletes look overpriced, underpriced, or undervalued once you account for performance and audience reach? I built the analytical dataset, modeled expected valuations, and visualized the market in dashboards designed for decision-making.',
+      'I analyzed athlete performance, social reach, and valuation data to estimate what an athlete should be worth and where the market looked inefficient for a hypothetical brand partnership decision.',
     description:
-      'I scraped and joined athlete performance stats, valuation rankings, and social media metrics to create a clean analytical dataset for 300+ Division I athletes. From there I built a linear regression model in BigQuery ML, tested transformed features, and used Tableau to visualize market share, prediction error, and the variables driving athlete brand value.',
+      'I scraped and joined athlete performance stats, valuation rankings, and social media metrics to create a clean analytical dataset for 300+ Division I athletes. From there I built a BigQuery ML regression model, tested transformed features, and translated the results into Tableau dashboards designed to compare valuation gaps, market share, and the signals that matter most.',
     highlights: [
-      'Built the dataset from scratch by joining valuation rankings, performance stats, and social media metrics for 300+ Division I athletes.',
-      'Developed a BigQuery ML regression model using transformed features and composite metrics to estimate expected NIL value.',
-      'Designed interactive dashboards that made prediction error, market share, media influence, and positional patterns easy to explore.',
+      'Joined valuation rankings, performance data, and social metrics into a single analytical dataset for 300+ Division I athletes.',
+      'Estimated expected NIL value with a BigQuery ML regression model using transformed features and composite metrics.',
+      'Translated model output into dashboards that made valuation gaps, market share, and athlete comparisons easy to scan.',
     ],
     outcomes: [
-      'Produced a decision-ready view of overvalued and undervalued athletes for hypothetical brand partnership analysis.',
-      'Combined statistical modeling with executive-facing dashboards so the analysis was useful beyond the notebook.',
-      'Showed how social reach, position, and performance interact instead of relying on headline valuation alone.',
+      'Surfaced potentially overvalued and undervalued athletes for hypothetical sponsorship decisions.',
+      'Showed how market price can diverge from performance once audience reach enters the picture.',
+      'Combined modeling and dashboards so the findings were useful beyond the notebook.',
     ],
     technologies: ['BigQuery', 'SQL', 'Python', 'BigQuery ML', 'Tableau', 'Excel'],
     metrics: ['300+ D1 athletes modeled', 'BigQuery ML regression', 'Interactive Tableau dashboards'],
+    decisionFocus:
+      'Helps evaluate where NIL valuations appear mispriced before making partnership or sponsorship decisions.',
+    keyInsights: [
+      'Social reach emerged as one of the clearest drivers of NIL value once basic performance measures were accounted for.',
+      'Prediction gaps surfaced athletes whose market valuations looked richer or cheaper than their underlying profile suggested.',
+      'Position-based views made it easier to compare where valuation patterns were structural versus player-specific.',
+    ],
     images: [
       '/images/projects/nil-athlete-valuation/market-overview.png',
       '/images/projects/nil-athlete-valuation/actual-vs-predicted.png',
@@ -101,15 +115,15 @@ const featuredProjects: PortfolioProject[] = [
     role: 'Capstone project · React, Tailwind, accessibility',
     period: 'Nov 2024 - Apr 2025',
     headline:
-      'A stakeholder-driven website for a public school special education cooperative.',
+      'A stakeholder-first website built to help families and staff find the right information faster.',
     summary:
-      'I translated district requirements and Figma direction into modular front-end components that prioritized accessibility, clarity, and trust for parents, students, and educators.',
+      'I translated district requirements and Figma direction into an accessible front-end experience designed to reduce confusion and make important information easier to find for families, students, and staff.',
     description:
-      'This capstone project required shipping a responsive public-facing site for the Grant County Special Education Cooperative. The work involved aligning with stakeholder needs, translating designs into reusable components, and improving usability through structured accessibility and feedback cycles.',
+      'This capstone project focused on a public-facing site for the Grant County Special Education Cooperative. The work centered on content clarity, accessibility, and stakeholder needs rather than visual polish alone, with iterative feedback used to improve trust and usability.',
     highlights: [
-      'Built modular React and Tailwind components from stakeholder requirements and design prototypes.',
+      'Translated stakeholder requirements and design prototypes into modular React and Tailwind components.',
       'Improved accessibility and usability through WCAG-focused design decisions and structured testing feedback.',
-      'Worked collaboratively with a larger team to keep implementation aligned with content, design, and communication goals.',
+      'Worked closely with a larger team to keep implementation aligned with content, design, and communication goals.',
     ],
     outcomes: [
       'Delivered a cleaner information experience for multiple audience types, including parents, students, and staff.',
@@ -129,6 +143,13 @@ const featuredProjects: PortfolioProject[] = [
       'WCAG-focused UX improvements',
       'Modular React components',
     ],
+    decisionFocus:
+      'Helps families and staff find the right service, contact, or program information quickly without navigating a confusing district site.',
+    keyInsights: [
+      'Accessibility improvements had to support trust and clarity, not just compliance.',
+      'Different audiences needed different paths through the same content, so structure mattered as much as design.',
+      'Stakeholder feedback was most valuable when turned into concrete navigation and content decisions.',
+    ],
     images: ['/images/projects/grant-county/thumbnail.svg'],
     githubUrl: 'https://github.com/Griffinov22/Grant_County_Special_Education_Cooperative',
   },
@@ -139,15 +160,15 @@ const featuredProjects: PortfolioProject[] = [
     role: 'Personal project · Next.js, TypeScript, OpenAI',
     period: '2025',
     headline:
-      'An AI-assisted study workspace that turns raw notes into summaries, flashcards, and self-testing tools.',
+      'An AI-assisted study workspace designed to turn notes into summaries, flashcards, and active recall faster.',
     summary:
-      'I built NeuroNotes to combine the structure of a note-taking app with study workflows that feel immediately useful: summaries, key point extraction, quiz generation, and a cleaner way to organize learning.',
+      'I approached NeuroNotes as a workflow problem, not just an AI feature demo. The goal was to help students move from note capture to review and self-testing without jumping between separate tools.',
     description:
-      'The project explores how AI can support study habits without getting in the way of them. I focused on making the experience practical: structured notes, rich editing, folder organization, and study features that help users move from capture to recall.',
+      'The project explores how AI can support study habits without getting in the way of them. I focused on making the experience practical: structured notes, rich editing, folder organization, and study features that help users move from capture to recall inside one product flow.',
     highlights: [
       'Integrated OpenAI-powered summaries, key point extraction, and flashcard generation into a single note workflow.',
-      'Built rich note organization with folders, tags, and editing features designed for repeated study sessions.',
-      'Treated the product like a full experience instead of a simple API demo by connecting capture, organization, and recall.',
+      'Designed note organization with folders, tags, and editing features to support repeated study sessions.',
+      'Connected capture, organization, and recall so the product felt like a full workflow instead of a one-off AI tool.',
     ],
     outcomes: [
       'Demonstrates product thinking beyond the API integration by connecting content creation and study workflows.',
@@ -156,6 +177,13 @@ const featuredProjects: PortfolioProject[] = [
     ],
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'OpenAI API', 'Product Design'],
     metrics: ['AI summaries + flashcards', 'Structured study workflow', 'Rich note organization'],
+    decisionFocus:
+      'Helps students decide what to review next and move from passive notes to active recall with less friction.',
+    keyInsights: [
+      'AI features are most useful when they are embedded in an existing note workflow instead of exposed as standalone prompts.',
+      'Structured organization matters because summaries, flashcards, and quizzes are only helpful when source material stays easy to retrieve.',
+      'The product is strongest when generation, editing, and review live in the same study flow.',
+    ],
     images: [
       '/images/projects/neuro-notes/home.png',
       '/images/projects/neuro-notes/screen-01.png',
@@ -165,6 +193,13 @@ const featuredProjects: PortfolioProject[] = [
     githubUrl: 'https://github.com/SaagarParikh1/NeuroNotes',
   },
 ];
+
+const featuredProjects = [
+  'NIL Athlete Valuation Modeling & Market Analysis',
+  'Quantitative Options Strategy Dashboard',
+  'NeuroNotes',
+  'Grant County Special Education Cooperative Website',
+].flatMap((title) => featuredProjectLibrary.filter((project) => project.title === title));
 
 const archiveProjects: PortfolioProject[] = [
   {
@@ -473,7 +508,7 @@ const Projects = () => {
         <div>
           <p className="section-kicker">Selected Work</p>
           <h2 className="section-title">
-            Case studies that show how I think, build, and present my work.
+            Projects framed around decisions, insight, and execution.
           </h2>
         </div>
 
@@ -636,20 +671,59 @@ const Projects = () => {
                 {activeProject.summary}
               </p>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                {activeProject.metrics.map((metric) => (
-                  <div
-                    key={metric}
-                    className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4"
-                  >
-                    <p className="text-sm leading-6 text-[var(--text)]">{metric}</p>
-                  </div>
-                ))}
+              {activeProject.decisionFocus && (
+                <div className="mt-6 rounded-[1.3rem] border border-[rgba(208,160,93,0.22)] bg-[rgba(208,160,93,0.08)] px-5 py-5">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                    Decision this supports
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">
+                    {activeProject.decisionFocus}
+                  </p>
+                </div>
+              )}
+
+              <div className="mt-8">
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  At a glance
+                </p>
+                <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                  {activeProject.metrics.map((metric) => (
+                    <div
+                      key={metric}
+                      className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4"
+                    >
+                      <p className="text-sm leading-6 text-[var(--text)]">{metric}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {activeProject.keyInsights && activeProject.keyInsights.length > 0 && (
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                    Key insights
+                  </p>
+                  <div className="mt-4 grid gap-4 lg:grid-cols-3">
+                    {activeProject.keyInsights.map((insight, index) => (
+                      <div
+                        key={insight}
+                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(255,255,255,0.04)] px-4 py-4"
+                      >
+                        <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                          0{index + 1}
+                        </p>
+                        <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                          {insight}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  What shipped
+                  Analysis + execution
                 </p>
                 <ul className="mt-4 space-y-3">
                   {activeProject.highlights.map((highlight) => (
@@ -701,7 +775,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(activeProject)}
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
                 >
-                  Open case study
+                  View case study
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
@@ -773,7 +847,7 @@ const Projects = () => {
                     </div>
 
                     <div className="inline-flex items-center gap-2 text-sm text-[var(--text)] md:justify-end">
-                      View details
+                      View project
                       <ArrowRight className="h-4 w-4" />
                     </div>
                   </button>

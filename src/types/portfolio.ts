@@ -8,6 +8,8 @@ export interface PortfolioProject {
   outcomes: string[];
   technologies: string[];
   metrics: string[];
+  decisionFocus?: string;
+  keyInsights?: string[];
   label?: string;
   role?: string;
   period?: string;

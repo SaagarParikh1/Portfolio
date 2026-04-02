@@ -188,6 +188,33 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             </div>
 
             <div className="space-y-8 p-6 sm:p-8">
+              {project.decisionFocus && (
+                <div className="rounded-[1.3rem] border border-[rgba(208,160,93,0.22)] bg-[rgba(208,160,93,0.08)] px-5 py-5">
+                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                    Decision this supports
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">
+                    {project.decisionFocus}
+                  </p>
+                </div>
+              )}
+
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  At a glance
+                </p>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {project.metrics.map((metric) => (
+                    <div
+                      key={metric}
+                      className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-6 text-[var(--text)]"
+                    >
+                      {metric}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div>
                 <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                   Overview
@@ -197,9 +224,32 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 </p>
               </div>
 
+              {project.keyInsights && project.keyInsights.length > 0 && (
+                <div>
+                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                    Key insights
+                  </p>
+                  <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                    {project.keyInsights.map((insight, index) => (
+                      <div
+                        key={insight}
+                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(255,255,255,0.04)] px-4 py-4"
+                      >
+                        <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                          0{index + 1}
+                        </p>
+                        <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                          {insight}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div>
                 <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  What shipped
+                  Analysis + execution
                 </p>
                 <ul className="mt-4 space-y-3">
                   {project.highlights.map((highlight) => (
@@ -213,7 +263,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
               <div>
                 <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Why it matters
+                  Business value
                 </p>
                 <ul className="mt-4 space-y-3">
                   {project.outcomes.map((outcome) => (

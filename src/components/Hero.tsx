@@ -12,8 +12,8 @@ import {
 const focusAreas = [
   {
     icon: Database,
-    label: 'SQL + Python',
-    detail: 'Cleaning, querying, and feature work',
+    label: 'Analysis',
+    detail: 'SQL, Python, data cleaning, and feature work',
   },
   {
     icon: BarChart3,
@@ -23,7 +23,7 @@ const focusAreas = [
   {
     icon: LayoutPanelTop,
     label: 'Product context',
-    detail: 'Front-end instincts when the analysis needs polish',
+    detail: 'UI instincts when insight needs a cleaner interface',
   },
 ];
 
@@ -50,14 +50,14 @@ const Hero = () => {
             <p className="mt-7 text-sm uppercase tracking-[0.28em] text-[color:var(--muted)]">
               Saagar Parikh
             </p>
-            <h1 className="mt-4 max-w-[11ch] text-[clamp(2.2rem,3.8vw,3.45rem)] font-semibold leading-[0.98] text-[var(--text)]">
-              Dashboards and analysis built to make the next decision easier.
+            <h1 className="mt-4 max-w-[13ch] text-[clamp(2.2rem,3.8vw,3.45rem)] font-semibold leading-[0.98] text-[var(--text)]">
+              Data analyst turning data into product and business decisions.
             </h1>
 
             <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[color:var(--muted)] sm:text-[1.02rem] sm:leading-8">
-              Data analyst with experience across fintech, health-tech, and enterprise
-              environments. I work in SQL, Python, Tableau, and front-end tools when the
-              analysis needs a cleaner interface.
+              I analyze user behavior, build dashboards, and uncover insights that help teams make
+              clearer product and business decisions across fintech, health-tech, and enterprise
+              environments.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3 text-sm text-[color:var(--muted)]">
@@ -126,10 +126,10 @@ const Hero = () => {
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,9,7,0.03)_5%,rgba(10,9,7,0.18)_36%,rgba(10,9,7,0.82)_100%)]" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                 <p className="text-xs uppercase tracking-[0.28em] text-[rgba(246,240,229,0.72)]">
-                  Analyst • builder • collaborator
+                  Data analyst • product-minded • collaborative
                 </p>
                 <p className="mt-3 max-w-sm text-[1.35rem] font-semibold leading-tight text-[var(--text)] sm:text-[1.65rem]">
-                  Comfortable moving from raw data to the way my work is actually presented.
+                  Focused on analysis that helps teams decide what to do next.
                 </p>
               </div>
             </div>
