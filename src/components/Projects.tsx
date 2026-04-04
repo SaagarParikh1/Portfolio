@@ -27,40 +27,41 @@ const featuredProjectLibrary: PortfolioProject[] = [
     title: 'Quantitative Options Strategy Dashboard',
     category: 'Analytics',
     label: 'Featured build',
-    role: 'Independent project · Python + Streamlit',
+    role: 'Independent project · Python, Streamlit, backtesting',
     period: 'Mar 2026 - Present',
     status: 'Live',
     headline:
-      'A quantitative decision system for evaluating when a cash-secured put setup is worth taking.',
+      'A deployed analytics platform for ranking cash-secured put opportunities with live signals and backtested rules.',
     summary:
-      'I designed this dashboard to reduce discretionary chart review and make options screening more systematic. It evaluates trend quality, pullback context, support, and downside risk so trade selection is based on repeatable criteria instead of intuition alone.',
+      'Built and deployed a Python and Streamlit analytics platform that evaluates 100+ equities to identify high-probability cash-secured put opportunities, replacing manual chart analysis with a scalable, data-driven decision system.',
     description:
-      'The dashboard pulls market data, computes technical indicators, scores setup quality, and ranks higher-probability cash-secured put opportunities in one place. The project is focused on decision support: identifying which setups deserve attention, which should be filtered out, and why.',
+      'The platform pulls real-time market data, scores setups across technical and risk dimensions, and ranks opportunities into actionable buckets such as trade-ready, candidate, watchlist, and avoid. I also added automated backtesting, ranked trade queues, technical chart overlays, and interpretable signal explanations so the workflow is faster to trust, review, and refine.',
     highlights: [
-      'Engineered a multi-factor scoring model using trend strength, pullback quality, support proximity, and downside-risk filters.',
-      'Automated real-time data ingestion and signal generation so candidate trades can be evaluated at scale instead of chart-by-chart.',
-      'Structured the Streamlit workflow to make ranking, filtering, and next-step evaluation fast for repeated daily use.',
+      'Built and deployed a Python and Streamlit platform that evaluates 100+ equities instead of relying on manual chart-by-chart review.',
+      'Engineered a multi-factor scoring model using trend strength, support clustering, liquidity, market regime, and downside-risk signals to classify setups into trade-ready, candidate, watchlist, and avoid.',
+      'Implemented automated backtesting, ranked trade queues, technical chart overlays, and interpretable signal explanations to support faster and more consistent trading decisions.',
     ],
     outcomes: [
-      'Cuts down manual chart review by moving setup evaluation into a repeatable rules-based workflow.',
-      'Makes it easier to compare opportunities across sectors and market regimes using one consistent scoring lens.',
-      'Creates a foundation for future backtesting, alerting, and strategy refinement.',
+      'Replaces manual chart analysis with a scalable workflow that can screen and prioritize opportunities consistently.',
+      'Makes it easier to compare setups across different market conditions using one rules-based scoring lens.',
+      'Creates a stronger foundation for strategy refinement because live signals and backtesting now sit in the same system.',
     ],
     technologies: [
       'Python',
       'Streamlit',
       'REST APIs',
       'Technical Analysis',
+      'Backtesting',
       'Signal Engineering',
       'Data Pipelines',
     ],
-    metrics: ['100+ equities screened', 'Rules-based scoring engine', 'Real-time market data inputs'],
+    metrics: ['100+ equities evaluated', 'Automated backtesting workflow', 'Trade-ready classification engine'],
     decisionFocus:
-      'Helps determine whether a cash-secured put setup is strong enough to take, monitor, or pass based on repeatable technical and risk criteria.',
+      'Helps determine which cash-secured put setups are trade-ready now, which deserve monitoring, and which should be avoided using repeatable signal logic and backtested rules.',
     keyInsights: [
-      'High premium is not enough on its own; the strongest setups combine cleaner trend context with support-based entries.',
-      'Downside filters quickly remove names that look attractive on yield but carry weaker technical structure.',
-      'A rules-based ranking system makes daily screening faster and more repeatable across a large watchlist.',
+      'A ranked classification system is more useful than a simple pass-fail signal because it creates a clearer trade queue.',
+      'Backtesting adds another layer of discipline by checking whether attractive-looking setups actually hold up under repeated rules.',
+      'Interpretable signal explanations and chart overlays make the model easier to trust and refine during active review.',
     ],
     images: [
       '/images/projects/Putdashboard/screen-01.png',
@@ -75,7 +76,7 @@ const featuredProjectLibrary: PortfolioProject[] = [
   {
     title: 'NIL Athlete Valuation Modeling & Market Analysis',
     category: 'Analytics',
-    label: 'Featured case study',
+    label: 'Featured project',
     role: 'Analytics project · BigQuery ML, SQL, Python, Tableau',
     period: 'Mar 2026',
     headline:
@@ -286,34 +287,6 @@ const archiveProjects: PortfolioProject[] = [
     githubUrl: 'https://github.com/SaagarParikh1/TravelX',
   },
   {
-    title: 'Recipe Finder',
-    category: 'Frontend',
-    role: 'Personal project · Search and API design',
-    headline: 'An ingredient-first recipe search flow built to reduce friction in meal discovery.',
-    summary: 'Focused on fast search, filtering, and cleaner recipe exploration.',
-    description:
-      'Recipe Finder was built around a practical user problem: finding something useful to make with what is already available. I designed the interface around fast discovery, filtering, and clean presentation of recipe results.',
-    highlights: [
-      'Created an ingredient-based search workflow with API-backed recipe results.',
-      'Built filtering and navigation patterns designed to reduce friction during browsing.',
-      'Prioritized clearer data presentation so users could compare options more quickly.',
-    ],
-    outcomes: [
-      'Improved the usability of a search-heavy interface by simplifying the flow from input to results.',
-      'Expanded my experience with API integration and interaction design for utility products.',
-      'Demonstrated how better interface structure can improve a straightforward product concept.',
-    ],
-    technologies: ['React', 'JavaScript', 'Tailwind CSS', 'API Integration'],
-    metrics: ['Ingredient-based search', 'Filter-driven browsing', 'Clean recipe discovery flow'],
-    images: [
-      '/images/projects/recipe-finder/home.png',
-      '/images/projects/recipe-finder/mexican-results.png',
-      '/images/projects/recipe-finder/edit-mode.png',
-      '/images/projects/recipe-finder/random-recipe.png',
-    ],
-    githubUrl: 'https://github.com/SaagarParikh1/recipe-finder',
-  },
-  {
     title: 'NBA Injury & Availability Analytics',
     category: 'Analytics',
     role: 'Independent analysis · Python and exploratory modeling',
@@ -381,34 +354,6 @@ const archiveProjects: PortfolioProject[] = [
     metrics: ['25,000+ transaction records', 'Executive KPI framework', 'Revenue concentration insights'],
     images: ['/images/projects/analytics/ecommerce-dashboard.png'],
   },
-  {
-    title: 'The Shoreline Hotel',
-    category: 'UX',
-    role: 'Concept project · Hospitality website design',
-    headline: 'A visual hospitality concept built around atmosphere, trust, and booking clarity.',
-    summary: 'Created a visual-first hotel concept focused on navigation, mood, and booking trust.',
-    description:
-      'The Shoreline Hotel project was an exploration of how layout, imagery, and page pacing can create a stronger hospitality brand feel. The work emphasized atmosphere while still keeping key actions and information easy to navigate.',
-    highlights: [
-      'Designed a multi-page site with rooms, amenities, activities, and booking context.',
-      'Used visual hierarchy and parallax effects to create a more immersive brand experience.',
-      'Focused on balancing aesthetic storytelling with practical navigation.',
-    ],
-    outcomes: [
-      'Expanded my comfort with more visual-first design decisions and brand presentation.',
-      'Showed how layout and pacing influence perceived quality in hospitality experiences.',
-      'Reinforced the importance of balancing emotion, clarity, and usability in a marketing site.',
-    ],
-    technologies: ['Wix', 'Adobe Photoshop', 'Responsive Design', 'UI/UX Design'],
-    metrics: ['Hospitality storytelling', 'Multi-page visual system', 'Responsive presentation'],
-    images: [
-      '/images/projects/shoreline-hotel/home.png',
-      '/images/projects/shoreline-hotel/activities.png',
-      '/images/projects/shoreline-hotel/reviews.png',
-      '/images/projects/shoreline-hotel/rooms.png',
-    ],
-    liveDemoUrl: 'https://saagarparikh11.wixsite.com/theshorelinehotel-co',
-  },
 ];
 
 const allProjects = [...featuredProjectLibrary, ...archiveProjects];
@@ -416,22 +361,20 @@ const allProjects = [...featuredProjectLibrary, ...archiveProjects];
 const featuredProjects = [
   'NIL Athlete Valuation Modeling & Market Analysis',
   'Quantitative Options Strategy Dashboard',
-  'Ball Analytics',
-  'Grant County Special Education Cooperative Website',
+  'NBA Injury & Availability Analytics',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
 
 const orderedArchiveProjects = [
-  'NBA Injury & Availability Analytics',
+  'Grant County Special Education Cooperative Website',
+  'Ball Analytics',
   'E-Commerce Revenue & Customer Intelligence Dashboard',
   'NeuroNotes',
   'Climate & Extreme Weather Trends',
   'Ticket Scout',
   'TravelX',
-  'The Shoreline Hotel',
-  'Recipe Finder',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
 
-const archiveFilters = ['All', 'Analytics', 'Frontend', 'AI Product', 'UX'];
+const archiveFilters = ['All', 'Analytics', 'Frontend', 'Product', 'AI Product'];
 
 const getCategoryIcon = (category: string) =>
   categoryIcons[category as keyof typeof categoryIcons] ?? Sparkles;
@@ -799,7 +742,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(activeProject)}
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
                 >
-                  View case study
+                  View project
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
