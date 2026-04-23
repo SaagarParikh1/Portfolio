@@ -126,9 +126,9 @@ const Hero = () => {
           <div className="surface mesh-panel overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[31rem] lg:justify-self-end xl:max-w-[32rem]">
             <div className="relative min-h-[25rem] overflow-hidden sm:min-h-[29rem] lg:min-h-[34rem] xl:min-h-[35rem]">
               <img
-                src="/images/portrait/saagar-parikh.jpeg"
+                src="/images/portrait/saagar-parikh-portrait-2026.jpeg"
                 alt="Saagar Parikh portrait"
-                className="absolute inset-0 h-full w-full object-cover object-[center_10%]"
+                className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,9,7,0.03)_5%,rgba(10,9,7,0.18)_36%,rgba(10,9,7,0.82)_100%)]" />
               <div className="absolute left-5 top-5 h-24 w-24 rounded-full bg-[radial-gradient(circle,_rgba(241,193,122,0.32),_transparent_72%)] blur-2xl" />

@@ -74,7 +74,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`rounded-full px-4 py-2 text-[12px] uppercase tracking-[0.18em] transition duration-300 ${
+                className={`rounded-full px-4 py-2 text-[13px] uppercase tracking-[0.18em] transition duration-300 ${
                   activeSection === item.id
                     ? 'bg-[linear-gradient(90deg,rgba(208,160,93,0.95),rgba(121,207,197,0.88))] text-[#130f09]'
                     : 'text-[color:var(--muted)] hover:bg-white/5 hover:text-[var(--text)]'
