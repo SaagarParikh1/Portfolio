@@ -167,7 +167,7 @@ section[id] {
   }
 
   .section-kicker {
-    @apply mb-4 text-[0.88rem] uppercase tracking-[0.28em] sm:text-[1rem];
+    @apply mb-4 text-[0.96rem] uppercase tracking-[0.28em] sm:text-[1.08rem];
     color: rgba(241, 193, 122, 0.9);
   }
 

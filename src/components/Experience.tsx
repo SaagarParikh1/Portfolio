@@ -84,7 +84,7 @@ const Experience = () => {
                     </div>
 
                     <div>
-                      <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                      <p className="text-[0.92rem] uppercase tracking-[0.22em] text-[var(--accent-strong)] sm:text-[0.98rem]">
                         {experience.company}
                       </p>
                       <h3 className="mt-2 text-2xl font-semibold text-[var(--text)]">

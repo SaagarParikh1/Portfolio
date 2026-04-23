@@ -41,7 +41,7 @@ const Education = () => {
                 </div>
 
                 <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                  <p className="text-[0.92rem] uppercase tracking-[0.22em] text-[var(--accent-strong)] sm:text-[0.98rem]">
                     Purdue University
                   </p>
                   <h3 className="mt-3 text-[2rem] font-semibold leading-tight text-[var(--text)] sm:text-[2.35rem]">
