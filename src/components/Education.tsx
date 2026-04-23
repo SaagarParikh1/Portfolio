@@ -28,8 +28,8 @@ const Education = () => {
       <div className="section-shell">
         <p className="section-kicker">Education</p>
 
-        <div className="surface mt-8 overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
-          <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6 sm:p-8">
+        <div className="surface mesh-panel mt-8 overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
+          <div className="interactive-surface tone-amber tint-border-amber rounded-[1.6rem] border p-6 sm:p-8">
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.7)] p-1.5 sm:h-14 sm:w-14">
@@ -98,7 +98,7 @@ const Education = () => {
             </div>
           </div>
 
-          <div className="mt-6 rounded-[1.6rem] border border-white/10 bg-white/5 p-6 sm:p-7">
+          <div className="interactive-surface tone-blue tint-border-blue mt-6 rounded-[1.6rem] border p-6 sm:p-7">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
@@ -115,7 +115,7 @@ const Education = () => {
               {certifications.map((certification) => (
                 <div
                   key={certification}
-                  className="rounded-[1.25rem] border border-white/10 bg-[rgba(12,12,10,0.5)] px-4 py-4 text-sm leading-6 text-[color:var(--muted)]"
+                  className="rounded-[1.25rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4 text-sm leading-6 text-[color:var(--text)]"
                 >
                   {certification}
                 </div>

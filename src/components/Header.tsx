@@ -52,7 +52,7 @@ const Header = () => {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'border-b border-white/10 bg-[rgba(10,10,8,0.82)] backdrop-blur-xl'
+          ? 'border-b border-white/10 bg-[linear-gradient(90deg,rgba(10,10,8,0.9),rgba(12,18,18,0.88),rgba(10,10,8,0.9))] backdrop-blur-xl'
           : 'bg-transparent'
       }`}
     >
@@ -69,15 +69,15 @@ const Header = () => {
             </button>
           </div>
 
-          <nav className="hidden items-center rounded-full border border-white/10 bg-[rgba(255,255,255,0.035)] p-1 xl:flex">
+          <nav className="hidden items-center rounded-full border border-white/10 bg-[rgba(255,255,255,0.04)] p-1 xl:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`rounded-full px-4 py-2 text-[12px] uppercase tracking-[0.18em] transition duration-300 ${
                   activeSection === item.id
-                    ? 'bg-white/10 text-[var(--text)]'
-                    : 'text-[color:var(--muted)] hover:text-[var(--text)]'
+                    ? 'bg-[linear-gradient(90deg,rgba(208,160,93,0.95),rgba(121,207,197,0.88))] text-[#130f09]'
+                    : 'text-[color:var(--muted)] hover:bg-white/5 hover:text-[var(--text)]'
                 }`}
               >
                 {item.label}

@@ -25,16 +25,19 @@ const quickNotes = [
     icon: Briefcase,
     label: 'Target roles',
     value: 'Data analyst, product analytics, and dashboard-focused work',
+    tone: 'tone-amber tint-border-amber',
   },
   {
     icon: Plane,
     label: 'Availability',
     value: 'Open to relocation and new full-time opportunities',
+    tone: 'tone-teal tint-border-teal',
   },
   {
     icon: MapPin,
     label: 'Based in',
     value: 'Frisco, Texas',
+    tone: 'tone-blue tint-border-blue',
   },
 ];
 
@@ -42,7 +45,7 @@ const Contact = () => {
   return (
     <section id="contact" className="section-band section-band-slate py-24">
       <div className="section-shell">
-        <div className="surface overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
+        <div className="surface mesh-panel overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div>
               <p className="section-kicker">Contact</p>
@@ -80,10 +83,10 @@ const Contact = () => {
                   return (
                     <div
                       key={item.label}
-                      className="rounded-[1.35rem] border border-white/10 bg-white/5 px-4 py-4"
+                      className={`interactive-surface rounded-[1.35rem] border px-4 py-4 ${item.tone}`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="rounded-full border border-white/10 p-2 text-[var(--accent-strong)]">
+                        <div className="rounded-full border border-white/10 bg-[rgba(8,8,6,0.18)] p-2 text-[var(--text)]">
                           <Icon className="h-4 w-4" />
                         </div>
                         <p className="metric-label">{item.label}</p>
@@ -102,7 +105,7 @@ const Contact = () => {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5"
+                    className="interactive-surface rounded-[1.5rem] border border-white/10 bg-[rgba(255,255,255,0.05)] px-5 py-5"
                   >
                     <div className="flex items-start gap-4">
                       <div className="rounded-full border border-white/10 p-3 text-[var(--accent-strong)]">
@@ -128,7 +131,7 @@ const Contact = () => {
                 );
               })}
 
-              <div className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5">
+              <div className="interactive-surface rounded-[1.5rem] border border-[rgba(121,207,197,0.2)] bg-[rgba(121,207,197,0.08)] px-5 py-5">
                 <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
                   Socials
                 </p>

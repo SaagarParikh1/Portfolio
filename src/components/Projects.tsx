@@ -22,6 +22,34 @@ const categoryIcons = {
   'AI Product': BrainCircuit,
 };
 
+const categoryToneMap = {
+  Analytics: {
+    surface: 'tone-blue tint-border-blue',
+    accent: 'text-[var(--accent-blue)]',
+    pill: 'border-[rgba(126,168,255,0.2)] bg-[rgba(126,168,255,0.1)]',
+  },
+  Frontend: {
+    surface: 'tone-rose tint-border-rose',
+    accent: 'text-[var(--accent-rose)]',
+    pill: 'border-[rgba(224,138,115,0.2)] bg-[rgba(224,138,115,0.1)]',
+  },
+  Product: {
+    surface: 'tone-amber tint-border-amber',
+    accent: 'text-[var(--accent-strong)]',
+    pill: 'border-[rgba(241,193,122,0.2)] bg-[rgba(241,193,122,0.1)]',
+  },
+  'AI Product': {
+    surface: 'tone-teal tint-border-teal',
+    accent: 'text-[var(--accent-teal)]',
+    pill: 'border-[rgba(121,207,197,0.2)] bg-[rgba(121,207,197,0.1)]',
+  },
+  UX: {
+    surface: 'tone-rose tint-border-rose',
+    accent: 'text-[var(--accent-rose)]',
+    pill: 'border-[rgba(224,138,115,0.2)] bg-[rgba(224,138,115,0.1)]',
+  },
+};
+
 const featuredProjectLibrary: PortfolioProject[] = [
   {
     title: 'Quantitative Options Strategy Dashboard',
@@ -379,6 +407,9 @@ const archiveFilters = ['All', 'Analytics', 'Frontend', 'Product', 'AI Product']
 const getCategoryIcon = (category: string) =>
   categoryIcons[category as keyof typeof categoryIcons] ?? Sparkles;
 
+const getCategoryTone = (category: string) =>
+  categoryToneMap[category as keyof typeof categoryToneMap] ?? categoryToneMap.Product;
+
 const ProjectThumbnail = ({
   project,
   className,
@@ -392,7 +423,7 @@ const ProjectThumbnail = ({
   if (preview) {
     return (
       <div
-        className={`relative overflow-hidden rounded-[1rem] border border-white/10 bg-[rgba(10,10,8,0.78)] ${className ?? ''}`}
+        className={`relative overflow-hidden rounded-[1rem] border border-white/10 bg-[rgba(10,10,8,0.78)] ${getCategoryTone(project.category).surface} ${className ?? ''}`}
       >
         <img
           src={preview}
@@ -486,9 +517,9 @@ const Projects = () => {
                 <button
                   key={project.title}
                   onClick={() => setActiveProjectIndex(index)}
-                  className={`w-full rounded-[1.35rem] border px-5 py-4 text-left transition duration-300 ${
+                  className={`interactive-surface w-full rounded-[1.35rem] border px-5 py-4 text-left transition duration-300 ${
                     index === activeProjectIndex
-                      ? 'border-[rgba(208,160,93,0.4)] bg-[rgba(255,255,255,0.06)]'
+                      ? `${getCategoryTone(project.category).surface}`
                       : 'border-white/10 bg-[rgba(255,255,255,0.03)] hover:border-white/20 hover:bg-[rgba(255,255,255,0.045)]'
                   }`}
                 >
@@ -501,7 +532,7 @@ const Projects = () => {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                          <p className={`text-[11px] uppercase tracking-[0.24em] ${getCategoryTone(project.category).accent}`}>
                             {project.category}
                           </p>
                           <h3 className="mt-2 text-lg font-semibold text-[var(--text)] sm:text-[1.2rem]">
@@ -521,7 +552,7 @@ const Projects = () => {
             })}
           </div>
 
-          <div className="surface overflow-hidden rounded-[2rem]">
+          <div className={`surface mesh-panel overflow-hidden rounded-[2rem] ${getCategoryTone(activeProject.category).surface}`}>
             <div className="border-b border-white/10">
               {currentImage ? (
                 <div className="relative flex min-h-[27rem] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_65%),linear-gradient(180deg,#14110d_0%,#0c0a08_100%)] p-4 sm:p-6 lg:p-8">
@@ -639,7 +670,7 @@ const Projects = () => {
               </p>
 
               {activeProject.decisionFocus && (
-                <div className="mt-6 rounded-[1.3rem] border border-[rgba(208,160,93,0.22)] bg-[rgba(208,160,93,0.08)] px-5 py-5">
+                <div className={`mt-6 rounded-[1.3rem] border px-5 py-5 ${getCategoryTone(activeProject.category).pill}`}>
                   <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                     Decision this supports
                   </p>
@@ -657,7 +688,7 @@ const Projects = () => {
                   {activeProject.metrics.map((metric) => (
                     <div
                       key={metric}
-                      className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4"
+                      className="rounded-[1.15rem] border border-white/10 bg-[rgba(8,8,6,0.2)] px-4 py-4"
                     >
                       <p className="text-sm leading-6 text-[var(--text)]">{metric}</p>
                     </div>
@@ -674,7 +705,7 @@ const Projects = () => {
                     {activeProject.keyInsights.map((insight, index) => (
                       <div
                         key={insight}
-                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(255,255,255,0.04)] px-4 py-4"
+                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4"
                       >
                         <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                           0{index + 1}
@@ -762,12 +793,12 @@ const Projects = () => {
                 <button
                   key={filter}
                   onClick={() => setArchiveFilter(filter)}
-                  className={`rounded-full px-4 py-2 text-xs uppercase tracking-[0.22em] transition duration-300 ${
-                    archiveFilter === filter
-                      ? 'bg-[var(--accent)] text-[#1c1407]'
-                      : 'border border-white/10 text-[color:var(--muted)] hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]'
-                  }`}
-                >
+                    className={`rounded-full px-4 py-2 text-xs uppercase tracking-[0.22em] transition duration-300 ${
+                      archiveFilter === filter
+                        ? 'bg-[linear-gradient(90deg,rgba(208,160,93,0.95),rgba(121,207,197,0.9))] text-[#1c1407]'
+                        : 'border border-white/10 bg-white/5 text-[color:var(--muted)] hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]'
+                    }`}
+                  >
                   {filter}
                 </button>
               ))}
@@ -781,7 +812,7 @@ const Projects = () => {
                   <button
                     key={project.title}
                     onClick={() => setSelectedProject(project)}
-                    className="grid w-full gap-4 px-5 py-5 text-left transition duration-300 hover:bg-white/5 md:grid-cols-[1.1fr_0.9fr_auto] md:items-center"
+                    className={`interactive-surface grid w-full gap-4 px-5 py-5 text-left transition duration-300 hover:bg-white/5 md:grid-cols-[1.1fr_0.9fr_auto] md:items-center ${getCategoryTone(project.category).surface}`}
                   >
                     <div className="flex items-start gap-4">
                       <ProjectThumbnail
@@ -790,7 +821,7 @@ const Projects = () => {
                       />
 
                       <div>
-                        <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                        <p className={`text-xs uppercase tracking-[0.24em] ${getCategoryTone(project.category).accent}`}>
                           {project.category}
                         </p>
                         <h4 className="mt-2 text-lg font-semibold text-[var(--text)] sm:text-xl">

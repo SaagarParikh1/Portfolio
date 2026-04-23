@@ -14,16 +14,19 @@ const focusAreas = [
     icon: Database,
     label: 'Analysis',
     detail: 'SQL, Python, data cleaning, and feature work',
+    tone: 'tone-amber tint-border-amber',
   },
   {
     icon: BarChart3,
     label: 'Dashboards',
     detail: 'Decision-ready Tableau and reporting views',
+    tone: 'tone-blue tint-border-blue',
   },
   {
     icon: LayoutPanelTop,
     label: 'Product context',
     detail: 'UI instincts when insight needs a cleaner interface',
+    tone: 'tone-teal tint-border-teal',
   },
 ];
 
@@ -63,12 +66,14 @@ const Hero = () => {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3 text-sm text-[color:var(--muted)]">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(241,193,122,0.2)] bg-[rgba(241,193,122,0.08)] px-4 py-2 text-[var(--text)]">
                 <MapPin className="h-4 w-4 text-[var(--accent-strong)]" />
                 Frisco, TX
               </span>
-              <span className="rounded-full border border-white/10 px-4 py-2">U.S. Citizen</span>
-              <span className="rounded-full border border-white/10 px-4 py-2">
+              <span className="rounded-full border border-[rgba(121,207,197,0.18)] bg-[rgba(121,207,197,0.08)] px-4 py-2 text-[var(--text)]">
+                U.S. Citizen
+              </span>
+              <span className="rounded-full border border-[rgba(126,168,255,0.18)] bg-[rgba(126,168,255,0.08)] px-4 py-2 text-[var(--text)]">
                 Open to relocation
               </span>
             </div>
@@ -83,7 +88,7 @@ const Hero = () => {
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="rounded-full border border-white/10 px-6 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                className="rounded-full border border-[rgba(121,207,197,0.18)] bg-[rgba(121,207,197,0.06)] px-6 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(121,207,197,0.4)] hover:bg-[rgba(121,207,197,0.12)]"
               >
                 Get in touch
               </button>
@@ -94,7 +99,7 @@ const Hero = () => {
                 href="https://www.linkedin.com/in/saagar-parikh1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
               >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
@@ -103,14 +108,14 @@ const Hero = () => {
                 href="https://github.com/saagarparikh1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(121,207,197,0.45)] hover:text-[var(--text)]"
               >
                 <Github className="h-4 w-4" />
                 GitHub
               </a>
               <a
                 href="mailto:Saagar.parikh.11@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[color:var(--muted)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(126,168,255,0.45)] hover:text-[var(--text)]"
               >
                 <Mail className="h-4 w-4" />
                 Email
@@ -118,7 +123,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="surface overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[31rem] lg:justify-self-end xl:max-w-[32rem]">
+          <div className="surface mesh-panel overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[31rem] lg:justify-self-end xl:max-w-[32rem]">
             <div className="relative min-h-[25rem] overflow-hidden sm:min-h-[29rem] lg:min-h-[34rem] xl:min-h-[35rem]">
               <img
                 src="/images/portrait/saagar-parikh.jpeg"
@@ -126,6 +131,8 @@ const Hero = () => {
                 className="absolute inset-0 h-full w-full object-cover object-[center_10%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,9,7,0.03)_5%,rgba(10,9,7,0.18)_36%,rgba(10,9,7,0.82)_100%)]" />
+              <div className="absolute left-5 top-5 h-24 w-24 rounded-full bg-[radial-gradient(circle,_rgba(241,193,122,0.32),_transparent_72%)] blur-2xl" />
+              <div className="absolute bottom-20 right-6 h-24 w-24 rounded-full bg-[radial-gradient(circle,_rgba(121,207,197,0.2),_transparent_72%)] blur-2xl" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                 <p className="text-xs uppercase tracking-[0.28em] text-[rgba(246,240,229,0.72)]">
                   Data analyst • product-minded • collaborative
@@ -143,10 +150,10 @@ const Hero = () => {
                 return (
                   <div
                     key={item.label}
-                    className="bg-[rgba(10,10,8,0.76)] px-5 py-5 sm:px-6 sm:py-6"
+                    className={`interactive-surface border border-transparent px-5 py-5 sm:px-6 sm:py-6 ${item.tone}`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="rounded-full border border-white/10 p-2.5 text-[var(--accent-strong)]">
+                      <div className="rounded-full border border-white/10 bg-[rgba(9,9,7,0.32)] p-2.5 text-[var(--text)]">
                         <Icon className="h-4 w-4" />
                       </div>
                       <p className="text-sm font-medium text-[var(--text)]">{item.label}</p>

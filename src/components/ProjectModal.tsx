@@ -8,6 +8,28 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+const categoryToneMap = {
+  Analytics: {
+    surface: 'tone-blue tint-border-blue',
+    pill: 'border-[rgba(126,168,255,0.2)] bg-[rgba(126,168,255,0.1)]',
+  },
+  Frontend: {
+    surface: 'tone-rose tint-border-rose',
+    pill: 'border-[rgba(224,138,115,0.2)] bg-[rgba(224,138,115,0.1)]',
+  },
+  Product: {
+    surface: 'tone-amber tint-border-amber',
+    pill: 'border-[rgba(241,193,122,0.2)] bg-[rgba(241,193,122,0.1)]',
+  },
+  'AI Product': {
+    surface: 'tone-teal tint-border-teal',
+    pill: 'border-[rgba(121,207,197,0.2)] bg-[rgba(121,207,197,0.1)]',
+  },
+};
+
+const getCategoryTone = (category: string) =>
+  categoryToneMap[category as keyof typeof categoryToneMap] ?? categoryToneMap.Product;
+
 const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -86,7 +108,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
       role="dialog"
     >
       <div
-        className="surface mx-auto flex max-h-[92vh] max-w-6xl flex-col overflow-hidden rounded-[2rem]"
+        className={`surface mesh-panel mx-auto flex max-h-[92vh] max-w-6xl flex-col overflow-hidden rounded-[2rem] ${getCategoryTone(project.category).surface}`}
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-6 border-b border-white/10 px-6 py-5 sm:px-8">
@@ -189,7 +211,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
             <div className="space-y-8 p-6 sm:p-8">
               {project.decisionFocus && (
-                <div className="rounded-[1.3rem] border border-[rgba(208,160,93,0.22)] bg-[rgba(208,160,93,0.08)] px-5 py-5">
+                <div className={`rounded-[1.3rem] border px-5 py-5 ${getCategoryTone(project.category).pill}`}>
                   <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                     Decision this supports
                   </p>
@@ -207,7 +229,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   {project.metrics.map((metric) => (
                     <div
                       key={metric}
-                      className="rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-6 text-[var(--text)]"
+                      className="rounded-[1.15rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4 text-sm leading-6 text-[var(--text)]"
                     >
                       {metric}
                     </div>
@@ -233,7 +255,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     {project.keyInsights.map((insight, index) => (
                       <div
                         key={insight}
-                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(255,255,255,0.04)] px-4 py-4"
+                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4"
                       >
                         <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                           0{index + 1}

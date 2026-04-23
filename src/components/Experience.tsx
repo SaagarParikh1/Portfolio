@@ -14,6 +14,7 @@ const experiences = [
     technologies: ['React', 'TypeScript', 'HTML/CSS', 'Reusable Components', 'QA Collaboration'],
     logoSrc: '/images/logos/masergy.png',
     logoAlt: 'Masergy Communications logo',
+    tone: 'tone-blue tint-border-blue',
   },
   {
     company: 'Flomad Labs R&D',
@@ -30,6 +31,7 @@ const experiences = [
     technologies: ['SQL', 'Python', 'Tableau', 'KPI Design', 'Experiment Analysis'],
     logoSrc: '/images/logos/flomad.jpg',
     logoAlt: 'Flomad Labs logo',
+    tone: 'tone-teal tint-border-teal',
   },
   {
     company: 'CASHe',
@@ -46,6 +48,7 @@ const experiences = [
     technologies: ['SQL', 'Python', 'Excel', 'Risk Modeling', 'Fraud Analysis'],
     logoSrc: '/images/logos/cashe.png',
     logoAlt: 'CASHe logo',
+    tone: 'tone-rose tint-border-rose',
   },
 ];
 
@@ -62,11 +65,11 @@ const Experience = () => {
             return (
               <article
                 key={experience.company}
-                className="surface rounded-[1.75rem] p-6 sm:p-8"
+                className={`surface interactive-surface rounded-[1.75rem] p-6 sm:p-8 ${experience.tone}`}
               >
                 <div className="flex flex-col gap-4 border-b border-white/10 pb-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.68)] p-1.5 sm:h-14 sm:w-14">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.55)] p-1.5 sm:h-14 sm:w-14">
                       {experience.logoSrc ? (
                         <img
                           src={experience.logoSrc}

@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-white/10 py-10">
+    <footer className="border-t border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] py-10">
       <div className="section-shell">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -33,7 +33,7 @@ const Footer = () => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[color:var(--muted)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]"
+                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[color:var(--muted)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(121,207,197,0.45)] hover:text-[var(--text)]"
               >
                 {link.label}
               </button>

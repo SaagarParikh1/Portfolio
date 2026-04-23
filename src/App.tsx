@@ -107,9 +107,10 @@ function App() {
   return (
     <div className="page-shell min-h-screen">
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-[-10rem] top-[-8rem] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,_rgba(208,160,93,0.22),_transparent_68%)] blur-3xl" />
-        <div className="absolute right-[-12rem] top-[18rem] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,_rgba(109,137,135,0.14),_transparent_68%)] blur-3xl" />
-        <div className="absolute bottom-[-12rem] left-1/2 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.06),_transparent_70%)] blur-3xl" />
+        <div className="absolute left-[-10rem] top-[-8rem] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,_rgba(208,160,93,0.24),_transparent_68%)] blur-3xl" />
+        <div className="absolute right-[-10rem] top-[12rem] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,_rgba(121,207,197,0.18),_transparent_68%)] blur-3xl" />
+        <div className="absolute bottom-[12%] left-[-8rem] h-[22rem] w-[22rem] rounded-full bg-[radial-gradient(circle,_rgba(224,138,115,0.14),_transparent_68%)] blur-3xl" />
+        <div className="absolute bottom-[-12rem] right-[18%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,_rgba(126,168,255,0.14),_transparent_70%)] blur-3xl" />
       </div>
       <div ref={cursorRingRef} aria-hidden="true" className="cursor-ring" />
       <div ref={cursorCoreRef} aria-hidden="true" className="cursor-core" />
