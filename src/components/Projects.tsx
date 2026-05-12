@@ -511,13 +511,13 @@ const Projects = () => {
         </div>
 
         <div className="mt-12 grid gap-6 xl:grid-cols-[0.3fr_0.7fr]">
-          <div className="space-y-3">
+          <div className="featured-project-nav space-y-3">
             {featuredProjects.map((project, index) => {
               return (
                 <button
                   key={project.title}
                   onClick={() => setActiveProjectIndex(index)}
-                  className={`interactive-surface w-full rounded-[1.35rem] border px-5 py-4 text-left transition duration-300 ${
+                  className={`featured-tab interactive-surface w-full rounded-[1.35rem] border px-5 py-4 text-left transition duration-300 ${
                     index === activeProjectIndex
                       ? `${getCategoryTone(project.category).surface}`
                       : 'border-white/10 bg-[rgba(255,255,255,0.03)] hover:border-white/20 hover:bg-[rgba(255,255,255,0.045)]'
@@ -552,10 +552,10 @@ const Projects = () => {
             })}
           </div>
 
-          <div className={`surface mesh-panel overflow-hidden rounded-[2rem] ${getCategoryTone(activeProject.category).surface}`}>
+          <div className={`project-showcase surface mesh-panel overflow-hidden rounded-[2rem] ${getCategoryTone(activeProject.category).surface}`}>
             <div className="border-b border-white/10">
               {currentImage ? (
-                <div className="relative flex min-h-[27rem] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_65%),linear-gradient(180deg,#14110d_0%,#0c0a08_100%)] p-4 sm:p-6 lg:p-8">
+                <div className="project-media-stage relative flex min-h-[27rem] items-center justify-center p-4 sm:p-6 lg:p-8">
                   <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(5,5,4,0.52)] p-3 sm:p-4">
                     <img
                       src={currentImage}
@@ -805,7 +805,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="surface overflow-hidden rounded-[2rem]">
+          <div className="archive-panel surface overflow-hidden rounded-[2rem]">
             <div className="divide-y divide-white/10">
               {filteredArchiveProjects.map((project) => {
                 return (

@@ -1,22 +1,5 @@
 const experiences = [
   {
-    company: 'Masergy Communications',
-    role: 'Front-End Web Developer (Contract)',
-    period: 'May 2024 - Aug 2024',
-    location: 'Plano, TX',
-    summary:
-      'Translated enterprise HR product requirements into production-ready interfaces and reusable front-end patterns.',
-    highlights: [
-      'Migrated and rebranded 15+ enterprise platform pages using React and TypeScript, aligning delivery with business and performance goals.',
-      'Built reusable UI components that reduced development time for similar features by roughly 20% and improved interface consistency across applications.',
-      'Resolved 30+ cross-browser and responsiveness issues, improving usability and reducing QA rework cycles.',
-    ],
-    technologies: ['React', 'TypeScript', 'HTML/CSS', 'Reusable Components', 'QA Collaboration'],
-    logoSrc: '/images/logos/masergy.png',
-    logoAlt: 'Masergy Communications logo',
-    tone: 'tone-blue tint-border-blue',
-  },
-  {
     company: 'Flomad Labs R&D',
     role: 'Product Development Intern',
     period: 'May 2023 - Aug 2023',
@@ -56,31 +39,30 @@ const Experience = () => {
   return (
     <section id="experience" className="section-band section-band-soft py-24">
       <div className="section-shell">
-        <p className="section-kicker">Experience</p>
+        <div className="section-heading-row">
+          <div>
+            <p className="section-kicker">Experience</p>
+            <h2 className="section-title">Roles where analysis turned into product direction.</h2>
+          </div>
+        </div>
 
-        <div className="space-y-6">
+        <div className="experience-grid mt-10">
           {experiences.map((experience) => {
             const [periodStart, periodEnd] = experience.period.split(' - ');
 
             return (
               <article
                 key={experience.company}
-                className={`surface interactive-surface rounded-[1.75rem] p-6 sm:p-8 ${experience.tone}`}
+                className={`surface interactive-surface experience-card rounded-[1.75rem] p-6 sm:p-8 ${experience.tone}`}
               >
                 <div className="flex flex-col gap-4 border-b border-white/10 pb-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.55)] p-1.5 sm:h-14 sm:w-14">
-                      {experience.logoSrc ? (
-                        <img
-                          src={experience.logoSrc}
-                          alt={experience.logoAlt}
-                          className="h-full w-full rounded-[0.7rem] object-contain"
-                        />
-                      ) : (
-                        <span className="text-sm font-semibold tracking-[0.24em] text-[var(--accent-strong)]">
-                          {experience.logoText}
-                        </span>
-                      )}
+                      <img
+                        src={experience.logoSrc}
+                        alt={experience.logoAlt}
+                        className="h-full w-full rounded-[0.7rem] object-contain"
+                      />
                     </div>
 
                     <div>

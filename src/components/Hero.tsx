@@ -40,10 +40,10 @@ const Hero = () => {
       id="hero"
       className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden pt-24 sm:min-h-[calc(100svh-4.5rem)] sm:pt-28"
     >
-      <div className="absolute inset-0">
-        <div className="hero-orb hero-orb-a" />
-        <div className="hero-orb hero-orb-b" />
-        <div className="hero-orb hero-orb-c" />
+      <div className="hero-atmosphere" aria-hidden="true">
+        <span className="hero-ribbon hero-ribbon-a" />
+        <span className="hero-ribbon hero-ribbon-b" />
+        <span className="hero-ribbon hero-ribbon-c" />
       </div>
 
       <div className="section-shell relative z-10 py-10 sm:py-12">
@@ -55,7 +55,7 @@ const Hero = () => {
             <p className="mt-7 text-[1.04rem] uppercase tracking-[0.28em] text-[color:var(--muted)] sm:text-[1.14rem]">
               Saagar Parikh
             </p>
-            <h1 className="mt-4 max-w-[13ch] text-[clamp(1.95rem,3.2vw,3.05rem)] font-semibold leading-[0.99] text-[var(--text)]">
+            <h1 className="mt-4 max-w-[13ch] text-[2.05rem] font-semibold leading-[0.99] text-[var(--text)] sm:text-[2.55rem] lg:text-[3rem]">
               Data analyst turning data into product and business decisions.
             </h1>
 
@@ -123,7 +123,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="surface mesh-panel overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[28.75rem] lg:justify-self-end xl:max-w-[30rem]">
+          <div className="portrait-frame surface mesh-panel overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.12)] lg:max-w-[28.75rem] lg:justify-self-end xl:max-w-[30rem]">
             <div className="relative min-h-[24rem] overflow-hidden sm:min-h-[28rem] lg:min-h-[32rem] xl:min-h-[33rem]">
               <img
                 src="/images/portrait/saagar-parikh-portrait-2026.jpeg"
@@ -131,8 +131,8 @@ const Hero = () => {
                 className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,9,7,0.03)_5%,rgba(10,9,7,0.18)_36%,rgba(10,9,7,0.82)_100%)]" />
-              <div className="absolute left-5 top-5 h-24 w-24 rounded-full bg-[radial-gradient(circle,_rgba(241,193,122,0.32),_transparent_72%)] blur-2xl" />
-              <div className="absolute bottom-20 right-6 h-24 w-24 rounded-full bg-[radial-gradient(circle,_rgba(121,207,197,0.2),_transparent_72%)] blur-2xl" />
+              <div className="absolute inset-x-5 top-5 h-px bg-[linear-gradient(90deg,rgba(241,193,122,0.55),transparent_58%,rgba(121,207,197,0.36))]" />
+              <div className="absolute bottom-0 right-0 h-44 w-px bg-[linear-gradient(180deg,transparent,rgba(121,207,197,0.5))]" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                 <p className="text-xs uppercase tracking-[0.28em] text-[rgba(246,240,229,0.72)]">
                   Data analyst • product-minded • collaborative

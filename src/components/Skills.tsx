@@ -65,7 +65,7 @@ const Skills = () => {
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className={`surface interactive-surface rounded-[2rem] p-6 sm:p-8 ${group.tone}`}
+              className={`skill-panel surface interactive-surface rounded-[2rem] p-6 sm:p-8 ${group.tone}`}
             >
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--text)]">
                 {group.title}
