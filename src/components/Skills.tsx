@@ -28,7 +28,6 @@ const Skills = () => {
         <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
             <p className="section-kicker text-[var(--yellow)]">Skills</p>
-            <h2 className="section-title-light">The stack is practical on purpose.</h2>
           </div>
 
           <div className="skill-table text-[var(--ink)]">

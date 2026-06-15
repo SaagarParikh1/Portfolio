@@ -53,7 +53,7 @@ const featuredWork = [
 ];
 
 const experience = [
-  ['Current', 'Mswipe', 'Management Trainee - Operations', 'June 2026 - Present'],
+  ['Current', 'Mswipe Technologies', 'Management Trainee - Operations', 'June 2026 - Present'],
   ['Product', 'Flomad Labs R&D', 'Product Development Intern', 'May 2023 - Aug 2023'],
   ['Risk', 'CASHe', 'Risk Analyst Intern', 'June 2022 - Aug 2022'],
 ];
@@ -139,12 +139,12 @@ const OperatorConcept = () => (
         </div>
       </div>
       <div className="operator-portrait">
-        <img src="/images/portrait/saagar-parikh-portrait-2026.jpeg" alt="Saagar Parikh" />
+        <img src="/images/portrait/Portrait2.png" alt="Saagar Parikh" />
       </div>
       <div className="operator-status">
         <div>
           <span>Current role</span>
-          <strong>Mswipe / Management Trainee - Operations</strong>
+          <strong>Mswipe Technologies / Management Trainee - Operations</strong>
         </div>
         <div>
           <span>Core stack</span>
@@ -191,7 +191,7 @@ const EditorialConcept = () => (
   <main className="editorial-concept concept-page">
     <ConceptSwitcher active="editorial" />
     <section className="editorial-hero">
-      <img src="/images/portrait/saagar-parikh-portrait-2026.jpeg" alt="Saagar Parikh" />
+      <img src="/images/portrait/Portrait2.png" alt="Saagar Parikh" />
       <div>
         <p className="concept-kicker">Editorial Ledger</p>
         <h1>Saagar Parikh</h1>
@@ -200,7 +200,7 @@ const EditorialConcept = () => (
           operational readouts.
         </p>
         <div className="editorial-meta">
-          <span>Current: Mswipe Operations</span>
+          <span>Current: Mswipe Technologies Operations</span>
           <span>Frisco, TX / Open to relocation</span>
           <span>SQL / Python / Tableau / Excel</span>
         </div>
@@ -257,7 +257,7 @@ const SignalConcept = () => (
         </div>
       </div>
       <div className="signal-photo-panel">
-        <img src="/images/portrait/saagar-parikh-portrait-2026.jpeg" alt="Saagar Parikh" />
+        <img src="/images/portrait/Portrait2.png" alt="Saagar Parikh" />
       </div>
     </section>
 
@@ -280,7 +280,7 @@ const SignalConcept = () => (
       <article>
         <Briefcase />
         <strong>Now</strong>
-        <span>Mswipe operations role, June 2026 - present</span>
+        <span>Mswipe Technologies operations role, June 2026 - present</span>
       </article>
     </section>
 

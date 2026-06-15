@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section id="hero" className="hero">
       <img
-        src="/images/portrait/saagar-parikh-portrait-2026.jpeg"
+        src="/images/portrait/Portrait2.png"
         alt="Saagar Parikh portrait"
         className="hero-image"
       />
@@ -65,11 +65,13 @@ const Hero = () => {
           <div className="hero-meta-grid">
             <div className="hero-meta-item">
               <p className="text-sm font-bold text-[var(--yellow)]">Current role</p>
-              <p className="mt-1 text-base font-semibold">Management Trainee, Operations at Mswipe</p>
+              <p className="mt-1 text-base font-semibold">
+                Management Trainee, Operations at Mswipe Technologies
+              </p>
             </div>
             <div className="hero-meta-item">
               <p className="text-sm font-bold text-[var(--yellow)]">Focus</p>
-              <p className="mt-1 text-base font-semibold">Analytics, dashboards, operations insight</p>
+              <p className="mt-1 text-base font-semibold">Merchant operations, reporting, dashboards</p>
             </div>
             <div className="hero-meta-item">
               <p className="text-sm font-bold text-[var(--yellow)]">Toolkit</p>

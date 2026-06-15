@@ -18,6 +18,7 @@ const involvement = [
 const certifications = [
   'Google Data Analytics Professional Certificate, 2025',
   'Foundations of User Experience Design Certificate, Google, 2023',
+  'Cornerstone Integrated Liberal Arts Certificate, Purdue University',
 ];
 
 const Education = () => {

@@ -508,10 +508,6 @@ const Projects = () => {
             <p className="section-kicker text-[var(--yellow)]">Selected Work</p>
             <h2 className="section-title-light">Analysis that answers “so what?”</h2>
           </div>
-          <p className="max-w-2xl text-lg leading-8 text-white/70">
-            The work is ordered for recruiter scanning: business insight first, then deeper systems,
-            product thinking, and front-end delivery.
-          </p>
         </div>
 
         <div className="mt-12 grid gap-6 xl:grid-cols-[0.28fr_0.72fr]">

@@ -1,18 +1,17 @@
 const experiences = [
   {
-    company: 'Mswipe',
+    company: 'Mswipe Technologies',
     role: 'Management Trainee - Operations',
     period: 'June 2026 - Present',
-    location: 'India',
     summary:
-      'Current operations role focused on learning business workflows, improving process visibility, and supporting execution across teams.',
+      'Current operations trainee role focused on learning fintech operations, merchant onboarding, device deployment, reporting workflows, and process visibility.',
     highlights: [
-      'Supporting operations workflows with an analytical lens on process clarity, reporting, and execution.',
-      'Building domain context in payments and merchant operations while connecting frontline process details to measurable outcomes.',
-      'Using a data-first background to identify where cleaner tracking, reporting, or workflow structure can improve decisions.',
+      'Learning how merchant acquisition, onboarding, device inventory flow, deployment, activation, service requests, and support processes connect inside the business.',
+      'Expected to support daily operational reporting around shipments, activations, pending requests, tickets, and other process health metrics.',
+      'Applying an analytics background to understand bottlenecks, improve visibility, and identify where dashboards or cleaner tracking can support better operations decisions.',
     ],
-    technologies: ['Operations', 'Process Analysis', 'Reporting', 'Stakeholder Coordination'],
-    logoSrc: undefined,
+    technologies: ['Operations', 'Merchant Onboarding', 'Device Deployment', 'Reporting', 'Process Analysis'],
+    logoSrc: '/images/logos/mswipe.png',
     logoAlt: 'Mswipe logo',
     current: true,
   },
@@ -20,7 +19,6 @@ const experiences = [
     company: 'Flomad Labs R&D',
     role: 'Product Development Intern',
     period: 'May 2023 - Aug 2023',
-    location: 'Remote',
     summary:
       'Used SQL, Python, and Tableau to support KPI development, experimentation, and decision-making for product and engineering stakeholders.',
     highlights: [
@@ -36,7 +34,6 @@ const experiences = [
     company: 'CASHe',
     role: 'Risk Analyst Intern',
     period: 'June 2022 - Aug 2022',
-    location: 'Mumbai',
     summary:
       'Focused on loan risk, fraud detection, and reporting automation across large financial datasets.',
     highlights: [
@@ -66,7 +63,7 @@ const Experience = () => {
                 key={experience.company}
                 className={`timeline-card ${experience.current ? 'timeline-card-current' : ''}`}
               >
-                <div className="grid gap-5 md:grid-cols-[auto_1fr_auto] md:items-start">
+                <div className="grid gap-5 md:grid-cols-[auto_1fr] md:items-start">
                   <div
                     className={`flex h-14 w-14 items-center justify-center border ${
                       experience.current ? 'border-white bg-[var(--yellow)] text-[var(--ink)]' : 'border-[var(--line)] bg-white'
@@ -117,9 +114,6 @@ const Experience = () => {
                     </div>
                   </div>
 
-                  <p className={experience.current ? 'font-bold text-white/80' : 'font-bold text-[var(--muted)]'}>
-                    {experience.location}
-                  </p>
                 </div>
               </article>
             ))}
