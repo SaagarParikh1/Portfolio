@@ -1,5 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
-import { ArrowUp } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,107 +7,17 @@ import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ConceptPrototypes from './components/ConceptPrototypes';
 
 function App() {
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const cursorCoreRef = useRef<HTMLDivElement | null>(null);
-  const cursorRingRef = useRef<HTMLDivElement | null>(null);
+  const pathname = window.location.pathname;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const cursorCore = cursorCoreRef.current;
-    const cursorRing = cursorRingRef.current;
-
-    if (!cursorCore || !cursorRing) {
-      return;
-    }
-
-    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
-
-    if (!mediaQuery.matches) {
-      return;
-    }
-
-    const interactiveSelector = 'a, button, [role="button"], input, textarea, select, label';
-
-    const updateCursorPosition = (x: number, y: number) => {
-      cursorCore.style.setProperty('--cursor-x', `${x}px`);
-      cursorCore.style.setProperty('--cursor-y', `${y}px`);
-      cursorRing.style.setProperty('--cursor-x', `${x}px`);
-      cursorRing.style.setProperty('--cursor-y', `${y}px`);
-    };
-
-    const setCursorState = (className: string, active: boolean) => {
-      cursorCore.classList.toggle(className, active);
-      cursorRing.classList.toggle(className, active);
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      updateCursorPosition(event.clientX, event.clientY);
-      setCursorState('is-visible', true);
-    };
-
-    const handleMouseOver = (event: MouseEvent) => {
-      if (!(event.target instanceof Element)) {
-        return;
-      }
-
-      setCursorState('is-hovering', Boolean(event.target.closest(interactiveSelector)));
-    };
-
-    const handleMouseDown = () => {
-      setCursorState('is-pressed', true);
-    };
-
-    const handleMouseUp = () => {
-      setCursorState('is-pressed', false);
-    };
-
-    const handleWindowExit = (event: MouseEvent) => {
-      if (event.relatedTarget !== null) {
-        return;
-      }
-
-      setCursorState('is-visible', false);
-      setCursorState('is-hovering', false);
-      setCursorState('is-pressed', false);
-    };
-
-    document.body.classList.add('cursor-enhanced');
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mouseup', handleMouseUp);
-    window.addEventListener('mouseout', handleWindowExit);
-
-    return () => {
-      document.body.classList.remove('cursor-enhanced');
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('mouseout', handleWindowExit);
-    };
-  }, []);
+  if (pathname.startsWith('/concepts')) {
+    return <ConceptPrototypes pathname={pathname} />;
+  }
 
   return (
-    <div className="page-shell min-h-screen">
-      <div className="page-backdrop" aria-hidden="true" />
-      <div ref={cursorRingRef} aria-hidden="true" className="cursor-ring" />
-      <div ref={cursorCoreRef} aria-hidden="true" className="cursor-core" />
-
+    <div className="site-shell min-h-screen">
       <Header />
 
       <main>
@@ -123,16 +31,6 @@ function App() {
       </main>
 
       <Footer />
-
-      {showScrollTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 z-50 rounded-full border border-white/10 bg-[rgba(12,12,10,0.82)] p-3 text-[var(--text)] shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="h-5 w-5" />
-        </button>
-      )}
     </div>
   );
 }

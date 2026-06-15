@@ -24,29 +24,29 @@ const categoryIcons = {
 
 const categoryToneMap = {
   Analytics: {
-    surface: 'tone-blue tint-border-blue',
-    accent: 'text-[var(--accent-blue)]',
-    pill: 'border-[rgba(126,168,255,0.2)] bg-[rgba(126,168,255,0.1)]',
+    accent: 'text-[var(--blue)]',
+    tag: 'bg-[var(--blue)] text-white',
+    panel: 'border-[var(--blue)]',
   },
   Frontend: {
-    surface: 'tone-rose tint-border-rose',
-    accent: 'text-[var(--accent-rose)]',
-    pill: 'border-[rgba(224,138,115,0.2)] bg-[rgba(224,138,115,0.1)]',
+    accent: 'text-[var(--red)]',
+    tag: 'bg-[var(--red)] text-white',
+    panel: 'border-[var(--red)]',
   },
   Product: {
-    surface: 'tone-amber tint-border-amber',
-    accent: 'text-[var(--accent-strong)]',
-    pill: 'border-[rgba(241,193,122,0.2)] bg-[rgba(241,193,122,0.1)]',
+    accent: 'text-[var(--teal)]',
+    tag: 'bg-[var(--teal)] text-white',
+    panel: 'border-[var(--teal)]',
   },
   'AI Product': {
-    surface: 'tone-teal tint-border-teal',
-    accent: 'text-[var(--accent-teal)]',
-    pill: 'border-[rgba(121,207,197,0.2)] bg-[rgba(121,207,197,0.1)]',
+    accent: 'text-[var(--green)]',
+    tag: 'bg-[var(--green)] text-[var(--ink)]',
+    panel: 'border-[var(--green)]',
   },
   UX: {
-    surface: 'tone-rose tint-border-rose',
-    accent: 'text-[var(--accent-rose)]',
-    pill: 'border-[rgba(224,138,115,0.2)] bg-[rgba(224,138,115,0.1)]',
+    accent: 'text-[var(--red)]',
+    tag: 'bg-[var(--red)] text-white',
+    panel: 'border-[var(--red)]',
   },
 };
 
@@ -423,21 +423,21 @@ const ProjectThumbnail = ({
   if (preview) {
     return (
       <div
-        className={`relative overflow-hidden rounded-[1rem] border border-white/10 bg-[rgba(10,10,8,0.78)] ${getCategoryTone(project.category).surface} ${className ?? ''}`}
+        className={`project-image-frame ${className ?? ''}`}
       >
         <img
           src={preview}
           alt={`${project.title} thumbnail`}
           className="h-full w-full object-cover object-top"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(10,9,7,0.14)_62%,rgba(10,9,7,0.45)_100%)]" />
       </div>
     );
   }
 
   return (
     <div
-      className={`flex items-center justify-center rounded-[1rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),rgba(12,12,10,0.8)] text-[var(--accent-strong)] ${className ?? ''}`}
+      className={`flex items-center justify-center border border-[var(--line)] bg-white text-[var(--ink)] ${className ?? ''}`}
+      style={{ borderRadius: 8 }}
     >
       <Icon className="h-6 w-6" />
     </div>
@@ -501,26 +501,30 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section-band section-band-slate py-24">
+    <section id="projects" className="section-block-dark">
       <div className="section-shell">
-        <div>
-          <p className="section-kicker">Selected Work</p>
-          <h2 className="section-title">
-            Projects framed around decisions, insight, and execution.
-          </h2>
+        <div className="grid gap-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
+          <div>
+            <p className="section-kicker text-[var(--yellow)]">Selected Work</p>
+            <h2 className="section-title-light">Analysis that answers “so what?”</h2>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-white/70">
+            The work is ordered for recruiter scanning: business insight first, then deeper systems,
+            product thinking, and front-end delivery.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 xl:grid-cols-[0.3fr_0.7fr]">
-          <div className="featured-project-nav space-y-3">
+        <div className="mt-12 grid gap-6 xl:grid-cols-[0.28fr_0.72fr]">
+          <div className="grid gap-3">
             {featuredProjects.map((project, index) => {
               return (
                 <button
                   key={project.title}
                   onClick={() => setActiveProjectIndex(index)}
-                  className={`featured-tab interactive-surface w-full rounded-[1.35rem] border px-5 py-4 text-left transition duration-300 ${
+                  className={`project-card-dark w-full p-4 text-left ${
                     index === activeProjectIndex
-                      ? `${getCategoryTone(project.category).surface}`
-                      : 'border-white/10 bg-[rgba(255,255,255,0.03)] hover:border-white/20 hover:bg-[rgba(255,255,255,0.045)]'
+                      ? 'border-white bg-white text-[var(--ink)]'
+                      : 'border-white/30'
                   }`}
                 >
                   <div className="flex items-start gap-4">
@@ -531,18 +535,13 @@ const Projects = () => {
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <p className={`text-[11px] uppercase tracking-[0.24em] ${getCategoryTone(project.category).accent}`}>
-                            {project.category}
-                          </p>
-                          <h3 className="mt-2 text-lg font-semibold text-[var(--text)] sm:text-[1.2rem]">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <span className="text-sm text-[color:var(--muted)]">0{index + 1}</span>
+                        <span className={`chip ${getCategoryTone(project.category).tag}`}>
+                          {project.category}
+                        </span>
+                        <span className="font-black">0{index + 1}</span>
                       </div>
-
-                      <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                      <h3 className="mt-3 text-xl leading-tight">{project.title}</h3>
+                      <p className={index === activeProjectIndex ? 'mt-3 text-sm leading-6 text-[var(--muted)]' : 'mt-3 text-sm leading-6 text-white/62'}>
                         {project.headline}
                       </p>
                     </div>
@@ -552,17 +551,17 @@ const Projects = () => {
             })}
           </div>
 
-          <div className={`project-showcase surface mesh-panel overflow-hidden rounded-[2rem] ${getCategoryTone(activeProject.category).surface}`}>
-            <div className="border-b border-white/10">
+          <div className="border border-white bg-[#f7f3eb] text-[var(--ink)]" style={{ borderRadius: 8 }}>
+            <div className="border-b border-[var(--line)]">
               {currentImage ? (
-                <div className="project-media-stage relative flex min-h-[27rem] items-center justify-center p-4 sm:p-6 lg:p-8">
-                  <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(5,5,4,0.52)] p-3 sm:p-4">
+                <div className="relative flex min-h-[26rem] items-center justify-center bg-white p-4 sm:p-6 lg:p-8">
+                  <div className="project-image-frame relative flex h-full w-full items-center justify-center bg-[#f7f3eb] p-3 sm:p-4">
                     <img
                       src={currentImage}
                       alt={`${activeProject.title} preview ${activeImageIndex + 1}`}
-                      className="max-h-[38rem] w-full object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+                      className="max-h-[36rem] w-full object-contain"
                     />
-                    <div className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                    <div className="absolute right-3 top-3 border border-[var(--line)] bg-white px-3 py-1 text-xs font-bold uppercase">
                       {activeImageIndex + 1} / {activeImages.length}
                     </div>
                   </div>
@@ -571,14 +570,16 @@ const Projects = () => {
                     <>
                       <button
                         onClick={showPreviousImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 border border-[var(--line)] bg-white p-2 text-[var(--ink)]"
+                        style={{ borderRadius: 999 }}
                         aria-label="Previous project image"
                       >
                         <ChevronLeft className="h-5 w-5" />
                       </button>
                       <button
                         onClick={showNextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 border border-[var(--line)] bg-white p-2 text-[var(--ink)]"
+                        style={{ borderRadius: 999 }}
                         aria-label="Next project image"
                       >
                         <ChevronRight className="h-5 w-5" />
@@ -592,11 +593,12 @@ const Projects = () => {
                         <button
                           key={image}
                           onClick={() => setActiveImageIndex(index)}
-                          className={`h-2.5 rounded-full transition-all duration-300 ${
+                          className={`h-2.5 transition-all duration-300 ${
                             index === activeImageIndex
-                              ? 'w-8 bg-[var(--accent-strong)]'
-                              : 'w-2.5 bg-white/40'
+                              ? 'w-8 bg-[var(--blue)]'
+                              : 'w-2.5 bg-[var(--line)]/30'
                           }`}
+                          style={{ borderRadius: 999 }}
                           aria-label={`View image ${index + 1}`}
                         />
                       ))}
@@ -604,16 +606,18 @@ const Projects = () => {
                   )}
                 </div>
               ) : (
-                <div className="flex min-h-[25rem] flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),linear-gradient(180deg,#17130e_0%,#0f0d09_100%)] p-8">
+                <div className="flex min-h-[25rem] flex-col justify-between bg-white p-8">
                   <div>
-                    <span className="eyebrow-pill">{activeProject.label ?? 'Selected work'}</span>
-                    <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+                    <span className={`chip ${getCategoryTone(activeProject.category).tag}`}>
+                      {activeProject.label ?? 'Selected work'}
+                    </span>
+                    <p className="mt-6 text-xs font-bold uppercase text-[var(--muted)]">
                       {activeProject.category}
                     </p>
-                    <h3 className="mt-4 max-w-lg text-4xl font-semibold leading-tight text-[var(--text)]">
+                    <h3 className="mt-4 max-w-lg text-4xl leading-tight">
                       {activeProject.title}
                     </h3>
-                    <p className="mt-4 max-w-lg text-base leading-7 text-[color:var(--muted)]">
+                    <p className="mt-4 max-w-lg text-base leading-7 text-[var(--muted)]">
                       {activeProject.headline}
                     </p>
                   </div>
@@ -622,7 +626,8 @@ const Projects = () => {
                     {activeProject.metrics.map((metric) => (
                       <div
                         key={metric}
-                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-[var(--text)]"
+                        className="border border-[var(--line)] bg-[#f7f3eb] px-4 py-4 text-sm font-semibold"
+                        style={{ borderRadius: 8 }}
                       >
                         {metric}
                       </div>
@@ -633,28 +638,30 @@ const Projects = () => {
             </div>
 
             <div className="p-6 sm:p-8">
-              <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex flex-col gap-4 border-b border-[var(--line)] pb-6 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   {featuredMeta && (
-                    <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                    <p className="text-xs font-bold uppercase text-[var(--muted)]">
                       {featuredMeta}
                     </p>
                   )}
-                  <h3 className="mt-3 text-2xl font-semibold text-[var(--text)] sm:text-[1.9rem]">
+                  <h3 className="mt-3 text-3xl leading-tight sm:text-4xl">
                     {activeProject.title}
                   </h3>
                 </div>
                 <div className="flex gap-2">
                   <button
                     onClick={showPreviousProject}
-                    className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                    className="border border-[var(--line)] bg-white p-2"
+                    style={{ borderRadius: 999 }}
                     aria-label="Previous featured project"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </button>
                   <button
                     onClick={showNextProject}
-                    className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                    className="border border-[var(--line)] bg-white p-2"
+                    style={{ borderRadius: 999 }}
                     aria-label="Next featured project"
                   >
                     <ChevronRight className="h-4 w-4" />
@@ -662,55 +669,57 @@ const Projects = () => {
                 </div>
               </div>
 
-              <p className="mt-5 text-[1rem] leading-7 text-[var(--accent-strong)] sm:text-[1.05rem]">
+              <p className="mt-5 text-lg font-semibold leading-7 text-[var(--blue)]">
                 {activeProject.headline}
               </p>
-              <p className="mt-4 text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
+              <p className="mt-4 text-base leading-7 text-[var(--muted)]">
                 {activeProject.summary}
               </p>
 
               {activeProject.decisionFocus && (
-                <div className={`mt-6 rounded-[1.3rem] border px-5 py-5 ${getCategoryTone(activeProject.category).pill}`}>
-                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                <div className="mt-6 border border-[var(--line)] bg-[var(--yellow)] px-5 py-5" style={{ borderRadius: 8 }}>
+                  <p className="text-xs font-bold uppercase">
                     Decision this supports
                   </p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">
+                  <p className="mt-3 text-sm font-semibold leading-6">
                     {activeProject.decisionFocus}
                   </p>
                 </div>
               )}
 
               <div className="mt-8">
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                <p className="text-sm font-bold uppercase text-[var(--red)]">
                   At a glance
                 </p>
                 <div className="mt-4 grid gap-4 sm:grid-cols-3">
                   {activeProject.metrics.map((metric) => (
                     <div
                       key={metric}
-                      className="rounded-[1.15rem] border border-white/10 bg-[rgba(8,8,6,0.2)] px-4 py-4"
+                      className="border border-[var(--line-soft)] bg-white px-4 py-4"
+                      style={{ borderRadius: 8 }}
                     >
-                      <p className="text-sm leading-6 text-[var(--text)]">{metric}</p>
+                      <p className="text-sm font-semibold leading-6">{metric}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               {activeProject.keyInsights && activeProject.keyInsights.length > 0 && (
-                <div className="mt-8 border-t border-white/10 pt-6">
-                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                <div className="mt-8 border-t border-[var(--line-soft)] pt-6">
+                  <p className="text-sm font-bold uppercase text-[var(--red)]">
                     Key insights
                   </p>
                   <div className="mt-4 grid gap-4 lg:grid-cols-3">
                     {activeProject.keyInsights.map((insight, index) => (
                       <div
                         key={insight}
-                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4"
+                        className="border border-[var(--line-soft)] bg-white px-4 py-4"
+                        style={{ borderRadius: 8 }}
                       >
-                        <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+                        <p className="text-xs font-black text-[var(--blue)]">
                           0{index + 1}
                         </p>
-                        <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
+                        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
                           {insight}
                         </p>
                       </div>
@@ -719,15 +728,15 @@ const Projects = () => {
                 </div>
               )}
 
-              <div className="mt-8 border-t border-white/10 pt-6">
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
+              <div className="mt-8 border-t border-[var(--line-soft)] pt-6">
+                <p className="text-sm font-bold uppercase text-[var(--red)]">
                   Analysis + execution
                 </p>
                 <ul className="mt-4 space-y-3">
                   {activeProject.highlights.map((highlight) => (
                     <li key={highlight} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
-                      <span className="text-sm leading-6 text-[color:var(--muted)]">
+                      <span className="mt-2 h-2 w-2 shrink-0 bg-[var(--red)]" />
+                      <span className="text-sm leading-6 text-[var(--muted)]">
                         {highlight}
                       </span>
                     </li>
@@ -737,10 +746,7 @@ const Projects = () => {
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {activeProject.technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
-                  >
+                  <span key={technology} className="chip">
                     {technology}
                   </span>
                 ))}
@@ -752,7 +758,7 @@ const Projects = () => {
                     href={activeProject.liveDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+                    className="btn-primary"
                   >
                     <ExternalLink className="h-4 w-4" />
                     Live demo
@@ -763,7 +769,7 @@ const Projects = () => {
                     href={activeProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                    className="btn-secondary"
                   >
                     <Github className="h-4 w-4" />
                     View code
@@ -771,7 +777,7 @@ const Projects = () => {
                 )}
                 <button
                   onClick={() => setSelectedProject(activeProject)}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+                  className="btn-secondary"
                 >
                   View project
                   <ArrowRight className="h-4 w-4" />
@@ -783,8 +789,8 @@ const Projects = () => {
 
         <div className="mt-20 grid gap-8 lg:grid-cols-[0.32fr_0.68fr]">
           <div>
-            <p className="section-kicker">Archive</p>
-            <h3 className="text-[1.85rem] font-semibold leading-tight text-[var(--text)] sm:text-[2.2rem]">
+            <p className="section-kicker text-[var(--yellow)]">Archive</p>
+            <h3 className="mt-3 text-4xl leading-tight text-white sm:text-5xl">
               Additional projects
             </h3>
 
@@ -793,11 +799,12 @@ const Projects = () => {
                 <button
                   key={filter}
                   onClick={() => setArchiveFilter(filter)}
-                    className={`rounded-full px-4 py-2 text-xs uppercase tracking-[0.22em] transition duration-300 ${
+                    className={`border px-4 py-2 text-xs font-bold uppercase transition duration-200 ${
                       archiveFilter === filter
-                        ? 'bg-[linear-gradient(90deg,rgba(208,160,93,0.95),rgba(121,207,197,0.9))] text-[#1c1407]'
-                        : 'border border-white/10 bg-white/5 text-[color:var(--muted)] hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--text)]'
+                        ? 'border-white bg-white text-[var(--ink)]'
+                        : 'border-white/30 bg-transparent text-white/70 hover:bg-white/10'
                     }`}
+                    style={{ borderRadius: 999 }}
                   >
                   {filter}
                 </button>
@@ -805,14 +812,13 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="archive-panel surface overflow-hidden rounded-[2rem]">
-            <div className="divide-y divide-white/10">
+          <div className="grid gap-4">
               {filteredArchiveProjects.map((project) => {
                 return (
                   <button
                     key={project.title}
                     onClick={() => setSelectedProject(project)}
-                    className={`interactive-surface grid w-full gap-4 px-5 py-5 text-left transition duration-300 hover:bg-white/5 md:grid-cols-[1.1fr_0.9fr_auto] md:items-center ${getCategoryTone(project.category).surface}`}
+                    className="project-card-dark grid w-full gap-4 p-4 text-left md:grid-cols-[1.1fr_0.9fr_auto] md:items-center"
                   >
                     <div className="flex items-start gap-4">
                       <ProjectThumbnail
@@ -821,13 +827,13 @@ const Projects = () => {
                       />
 
                       <div>
-                        <p className={`text-xs uppercase tracking-[0.24em] ${getCategoryTone(project.category).accent}`}>
+                        <p className={`text-sm font-bold uppercase ${getCategoryTone(project.category).accent}`}>
                           {project.category}
                         </p>
-                        <h4 className="mt-2 text-lg font-semibold text-[var(--text)] sm:text-xl">
+                        <h4 className="mt-2 text-xl leading-tight text-white">
                           {project.title}
                         </h4>
-                        <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">
+                        <p className="mt-2 text-sm leading-6 text-white/62">
                           {project.summary}
                         </p>
                       </div>
@@ -837,21 +843,20 @@ const Projects = () => {
                       {project.metrics.slice(0, 2).map((metric) => (
                         <span
                           key={metric}
-                          className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
+                          className="chip-dark"
                         >
                           {metric}
                         </span>
                       ))}
                     </div>
 
-                    <div className="inline-flex items-center gap-2 text-sm text-[var(--text)] md:justify-end">
+                    <div className="inline-flex items-center gap-2 text-sm font-bold text-white md:justify-end">
                       View project
                       <ArrowRight className="h-4 w-4" />
                     </div>
                   </button>
                 );
               })}
-            </div>
           </div>
         </div>
       </div>

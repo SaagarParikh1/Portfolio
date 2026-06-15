@@ -9,118 +9,81 @@ const coursework = [
 ];
 
 const involvement = [
-  'Vice President of External Affairs & Social Chair — Beta Chi Theta',
-  'Purdue IT Professionals (PITP)',
+  'Vice President of External Affairs & Social Chair, Beta Chi Theta',
+  'Purdue IT Professionals',
   'Purdue EVC',
-  'Purdue Association of Learning Design & Technology (PALDT)',
+  'Purdue Association of Learning Design & Technology',
 ];
 
 const certifications = [
-  'Google Data Analytics Professional Certificate (2025)',
-  'Foundations of User Experience (UX) Design Certificate — Google (2023)',
+  'Google Data Analytics Professional Certificate, 2025',
+  'Foundations of User Experience Design Certificate, Google, 2023',
 ];
-
-const PURDUE_LOGO = '/images/logos/purdue.jpg';
 
 const Education = () => {
   return (
-    <section id="education" className="section-band section-band-soft py-24">
+    <section id="education" className="section-block bg-[var(--paper)]">
       <div className="section-shell">
-        <p className="section-kicker">Education</p>
+        <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
+          <div>
+            <p className="section-kicker">Education</p>
+            <h2 className="section-title">Purdue foundation, analytics focus.</h2>
+          </div>
 
-        <div className="surface mesh-panel mt-8 overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
-          <div className="interactive-surface tone-amber tint-border-amber rounded-[1.6rem] border p-6 sm:p-8">
-            <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.7)] p-1.5 sm:h-14 sm:w-14">
-                  <img
-                    src={PURDUE_LOGO}
-                    alt="Purdue University logo"
-                    className="h-full w-full rounded-[0.7rem] object-contain"
-                  />
+          <div className="grid gap-5">
+            <article className="panel p-6 sm:p-8">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center border border-[var(--line)] bg-white p-2" style={{ borderRadius: 8 }}>
+                  <img src="/images/logos/purdue.jpg" alt="Purdue University logo" className="h-full w-full object-contain" />
                 </div>
 
                 <div>
-                  <p className="text-[0.92rem] uppercase tracking-[0.22em] text-[var(--accent-strong)] sm:text-[0.98rem]">
-                    Purdue University
+                  <p className="chip">Purdue University</p>
+                  <h3 className="mt-4 text-4xl leading-tight">Web Programming and Design (B.S.)</h3>
+                  <p className="mt-3 font-semibold text-[var(--muted)]">
+                    Aug 2021 - May 2025, West Lafayette, IN
                   </p>
-                  <h3 className="mt-3 text-[2rem] font-semibold leading-tight text-[var(--text)] sm:text-[2.35rem]">
-                    Web Programming and Design (B.S.)
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-                    Aug 2021 - May 2025 • West Lafayette, IN
+                  <p className="mt-5 max-w-3xl leading-7 text-[var(--muted)]">
+                    Coursework connected development, UX, information architecture, systems
+                    thinking, and data visualization. That mix still shapes how I design dashboards
+                    and communicate analytical work.
                   </p>
                 </div>
               </div>
-            </div>
 
-            <div className="mt-8 grid gap-8 border-t border-white/10 pt-6 lg:grid-cols-[0.95fr_1.05fr]">
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Program focus
-                </p>
-                <p className="mt-4 text-sm leading-6 text-[color:var(--muted)]">
-                  My degree combined development, information architecture, systems thinking, and
-                  UX design. That mix still shows up in how I structure analysis, build dashboards,
-                  and communicate ideas clearly to the people using them.
-                </p>
-
-                <div className="mt-8">
-                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                    Relevant coursework
-                  </p>
+              <div className="mt-8 grid gap-6 border-t border-[var(--line-soft)] pt-6 lg:grid-cols-2">
+                <div>
+                  <h4 className="text-xl">Relevant coursework</h4>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {coursework.map((course) => (
-                      <span
-                        key={course}
-                        className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
-                      >
+                      <span key={course} className="chip">
                         {course}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Campus involvement
-                </p>
-                <ul className="mt-4 space-y-3">
-                  {involvement.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
-                      <span className="text-sm leading-6 text-[color:var(--muted)]">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="interactive-surface tone-blue tint-border-blue mt-6 rounded-[1.6rem] border p-6 sm:p-7">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Certifications
-                </p>
-                <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-                  Additional coursework that strengthened my foundation in analytics and
-                  user-centered design.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              {certifications.map((certification) => (
-                <div
-                  key={certification}
-                  className="rounded-[1.25rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4 text-sm leading-6 text-[color:var(--text)]"
-                >
-                  {certification}
+                <div>
+                  <h4 className="text-xl">Campus involvement</h4>
+                  <ul className="mt-4 grid gap-2 text-sm leading-6 text-[var(--muted)]">
+                    {involvement.map((item) => (
+                      <li key={item}>+ {item}</li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
+              </div>
+            </article>
+
+            <article className="grid gap-3 border border-[var(--line)] bg-[var(--blue)] p-6 text-white sm:grid-cols-[0.35fr_0.65fr]" style={{ borderRadius: 8 }}>
+              <h3 className="text-3xl leading-tight">Certifications</h3>
+              <div className="grid gap-3">
+                {certifications.map((certification) => (
+                  <div key={certification} className="border border-white/40 bg-white/10 p-4 text-sm font-semibold" style={{ borderRadius: 8 }}>
+                    {certification}
+                  </div>
+                ))}
+              </div>
+            </article>
           </div>
         </div>
       </div>

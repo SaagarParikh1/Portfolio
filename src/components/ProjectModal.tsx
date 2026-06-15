@@ -8,31 +8,8 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-const categoryToneMap = {
-  Analytics: {
-    surface: 'tone-blue tint-border-blue',
-    pill: 'border-[rgba(126,168,255,0.2)] bg-[rgba(126,168,255,0.1)]',
-  },
-  Frontend: {
-    surface: 'tone-rose tint-border-rose',
-    pill: 'border-[rgba(224,138,115,0.2)] bg-[rgba(224,138,115,0.1)]',
-  },
-  Product: {
-    surface: 'tone-amber tint-border-amber',
-    pill: 'border-[rgba(241,193,122,0.2)] bg-[rgba(241,193,122,0.1)]',
-  },
-  'AI Product': {
-    surface: 'tone-teal tint-border-teal',
-    pill: 'border-[rgba(121,207,197,0.2)] bg-[rgba(121,207,197,0.1)]',
-  },
-};
-
-const getCategoryTone = (category: string) =>
-  categoryToneMap[category as keyof typeof categoryToneMap] ?? categoryToneMap.Product;
-
 const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-
   const images = project?.images ?? [];
 
   useEffect(() => {
@@ -77,7 +54,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
     return null;
   }
 
-  const meta = [project.label, project.period, project.role, project.status].filter(Boolean).join(' • ');
+  const meta = [project.period, project.role, project.status].filter(Boolean).join(' / ');
   const currentImage = images[activeImageIndex];
 
   const showPreviousImage = () => {
@@ -102,33 +79,23 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/80 p-4 backdrop-blur-md sm:p-6"
+      className="fixed inset-0 z-50 bg-black/72 p-4 backdrop-blur-sm sm:p-6"
       onClick={onClose}
       aria-modal="true"
       role="dialog"
     >
-      <div
-        className={`surface mesh-panel mx-auto flex max-h-[92vh] max-w-6xl flex-col overflow-hidden rounded-[2rem] ${getCategoryTone(project.category).surface}`}
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="flex items-start justify-between gap-6 border-b border-white/10 px-6 py-5 sm:px-8">
+      <div className="modal-surface" onClick={(event) => event.stopPropagation()}>
+        <div className="flex items-start justify-between gap-6 border-b border-[var(--line)] px-5 py-5 sm:px-7">
           <div>
-            {meta && (
-              <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">
-                {meta}
-              </p>
-            )}
-            <h2 className="mt-3 text-3xl font-semibold text-[var(--text)] sm:text-4xl">
-              {project.title}
-            </h2>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-[color:var(--muted)]">
-              {project.summary}
-            </p>
+            <p className="chip">{project.category}</p>
+            <h2 className="mt-4 max-w-4xl text-4xl leading-tight sm:text-5xl">{project.title}</h2>
+            {meta && <p className="mt-3 font-semibold text-[var(--muted)]">{meta}</p>}
           </div>
 
           <button
             onClick={onClose}
-            className="rounded-full border border-white/10 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
+            className="shrink-0 border border-[var(--line)] bg-white p-2"
+            style={{ borderRadius: 999 }}
             aria-label="Close project modal"
           >
             <X className="h-5 w-5" />
@@ -136,133 +103,76 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
         </div>
 
         <div className="overflow-y-auto">
-          <div className="grid xl:grid-cols-[0.56fr_0.44fr]">
-            <div className="border-b border-white/10 xl:border-b-0 xl:border-r xl:border-white/10">
+          <div className="grid xl:grid-cols-[0.58fr_0.42fr]">
+            <div className="border-b border-[var(--line)] bg-white xl:border-b-0 xl:border-r">
               {currentImage ? (
-                <div className="relative flex min-h-[26rem] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_65%),linear-gradient(180deg,#14110d_0%,#0c0a08_100%)] p-6 sm:p-8">
+                <div className="relative flex min-h-[24rem] items-center justify-center p-5 sm:p-8">
                   <img
                     src={currentImage}
                     alt={`${project.title} preview ${activeImageIndex + 1}`}
-                    className="max-h-[32rem] w-full object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+                    className="max-h-[34rem] w-full object-contain"
                   />
 
                   {images.length > 1 && (
                     <>
                       <button
                         onClick={showPreviousImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 border border-[var(--line)] bg-white p-2"
+                        style={{ borderRadius: 999 }}
                         aria-label="Previous project image"
                       >
                         <ChevronLeft className="h-5 w-5" />
                       </button>
                       <button
                         onClick={showNextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-2 text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)]"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 border border-[var(--line)] bg-white p-2"
+                        style={{ borderRadius: 999 }}
                         aria-label="Next project image"
                       >
                         <ChevronRight className="h-5 w-5" />
                       </button>
                     </>
                   )}
-
-                  {images.length > 1 && (
-                    <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2 px-4">
-                      {images.map((image, index) => (
-                        <button
-                          key={image}
-                          onClick={() => setActiveImageIndex(index)}
-                          className={`h-2.5 rounded-full transition-all duration-300 ${
-                            index === activeImageIndex ? 'w-8 bg-[var(--accent-strong)]' : 'w-2.5 bg-white/40'
-                          }`}
-                          aria-label={`View project image ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  )}
                 </div>
               ) : (
-                <div className="flex min-h-[26rem] flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(208,160,93,0.18),transparent_40%),linear-gradient(180deg,#17130e_0%,#0f0d09_100%)] p-8">
-                  <div>
-                    <span className="eyebrow-pill">{project.label ?? 'Project details'}</span>
-                    <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
-                      {project.category}
-                    </p>
-                    <h3 className="mt-4 max-w-lg text-4xl font-semibold leading-tight text-[var(--text)]">
-                      {project.title}
-                    </h3>
-                    <p className="mt-4 max-w-lg text-base leading-7 text-[color:var(--muted)]">
-                      {project.headline}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {project.metrics.map((metric) => (
-                      <div
-                        key={metric}
-                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-[var(--text)]"
-                      >
-                        {metric}
-                      </div>
-                    ))}
-                  </div>
+                <div className="flex min-h-[24rem] items-center justify-center bg-[var(--blue)] p-8 text-center text-white">
+                  <h3 className="max-w-lg text-5xl leading-tight">{project.headline}</h3>
                 </div>
               )}
             </div>
 
-            <div className="space-y-8 p-6 sm:p-8">
+            <div className="space-y-8 p-5 sm:p-7">
+              <div>
+                <p className="text-sm font-bold uppercase text-[var(--red)]">Overview</p>
+                <p className="mt-3 text-base leading-7 text-[var(--muted)]">{project.description}</p>
+              </div>
+
               {project.decisionFocus && (
-                <div className={`rounded-[1.3rem] border px-5 py-5 ${getCategoryTone(project.category).pill}`}>
-                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                    Decision this supports
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--text)]">
-                    {project.decisionFocus}
-                  </p>
+                <div className="border border-[var(--line)] bg-[var(--yellow)] p-5" style={{ borderRadius: 8 }}>
+                  <p className="text-sm font-bold uppercase">Decision this supports</p>
+                  <p className="mt-3 text-sm font-semibold leading-6">{project.decisionFocus}</p>
                 </div>
               )}
 
               <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  At a glance
-                </p>
+                <p className="text-sm font-bold uppercase text-[var(--red)]">At a glance</p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {project.metrics.map((metric) => (
-                    <div
-                      key={metric}
-                      className="rounded-[1.15rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4 text-sm leading-6 text-[var(--text)]"
-                    >
+                    <div key={metric} className="border border-[var(--line-soft)] bg-white p-4 text-sm font-semibold" style={{ borderRadius: 8 }}>
                       {metric}
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Overview
-                </p>
-                <p className="mt-4 text-base leading-7 text-[color:var(--muted)]">
-                  {project.description}
-                </p>
-              </div>
-
               {project.keyInsights && project.keyInsights.length > 0 && (
                 <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                    Key insights
-                  </p>
-                  <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                  <p className="text-sm font-bold uppercase text-[var(--red)]">Key insights</p>
+                  <div className="mt-4 grid gap-3">
                     {project.keyInsights.map((insight, index) => (
-                      <div
-                        key={insight}
-                        className="rounded-[1.2rem] border border-white/10 bg-[rgba(8,8,6,0.18)] px-4 py-4"
-                      >
-                        <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                          0{index + 1}
-                        </p>
-                        <p className="mt-3 text-sm leading-6 text-[color:var(--muted)]">
-                          {insight}
-                        </p>
+                      <div key={insight} className="grid gap-3 border border-[var(--line-soft)] bg-white p-4 sm:grid-cols-[auto_1fr]" style={{ borderRadius: 8 }}>
+                        <span className="font-black text-[var(--blue)]">0{index + 1}</span>
+                        <p className="text-sm leading-6 text-[var(--muted)]">{insight}</p>
                       </div>
                     ))}
                   </div>
@@ -270,43 +180,22 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               )}
 
               <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Analysis + execution
-                </p>
-                <ul className="mt-4 space-y-3">
+                <p className="text-sm font-bold uppercase text-[var(--red)]">Execution</p>
+                <ul className="mt-4 grid gap-3">
                   {project.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
-                      <span className="text-sm leading-6 text-[color:var(--muted)]">{highlight}</span>
+                    <li key={highlight} className="flex gap-3 text-sm leading-6 text-[var(--muted)]">
+                      <span className="mt-2 h-2 w-2 shrink-0 bg-[var(--red)]" />
+                      {highlight}
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Business value
-                </p>
-                <ul className="mt-4 space-y-3">
-                  {project.outcomes.map((outcome) => (
-                    <li key={outcome} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
-                      <span className="text-sm leading-6 text-[color:var(--muted)]">{outcome}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent-strong)]">
-                  Tool stack
-                </p>
+                <p className="text-sm font-bold uppercase text-[var(--red)]">Tool stack</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
-                    >
+                    <span key={technology} className="chip">
                       {technology}
                     </span>
                   ))}
@@ -315,34 +204,19 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
               <div className="flex flex-wrap gap-3">
                 {project.liveDemoUrl && (
-                  <a
-                    href={project.liveDemoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[#1c1407] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
-                  >
+                  <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
                     <ExternalLink className="h-4 w-4" />
                     Live demo
                   </a>
                 )}
                 {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
-                  >
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
                     <Github className="h-4 w-4" />
                     View code
                   </a>
                 )}
                 {project.figmaLink && (
-                  <a
-                    href={project.figmaLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[var(--text)] transition duration-300 hover:border-[rgba(208,160,93,0.45)] hover:text-[var(--accent-strong)]"
-                  >
+                  <a href={project.figmaLink} target="_blank" rel="noopener noreferrer" className="btn-secondary">
                     <Figma className="h-4 w-4" />
                     Figma
                   </a>

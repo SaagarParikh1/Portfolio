@@ -1,5 +1,22 @@
 const experiences = [
   {
+    company: 'Mswipe',
+    role: 'Management Trainee - Operations',
+    period: 'June 2026 - Present',
+    location: 'India',
+    summary:
+      'Current operations role focused on learning business workflows, improving process visibility, and supporting execution across teams.',
+    highlights: [
+      'Supporting operations workflows with an analytical lens on process clarity, reporting, and execution.',
+      'Building domain context in payments and merchant operations while connecting frontline process details to measurable outcomes.',
+      'Using a data-first background to identify where cleaner tracking, reporting, or workflow structure can improve decisions.',
+    ],
+    technologies: ['Operations', 'Process Analysis', 'Reporting', 'Stakeholder Coordination'],
+    logoSrc: undefined,
+    logoAlt: 'Mswipe logo',
+    current: true,
+  },
+  {
     company: 'Flomad Labs R&D',
     role: 'Product Development Intern',
     period: 'May 2023 - Aug 2023',
@@ -14,7 +31,6 @@ const experiences = [
     technologies: ['SQL', 'Python', 'Tableau', 'KPI Design', 'Experiment Analysis'],
     logoSrc: '/images/logos/flomad.jpg',
     logoAlt: 'Flomad Labs logo',
-    tone: 'tone-teal tint-border-teal',
   },
   {
     company: 'CASHe',
@@ -31,84 +47,83 @@ const experiences = [
     technologies: ['SQL', 'Python', 'Excel', 'Risk Modeling', 'Fraud Analysis'],
     logoSrc: '/images/logos/cashe.png',
     logoAlt: 'CASHe logo',
-    tone: 'tone-rose tint-border-rose',
   },
 ];
 
 const Experience = () => {
   return (
-    <section id="experience" className="section-band section-band-soft py-24">
+    <section id="experience" className="section-block bg-[var(--paper-2)]">
       <div className="section-shell">
-        <div className="section-heading-row">
+        <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
             <p className="section-kicker">Experience</p>
-            <h2 className="section-title">Roles where analysis turned into product direction.</h2>
+            <h2 className="section-title">Operations, product, and risk work.</h2>
           </div>
-        </div>
 
-        <div className="experience-grid mt-10">
-          {experiences.map((experience) => {
-            const [periodStart, periodEnd] = experience.period.split(' - ');
-
-            return (
+          <div className="grid gap-5">
+            {experiences.map((experience, index) => (
               <article
                 key={experience.company}
-                className={`surface interactive-surface experience-card rounded-[1.75rem] p-6 sm:p-8 ${experience.tone}`}
+                className={`timeline-card ${experience.current ? 'timeline-card-current' : ''}`}
               >
-                <div className="flex flex-col gap-4 border-b border-white/10 pb-6 lg:flex-row lg:items-start lg:justify-between">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.9rem] border border-white/10 bg-[rgba(12,12,10,0.55)] p-1.5 sm:h-14 sm:w-14">
+                <div className="grid gap-5 md:grid-cols-[auto_1fr_auto] md:items-start">
+                  <div
+                    className={`flex h-14 w-14 items-center justify-center border ${
+                      experience.current ? 'border-white bg-[var(--yellow)] text-[var(--ink)]' : 'border-[var(--line)] bg-white'
+                    }`}
+                    style={{ borderRadius: 8 }}
+                  >
+                    {experience.logoSrc ? (
                       <img
                         src={experience.logoSrc}
                         alt={experience.logoAlt}
-                        className="h-full w-full rounded-[0.7rem] object-contain"
+                        className="h-full w-full object-contain p-1"
                       />
-                    </div>
-
-                    <div>
-                      <p className="text-[0.92rem] uppercase tracking-[0.22em] text-[var(--accent-strong)] sm:text-[0.98rem]">
-                        {experience.company}
-                      </p>
-                      <h3 className="mt-2 text-2xl font-semibold text-[var(--text)]">
-                        {experience.role}
-                      </h3>
-                      <p className="mt-3 max-w-2xl text-sm leading-6 text-[color:var(--muted)]">
-                        {experience.summary}
-                      </p>
-                    </div>
+                    ) : (
+                      <span className="text-lg font-black">M</span>
+                    )}
                   </div>
 
-                  <div className="space-y-2 text-sm text-[color:var(--muted)] lg:text-right">
-                    <p>
-                      <span className="whitespace-nowrap">{periodStart} -</span>{' '}
-                      <span className="whitespace-nowrap">{periodEnd}</span>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className={experience.current ? 'chip-dark' : 'chip'}>
+                        {index === 0 ? 'Current' : `0${index + 1}`}
+                      </span>
+                      <p className="font-bold">{experience.period}</p>
+                    </div>
+                    <h3 className="mt-4 text-3xl leading-tight">{experience.company}</h3>
+                    <p className={experience.current ? 'mt-1 text-lg font-semibold text-white/80' : 'mt-1 text-lg font-semibold text-[var(--muted)]'}>
+                      {experience.role}
                     </p>
-                    <p>{experience.location}</p>
+                    <p className={experience.current ? 'mt-4 max-w-3xl leading-7 text-white/78' : 'mt-4 max-w-3xl leading-7 text-[var(--muted)]'}>
+                      {experience.summary}
+                    </p>
+
+                    <ul className="mt-5 grid gap-3">
+                      {experience.highlights.map((highlight) => (
+                        <li key={highlight} className="flex gap-3 text-sm leading-6">
+                          <span className={`mt-2 h-2 w-2 shrink-0 ${experience.current ? 'bg-[var(--yellow)]' : 'bg-[var(--red)]'}`} />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {experience.technologies.map((technology) => (
+                        <span key={technology} className={experience.current ? 'chip-dark' : 'chip'}>
+                          {technology}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <ul className="mt-6 space-y-3">
-                  {experience.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
-                      <span className="text-sm leading-6 text-[color:var(--muted)]">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {experience.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[color:var(--muted)]"
-                    >
-                      {technology}
-                    </span>
-                  ))}
+                  <p className={experience.current ? 'font-bold text-white/80' : 'font-bold text-[var(--muted)]'}>
+                    {experience.location}
+                  </p>
                 </div>
               </article>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
