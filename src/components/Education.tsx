@@ -18,6 +18,7 @@ const involvement = [
 const certifications = [
   'Google Data Analytics Professional Certificate, 2025',
   'Foundations of User Experience Design Certificate, Google, 2023',
+  'Cornerstone Integrated Liberal Arts Certificate, Purdue University, 2025',
 ];
 
 const Education = () => {
@@ -43,9 +44,6 @@ const Education = () => {
                   <p className="mt-3 font-semibold text-[var(--muted)]">
                     Aug 2021 - May 2025, West Lafayette, IN
                   </p>
-                  <div className="mt-4 inline-flex border border-[var(--line)] bg-[var(--yellow)] px-4 py-2 text-sm font-bold" style={{ borderRadius: 8 }}>
-                    Cornerstone Integrated Liberal Arts Certificate
-                  </div>
                   <p className="mt-5 max-w-3xl leading-7 text-[var(--muted)]">
                     Coursework connected development, UX, information architecture, systems
                     thinking, and data visualization.
@@ -79,11 +77,23 @@ const Education = () => {
             <article className="grid gap-3 border border-[var(--line)] bg-[var(--blue)] p-6 text-white sm:grid-cols-[0.35fr_0.65fr]" style={{ borderRadius: 8 }}>
               <h3 className="text-3xl leading-tight">Certifications</h3>
               <div className="grid gap-3">
-                {certifications.map((certification) => (
-                  <div key={certification} className="border border-white/40 bg-white/10 p-4 text-sm font-semibold" style={{ borderRadius: 8 }}>
-                    {certification}
-                  </div>
-                ))}
+                {certifications.map((certification) => {
+                  const isCornerstone = certification.includes('Cornerstone');
+
+                  return (
+                    <div
+                      key={certification}
+                      className={`border p-4 text-sm font-semibold ${
+                        isCornerstone
+                          ? 'border-[var(--line)] bg-[var(--yellow)] text-[var(--ink)]'
+                          : 'border-white/40 bg-white/10 text-white'
+                      }`}
+                      style={{ borderRadius: 8 }}
+                    >
+                      {certification}
+                    </div>
+                  );
+                })}
               </div>
             </article>
           </div>
