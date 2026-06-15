@@ -188,8 +188,23 @@ section[id] {
     inset: 0;
     height: 100%;
     width: 100%;
-    object-fit: cover;
-    object-position: 74% 22%;
+    z-index: 0;
+    object-fit: contain;
+    object-position: 82% center;
+    opacity: 0.96;
+    filter: saturate(1.04) contrast(1.02);
+  }
+
+  .hero-image-blur {
+    position: absolute;
+    inset: -3rem;
+    z-index: 0;
+    background-image: url('/images/portrait/Portrait2.png');
+    background-position: 78% center;
+    background-size: cover;
+    filter: blur(30px) saturate(1.08);
+    opacity: 0.62;
+    transform: scale(1.04);
   }
 
   .hero-content {
@@ -324,7 +339,12 @@ section[id] {
 
   .hero-image {
     opacity: 0.46;
-    object-position: 62% 10%;
+    object-position: 58% 18%;
+  }
+
+  .hero-image-blur {
+    background-position: 58% center;
+    opacity: 0.5;
   }
 }
 

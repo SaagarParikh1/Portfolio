@@ -7,6 +7,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero">
+      <div className="hero-image-blur" aria-hidden="true" />
       <img
         src="/images/portrait/Portrait2.png"
         alt="Saagar Parikh portrait"

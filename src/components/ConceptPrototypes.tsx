@@ -54,7 +54,7 @@ const featuredWork = [
 
 const experience = [
   ['Current', 'Mswipe Technologies', 'Management Trainee - Operations', 'June 2026 - Present'],
-  ['Product', 'Flomad Labs R&D', 'Product Development Intern', 'May 2023 - Aug 2023'],
+  ['Product', 'Flomad Labs R&D', 'Product Analyst Intern', 'May 2023 - Aug 2023'],
   ['Risk', 'CASHe', 'Risk Analyst Intern', 'June 2022 - Aug 2022'],
 ];
 
@@ -274,8 +274,8 @@ const SignalConcept = () => (
       </article>
       <article>
         <PanelsTopLeft />
-        <strong>25K+</strong>
-        <span>transaction records converted into KPI dashboards</span>
+        <strong>6%</strong>
+        <span>loan risk model accuracy improvement during risk analysis work</span>
       </article>
       <article>
         <Briefcase />

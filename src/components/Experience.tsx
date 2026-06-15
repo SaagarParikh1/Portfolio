@@ -17,7 +17,7 @@ const experiences = [
   },
   {
     company: 'Flomad Labs R&D',
-    role: 'Product Development Intern',
+    role: 'Product Analyst Intern',
     period: 'May 2023 - Aug 2023',
     summary:
       'Used SQL, Python, and Tableau to support KPI development, experimentation, and decision-making for product and engineering stakeholders.',

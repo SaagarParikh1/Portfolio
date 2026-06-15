@@ -259,62 +259,6 @@ const archiveProjects: PortfolioProject[] = [
     githubUrl: 'https://github.com/SaagarParikh1/ball-analytics',
   },
   {
-    title: 'Ticket Scout',
-    category: 'Frontend',
-    role: 'Personal project · React and API integration',
-    headline: 'A ticket comparison experience built to surface better pricing faster.',
-    summary: 'Aggregated pricing, search, and filtering into one cleaner comparison flow.',
-    description:
-      'Ticket Scout focused on making price comparison easier across multiple platforms. The project combined search, trending views, and event-level exploration into a cleaner experience for people trying to compare before they buy.',
-    highlights: [
-      'Built real-time comparison and filtering workflows across multiple ticket sources.',
-      'Designed the search experience to help users move from discovery to evaluation quickly.',
-      'Focused on responsive interaction design and clearer data presentation.',
-    ],
-    outcomes: [
-      'Improved how quickly users could compare listings without bouncing across multiple sites.',
-      'Expanded my API integration and front-end state management experience.',
-      'Demonstrated how utility products can still benefit from stronger UX structure.',
-    ],
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'API Integration'],
-    metrics: ['Real-time search flow', 'Cross-platform price comparison', 'Responsive UI'],
-    images: [
-      '/images/projects/ticket-scout/home.png',
-      '/images/projects/ticket-scout/event-search.png',
-      '/images/projects/ticket-scout/mavericks-listing.png',
-      '/images/projects/ticket-scout/trending.png',
-    ],
-    githubUrl: 'https://github.com/SaagarParikh1/TicketScoutV2',
-  },
-  {
-    title: 'TravelX',
-    category: 'Frontend',
-    role: 'Personal project · Multi-page travel platform',
-    headline: 'A travel planning concept that combines weather, activities, and AI recommendations.',
-    summary: 'Combined live data and AI suggestions into a more guided trip-planning flow.',
-    description:
-      'This project blended destination research, weather context, activity suggestions, and AI-generated recommendations into a multi-page interface. The emphasis was on a smoother planning journey rather than isolated widgets.',
-    highlights: [
-      'Combined live weather, activities, and destination research into one travel flow.',
-      'Integrated OpenAI-assisted recommendations to personalize trip ideas and itineraries.',
-      'Designed the experience across multiple pages with responsiveness in mind from the start.',
-    ],
-    outcomes: [
-      'Created a more cohesive travel experience by unifying data that usually lives across separate tools.',
-      'Strengthened my ability to structure multi-page information architecture and API-driven UI.',
-      'Showed how AI can support exploration without overwhelming the rest of the product.',
-    ],
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'API Integration', 'OpenAI API'],
-    metrics: ['Weather + activities data', 'AI travel recommendations', 'Multi-page UX flow'],
-    images: [
-      '/images/projects/travel-x/home.png',
-      '/images/projects/travel-x/weather-dallas.png',
-      '/images/projects/travel-x/activities.png',
-      '/images/projects/travel-x/ai-assistant.png',
-    ],
-    githubUrl: 'https://github.com/SaagarParikh1/TravelX',
-  },
-  {
     title: 'NBA Injury & Availability Analytics',
     category: 'Analytics',
     role: 'Independent analysis · Python and exploratory modeling',
@@ -360,28 +304,6 @@ const archiveProjects: PortfolioProject[] = [
     images: ['/images/projects/analytics/weather-trends-dashboard.png'],
     githubUrl: 'https://github.com/SaagarParikh1/WeatherEvents-ClimateChange',
   },
-  {
-    title: 'E-Commerce Revenue & Customer Intelligence Dashboard',
-    category: 'Analytics',
-    role: 'Independent analysis · Executive KPI dashboarding',
-    headline: 'Turning transaction data into retention, revenue, and concentration insights.',
-    summary: 'Built a KPI dashboard from 25,000+ transaction records with executive-friendly framing.',
-    description:
-      'This project focused on KPI design and stakeholder-friendly reporting. I engineered metrics including revenue concentration, retention, and average order value, then translated the analysis into dashboards that would be useful for ongoing business review.',
-    highlights: [
-      'Engineered revenue, retention, and concentration KPIs from 25,000+ transaction records.',
-      'Used advanced SQL aggregations and window functions to build reusable analytical logic.',
-      'Structured the dashboard around executive scanning: trend first, segmentation second, product detail third.',
-    ],
-    outcomes: [
-      'Created a clearer picture of customer behavior and revenue concentration for business decision-making.',
-      'Showed how KPI design choices shape the usefulness of a dashboard for leadership teams.',
-      'Strengthened my ability to move from raw transactional data to executive-ready reporting.',
-    ],
-    technologies: ['SQL', 'Tableau', 'Excel', 'Data Analysis'],
-    metrics: ['25,000+ transaction records', 'Executive KPI framework', 'Revenue concentration insights'],
-    images: ['/images/projects/analytics/ecommerce-dashboard.png'],
-  },
 ];
 
 const allProjects = [...featuredProjectLibrary, ...archiveProjects];
@@ -395,11 +317,8 @@ const featuredProjects = [
 const orderedArchiveProjects = [
   'Grant County Special Education Cooperative Website',
   'Ball Analytics',
-  'E-Commerce Revenue & Customer Intelligence Dashboard',
   'NeuroNotes',
   'Climate & Extreme Weather Trends',
-  'Ticket Scout',
-  'TravelX',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
 
 const archiveFilters = ['All', 'Analytics', 'Frontend', 'Product', 'AI Product'];

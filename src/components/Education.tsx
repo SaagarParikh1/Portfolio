@@ -9,7 +9,7 @@ const coursework = [
 ];
 
 const involvement = [
-  'Vice President of External Affairs & Social Chair, Beta Chi Theta',
+  'Vice President of External Affairs & 2x Social Chair, Beta Chi Theta',
   'Purdue IT Professionals',
   'Purdue EVC',
   'Purdue Association of Learning Design & Technology',
@@ -18,7 +18,6 @@ const involvement = [
 const certifications = [
   'Google Data Analytics Professional Certificate, 2025',
   'Foundations of User Experience Design Certificate, Google, 2023',
-  'Cornerstone Integrated Liberal Arts Certificate, Purdue University',
 ];
 
 const Education = () => {
@@ -44,10 +43,12 @@ const Education = () => {
                   <p className="mt-3 font-semibold text-[var(--muted)]">
                     Aug 2021 - May 2025, West Lafayette, IN
                   </p>
+                  <div className="mt-4 inline-flex border border-[var(--line)] bg-[var(--yellow)] px-4 py-2 text-sm font-bold" style={{ borderRadius: 8 }}>
+                    Cornerstone Integrated Liberal Arts Certificate
+                  </div>
                   <p className="mt-5 max-w-3xl leading-7 text-[var(--muted)]">
                     Coursework connected development, UX, information architecture, systems
-                    thinking, and data visualization. That mix still shapes how I design dashboards
-                    and communicate analytical work.
+                    thinking, and data visualization.
                   </p>
                 </div>
               </div>
