@@ -52,6 +52,55 @@ const categoryToneMap = {
 
 const featuredProjectLibrary: PortfolioProject[] = [
   {
+    title: 'Lost Colony Expedition: Asteria-7 Failure Investigation',
+    category: 'Analytics',
+    label: 'Featured investigation',
+    role: 'BI project · Excel, Google Sheets, Tableau',
+    period: 'Jun 2026',
+    headline:
+      'A mission-control analytics project for investigating a simulated colony collapse through multi-source operational data.',
+    summary:
+      'Built a multi-source incident investigation using Excel, Google Sheets, and Tableau to analyze colony operations data across life support, logistics, medical, equipment, research, security, and communications systems.',
+    description:
+      'This project turns a fictional 2147 colony failure into a practical analytics workflow. After Outpost Asteria-7 loses contact with Earth, the investigation uses recovered logs, resource records, medical incidents, research sample data, access events, and communications archives to determine whether the collapse came from resource shortages, equipment failures, biological contamination, human error, or cascading system breakdowns.',
+    highlights: [
+      'Combined operational, cargo, equipment, medical, security, research, and communications datasets into one investigation model.',
+      'Built spreadsheet-based risk scores, anomaly flags, shortage analysis, and timeline logic using lookup functions, conditional formulas, pivots, and validation checks.',
+      'Designed a mission-control Tableau dashboard to surface colony health, atmospheric stability, equipment downtime, medical clusters, research risk, and recovered transmissions.',
+    ],
+    outcomes: [
+      'Reframed dashboarding as root-cause investigation instead of static metric reporting.',
+      'Connected evidence across multiple systems to identify cascading failure patterns and escalation points.',
+      'Created an analyst-friendly story where conclusions are reached through trends, anomalies, and evidence correlation.',
+    ],
+    technologies: [
+      'Excel',
+      'Google Sheets',
+      'Tableau',
+      'Pivot Tables',
+      'Risk Scoring',
+      'Anomaly Detection',
+      'Root Cause Analysis',
+    ],
+    metrics: [
+      '7 operational datasets',
+      'Risk scoring + anomaly detection',
+      'Mission-control Tableau dashboard',
+    ],
+    decisionFocus:
+      'Helps determine which systems failed first, which anomalies mattered most, and whether the colony collapse was driven by a single root cause or multiple cascading failures.',
+    keyInsights: [
+      'The strongest investigation path comes from correlating life support, medical, logistics, research, and communications signals rather than reviewing each dataset in isolation.',
+      'Risk scoring makes the unknown failure scenario easier to triage by ranking systems, samples, and events by investigation priority.',
+      'A narrative dashboard can guide users from mission status to root-cause evidence without handing them a predefined answer.',
+    ],
+    images: [
+      '/images/projects/lost-colony-asteria/screen-01.png',
+      '/images/projects/lost-colony-asteria/screen-02.png',
+      '/images/projects/lost-colony-asteria/thumbnail.svg',
+    ],
+  },
+  {
     title: 'Quantitative Options Strategy Dashboard',
     category: 'Analytics',
     label: 'Featured build',
@@ -309,6 +358,7 @@ const archiveProjects: PortfolioProject[] = [
 const allProjects = [...featuredProjectLibrary, ...archiveProjects];
 
 const featuredProjects = [
+  'Lost Colony Expedition: Asteria-7 Failure Investigation',
   'NIL Athlete Valuation Modeling & Market Analysis',
   'Quantitative Options Strategy Dashboard',
   'NBA Injury & Availability Analytics',
