@@ -18,12 +18,13 @@ const involvement = [
 const certifications = [
   'Google Data Analytics Professional Certificate, 2025',
   'Foundations of User Experience Design Certificate, Google, 2023',
-  'Cornerstone Integrated Liberal Arts Certificate, Purdue University, 2025',
 ];
+
+const purdueCredential = 'Cornerstone Integrated Liberal Arts Certificate, 2025';
 
 const Education = () => {
   return (
-    <section id="education" className="section-block bg-[var(--paper)]">
+    <section id="education" className="section-block education-section">
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
@@ -32,9 +33,9 @@ const Education = () => {
           </div>
 
           <div className="grid gap-5">
-            <article className="panel p-6 sm:p-8">
+            <article className="education-degree-card p-6 sm:p-8">
               <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center border border-[var(--line)] bg-white p-2" style={{ borderRadius: 8 }}>
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center border border-[var(--line)] bg-[#f7edda] p-2" style={{ borderRadius: 8 }}>
                   <img src="/images/logos/purdue.jpg" alt="Purdue University logo" className="h-full w-full object-contain" />
                 </div>
 
@@ -48,6 +49,9 @@ const Education = () => {
                     Coursework connected development, UX, information architecture, systems
                     thinking, and data visualization.
                   </p>
+                  <div className="mt-5 inline-flex max-w-fit items-center border border-[var(--line)] bg-[#fff8e8] px-4 py-2 text-sm font-bold text-[var(--ink)]" style={{ borderRadius: 999 }}>
+                    {purdueCredential}
+                  </div>
                 </div>
               </div>
 
@@ -74,26 +78,22 @@ const Education = () => {
               </div>
             </article>
 
-            <article className="grid gap-3 border border-[var(--line)] bg-[var(--blue)] p-6 text-white sm:grid-cols-[0.35fr_0.65fr]" style={{ borderRadius: 8 }}>
-              <h3 className="text-3xl leading-tight">Certifications</h3>
-              <div className="grid gap-3">
-                {certifications.map((certification) => {
-                  const isCornerstone = certification.includes('Cornerstone');
+            <article className="credential-board">
+              <div>
+                <p className="text-sm font-black uppercase text-[var(--copper)]">Credentials</p>
+                <h3 className="mt-3 text-3xl leading-tight text-[var(--ink)]">Certifications</h3>
+                <p className="mt-3 max-w-sm text-sm leading-6 text-[var(--muted)]">
+                  Focused training in analytics and user-centered product thinking.
+                </p>
+              </div>
 
-                  return (
-                    <div
-                      key={certification}
-                      className={`border p-4 text-sm font-semibold ${
-                        isCornerstone
-                          ? 'border-[var(--line)] bg-[var(--yellow)] text-[var(--ink)]'
-                          : 'border-white/40 bg-white/10 text-white'
-                      }`}
-                      style={{ borderRadius: 8 }}
-                    >
-                      {certification}
-                    </div>
-                  );
-                })}
+              <div className="credential-list">
+                {certifications.map((certification, index) => (
+                  <div key={certification} className="credential-card">
+                    <span>0{index + 1}</span>
+                    <p>{certification}</p>
+                  </div>
+                ))}
               </div>
             </article>
           </div>

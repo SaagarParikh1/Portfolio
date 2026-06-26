@@ -23,24 +23,25 @@ const skillGroups = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="section-block-dark">
+    <section id="skills" className="section-block-dark skills-section">
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
             <p className="section-kicker text-[var(--yellow)]">Skills</p>
+            <h2 className="section-title-light">Tools I use to turn signal into decisions.</h2>
           </div>
 
-          <div className="skill-table text-[var(--ink)]">
+          <div className="skill-table">
             {skillGroups.map((group) => (
               <div key={group.title} className="skill-row">
                 <div>
                   <h3 className="text-2xl leading-tight">{group.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{group.description}</p>
+                  <p className="mt-2 text-sm leading-6 text-white/62">{group.description}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
-                    <span key={skill} className="chip">
+                    <span key={skill} className="chip-dark">
                       {skill}
                     </span>
                   ))}

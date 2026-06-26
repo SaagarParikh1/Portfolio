@@ -49,7 +49,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="section-block bg-[var(--paper-2)]">
+    <section id="experience" className="section-block experience-section">
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
           <div>

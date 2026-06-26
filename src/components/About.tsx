@@ -29,7 +29,7 @@ const principles = [
 
 const About = () => {
   return (
-    <section id="about" className="section-block bg-[var(--paper)]">
+    <section id="about" className="section-block about-section">
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.38fr_0.62fr]">
           <div>
@@ -38,7 +38,7 @@ const About = () => {
           </div>
 
           <div className="grid gap-8">
-            <div className="max-w-4xl space-y-5 text-xl leading-9 text-[var(--ink)]">
+            <div className="about-copy max-w-4xl space-y-5 text-xl leading-9 text-[var(--ink)]">
               <p>
                 I am a Purdue graduate with a foundation in data analytics, product thinking, and
                 front-end development. I use SQL, Python, Tableau, and Excel to clean messy data,
@@ -57,7 +57,7 @@ const About = () => {
                 const Icon = principle.icon;
 
                 return (
-                  <article key={principle.title} className="panel p-5">
+                  <article key={principle.title} className="insight-card p-5">
                     <div className={`mb-5 flex h-10 w-10 items-center justify-center ${principle.accent}`} style={{ borderRadius: 8 }}>
                       <Icon className="h-5 w-5" />
                     </div>

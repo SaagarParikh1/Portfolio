@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   ArrowRight,
   BarChart3,
   Blocks,
   BrainCircuit,
-  ChevronLeft,
-  ChevronRight,
   Compass,
-  ExternalLink,
-  Github,
   Sparkles,
 } from 'lucide-react';
 import ProjectModal from './ProjectModal';
@@ -17,6 +13,7 @@ import type { PortfolioProject } from '../types/portfolio';
 const categoryIcons = {
   Analytics: BarChart3,
   Frontend: Blocks,
+  Operations: BarChart3,
   Product: Sparkles,
   UX: Compass,
   'AI Product': BrainCircuit,
@@ -32,6 +29,11 @@ const categoryToneMap = {
     accent: 'text-[var(--red)]',
     tag: 'bg-[var(--red)] text-white',
     panel: 'border-[var(--red)]',
+  },
+  Operations: {
+    accent: 'text-[var(--copper)]',
+    tag: 'bg-[var(--copper)] text-white',
+    panel: 'border-[var(--copper)]',
   },
   Product: {
     accent: 'text-[var(--teal)]',
@@ -51,6 +53,59 @@ const categoryToneMap = {
 };
 
 const featuredProjectLibrary: PortfolioProject[] = [
+  {
+    title: 'Galactic Relief Network: Supply Chain Resilience & Logistics Analytics Platform',
+    category: 'Operations',
+    label: 'Featured logistics simulation',
+    role: 'Supply chain analytics project · Excel, Google Sheets, Tableau',
+    period: 'Jun 2026',
+    status: 'Live',
+    headline:
+      'A Star Wars-inspired humanitarian logistics simulator for prioritizing relief delivery across disruption-prone supply chains.',
+    summary:
+      'Built an end-to-end analytics framework for a Rebel-aligned relief network operating under blockade conditions, balancing humanitarian demand, depot capacity, inventory coverage, route risk, and scenario disruptions.',
+    description:
+      'Galactic Relief Network is a serious supply chain analytics and business intelligence project set inside a Star Wars-inspired humanitarian logistics scenario. Acting as a Rebel-aligned relief command, the model evaluates planetary demand, depot placement, fleet capacity, transportation risk, cargo priority, inventory availability, relief requests, and disruption scenarios to support better logistics decisions under constrained capacity.',
+    highlights: [
+      'Developed an end-to-end supply chain analytics model using Excel, Google Sheets, and Tableau to optimize demand prioritization, depot selection, inventory allocation, transportation routing, and fulfillment decisions.',
+      'Built weighted scoring models, risk-adjusted cost calculations, inventory urgency metrics, and disruption scenario analyses to evaluate resilience, bottlenecks, and resource allocation tradeoffs.',
+      'Designed three executive Tableau dashboards with KPI scorecards, network visualizations, route risk analysis, inventory heatmaps, and scenario simulations for strategic and tactical decision-making.',
+    ],
+    outcomes: [
+      'Showed that the highest humanitarian demand was not always the best first-served location once transportation risk, inventory availability, and network constraints were considered.',
+      'Demonstrated that medium-sized depots could outperform larger facilities when cost, security exposure, detection risk, and response coverage were scored together.',
+      'Replaced first-come-first-served relief processing with a structured fulfillment queue aligned to humanitarian impact, cargo urgency, operational feasibility, and capacity constraints.',
+    ],
+    technologies: [
+      'Excel',
+      'Google Sheets',
+      'Tableau',
+      'Supply Chain Analytics',
+      'Scenario Modeling',
+      'Network Optimization',
+      'Route Risk Analysis',
+      'Inventory Management',
+      'KPI Development',
+    ],
+    metrics: [
+      '3 executive Tableau dashboards',
+      'Risk-adjusted route scoring',
+      'Demand, depot, inventory + scenario modeling',
+    ],
+    decisionFocus:
+      'Helps determine which relief requests should be served first, which depots are most resilient, which routes are operationally viable, and how disruptions could cascade across the logistics network.',
+    keyInsights: [
+      'Humanitarian urgency and operational feasibility have to be scored together because the highest-demand destination is not always the best first fulfillment decision.',
+      'Low transportation cost can become misleading when delay probability, interdiction risk, cargo loss exposure, and disruption penalties are included.',
+      'Inventory health is more useful when measured by cargo criticality and projected stockout risk rather than total stock volume alone.',
+    ],
+    images: [
+      '/images/projects/galactic-relief-network/screen-01.png',
+      '/images/projects/galactic-relief-network/screen-02.png',
+      '/images/projects/galactic-relief-network/screen-03.png',
+    ],
+    liveDemoUrl: 'https://supply-chain-resilie-v100.bolt.host/',
+  },
   {
     title: 'Lost Colony Expedition: Asteria-7 Failure Investigation',
     category: 'Analytics',
@@ -97,8 +152,8 @@ const featuredProjectLibrary: PortfolioProject[] = [
     images: [
       '/images/projects/lost-colony-asteria/screen-01.png',
       '/images/projects/lost-colony-asteria/screen-02.png',
-      '/images/projects/lost-colony-asteria/thumbnail.svg',
     ],
+    liveDemoUrl: 'https://lost-colony-data-inv-nhrb.bolt.host/',
   },
   {
     title: 'Quantitative Options Strategy Dashboard',
@@ -358,20 +413,19 @@ const archiveProjects: PortfolioProject[] = [
 const allProjects = [...featuredProjectLibrary, ...archiveProjects];
 
 const featuredProjects = [
+  'Galactic Relief Network: Supply Chain Resilience & Logistics Analytics Platform',
   'Lost Colony Expedition: Asteria-7 Failure Investigation',
   'NIL Athlete Valuation Modeling & Market Analysis',
   'Quantitative Options Strategy Dashboard',
-  'NBA Injury & Availability Analytics',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
 
 const orderedArchiveProjects = [
   'Grant County Special Education Cooperative Website',
   'Ball Analytics',
+  'NBA Injury & Availability Analytics',
   'NeuroNotes',
   'Climate & Extreme Weather Trends',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
-
-const archiveFilters = ['All', 'Analytics', 'Frontend', 'Product', 'AI Product'];
 
 const getCategoryIcon = (category: string) =>
   categoryIcons[category as keyof typeof categoryIcons] ?? Sparkles;
@@ -413,415 +467,151 @@ const ProjectThumbnail = ({
   );
 };
 
-const Projects = () => {
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [archiveFilter, setArchiveFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-
-  const activeProject = featuredProjects[activeProjectIndex];
-  const activeImages = activeProject.images ?? [];
-
-  useEffect(() => {
-    setActiveImageIndex(0);
-  }, [activeProjectIndex]);
-
-  const filteredArchiveProjects =
-    archiveFilter === 'All'
-      ? orderedArchiveProjects
-      : orderedArchiveProjects.filter((project) => project.category === archiveFilter);
-
-  const showPreviousImage = () => {
-    if (activeImages.length <= 1) {
-      return;
-    }
-
-    setActiveImageIndex((currentIndex) =>
-      currentIndex === 0 ? activeImages.length - 1 : currentIndex - 1,
-    );
-  };
-
-  const showNextImage = () => {
-    if (activeImages.length <= 1) {
-      return;
-    }
-
-    setActiveImageIndex((currentIndex) =>
-      currentIndex === activeImages.length - 1 ? 0 : currentIndex + 1,
-    );
-  };
-
-  const featuredMeta = [activeProject.label, activeProject.period, activeProject.role, activeProject.status]
-    .filter(Boolean)
-    .join(' • ');
-
-  const currentImage = activeImages[activeImageIndex];
-
-  const showPreviousProject = () => {
-    setActiveProjectIndex((currentIndex) =>
-      currentIndex === 0 ? featuredProjects.length - 1 : currentIndex - 1,
-    );
-  };
-
-  const showNextProject = () => {
-    setActiveProjectIndex((currentIndex) =>
-      currentIndex === featuredProjects.length - 1 ? 0 : currentIndex + 1,
-    );
-  };
+const FeaturedProjectCard = ({
+  project,
+  index,
+  onSelect,
+}: {
+  project: PortfolioProject;
+  index: number;
+  onSelect: (project: PortfolioProject) => void;
+}) => {
+  const preview = project.images?.[0];
+  const Icon = getCategoryIcon(project.category);
+  const isLead = index === 0;
 
   return (
-    <section id="projects" className="section-block-dark">
+    <button
+      type="button"
+      onClick={() => onSelect(project)}
+      className={`selected-work-card ${isLead ? 'selected-work-card-lead lg:col-span-2' : ''}`}
+    >
+      <div className="selected-work-media">
+        {preview ? (
+          <img src={preview} alt={`${project.title} dashboard preview`} />
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <Icon className="h-10 w-10" />
+          </div>
+        )}
+        <span className="selected-work-number">0{index + 1}</span>
+      </div>
+
+      <div className="selected-work-body">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className={`project-type-pill ${getCategoryTone(project.category).tag}`}>
+            {project.category}
+          </span>
+          {project.period && <span className="text-xs font-bold uppercase text-white/55">{project.period}</span>}
+        </div>
+
+        <h3 className={isLead ? 'mt-4 text-3xl leading-tight text-white sm:text-4xl' : 'mt-4 text-2xl leading-tight text-white sm:text-3xl'}>
+          {project.title}
+        </h3>
+        <p className={isLead ? 'mt-4 text-base leading-7 text-white/72' : 'mt-3 text-sm leading-6 text-white/68'}>
+          {project.headline}
+        </p>
+
+        {isLead && (
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-white/58">
+            {project.summary}
+          </p>
+        )}
+
+        <div className={isLead ? 'mt-6 flex flex-wrap gap-2' : 'mt-5 flex flex-wrap gap-2'}>
+          {project.metrics.slice(0, isLead ? 3 : 1).map((metric) => (
+            <span key={metric} className="selected-work-metric">
+              {metric}
+            </span>
+          ))}
+        </div>
+
+        <div className={isLead ? 'mt-7 inline-flex items-center gap-2 text-sm font-black uppercase text-[var(--yellow)]' : 'mt-5 inline-flex items-center gap-2 text-sm font-black uppercase text-[var(--yellow)]'}>
+          View project
+          <ArrowRight className="h-4 w-4" />
+        </div>
+      </div>
+    </button>
+  );
+};
+
+const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
+
+  return (
+    <section id="projects" className="section-block-dark projects-section">
       <div className="section-shell">
-        <div className="grid gap-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-[0.36fr_0.64fr] lg:items-end">
           <div>
             <p className="section-kicker text-[var(--yellow)]">Selected Work</p>
-            <h2 className="section-title-light">Analysis that answers “so what?”</h2>
+            <h2 className="section-title-light">Decision-ready analytics work.</h2>
           </div>
+          <p className="max-w-2xl text-lg leading-8 text-white/68">
+            Featured work is organized around the decisions each project supports, not just the
+            tools behind it.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 xl:grid-cols-[0.28fr_0.72fr]">
-          <div className="grid gap-3">
-            {featuredProjects.map((project, index) => {
-              return (
-                <button
-                  key={project.title}
-                  onClick={() => setActiveProjectIndex(index)}
-                  className={`project-card-dark w-full p-4 text-left ${
-                    index === activeProjectIndex
-                      ? 'border-white bg-white text-[var(--ink)]'
-                      : 'border-white/30'
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    <ProjectThumbnail
-                      project={project}
-                      className="h-16 w-20 shrink-0 sm:h-[4.5rem] sm:w-24"
-                    />
-
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-start justify-between gap-4">
-                        <span className={`chip ${getCategoryTone(project.category).tag}`}>
-                          {project.category}
-                        </span>
-                        <span className="font-black">0{index + 1}</span>
-                      </div>
-                      <h3 className="mt-3 text-xl leading-tight">{project.title}</h3>
-                      <p className={index === activeProjectIndex ? 'mt-3 text-sm leading-6 text-[var(--muted)]' : 'mt-3 text-sm leading-6 text-white/62'}>
-                        {project.headline}
-                      </p>
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="border border-white bg-[#f7f3eb] text-[var(--ink)]" style={{ borderRadius: 8 }}>
-            <div className="border-b border-[var(--line)]">
-              {currentImage ? (
-                <div className="relative flex min-h-[26rem] items-center justify-center bg-white p-4 sm:p-6 lg:p-8">
-                  <div className="project-image-frame relative flex h-full w-full items-center justify-center bg-[#f7f3eb] p-3 sm:p-4">
-                    <img
-                      src={currentImage}
-                      alt={`${activeProject.title} preview ${activeImageIndex + 1}`}
-                      className="max-h-[36rem] w-full object-contain"
-                    />
-                    <div className="absolute right-3 top-3 border border-[var(--line)] bg-white px-3 py-1 text-xs font-bold uppercase">
-                      {activeImageIndex + 1} / {activeImages.length}
-                    </div>
-                  </div>
-
-                  {activeImages.length > 1 && (
-                    <>
-                      <button
-                        onClick={showPreviousImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 border border-[var(--line)] bg-white p-2 text-[var(--ink)]"
-                        style={{ borderRadius: 999 }}
-                        aria-label="Previous project image"
-                      >
-                        <ChevronLeft className="h-5 w-5" />
-                      </button>
-                      <button
-                        onClick={showNextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 border border-[var(--line)] bg-white p-2 text-[var(--ink)]"
-                        style={{ borderRadius: 999 }}
-                        aria-label="Next project image"
-                      >
-                        <ChevronRight className="h-5 w-5" />
-                      </button>
-                    </>
-                  )}
-
-                  {activeImages.length > 1 && (
-                    <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2 px-4">
-                      {activeImages.map((image, index) => (
-                        <button
-                          key={image}
-                          onClick={() => setActiveImageIndex(index)}
-                          className={`h-2.5 transition-all duration-300 ${
-                            index === activeImageIndex
-                              ? 'w-8 bg-[var(--blue)]'
-                              : 'w-2.5 bg-[var(--line)]/30'
-                          }`}
-                          style={{ borderRadius: 999 }}
-                          aria-label={`View image ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="flex min-h-[25rem] flex-col justify-between bg-white p-8">
-                  <div>
-                    <span className={`chip ${getCategoryTone(activeProject.category).tag}`}>
-                      {activeProject.label ?? 'Selected work'}
-                    </span>
-                    <p className="mt-6 text-xs font-bold uppercase text-[var(--muted)]">
-                      {activeProject.category}
-                    </p>
-                    <h3 className="mt-4 max-w-lg text-4xl leading-tight">
-                      {activeProject.title}
-                    </h3>
-                    <p className="mt-4 max-w-lg text-base leading-7 text-[var(--muted)]">
-                      {activeProject.headline}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {activeProject.metrics.map((metric) => (
-                      <div
-                        key={metric}
-                        className="border border-[var(--line)] bg-[#f7f3eb] px-4 py-4 text-sm font-semibold"
-                        style={{ borderRadius: 8 }}
-                      >
-                        {metric}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="p-6 sm:p-8">
-              <div className="flex flex-col gap-4 border-b border-[var(--line)] pb-6 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  {featuredMeta && (
-                    <p className="text-xs font-bold uppercase text-[var(--muted)]">
-                      {featuredMeta}
-                    </p>
-                  )}
-                  <h3 className="mt-3 text-3xl leading-tight sm:text-4xl">
-                    {activeProject.title}
-                  </h3>
-                </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={showPreviousProject}
-                    className="border border-[var(--line)] bg-white p-2"
-                    style={{ borderRadius: 999 }}
-                    aria-label="Previous featured project"
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                  </button>
-                  <button
-                    onClick={showNextProject}
-                    className="border border-[var(--line)] bg-white p-2"
-                    style={{ borderRadius: 999 }}
-                    aria-label="Next featured project"
-                  >
-                    <ChevronRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-
-              <p className="mt-5 text-lg font-semibold leading-7 text-[var(--blue)]">
-                {activeProject.headline}
-              </p>
-              <p className="mt-4 text-base leading-7 text-[var(--muted)]">
-                {activeProject.summary}
-              </p>
-
-              {activeProject.decisionFocus && (
-                <div className="mt-6 border border-[var(--line)] bg-[var(--yellow)] px-5 py-5" style={{ borderRadius: 8 }}>
-                  <p className="text-xs font-bold uppercase">
-                    Decision this supports
-                  </p>
-                  <p className="mt-3 text-sm font-semibold leading-6">
-                    {activeProject.decisionFocus}
-                  </p>
-                </div>
-              )}
-
-              <div className="mt-8">
-                <p className="text-sm font-bold uppercase text-[var(--red)]">
-                  At a glance
-                </p>
-                <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                  {activeProject.metrics.map((metric) => (
-                    <div
-                      key={metric}
-                      className="border border-[var(--line-soft)] bg-white px-4 py-4"
-                      style={{ borderRadius: 8 }}
-                    >
-                      <p className="text-sm font-semibold leading-6">{metric}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {activeProject.keyInsights && activeProject.keyInsights.length > 0 && (
-                <div className="mt-8 border-t border-[var(--line-soft)] pt-6">
-                  <p className="text-sm font-bold uppercase text-[var(--red)]">
-                    Key insights
-                  </p>
-                  <div className="mt-4 grid gap-4 lg:grid-cols-3">
-                    {activeProject.keyInsights.map((insight, index) => (
-                      <div
-                        key={insight}
-                        className="border border-[var(--line-soft)] bg-white px-4 py-4"
-                        style={{ borderRadius: 8 }}
-                      >
-                        <p className="text-xs font-black text-[var(--blue)]">
-                          0{index + 1}
-                        </p>
-                        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-                          {insight}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <div className="mt-8 border-t border-[var(--line-soft)] pt-6">
-                <p className="text-sm font-bold uppercase text-[var(--red)]">
-                  Analysis + execution
-                </p>
-                <ul className="mt-4 space-y-3">
-                  {activeProject.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 bg-[var(--red)]" />
-                      <span className="text-sm leading-6 text-[var(--muted)]">
-                        {highlight}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {activeProject.technologies.map((technology) => (
-                  <span key={technology} className="chip">
-                    {technology}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                {activeProject.liveDemoUrl && (
-                  <a
-                    href={activeProject.liveDemoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    Live demo
-                  </a>
-                )}
-                {activeProject.githubUrl && (
-                  <a
-                    href={activeProject.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
-                  >
-                    <Github className="h-4 w-4" />
-                    View code
-                  </a>
-                )}
-                <button
-                  onClick={() => setSelectedProject(activeProject)}
-                  className="btn-secondary"
-                >
-                  View project
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="selected-work-grid mt-12">
+          {featuredProjects.map((project, index) => (
+            <FeaturedProjectCard
+              key={project.title}
+              project={project}
+              index={index}
+              onSelect={setSelectedProject}
+            />
+          ))}
         </div>
 
-        <div className="mt-20 grid gap-8 lg:grid-cols-[0.32fr_0.68fr]">
+        <div className="archive-redesign mt-20">
           <div>
             <p className="section-kicker text-[var(--yellow)]">Archive</p>
             <h3 className="mt-3 text-4xl leading-tight text-white sm:text-5xl">
-              Additional projects
+              Additional builds
             </h3>
-
-            <div className="mt-8 flex flex-wrap gap-2">
-              {archiveFilters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setArchiveFilter(filter)}
-                    className={`border px-4 py-2 text-xs font-bold uppercase transition duration-200 ${
-                      archiveFilter === filter
-                        ? 'border-white bg-white text-[var(--ink)]'
-                        : 'border-white/30 bg-transparent text-white/70 hover:bg-white/10'
-                    }`}
-                    style={{ borderRadius: 999 }}
-                  >
-                  {filter}
-                </button>
-              ))}
-            </div>
+            <p className="mt-4 max-w-lg text-base leading-7 text-white/60">
+              Supporting projects kept compact so the strongest analytics work stays easy to scan.
+            </p>
           </div>
 
-          <div className="grid gap-4">
-              {filteredArchiveProjects.map((project) => {
-                return (
-                  <button
-                    key={project.title}
-                    onClick={() => setSelectedProject(project)}
-                    className="project-card-dark grid w-full gap-4 p-4 text-left md:grid-cols-[1.1fr_0.9fr_auto] md:items-center"
-                  >
-                    <div className="flex items-start gap-4">
-                      <ProjectThumbnail
-                        project={project}
-                        className="h-16 w-20 shrink-0 sm:h-[4.5rem] sm:w-24"
-                      />
+          <div className="archive-ledger">
+            {orderedArchiveProjects.map((project, index) => {
+              return (
+                <button
+                  key={project.title}
+                  type="button"
+                  onClick={() => setSelectedProject(project)}
+                  className="archive-redesign-row"
+                >
+                  <span className="archive-index">0{index + 1}</span>
+                  <ProjectThumbnail
+                    project={project}
+                    className="h-16 w-20 shrink-0 sm:h-[4.5rem] sm:w-24"
+                  />
 
-                      <div>
-                        <p className={`text-sm font-bold uppercase ${getCategoryTone(project.category).accent}`}>
-                          {project.category}
-                        </p>
-                        <h4 className="mt-2 text-xl leading-tight text-white">
-                          {project.title}
-                        </h4>
-                        <p className="mt-2 text-sm leading-6 text-white/62">
-                          {project.summary}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="min-w-0">
+                    <p className={`text-xs font-black uppercase ${getCategoryTone(project.category).accent}`}>
+                      {project.category}
+                    </p>
+                    <h4 className="mt-1 text-xl leading-tight text-white">{project.title}</h4>
+                    <p className="mt-2 text-sm leading-6 text-white/58">{project.summary}</p>
+                  </div>
 
-                    <div className="flex flex-wrap gap-2">
-                      {project.metrics.slice(0, 2).map((metric) => (
-                        <span
-                          key={metric}
-                          className="chip-dark"
-                        >
-                          {metric}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="hidden flex-wrap gap-2 xl:flex">
+                    {project.metrics.slice(0, 2).map((metric) => (
+                      <span key={metric} className="chip-dark">
+                        {metric}
+                      </span>
+                    ))}
+                  </div>
 
-                    <div className="inline-flex items-center gap-2 text-sm font-bold text-white md:justify-end">
-                      View project
-                      <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </button>
-                );
-              })}
+                  <span className="inline-flex items-center gap-2 text-sm font-black uppercase text-[var(--yellow)] md:justify-end">
+                    View project
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

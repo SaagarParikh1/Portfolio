@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="section-shell">
           <div className="reveal-rise max-w-4xl">
             <p className="text-base font-black uppercase text-[var(--yellow)]">
-              Data Analyst Portfolio
+              Portfolio
             </p>
             <h1 className="hero-name mt-5">Saagar Parikh</h1>
             <p className="hero-line">
