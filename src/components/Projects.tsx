@@ -54,6 +54,56 @@ const categoryToneMap = {
 
 const featuredProjectLibrary: PortfolioProject[] = [
   {
+    title: 'Project Atlantis OS',
+    category: 'Operations',
+    label: 'Featured decision-support app',
+    role: 'Operations analytics project · React, TypeScript, Excel modeling',
+    period: 'Jul 2026',
+    status: 'Live',
+    headline:
+      'A deep-sea logistics optimization and crisis simulation platform built from an Excel-based supply chain model.',
+    summary:
+      'Translated a fictional 52-week deep-sea operations model into an executive web application covering 14 SKUs, 14 extraction rigs, 6 platforms, 7 vessel classes, and 35 disruption events.',
+    description:
+      'Project Atlantis OS is a fictional supply chain decision-support model translated from an Excel-based portfolio model into a cinematic web application. The experience models high-value chemical SKUs moving through an extreme deep-sea logistics network where disruptions can cascade across extraction rigs, midstream platforms, vessels, refinery intake, and commercial contracts.',
+    highlights: [
+      'Built a React and TypeScript command-center experience that turns workbook-modeled supply chain data into interactive dashboards, route views, financial readouts, and scenario simulations.',
+      'Designed explainable route-scoring logic across revenue protection, platform capacity, weather risk, security exposure, vessel compatibility, cost score, delay risk, penalty exposure, and active disruption severity.',
+      'Modeled crisis scenarios including typhoon shocks, piracy, platform failure, fuel crisis, cyber spoofing, and multi-crisis disruption stacks with updated profit, penalties, mitigation cost, affected assets, and recommended actions.',
+    ],
+    outcomes: [
+      'Demonstrated how optimized routing and capacity-aware allocation can protect high-value SKUs when the operating network is under stress.',
+      'Converted a spreadsheet-style analytics model into a more recruiter-friendly executive operations platform with clear narrative, visuals, and decision pathways.',
+      'Connected supply chain analytics, financial modeling, scenario planning, dashboard design, and web product execution in one portfolio project.',
+    ],
+    technologies: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Recharts',
+      'Excel Modeling',
+      'SheetJS',
+      'Scenario Modeling',
+      'Route Optimization',
+    ],
+    metrics: [
+      '728 SKU-week simulation rows',
+      '35 disruption events modeled',
+      'Executive control tower interface',
+    ],
+    decisionFocus:
+      'Helps evaluate which routes, SKUs, platforms, and response actions preserve the most value when deep-sea logistics disruptions affect capacity, risk, and financial performance.',
+    keyInsights: [
+      'Route optimization is most useful when the scoring logic is explainable enough for operators to understand the tradeoffs behind each recommendation.',
+      'Scenario simulation makes second-order impacts visible by showing how disruptions affect profit, penalties, affected assets, recovery confidence, and operational risk.',
+      'Turning an Excel model into an interactive application can make complex operations analysis easier to scan, trust, and discuss with non-technical stakeholders.',
+    ],
+    images: ['/images/projects/project-atlantis/screen-01.png'],
+    liveDemoUrl: 'https://project-atlantis-rust.vercel.app/',
+  },
+  {
     title: 'Galactic Relief Network: Supply Chain Resilience & Logistics Analytics Platform',
     category: 'Operations',
     label: 'Featured logistics simulation',
@@ -385,46 +435,23 @@ const archiveProjects: PortfolioProject[] = [
     images: ['/images/projects/analytics/nba-injury-dashboard.png'],
     githubUrl: 'https://github.com/SaagarParikh1/NBAInjuryRiskCaseStudy',
   },
-  {
-    title: 'Climate & Extreme Weather Trends',
-    category: 'Analytics',
-    role: 'Independent analysis · Long-horizon trend exploration',
-    headline: 'A 40-year view of climate indicators, seasonality, and extreme-event anomalies.',
-    summary: 'Used long-horizon environmental data to surface shifts, outliers, and regional risk.',
-    description:
-      'This project combined multi-source climate and weather data into a cleaner analytical view of long-term change. The work centered on anomaly detection, rolling trends, and visuals designed to make regional patterns easier to interpret.',
-    highlights: [
-      'Normalized long-horizon data sources and engineered anomaly flags for extreme events.',
-      'Used rolling averages and trend comparisons to show how patterns changed over time.',
-      'Designed visuals that emphasized seasonality, deviations, and regional comparison.',
-    ],
-    outcomes: [
-      'Created a decision-friendly view of climate risk patterns from otherwise unwieldy public datasets.',
-      'Expanded experience with long-range time series analysis and storytelling through visualization.',
-      'Strengthened the connection between analytical rigor and public-facing clarity.',
-    ],
-    technologies: ['Python', 'Pandas', 'Matplotlib', 'Tableau', 'Open Data'],
-    metrics: ['40-year time horizon', 'Anomaly detection', 'Regional trend comparison'],
-    images: ['/images/projects/analytics/weather-trends-dashboard.png'],
-    githubUrl: 'https://github.com/SaagarParikh1/WeatherEvents-ClimateChange',
-  },
 ];
 
 const allProjects = [...featuredProjectLibrary, ...archiveProjects];
 
 const featuredProjects = [
+  'Project Atlantis OS',
   'Galactic Relief Network: Supply Chain Resilience & Logistics Analytics Platform',
   'Lost Colony Expedition: Asteria-7 Failure Investigation',
   'NIL Athlete Valuation Modeling & Market Analysis',
-  'Quantitative Options Strategy Dashboard',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
 
 const orderedArchiveProjects = [
   'Grant County Special Education Cooperative Website',
   'Ball Analytics',
+  'Quantitative Options Strategy Dashboard',
   'NBA Injury & Availability Analytics',
   'NeuroNotes',
-  'Climate & Extreme Weather Trends',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
 
 const getCategoryIcon = (category: string) =>

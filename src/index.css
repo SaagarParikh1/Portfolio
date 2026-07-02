@@ -158,7 +158,8 @@ section[id] {
   }
 
   .hero {
-    min-height: 92svh;
+    min-height: calc(92svh - 4rem);
+    margin-top: 4rem;
     position: relative;
     display: flex;
     align-items: end;
@@ -640,7 +641,7 @@ section[id] {
 
 @media (max-width: 767px) {
   .hero {
-    min-height: 90svh;
+    min-height: calc(90svh - 4rem);
   }
 
   .hero::before {
