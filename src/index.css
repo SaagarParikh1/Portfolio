@@ -299,6 +299,65 @@ section[id] {
     border-bottom: 0;
   }
 
+  .skill-pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045)),
+      rgba(255, 255, 255, 0.06);
+    padding: 0.42rem 0.8rem 0.42rem 0.45rem;
+    color: white;
+    font-size: 0.76rem;
+    font-weight: 850;
+    line-height: 1;
+    text-transform: uppercase;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+
+  .skill-pill:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--skill-tone, var(--yellow)) 58%, white 18%);
+    background:
+      radial-gradient(circle at 18% 50%, color-mix(in srgb, var(--skill-tone, var(--yellow)) 26%, transparent), transparent 2.2rem),
+      rgba(255, 255, 255, 0.1);
+  }
+
+  .skill-logo-bubble {
+    display: grid;
+    height: 2rem;
+    width: 2rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--skill-tone, var(--yellow)) 64%, white 12%);
+    background:
+      radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.24), transparent 45%),
+      color-mix(in srgb, var(--skill-tone, var(--yellow)) 18%, rgba(255, 255, 255, 0.08));
+    border-radius: 999px;
+  }
+
+  .skill-logo-bubble img {
+    height: 1.05rem;
+    width: 1.05rem;
+    object-fit: contain;
+  }
+
+  .skill-logo-bubble span {
+    color: color-mix(in srgb, var(--skill-tone, var(--yellow)) 74%, white 26%);
+    font-size: 0.62rem;
+    font-weight: 950;
+    letter-spacing: 0.02em !important;
+  }
+
   .modal-surface {
     @apply mx-auto flex max-h-[92vh] max-w-6xl flex-col overflow-hidden border border-[var(--line)] bg-[var(--cream)] text-[var(--ink)];
     border-radius: 8px;
