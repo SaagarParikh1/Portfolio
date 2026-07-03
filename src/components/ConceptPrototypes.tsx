@@ -139,7 +139,7 @@ const OperatorConcept = () => (
         </div>
       </div>
       <div className="operator-portrait">
-        <img src="/images/portrait/Portrait2.png" alt="Saagar Parikh" />
+        <img src="/images/portrait/saagar-parikh-suit-2026.jpeg" alt="Saagar Parikh" />
       </div>
       <div className="operator-status">
         <div>
@@ -191,7 +191,7 @@ const EditorialConcept = () => (
   <main className="editorial-concept concept-page">
     <ConceptSwitcher active="editorial" />
     <section className="editorial-hero">
-      <img src="/images/portrait/Portrait2.png" alt="Saagar Parikh" />
+      <img src="/images/portrait/saagar-parikh-suit-2026.jpeg" alt="Saagar Parikh" />
       <div>
         <p className="concept-kicker">Editorial Ledger</p>
         <h1>Saagar Parikh</h1>
@@ -257,7 +257,7 @@ const SignalConcept = () => (
         </div>
       </div>
       <div className="signal-photo-panel">
-        <img src="/images/portrait/Portrait2.png" alt="Saagar Parikh" />
+        <img src="/images/portrait/saagar-parikh-suit-2026.jpeg" alt="Saagar Parikh" />
       </div>
     </section>
 
