@@ -33,32 +33,32 @@ const conceptLinks = [
 
 const featuredWork = [
   {
+    title: 'EV Charging Network Analytics',
+    label: 'Power BI operations dashboard',
+    image: '/images/projects/ev-charging-network/thumbnail.svg',
+    result: 'Analyzed 50,000 trips to evaluate revenue, profitability, fleet utilization, and operating performance.',
+  },
+  {
+    title: 'Galactic Relief Network',
+    label: 'Supply chain analytics',
+    image: '/images/projects/galactic-relief-network/screen-01.png',
+    result: 'Modeled inventory, fulfillment, route risk, and allocation across 25+ locations and 100+ routes.',
+  },
+  {
     title: 'NIL Athlete Valuation',
     label: 'Market model',
     image: '/images/projects/nil-athlete-valuation/market-overview.png',
-    result: 'Modeled 300+ athletes to identify valuation gaps and sponsorship opportunities.',
-  },
-  {
-    title: 'Put-Selling Dashboard',
-    label: 'Decision engine',
-    image: '/images/projects/Putdashboard/screen-01.png',
-    result: 'Ranked 100+ equities with scoring, signal explanations, and backtesting.',
-  },
-  {
-    title: 'NBA Availability Analytics',
-    label: 'Sports analysis',
-    image: '/images/projects/analytics/nba-injury-dashboard.png',
-    result: 'Explored how injury timing and player availability shape team-level outcomes.',
+    result: 'Modeled 300 athletes to identify valuation gaps and sponsorship opportunities.',
   },
 ];
 
 const experience = [
-  ['Current', 'Mswipe Technologies', 'Management Trainee - Operations', 'June 2026 - Present'],
-  ['Product', 'Flomad Labs R&D', 'Product Analyst Intern', 'May 2023 - Aug 2023'],
-  ['Risk', 'CASHe', 'Risk Analyst Intern', 'June 2022 - Aug 2022'],
+  ['Current', 'Mswipe Technologies', 'Operations & Logistics Analyst (Management Trainee)', 'Jun 2026 - Present'],
+  ['Product', 'Flomad Labs R&D', 'Product Development Intern', 'May 2023 - Aug 2023'],
+  ['Risk', 'CASHe', 'Risk Analyst Intern', 'Jun 2022 - Aug 2022'],
 ];
 
-const skills = ['SQL', 'Python', 'Tableau', 'Excel', 'BigQuery ML', 'React', 'TypeScript', 'Operations'];
+const skills = ['Excel', 'SQL', 'Power BI', 'Tableau', 'ERP Systems', 'Inventory', 'Logistics', 'Data Modeling'];
 
 const ConceptSwitcher = ({ active }: { active?: string }) => (
   <div className="concept-switcher">
@@ -144,15 +144,15 @@ const OperatorConcept = () => (
       <div className="operator-status">
         <div>
           <span>Current role</span>
-          <strong>Mswipe Technologies / Management Trainee - Operations</strong>
+          <strong>Mswipe Technologies / Operations &amp; Logistics Analyst</strong>
         </div>
         <div>
           <span>Core stack</span>
-          <strong>SQL / Python / Tableau / Excel</strong>
+          <strong>Excel / SQL / Power BI / Tableau</strong>
         </div>
         <div>
           <span>Positioning</span>
-          <strong>Data analyst with operations context</strong>
+          <strong>Operations analyst with logistics context</strong>
         </div>
       </div>
     </section>
@@ -196,13 +196,13 @@ const EditorialConcept = () => (
         <p className="concept-kicker">Editorial Ledger</p>
         <h1>Saagar Parikh</h1>
         <p>
-          Data analyst translating messy datasets into business decisions, dashboards, and clear
-          operational readouts.
+          Operations and logistics analyst translating ERP data, inventory movement, and workflow
+          exceptions into clear reporting and decisions.
         </p>
         <div className="editorial-meta">
           <span>Current: Mswipe Technologies Operations</span>
           <span>Frisco, TX / Open to relocation</span>
-          <span>SQL / Python / Tableau / Excel</span>
+          <span>Excel / SQL / Power BI / Tableau</span>
         </div>
       </div>
     </section>
@@ -240,7 +240,7 @@ const SignalConcept = () => (
     <section className="signal-hero">
       <div className="signal-hero-copy">
         <p className="concept-kicker">Signal Lab</p>
-        <h1>Data analyst building dashboards, models, and operational signal.</h1>
+        <h1>Operations analyst building dashboards, models, and operational signal.</h1>
         <p>
           A brighter product-analytics direction with more color, stronger visual rhythm, and a
           friendlier modern feel.
@@ -264,23 +264,23 @@ const SignalConcept = () => (
     <section className="signal-metrics">
       <article>
         <Database />
-        <strong>500K+</strong>
-        <span>behavioral and biometric data points analyzed</span>
+        <strong>50,000</strong>
+        <span>autonomous vehicle trips analyzed in Power BI</span>
       </article>
       <article>
         <BarChart3 />
-        <strong>100+</strong>
-        <span>equities screened in put-selling dashboard</span>
+        <strong>11</strong>
+        <span>warehouses supported through logistics and inventory workflows</span>
       </article>
       <article>
         <PanelsTopLeft />
-        <strong>6%</strong>
-        <span>loan risk model accuracy improvement during risk analysis work</span>
+        <strong>200+</strong>
+        <span>field service engineers supported by nationwide operations</span>
       </article>
       <article>
         <Briefcase />
         <strong>Now</strong>
-        <span>Mswipe Technologies operations role, June 2026 - present</span>
+        <span>Mswipe Technologies operations role, Jun 2026 - present</span>
       </article>
     </section>
 

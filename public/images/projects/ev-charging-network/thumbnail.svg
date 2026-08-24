@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">EV charging network analytics dashboard preview</title>
+  <desc id="desc">Stylized Power BI dashboard with trip, revenue, utilization, and network charts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071b2d"/>
+      <stop offset="1" stop-color="#0c3240"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#18c6a3"/>
+      <stop offset="1" stop-color="#71f2c5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" rx="36" fill="url(#bg)"/>
+  <path d="M0 142h1440" stroke="#6ba3ad" stroke-opacity=".22"/>
+  <circle cx="84" cy="72" r="22" fill="#f4c84a"/>
+  <path d="M84 50v44M62 72h44" stroke="#071b2d" stroke-width="9" stroke-linecap="round"/>
+  <text x="128" y="67" fill="#f6fbfb" font-family="Arial, sans-serif" font-size="30" font-weight="700">EV CHARGING NETWORK</text>
+  <text x="128" y="102" fill="#91b4ba" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">OPERATIONS ANALYTICS</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(64 184)">
+      <rect width="300" height="148" rx="18" fill="#102f3d" stroke="#3c6670"/>
+      <text x="26" y="42" fill="#8fb5bb" font-size="17" letter-spacing="2">TRIP VOLUME</text>
+      <text x="26" y="96" fill="#f7fbfb" font-size="43" font-weight="700">50,000</text>
+      <path d="M222 104l16-25 18 12 22-39" fill="none" stroke="#69efc1" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(390 184)">
+      <rect width="300" height="148" rx="18" fill="#102f3d" stroke="#3c6670"/>
+      <text x="26" y="42" fill="#8fb5bb" font-size="17" letter-spacing="2">REVENUE</text>
+      <text x="26" y="96" fill="#f7fbfb" font-size="32" font-weight="700">DRIVER VIEW</text>
+      <rect x="26" y="116" width="230" height="8" rx="4" fill="#214b56"/>
+      <rect x="26" y="116" width="174" height="8" rx="4" fill="#f4c84a"/>
+    </g>
+    <g transform="translate(716 184)">
+      <rect width="300" height="148" rx="18" fill="#102f3d" stroke="#3c6670"/>
+      <text x="26" y="42" fill="#8fb5bb" font-size="17" letter-spacing="2">FLEET UTILIZATION</text>
+      <circle cx="246" cy="82" r="39" fill="none" stroke="#214b56" stroke-width="13"/>
+      <path d="M246 43a39 39 0 1 1-36 54" fill="none" stroke="#69efc1" stroke-width="13" stroke-linecap="round"/>
+      <text x="26" y="96" fill="#f7fbfb" font-size="32" font-weight="700">KPI MODEL</text>
+    </g>
+    <g transform="translate(1042 184)">
+      <rect width="334" height="148" rx="18" fill="#102f3d" stroke="#3c6670"/>
+      <text x="26" y="42" fill="#8fb5bb" font-size="17" letter-spacing="2">PROFITABILITY</text>
+      <text x="26" y="96" fill="#f7fbfb" font-size="32" font-weight="700">SCENARIO VIEW</text>
+      <circle cx="282" cy="83" r="22" fill="#f4c84a"/>
+    </g>
+  </g>
+  <g transform="translate(64 372)">
+    <rect width="842" height="456" rx="22" fill="#0d2936" stroke="#3c6670"/>
+    <text x="30" y="48" fill="#f6fbfb" font-family="Arial, sans-serif" font-size="22" font-weight="700">NETWORK PERFORMANCE</text>
+    <text x="30" y="78" fill="#86abb2" font-family="Arial, sans-serif" font-size="15">Trip activity, charging demand, and utilization trend</text>
+    <path d="M58 358H790M58 279H790M58 200H790M58 121H790" stroke="#42636c" stroke-opacity=".35"/>
+    <path d="M58 346C142 330 176 270 250 281s111-117 187-82 111-39 165-19 113-76 188-92" fill="none" stroke="url(#teal)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M58 383C126 346 191 369 250 332s132 5 187-44 116 16 165-34 121-2 188-48" fill="none" stroke="#f4c84a" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 15"/>
+    <text x="58" y="420" fill="#7fa5ad" font-family="Arial, sans-serif" font-size="15">OPERATING PERIOD</text>
+  </g>
+  <g transform="translate(934 372)" font-family="Arial, sans-serif">
+    <rect width="442" height="456" rx="22" fill="#0d2936" stroke="#3c6670"/>
+    <text x="30" y="48" fill="#f6fbfb" font-size="22" font-weight="700">PERFORMANCE DRIVERS</text>
+    <text x="30" y="78" fill="#86abb2" font-size="15">Interactive operating breakdown</text>
+    <g transform="translate(32 118)">
+      <text y="14" fill="#abc4c8" font-size="16">Fleet activity</text>
+      <rect x="142" width="230" height="18" rx="9" fill="#214b56"/>
+      <rect x="142" width="198" height="18" rx="9" fill="#69efc1"/>
+    </g>
+    <g transform="translate(32 181)">
+      <text y="14" fill="#abc4c8" font-size="16">Charging demand</text>
+      <rect x="142" width="230" height="18" rx="9" fill="#214b56"/>
+      <rect x="142" width="164" height="18" rx="9" fill="#f4c84a"/>
+    </g>
+    <g transform="translate(32 244)">
+      <text y="14" fill="#abc4c8" font-size="16">Revenue mix</text>
+      <rect x="142" width="230" height="18" rx="9" fill="#214b56"/>
+      <rect x="142" width="126" height="18" rx="9" fill="#5c9cff"/>
+    </g>
+    <rect x="30" y="318" width="382" height="102" rx="16" fill="#123846"/>
+    <text x="54" y="354" fill="#8fb5bb" font-size="14" letter-spacing="2">ANALYTICAL LAYER</text>
+    <text x="54" y="390" fill="#f6fbfb" font-size="20" font-weight="700">SQL · POWER QUERY · DAX</text>
+  </g>
+</svg>

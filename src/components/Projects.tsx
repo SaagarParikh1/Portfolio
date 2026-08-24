@@ -54,6 +54,48 @@ const categoryToneMap = {
 
 const featuredProjectLibrary: PortfolioProject[] = [
   {
+    title: 'EV Charging Network Analytics Dashboard',
+    category: 'Operations',
+    label: 'Featured Power BI analysis',
+    role: 'Operations analytics project · SQL, Excel, Power BI',
+    period: 'Jul 2026 - Aug 2026',
+    headline:
+      'A Power BI decision-support dashboard for evaluating revenue, profitability, fleet utilization, and charging-network performance.',
+    summary:
+      'Analyzed 50,000 autonomous vehicle trips and translated the results into an interactive operating view for understanding network performance and testing strategic business scenarios.',
+    description:
+      'This project models an EV charging and autonomous fleet network as an operations analytics problem. I used SQL and Excel to prepare trip-level data, structured the Power BI model around a star schema, and created DAX measures that connect revenue and profitability with fleet utilization and broader operating performance.',
+    highlights: [
+      'Analyzed 50,000 autonomous vehicle trips using SQL, Excel, and Power BI to evaluate revenue, profitability, fleet utilization, and operational performance.',
+      'Built a star-schema data model and used Power Query transformations to create a reliable analytical layer for dashboard reporting.',
+      'Developed DAX measures and interactive Power BI views to identify revenue drivers and evaluate strategic business scenarios.',
+    ],
+    outcomes: [
+      'Consolidated commercial and operational measures into one decision-support view instead of treating revenue, utilization, and fleet activity as separate analyses.',
+      'Made it easier to compare performance drivers and explore how changes in operating assumptions could affect the network.',
+      'Demonstrated an end-to-end Power BI workflow spanning data preparation, dimensional modeling, measure development, visualization, and business interpretation.',
+    ],
+    technologies: [
+      'Power BI',
+      'SQL',
+      'Excel',
+      'Power Query',
+      'DAX',
+      'Star Schema',
+      'Data Modeling',
+      'Scenario Analysis',
+    ],
+    metrics: ['50,000 vehicle trips', 'Star-schema Power BI model', 'Revenue + fleet KPI analysis'],
+    decisionFocus:
+      'Helps operators compare revenue, profitability, fleet utilization, and network performance while evaluating which business scenarios deserve further attention.',
+    keyInsights: [
+      'Commercial performance is easier to explain when trip activity, utilization, and profitability are evaluated in the same model.',
+      'A star schema and reusable DAX measures make scenario comparisons more consistent than disconnected spreadsheet calculations.',
+      'Interactive BI views help decision-makers move from high-level KPIs into the operating drivers behind them.',
+    ],
+    images: ['/images/projects/ev-charging-network/thumbnail.svg'],
+  },
+  {
     title: 'Project Atlantis OS',
     category: 'Operations',
     label: 'Featured decision-support app',
@@ -108,7 +150,7 @@ const featuredProjectLibrary: PortfolioProject[] = [
     category: 'Operations',
     label: 'Featured logistics simulation',
     role: 'Supply chain analytics project · Excel, Google Sheets, Tableau',
-    period: 'Jun 2026',
+    period: 'Jun 2026 - Jul 2026',
     status: 'Live',
     headline:
       'A Star Wars-inspired humanitarian logistics simulator for prioritizing relief delivery across disruption-prone supply chains.',
@@ -117,7 +159,7 @@ const featuredProjectLibrary: PortfolioProject[] = [
     description:
       'Galactic Relief Network is a serious supply chain analytics and business intelligence project set inside a Star Wars-inspired humanitarian logistics scenario. Acting as a Rebel-aligned relief command, the model evaluates planetary demand, depot placement, fleet capacity, transportation risk, cargo priority, inventory availability, relief requests, and disruption scenarios to support better logistics decisions under constrained capacity.',
     highlights: [
-      'Developed an end-to-end supply chain analytics model using Excel, Google Sheets, and Tableau to optimize demand prioritization, depot selection, inventory allocation, transportation routing, and fulfillment decisions.',
+      'Developed an end-to-end supply chain analytics model spanning 25+ locations and 100+ transportation routes to evaluate demand prioritization, depot selection, inventory allocation, routing, and fulfillment decisions.',
       'Built weighted scoring models, risk-adjusted cost calculations, inventory urgency metrics, and disruption scenario analyses to evaluate resilience, bottlenecks, and resource allocation tradeoffs.',
       'Designed three executive Tableau dashboards with KPI scorecards, network visualizations, route risk analysis, inventory heatmaps, and scenario simulations for strategic and tactical decision-making.',
     ],
@@ -138,9 +180,9 @@ const featuredProjectLibrary: PortfolioProject[] = [
       'KPI Development',
     ],
     metrics: [
-      '3 executive Tableau dashboards',
-      'Risk-adjusted route scoring',
-      'Demand, depot, inventory + scenario modeling',
+      '25+ locations modeled',
+      '100+ transportation routes',
+      'Scenario-based optimization',
     ],
     decisionFocus:
       'Helps determine which relief requests should be served first, which depots are most resilient, which routes are operationally viable, and how disruptions could cascade across the logistics network.',
@@ -260,15 +302,15 @@ const featuredProjectLibrary: PortfolioProject[] = [
     category: 'Analytics',
     label: 'Featured project',
     role: 'Analytics project · BigQuery ML, SQL, Python, Tableau',
-    period: 'Mar 2026',
+    period: 'Feb 2026 - Mar 2026',
     headline:
       'A model and dashboard suite for spotting overvalued, undervalued, and strategically attractive NIL opportunities.',
     summary:
       'I analyzed athlete performance, social reach, and valuation data to estimate what an athlete should be worth and where the market looked inefficient for a hypothetical brand partnership decision.',
     description:
-      'I scraped and joined athlete performance stats, valuation rankings, and social media metrics to create a clean analytical dataset for 300+ Division I athletes. From there I built a BigQuery ML regression model, tested transformed features, and translated the results into Tableau dashboards designed to compare valuation gaps, market share, and the signals that matter most.',
+      'I scraped and joined athlete performance stats, valuation rankings, and social media metrics to create a clean analytical dataset for 300 Division I athletes. From there I built a BigQuery ML regression model, tested transformed features, and translated the results into Tableau dashboards designed to compare valuation gaps, market share, and the signals that matter most.',
     highlights: [
-      'Joined valuation rankings, performance data, and social metrics into a single analytical dataset for 300+ Division I athletes.',
+      'Joined valuation rankings, performance data, and social metrics into a single analytical dataset for 300 Division I athletes.',
       'Estimated expected NIL value with a BigQuery ML regression model using transformed features and composite metrics.',
       'Translated model output into dashboards that made valuation gaps, market share, and athlete comparisons easy to scan.',
     ],
@@ -278,7 +320,7 @@ const featuredProjectLibrary: PortfolioProject[] = [
       'Combined modeling and dashboards so the findings were useful beyond the notebook.',
     ],
     technologies: ['BigQuery', 'SQL', 'Python', 'BigQuery ML', 'Tableau', 'Excel'],
-    metrics: ['300+ D1 athletes modeled', 'BigQuery ML regression', 'Interactive Tableau dashboards'],
+    metrics: ['300 D1 athletes modeled', 'BigQuery ML regression', 'Interactive Tableau dashboards'],
     decisionFocus:
       'Helps evaluate where NIL valuations appear mispriced before making partnership or sponsorship decisions.',
     keyInsights: [
@@ -440,16 +482,17 @@ const archiveProjects: PortfolioProject[] = [
 const allProjects = [...featuredProjectLibrary, ...archiveProjects];
 
 const featuredProjects = [
-  'Project Atlantis OS',
+  'EV Charging Network Analytics Dashboard',
   'Galactic Relief Network: Supply Chain Resilience & Logistics Analytics Platform',
-  'Lost Colony Expedition: Asteria-7 Failure Investigation',
   'NIL Athlete Valuation Modeling & Market Analysis',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
 
 const orderedArchiveProjects = [
+  'Project Atlantis OS',
+  'Lost Colony Expedition: Asteria-7 Failure Investigation',
+  'Quantitative Options Strategy Dashboard',
   'Grant County Special Education Cooperative Website',
   'Ball Analytics',
-  'Quantitative Options Strategy Dashboard',
   'NBA Injury & Availability Analytics',
   'NeuroNotes',
 ].flatMap((title) => allProjects.filter((project) => project.title === title));
@@ -571,11 +614,11 @@ const Projects = () => {
         <div className="grid gap-6 lg:grid-cols-[0.36fr_0.64fr] lg:items-end">
           <div>
             <p className="section-kicker text-[var(--yellow)]">Selected Work</p>
-            <h2 className="section-title-light">Decision-ready analytics work.</h2>
+            <h2 className="section-title-light">Operations analytics built for decisions.</h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-white/68">
-            Featured work is organized around the decisions each project supports, not just the
-            tools behind it.
+            These projects show how I model operational performance, supply-chain tradeoffs, and
+            business drivers using Power BI, Tableau, Excel, SQL, and Python.
           </p>
         </div>
 
@@ -597,7 +640,8 @@ const Projects = () => {
               Additional builds
             </h3>
             <p className="mt-4 max-w-lg text-base leading-7 text-white/60">
-              Supporting projects kept compact so the strongest analytics work stays easy to scan.
+              Additional analytics and product builds that show broader modeling, investigation,
+              and technical delivery experience.
             </p>
           </div>
 

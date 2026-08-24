@@ -1,30 +1,30 @@
 const experiences = [
   {
     company: 'Mswipe Technologies',
-    role: 'Management Trainee - Operations',
-    period: 'June 2026 - Present',
+    role: 'Operations & Logistics Analyst (Management Trainee)',
+    period: 'Jun 2026 - Present',
     summary:
-      'Current operations trainee role focused on learning fintech operations, merchant onboarding, device deployment, reporting workflows, and process visibility.',
+      'Support end-to-end domestic and international logistics operations spanning ERP transaction processing, inwarding, inventory movement, allocation, dispatch, courier coordination, and cost analysis.',
     highlights: [
-      'Learning how merchant acquisition, onboarding, device inventory flow, deployment, activation, service requests, and support processes connect inside the business.',
-      'Expected to support daily operational reporting around shipments, activations, pending requests, tickets, and other process health metrics.',
-      'Applying an analytics background to understand bottlenecks, improve visibility, and identify where dashboards or cleaner tracking can support better operations decisions.',
+      'Execute inventory and logistics workflows for a nationwide network of 11 warehouses and 200+ field service engineers, including courier documentation, e-way bills, serviceability checks, pending-case tracking, and shipment exception handling.',
+      'Prepare recurring logistics-pending, service-call, and operational reports by extracting ERP data, maintaining Excel trackers, and monitoring KPI, aging, and exception trends across 5+ workflow areas.',
+      'Analyze pending cases, aging trends, serviceability issues, and shipment exceptions to identify bottlenecks and support resolution across warehouse, logistics, and field-service workflows.',
     ],
-    technologies: ['Operations', 'Merchant Onboarding', 'Device Deployment', 'Reporting', 'Process Analysis'],
+    technologies: ['ERP Systems', 'Excel', 'Inventory', 'Dispatch', 'Logistics Reporting', 'Cost Analysis'],
     logoSrc: '/images/logos/mswipe.png',
     logoAlt: 'Mswipe logo',
     current: true,
   },
   {
     company: 'Flomad Labs R&D',
-    role: 'Product Analyst Intern',
+    role: 'Product Development Intern',
     period: 'May 2023 - Aug 2023',
     summary:
-      'Used SQL, Python, and Tableau to support KPI development, experimentation, and decision-making for product and engineering stakeholders.',
+      'Analyzed behavioral and biometric data to support digital health product analysis and stakeholder reporting.',
     highlights: [
-      'Analyzed 500K+ behavioral and biometric data points to validate digital performance metrics and surface actionable insight.',
-      'Delivered dashboards tracking health metrics, anomaly detection, and experimentation workflows in language stakeholders could actually use.',
-      'Collaborated with ML researchers and engineers to define success metrics, validate outputs, and support product iteration.',
+      'Analyzed behavioral and biometric datasets using SQL and Python to identify performance trends and support digital health product analysis.',
+      'Built Tableau dashboards tracking 10+ health metrics, anomaly patterns, and research outputs for product stakeholders.',
+      'Collaborated with ML researchers and engineers across 3 product discovery and experiment review cycles to validate outputs and translate findings into product recommendations.',
     ],
     technologies: ['SQL', 'Python', 'Tableau', 'KPI Design', 'Experiment Analysis'],
     logoSrc: '/images/logos/flomad.jpg',
@@ -33,15 +33,14 @@ const experiences = [
   {
     company: 'CASHe',
     role: 'Risk Analyst Intern',
-    period: 'June 2022 - Aug 2022',
+    period: 'Jun 2022 - Aug 2022',
     summary:
-      'Focused on loan risk, fraud detection, and reporting automation across large financial datasets.',
+      'Used financial and customer behavior data to support loan risk review, segmentation, and fraud investigation.',
     highlights: [
-      'Improved loan risk and eligibility model accuracy by 6% by analyzing 50K+ financial records and identifying stronger behavioral features.',
-      'Identified fraudulent transaction patterns through data mining and risk segmentation, reducing projected fraud exposure and surfacing compliance gaps.',
-      'Automated KPI reporting workflows using Python and Excel, saving 10+ hours per week and improving turnaround time.',
+      'Analyzed financial and user behavior records using SQL, Python, and Excel to support loan eligibility review, repayment risk analysis, and customer segmentation.',
+      'Performed exploratory analysis on transaction data to flag suspicious activity patterns and support fraud investigations.',
     ],
-    technologies: ['SQL', 'Python', 'Excel', 'Risk Modeling', 'Fraud Analysis'],
+    technologies: ['SQL', 'Python', 'Excel', 'Risk Analysis', 'Customer Segmentation', 'Fraud Investigation'],
     logoSrc: '/images/logos/cashe.png',
     logoAlt: 'CASHe logo',
   },
@@ -54,7 +53,7 @@ const Experience = () => {
         <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
             <p className="section-kicker">Experience</p>
-            <h2 className="section-title">Operations, product, and risk work.</h2>
+            <h2 className="section-title">From operational execution to decision support.</h2>
           </div>
 
           <div className="grid gap-5">

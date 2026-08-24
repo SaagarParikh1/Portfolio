@@ -1,28 +1,28 @@
-import { BarChart3, Blocks, Handshake, Target } from 'lucide-react';
+import { BarChart3, Boxes, Route, Target } from 'lucide-react';
 
 const principles = [
   {
-    title: 'Start with the decision',
-    description: 'I work backward from the question a team needs answered, then shape the data work around that decision.',
+    title: 'Operational visibility',
+    description: 'I organize ERP extracts, trackers, and recurring reports so teams can see pending work, aging, and exceptions clearly.',
     icon: Target,
     accent: 'bg-[var(--blue)] text-white',
   },
   {
-    title: 'Make analysis usable',
-    description: 'Dashboards, models, and reports only matter if the next step is obvious to the person reading them.',
+    title: 'KPI reporting',
+    description: 'I use Excel, SQL, Power BI, and Tableau to turn operational activity into practical performance measures.',
     icon: BarChart3,
     accent: 'bg-[var(--teal)] text-white',
   },
   {
-    title: 'Bridge data and product',
-    description: 'My front-end and UX background helps me think about how insight is consumed, not just how it is calculated.',
-    icon: Blocks,
+    title: 'Supply chain thinking',
+    description: 'I look across inventory, allocation, dispatch, transportation, and fulfillment instead of treating each step in isolation.',
+    icon: Boxes,
     accent: 'bg-[var(--yellow)] text-[var(--ink)]',
   },
   {
-    title: 'Communicate clearly',
-    description: 'I like translating technical work into practical language for operators, product teams, and business stakeholders.',
-    icon: Handshake,
+    title: 'Exception analysis',
+    description: 'I investigate delays, serviceability issues, and workflow bottlenecks to help teams focus on the cases that need action.',
+    icon: Route,
     accent: 'bg-[var(--red)] text-white',
   },
 ];
@@ -34,21 +34,21 @@ const About = () => {
         <div className="grid gap-10 lg:grid-cols-[0.38fr_0.62fr]">
           <div>
             <p className="section-kicker">About</p>
-            <h2 className="section-title">Analytics with product instincts.</h2>
+            <h2 className="section-title">Analytics grounded in real operations.</h2>
           </div>
 
           <div className="grid gap-8">
             <div className="about-copy max-w-4xl space-y-5 text-xl leading-9 text-[var(--ink)]">
               <p>
-                I am a Purdue graduate with a foundation in data analytics, product thinking, and
-                front-end development. I use SQL, Python, Tableau, and Excel to clean messy data,
-                define useful metrics, automate reporting, and build dashboards that help teams
-                understand what is happening.
+                I am an Operations &amp; Logistics Analyst and Purdue graduate working across ERP
+                transaction processing, inventory movement, allocation, dispatch, courier
+                coordination, cost analysis, and recurring operational reporting.
               </p>
               <p className="text-[var(--muted)]">
-                My background in UI and web development makes me especially interested in the last
-                mile of analytics: how a finding gets read, trusted, and used by someone making a
-                real operational or product decision.
+                My work combines hands-on logistics exposure with Excel, SQL, Power BI, Tableau,
+                and dashboard design. I am especially interested in making complex workflows easier
+                to monitor, identifying the exceptions slowing them down, and translating the data
+                into decision support for operations and supply-chain teams.
               </p>
             </div>
 

@@ -8,11 +8,12 @@ const Contact = () => {
           <div>
             <p className="section-kicker text-[var(--ink)]">Contact</p>
             <h2 className="mt-3 max-w-4xl text-5xl leading-none text-[var(--ink)] sm:text-6xl lg:text-7xl">
-              Let&apos;s talk about data, operations, or product analytics.
+              Let&apos;s talk about operations, logistics, or supply-chain analytics.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(23,23,23,0.78)]">
-              I am open to analyst and operations-focused roles where clean thinking, useful
-              dashboards, and practical execution matter.
+              I am a U.S. citizen open to relocation and seeking Operations Analyst, Logistics
+              Analyst, and Supply Chain Analyst opportunities where practical reporting and clear
+              decision support matter.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

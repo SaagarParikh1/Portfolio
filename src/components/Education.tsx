@@ -1,8 +1,6 @@
 const coursework = [
   'Advanced Web Programming',
-  'Server-Side Development',
   'Data Integration',
-  'Information Architecture',
   'UX Design',
   'Systems Analysis',
   'Data Analysis & Visualization',
@@ -20,8 +18,6 @@ const certifications = [
   'Foundations of User Experience Design Certificate, Google, 2023',
 ];
 
-const purdueCredential = 'Cornerstone Integrated Liberal Arts Certificate, 2025';
-
 const Education = () => {
   return (
     <section id="education" className="section-block education-section">
@@ -29,7 +25,7 @@ const Education = () => {
         <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
           <div>
             <p className="section-kicker">Education</p>
-            <h2 className="section-title">Purdue foundation, analytics focus.</h2>
+            <h2 className="section-title">Technical foundation with an analytical focus.</h2>
           </div>
 
           <div className="grid gap-5">
@@ -41,17 +37,16 @@ const Education = () => {
 
                 <div>
                   <p className="chip">Purdue University</p>
-                  <h3 className="mt-4 text-4xl leading-tight">Web Programming and Design (B.S.)</h3>
+                  <h3 className="mt-4 text-4xl leading-tight">
+                    B.S. Computer Graphics Technology — Web Programming &amp; Design
+                  </h3>
                   <p className="mt-3 font-semibold text-[var(--muted)]">
                     Aug 2021 - May 2025, West Lafayette, IN
                   </p>
                   <p className="mt-5 max-w-3xl leading-7 text-[var(--muted)]">
-                    Coursework connected development, UX, information architecture, systems
-                    thinking, and data visualization.
+                    Coursework connected data analysis, systems thinking, interface design, and
+                    technical delivery.
                   </p>
-                  <div className="mt-5 inline-flex max-w-fit items-center border border-[var(--line)] bg-[#fff8e8] px-4 py-2 text-sm font-bold text-[var(--ink)]" style={{ borderRadius: 999 }}>
-                    {purdueCredential}
-                  </div>
                 </div>
               </div>
 

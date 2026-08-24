@@ -18,17 +18,17 @@ const Hero = () => {
         <div className="section-shell">
           <div className="reveal-rise max-w-4xl">
             <p className="text-base font-black uppercase text-[var(--yellow)]">
-              Portfolio
+              Operations &amp; Logistics Analytics Portfolio
             </p>
             <h1 className="hero-name mt-5">Saagar Parikh</h1>
             <p className="hero-line">
-              I turn messy data, product questions, and operations workflows into dashboards,
-              models, and decisions teams can actually use.
+              I turn logistics data, inventory movement, and operational workflows into clearer
+              reporting, stronger KPIs, and better decisions.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <button onClick={() => scrollToSection('projects')} className="btn-primary">
-                View work
+                View analytics work
                 <ArrowRight className="h-4 w-4" />
               </button>
               <button onClick={() => scrollToSection('contact')} className="btn-dark">
@@ -58,7 +58,7 @@ const Hero = () => {
               </a>
               <span className="chip-dark">
                 <MapPin className="mr-2 h-4 w-4" />
-                Frisco, TX
+                Frisco, TX · Open to relocation
               </span>
             </div>
           </div>
@@ -67,16 +67,16 @@ const Hero = () => {
             <div className="hero-meta-item">
               <p className="text-sm font-bold text-[var(--yellow)]">Current role</p>
               <p className="mt-1 text-base font-semibold">
-                Management Trainee, Operations at Mswipe Technologies
+                Operations &amp; Logistics Analyst at Mswipe Technologies
               </p>
             </div>
             <div className="hero-meta-item">
               <p className="text-sm font-bold text-[var(--yellow)]">Focus</p>
-              <p className="mt-1 text-base font-semibold">Merchant operations, reporting, dashboards</p>
+              <p className="mt-1 text-base font-semibold">Supply chain, inventory, dispatch, KPI reporting</p>
             </div>
             <div className="hero-meta-item">
               <p className="text-sm font-bold text-[var(--yellow)]">Toolkit</p>
-              <p className="mt-1 text-base font-semibold">SQL, Python, Tableau, Excel, React</p>
+              <p className="mt-1 text-base font-semibold">Excel, SQL, Power BI, Tableau, ERP systems</p>
             </div>
           </div>
         </div>

@@ -21,7 +21,7 @@ const Footer = () => {
           <div>
             <p className="text-2xl font-black">Saagar Parikh</p>
             <p className="mt-3 max-w-xl text-sm leading-6 text-white/68">
-              Data, operations, and product analytics portfolio.
+              Operations, logistics, supply chain, and business intelligence portfolio.
             </p>
           </div>
 
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
 
         <p className="mt-8 border-t border-white/15 pt-5 text-sm text-white/58">
-          © {currentYear} Saagar Parikh. Built around decisions, not just deliverables.
+          © {currentYear} Saagar Parikh. Analytics for clearer operations and better decisions.
         </p>
       </div>
     </footer>
